@@ -4830,3 +4830,93 @@ textarea.rinput { resize: vertical; min-height: 84px; line-height: 1.6; }
   background: rgba(212, 175, 55, 0.05) !important;
   transform: translateY(-2px) !important;
 }
+/* BRESCA-STYLE PARALLAX */
+.bresca-parallax {
+  height: 60vh;
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 991px) {
+  .bresca-parallax {
+    background-attachment: scroll;
+    height: 40vh;
+  }
+}
+
+.bresca-split {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-bg-dark);
+  position: relative;
+  z-index: 2;
+}
+
+.bresca-split__col {
+  flex: 1 1 50%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+}
+
+.bresca-split__col--img {
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+}
+
+.bresca-split__content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.bresca-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.bresca-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.bresca-body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .bresca-split {
+    flex-direction: column;
+  }
+  .bresca-split__col {
+    flex: 1 1 100%;
+    padding: 3.5rem 2rem;
+    min-height: auto;
+  }
+  .bresca-split__col--img {
+    height: 40vh;
+  }
+  .bresca-split--reverse {
+    flex-direction: column-reverse;
+  }
+}
