@@ -446,7 +446,7 @@
      8. PAGE SWITCHER — Strict Tabbed Interface
      ============================================================ */
   var pageMap = {
-    hero:     ['hero', 'pavilion-story', 'pavilion-catering', 'pavilion-decors', 'hallmarks', 'features', 'testimonials'],
+    hero:     ['hero', 'band-1', 'hallmarks', 'band-2', 'features', 'band-3', 'testimonials'],
     hallplan: ['hallplan', 'hallplan-capacity', 'hallplan-stage'],
     decors:   ['decors'],
     catering: ['catering'],

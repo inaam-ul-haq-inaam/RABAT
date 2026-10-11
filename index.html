@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=42">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>✦</text></svg>">
 </head>
 <body>
@@ -124,31 +124,29 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="hero-media">
-        <picture class="hero-slide hero-slide--active">
-          <source srcset="images/pavilion/rabat_bright_royal_feast_1790426763176.webp" type="image/webp">
-          <img
-            src="images/pavilion/rabat_bright_royal_feast_1790426763176.webp"
-            alt="Rabat banquet hall royal feast setup"
-            width="1376" height="768" loading="eager"
-            fetchpriority="high">
-        </picture>
-        <picture class="hero-slide">
-          <source srcset="images/pavilion/rabat_grand_hall_hero_1790426090821.webp" type="image/webp">
-          <img
-            src="images/pavilion/rabat_grand_hall_hero_1790426090821.webp"
-            alt="Rabat Grand Banquet Hall interior"
-            width="1376" height="768" loading="lazy">
-        </picture>
-        <picture class="hero-slide">
-          <source srcset="images/pavilion/rabat_moroccan_decor_1790426103016.webp" type="image/webp">
-          <img
-            src="images/pavilion/rabat_moroccan_decor_1790426103016.webp"
-            alt="Rabat banquet hall Moroccan decor"
-            width="1376" height="768" loading="lazy">
-        </picture>
-        <div class="hero-overlay" aria-hidden="true"></div>
-      </div>
+                      <div class="hero-media">
+          <picture class="hero-slide hero-slide--active">
+            <source srcset="images/hero/ai_hero_stage.jpg" type="image/jpeg">
+            <img src="images/hero/ai_hero_stage.jpg" alt="Rabat grand stage" width="1376" height="768" loading="eager" fetchpriority="high">
+          </picture>
+          <picture class="hero-slide">
+            <source srcset="images/hero/ai_hero_table.jpg" type="image/jpeg">
+            <img src="images/hero/ai_hero_table.jpg" alt="Rabat luxury table setting" width="1376" height="768" loading="lazy">
+          </picture>
+          <picture class="hero-slide">
+            <source srcset="images/hero/ai_hero_arch.jpg" type="image/jpeg">
+            <img src="images/hero/ai_hero_arch.jpg" alt="Rabat grand architecture" width="1376" height="768" loading="lazy">
+          </picture>
+          <picture class="hero-slide">
+            <source srcset="images/hero/ai_luxury_table.jpg" type="image/jpeg">
+            <img src="images/hero/ai_luxury_table.jpg" alt="Rabat luxury table" width="1376" height="768" loading="lazy">
+          </picture>
+          <picture class="hero-slide">
+            <source srcset="images/hero/rabat_bright_royal_feast_1790426763176.webp" type="image/webp">
+            <img src="images/hero/rabat_bright_royal_feast_1790426763176.webp" alt="Rabat royal feast" width="1376" height="768" loading="lazy">
+          </picture>
+          <div class="hero-overlay" aria-hidden="true"></div>
+        </div>
       <div class="container">
         <div class="hero-content">
           <div class="hero-wordmark">
@@ -223,27 +221,87 @@
     </section>
 
 
+    <!-- ========== PHOTO BAND 1 — after hero, before METRICS ========== -->
+    <section class="photo-band" id="band-1" aria-hidden="true"
+      style="background-image: url('images/pavilion/ai_luxury_banquet.jpg');"></section>
+
     <!-- ========== METRICS STRIP ========== -->
-    <section class="metrics" id="hallmarks">
-      <div class="metrics-grid container" role="list">
-        <div class="metric" role="listitem">
-          <span class="metric-count">500+</span>
-          <span class="metric-label">Events Hosted</span>
+    <section class="metrics scrollfade" id="hallmarks">
+      <div class="premium-card">
+        <div class="premium-head">
+          <span class="eyebrow">The Rabat Experience</span>
+          <span class="eyebrow-mark" aria-hidden="true"></span>
+          <h2 class="premium-title">Excellence in Every Celebration</h2>
+          <span class="premium-rule" aria-hidden="true">
+            <svg viewBox="0 0 112 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="112" height="20">
+              <path d="M106.5 10C106.5 10 104 4 99 4C94 4 92.3 8 89 8C85.7 8 84 4 80 4C76 4 74.3 8 71 8C67.7 8 66 4 62 4C58 4 56.3 8 53 8C49.7 8 48 4 44 4C40 4 38.3 8 35 8C31.7 8 30 4 26 4C22 4 20.3 8 17 8C13.7 8 12 4 8 4C3 4 0.5 10 0.5 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M55.5 14.5C56.5 13.5 57.5 12 57.5 10C57.5 8 56.5 6.5 55.5 5.5C54.5 6.5 53.5 8 53.5 10C53.5 12 54.5 13.5 55.5 14.5Z" fill="currentColor"/>
+              <path d="M89.5 14.5C90.5 13.5 91.5 12 91.5 10C91.5 8 90.5 6.5 89.5 5.5C88.5 6.5 87.5 8 87.5 10C87.5 12 88.5 13.5 89.5 14.5Z" fill="currentColor"/>
+            </svg>
+          </span>
         </div>
-        <div class="metric divider" role="listitem">
-          <span class="metric-count">10+</span>
-          <span class="metric-label">Years of Excellence</span>
-        </div>
-        <div class="metric divider" role="listitem">
-          <span class="metric-count">24/7</span>
-          <span class="metric-label">Dedicated Support</span>
+        <div class="premium-stats" role="list">
+          <div class="stat" role="listitem">
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                <rect x="9" y="11" width="22" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 17.5h22" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M15 8v5M25 8v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="m18.6 25.4 1.9 1.2-.7-2.2 1.9-1.5h-2.3l-.8-2.1-.8 2.1h-2.3l1.9 1.5-.7 2.2 1.9-1.2z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="stat-flourish" aria-hidden="true"></span>
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Events Hosted</span>
+            <span class="stat-bullet" aria-hidden="true"></span>
+          </div>
+          <div class="stat-divider" aria-hidden="true">
+            <span class="divider-diamond" aria-hidden="true"></span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                <path d="M13.5 10.5C9.5 12.8 7 17 7 21.5c0 4.4 2.4 8.6 6.5 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="m10 13.5 3.4.9M8.5 18.2l3.4.4M8.6 23.5l3.3-.4M10.4 28.6l3-1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M26.5 10.5c4 2.3 6.5 6.5 6.5 11 0 4.4-2.4 8.6-6.5 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="m30 13.5-3.4.9M31.5 18.2l-3.4.4M31.4 23.5l-3.3-.4M29.6 28.6l-3-1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="m20 13.5 1.5 3.2 3.5.5-2.6 2.5.7 3.6-3.1-1.8-3.1 1.8.7-3.6-2.6-2.5 3.5-.5L20 13.5z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="stat-flourish" aria-hidden="true"></span>
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years of Excellence</span>
+            <span class="stat-bullet" aria-hidden="true"></span>
+          </div>
+          <div class="stat-divider" aria-hidden="true">
+            <span class="divider-diamond" aria-hidden="true"></span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                <path d="M11 24v-5.5A9 9 0 0 1 20 9.5a9 9 0 0 1 9 9V24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <rect x="7.5" y="21" width="6" height="8" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="26.5" y="21" width="6" height="8" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M29.5 29v2a3.5 3.5 0 0 1-3.5 3.5h-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="21.5" cy="34.5" r="1.4" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="stat-flourish" aria-hidden="true"></span>
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Dedicated Support</span>
+            <span class="stat-bullet" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ========== PHOTO BAND 2 — metrics ends, other photo shows ========== -->
+    <section class="photo-band" id="band-2" aria-hidden="true"
+      style="background-image: url('images/pavilion/ai_luxury_table.jpg');"></section>
+
     <!-- ========== FEATURES / LOCATION ========== -->
-    <section class="features reveal reveal-delay-1" id="features" aria-labelledby="features-title">
-      <div class="features-grid container">
+    <section class="features scrollfade" id="features" aria-labelledby="features-title">
+      <div class="features-grid">
         <div class="features-media">
           <picture>
             <source srcset="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp" type="image/webp">
@@ -256,35 +314,32 @@
           </picture>
         </div>
         <div class="features-content">
-          <span class="features-eyebrow">Garrison Golf &amp; Country Club Prestige</span>
+          <span class="features-eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Garrison Golf &amp; Country Club Prestige
+          </span>
           <h2 class="features-title" id="features-title">An Oasis of Privacy and Grandeur in Lahore Cantt</h2>
           <p class="features-lead">
             Nestled inside the prestigious Lahore Garrison Golf &amp; Country Club on New Airport Road, Hall 16 offers elite privacy, zero traffic bottlenecks, and scenic manicured greenery.
           </p>
           <div class="features-cards" role="list">
             <article class="feature-card" role="listitem">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon-inner">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-gold)">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 15.5l-3.53 1.86.67-3.93-2.86-2.79 3.95-.57L12 6.5l1.77 3.57 3.95.57-2.86 2.79.67 3.93L12 16.5z"/>
-                  </svg>
-                </div>
+              <div class="feature-icon-inner">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path><path d="m12 10.5 1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6L12 10.5z" fill="currentColor" stroke="none"></path></svg>
               </div>
-              <h3 class="feature-title">Military-Grade<br>Perimeter &amp; Security</h3>
-              <div class="feature-divider-vert"></div>
-              <p class="feature-body">Peace of mind for your VIP<br>dignitaries, families, and<br>esteemed guests.</p>
+              <div>
+                <h3 class="feature-title">Military-Grade Perimeter &amp; Security</h3>
+                <p class="feature-body">Peace of mind for your VIP dignitaries, families, and overseas guests.</p>
+              </div>
             </article>
             <article class="feature-card" role="listitem">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon-inner">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-gold)">
-                    <path d="M12 3a9 9 0 0 0-9 9v2h18v-2a9 9 0 0 0-9-9zm-1-2h2v2h-2zM2 16h20v2H2z"/>
-                  </svg>
-                </div>
+              <div class="feature-icon-inner">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
               </div>
-              <h3 class="feature-title">Dedicated Event<br>Concierge</h3>
-              <div class="feature-divider-vert"></div>
-              <p class="feature-body">Full acoustic sound engineering,<br>intelligent moving stage lighting,<br>and private bridal suite.</p>
+              <div>
+                <h3 class="feature-title">Dedicated Event Concierge</h3>
+                <p class="feature-body">Full acoustic sound engineering, intelligent moving stage lighting, and private bridal suite.</p>
+              </div>
             </article>
           </div>
           <a href="#hallplan" class="btn-pill-gold">INSPECT HALL PLAN BLUEPRINT</a>
@@ -292,9 +347,14 @@
       </div>
     </section>
 
+    <!-- ========== PHOTO BAND 3 — features ends, other photo shows ========== -->
+    <section class="photo-band" id="band-3" aria-hidden="true"
+      style="background-image: url('images/pavilion/ai_luxury_lounge.jpg');"></section>
+
     <!-- ========== HALL PLAN PREVIEW ========== -->
     <!-- ========== HALL PLAN ========== -->
-    <section class="hallplan reveal reveal-delay-2" id="hallplan" aria-labelledby="hallplan-title">
+    <section class="hallplan scrollfade" id="hallplan" aria-labelledby="hallplan-title">
+      <div class="glass-card hallplan-card">
             <div class="hallplan-header container">
         <span class="hallplan-eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
@@ -302,7 +362,7 @@
         </span>
         <h2 class="hallplan-title" id="hallplan-title">A Magnificent Canvas</h2>
         <p class="hallplan-body">
-          Hall 16 is engineered as a single uninterrupted volume � no supporting columns to interrupt your Barat procession, Mehndi entrance, or stage choreography. Walk the blueprint, then walk the hall.
+          Hall 16 is engineered as a single uninterrupted volume — no supporting columns to interrupt your Barat procession, Mehndi entrance, or stage choreography. Walk the blueprint, then walk the hall.
         </p>
       </div>
       <div class="container">
@@ -321,14 +381,15 @@
           </figcaption>
         </figure>
       </div>
-      <div class="hallplan-specs container">
-        <div class="spec"><dt class="spec-label">Total Area</dt><dd class="spec-value"> sq. ft.</dd></div>
+      <dl class="hallplan-specs container">
+        <div class="spec"><dt class="spec-label">Total Area</dt><dd class="spec-value">15,000 sq. ft.</dd></div>
         <div class="spec"><dt class="spec-label">Ceiling Height</dt><dd class="spec-value">32 ft. clear span</dd></div>
         <div class="spec"><dt class="spec-label">Guest Capacity</dt><dd class="spec-value">1,000+ seated</dd></div>
         <div class="spec"><dt class="spec-label">Stage</dt><dd class="spec-value">Moving smart-stage, 40 ft. wide</dd></div>
-      </div>
+      </dl>
       <div class="hallplan-cta">
         <a href="#reserve" class="btn-outline">Reserve Your Date</a>
+      </div>
       </div>
     </section>
 
@@ -498,7 +559,7 @@
         </span>
         <h2 class="decors-title" id="decors-title">Bespoke Stage Decors for Every Ceremony</h2>
         <p class="decors-body">
-          Fifteen-plus signature stage architectures � from the imperial Moroccan arch curtain to bright floral and royal feast setups � each fully rigged with intelligent lighting, acoustic reinforcement and our moving smart-stage.
+          Fifteen-plus signature stage architectures ï¿½ from the imperial Moroccan arch curtain to bright floral and royal feast setups ï¿½ each fully rigged with intelligent lighting, acoustic reinforcement and our moving smart-stage.
         </p>
       </div>
       <div class="decors-grid container">
@@ -951,18 +1012,84 @@
 
         <!-- ========== INTERACTIVE 3D PHOTO SPHERE ========== -->
         <div class="sphere-panel">
-          <span class="sphere-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
-            Click &amp; Drag Sphere to Rotate · Click Arrow ↗ to View Details
+          <span class="sphere-panel-glow" aria-hidden="true"></span>
+          <span class="sphere-panel-art" aria-hidden="true">
+            <svg viewBox="0 0 220 130" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <path d="M16 122c28 0 50-11 63-28 11-15 13-33 9-50-17 2-31 11-40 24-10 14-12 33-7 50"></path>
+              <path d="M50 106c15-7 26-20 30-35 3-13 2-26-2-37"></path>
+              <path d="M86 78c13-4 23-14 27-26"></path>
+              <path d="M32 118c9-15 22-26 37-31 13-4 27-4 39 0"></path>
+              <path d="M140 116c16-6 27-18 31-33"></path>
+            </svg>
           </span>
+
+          <!-- ---------- left column ---------- -->
+          <div class="sphere-copy">
+            <div class="sphere-copy-top">
+              <span class="explore-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 13.6V5.9a1.4 1.4 0 0 1 2.8 0v6.1"></path><path d="M14.3 12V9.6a1.4 1.4 0 0 1 2.8 0V15a6 6 0 0 1-6 6h-.8a5 5 0 0 1-3.6-1.5l-2.2-2.2a1.5 1.5 0 0 1 2.1-2.1l1.5 1.4"></path></svg>
+                Explore Our Venue
+              </span>
+              <p class="explore-sub">Drag to explore the Rabat experience</p>
+            </div>
+
+            <div class="sphere-copy-main">
+              <h3 class="explore-title">A World of Unforgettable Celebrations</h3>
+              <span class="gold-rule" aria-hidden="true"></span>
+              <p class="explore-body">Discover our elegant halls, signature d&eacute;cor and exceptional catering.</p>
+            </div>
+          </div>
+
+          <!-- ---------- centre: interactive 3D photo sphere ---------- -->
           <div class="sphere-stage" id="sphereStage" aria-label="Interactive 3D photo sphere — drag to rotate">
+            <span class="sphere-halo" aria-hidden="true"></span>
             <div class="sphere-orbit" id="sphereOrbit"></div>
-            <h3 class="face-title" id="faceTitle">Hall 16 Grand Dome</h3>
-            <p class="face-desc" id="faceDesc">Grand ballroom bathed in warm candlelight and Moroccan chandeliers.</p>
             <button class="sphere-action" id="sphereAction" type="button" aria-label="View details of the photo facing you">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
             </button>
           </div>
+
+          <!-- ---------- right column ---------- -->
+          <aside class="experience-panel" aria-labelledby="experience-title">
+            <h3 class="experience-title" id="experience-title">The Rabat Experience</h3>
+            <span class="experience-ornament" aria-hidden="true"></span>
+
+            <ul class="experience-list" role="list">
+              <li class="experience-item">
+                <span class="experience-icon" aria-hidden="true">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8.6L12 4l7 4.6V21"></path><path d="M9.8 21v-6.2h4.4V21"></path></svg>
+                </span>
+                <div class="experience-text">
+                  <h4 class="experience-name">Elegant Venues</h4>
+                  <p class="experience-desc">Hall 16 &mdash; 32 ft. clear span, 1,000+ guests seated, unobstructed sightlines.</p>
+                </div>
+              </li>
+              <li class="experience-item">
+                <span class="experience-icon" aria-hidden="true">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6c2 1.8 2.7 3.7 2.7 5.4 0 1.7-1.2 3-2.7 3s-2.7-1.3-2.7-3c0-1.7.7-3.6 2.7-5.4Z"></path><path d="M12 12v9"></path><path d="M12 15.6c-1.7 0-3-1-3.7-2.5"></path><path d="M12 18c1.7 0 3-1 3.7-2.5"></path></svg>
+                </span>
+                <div class="experience-text">
+                  <h4 class="experience-name">Signature D&eacute;cor</h4>
+                  <p class="experience-desc">Fifteen-plus bespoke stage decors, from Moroccan arches to bright florals.</p>
+                </div>
+              </li>
+              <li class="experience-item">
+                <span class="experience-icon" aria-hidden="true">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5h17"></path><path d="M5.8 18.5a6.2 6.2 0 0 1 12.4 0"></path><path d="M12 12.3v-2"></path><circle cx="12" cy="9.4" r="1"></circle></svg>
+                </span>
+                <div class="experience-text">
+                  <h4 class="experience-name">Royal Catering</h4>
+                  <p class="experience-desc">Deg-cooked biryanis, Moroccan tagines and live flaming stations.</p>
+                </div>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- ---------- photo facing the viewer (driven by main.js) ---------- -->
+          <p class="sphere-caption" aria-live="polite">
+            <span class="sphere-caption-title" id="faceTitle">Hall 16 Grand Dome</span>
+            <span class="sphere-caption-desc" id="faceDesc">Grand ballroom bathed in warm candlelight and Moroccan chandeliers.</span>
+          </p>
         </div>
 
         <!-- ========== ARCHIVAL PHOTO CARDS ========== -->
@@ -1289,159 +1416,238 @@
     </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="footer" role="contentinfo">
-    <div class="footer-arch">
-      <svg class="arch-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
-    </div>
-    
-    <div class="footer-top container">
-      <!-- COLUMN 1: BRAND -->
-      <div class="footer-brand">
-        <a href="#hero" class="footer-logo" aria-label="Rabat Banquet Hall home">
-          <div class="footer-logo-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
+      <!-- ========== ULTRA-LUXURY FOOTER ========== -->
+        <!-- ========== BESPOKE LUXURY SPLIT FOOTER (MOCKUP REPLICA) ========== -->
+    <footer class="r-footer" id="footer" role="contentinfo">
+      
+      <!-- 1. TOP BANNER: Blurred Ambient Photo & Curved Invitation Card -->
+      <div class="r-footer-banner">
+        <div class="r-banner-bg" style="background-image: url('images/hero/ai_hero_table.jpg');"></div>
+        <div class="r-banner-overlay"></div>
+        
+        <div class="container r-banner-inner">
+          <!-- Left Curved Card -->
+          <div class="r-banner-card">
+            <div class="r-card-tag">
+              <span>PLAN YOUR IMPERIAL CELEBRATION</span>
+              <span class="r-tag-line"></span>
+            </div>
+            <h2 class="r-card-title">Begin Your Journey at Rabat</h2>
+            <p class="r-card-desc">
+              Experience the grandeur of bespoke culinary curation and opulent Moroccan architecture in Lahore Cantt.
+            </p>
           </div>
-          <span class="footer-logo-text">RABAT</span>
-        </a>
-        <div class="footer-brand-subtitle">ROYAL MOMENTS &bull; TIMELESS MEMORIES</div>
-        <p class="footer-tagline">
-          Lahore's premier Moroccan-accented wedding and banquet palace. An exquisite project by Time & Taste Catering, hosting royal nuptials, Barats, Walimas, and corporate celebrations.
-        </p>
-        <hr class="footer-brand-divider">
-        <p class="footer-credit">A Project by @TimeAndTasteCatering</p>
-        <div class="footer-brand-emblem">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
-        </div>
-      </div>
-      
-      <!-- COLUMN 2: EXPLORE -->
-      <div class="footer-col">
-        <h3 class="footer-col-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M18.36 5.64l-1.41 1.41M7.05 18.36l-1.41 1.41M5.64 5.64l1.41 1.41M18.36 18.36l1.41-1.41"/></svg>
-          Explore Venue
-        </h3>
-        <ul class="footer-list" role="list">
-          <li>
-            <a href="#hero">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
-              <span>The Grand Pavilion & 3D Tour</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+
+          <!-- Right Action Buttons -->
+          <div class="r-banner-actions">
+            <a href="https://wa.me/923017130942" class="r-btn-gold-pill" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>SCHEDULE A PRIVATE TOUR</span>
+              <span class="r-arrow">&rarr;</span>
             </a>
-          </li>
-          <li>
-            <a href="#decors">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-              <span>Curtain Stage & Moroccan Themes</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            
+            <a href="https://wa.me/923017130942" class="r-btn-dark-pill" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.76-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.22-.17-.47-.29"/>
+              </svg>
+              <span>CHAT ON WHATSAPP</span>
             </a>
-          </li>
-          <li>
-            <a href="#catering">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span>Time & Taste Gourmet Feast</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </li>
-          <li>
-            <a href="#hallplan">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              <span>Hall 16 Blueprint & Capacity</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </li>
-          <li>
-            <a href="#gallery">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>Event Photo Gallery & 3D Sphere</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </li>
-          <li>
-            <a href="#reserve">
-              <svg class="fl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>Instant Quote & Date Availability</span>
-              <svg class="fl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- COLUMN 3: LOCATION -->
-      <div class="footer-col">
-        <h3 class="footer-col-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Palace Location
-        </h3>
-        <div class="footer-loc-item">
-          <svg class="fli-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <address class="footer-address">
-            Hall #16, Lahore Garrison Golf & Country Club<br>
-            New Airport Road, Cantt, Lahore<br>
-            Punjab 54810, Pakistan
-          </address>
-        </div>
-        <hr class="footer-col-divider">
-        <div class="footer-loc-item">
-          <svg class="fli-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span class="footer-hours">Viewing Hours: 12:00 PM &ndash; 11:30 PM (Daily)</span>
-        </div>
-        <div class="footer-loc-item">
-          <svg class="fli-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="https://instagram.com/rabatbanquethall" class="footer-social" target="_blank" rel="noopener">@rabatbanquethall</a>
-        </div>
-      </div>
-      
-      <!-- COLUMN 4: INQUIRIES -->
-      <div class="footer-col footer-col-inq">
-        <h3 class="footer-col-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Direct Inquiries
-        </h3>
-        <a href="tel:+923017130942" class="footer-phone-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          0301-7130942
-        </a>
-        
-        <div class="footer-alt-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <p class="footer-alt-lines">Alternate Lines:<br>+92 321 8021445 / +92 300 8021445</p>
-        </div>
-        
-        <a href="https://wa.me/923017130942" class="footer-btn-primary" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="15" r="2"/></svg>
-          <span>Schedule Private<br>Walkthrough</span>
-          <svg class="fbp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <div class="fb-left">
-          <div class="fb-socials">
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          </div>
-          <p class="fb-copy">&copy; 2026 Rabat Banquet Hall. All rights reserved.</p>
-        </div>
-        
-        <div class="fb-right">
-          <p class="fb-tags">
-            Moroccan Architectural Heritage
-            <span class="fb-sep">|</span>
-            Capacity 1,000+ Guests
-            <span class="fb-sep">|</span>
-            Valet &amp; Private Parking
-          </p>
-          <div class="fb-star">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+
+      <!-- 2. METALLIC WAVE SEPARATOR -->
+      <div class="r-wave-separator" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C380,45 820,55 1440,5 L1440,60 L0,60 Z" fill="url(#goldGradientWave)"/>
+          <path d="M0,0 C380,45 820,55 1440,5" stroke="url(#goldStrokeWave)" stroke-width="3"/>
+          <defs>
+            <linearGradient id="goldGradientWave" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0A0A0C"/>
+              <stop offset="35%" stop-color="#12100E"/>
+              <stop offset="50%" stop-color="#C5A059"/>
+              <stop offset="100%" stop-color="#D4AF37"/>
+            </linearGradient>
+            <linearGradient id="goldStrokeWave" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#554425"/>
+              <stop offset="45%" stop-color="#DFB86C"/>
+              <stop offset="70%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#C5A059"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- 3. SPLIT BODY: Left Dark Onyx | Right Brushed Champagne Gold -->
+      <div class="r-footer-body">
+        
+        <!-- LEFT HALF: Midnight Onyx -->
+        <div class="r-footer-half r-half-dark">
+          <!-- Decorative Corner Mandalas -->
+          <div class="r-mandala r-mandala-tl" aria-hidden="true"></div>
+          <div class="r-mandala r-mandala-bl" aria-hidden="true"></div>
+          
+          <div class="r-dark-inner">
+            <!-- Brand Column -->
+            <div class="r-col r-col-brand">
+              <div class="r-brand-header">
+                <div class="r-brand-logo-hex">
+                  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="22,3 39,12 39,32 22,41 5,32 5,12" stroke="#C5A059" stroke-width="2" fill="rgba(197, 160, 89, 0.08)"/>
+                    <polygon points="22,7 35,14 35,30 22,37 9,30 9,14" stroke="#C5A059" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+                    <text x="22" y="28" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="700" fill="#C5A059" text-anchor="middle">R</text>
+                  </svg>
+                </div>
+                <div class="r-brand-titles">
+                  <h3 class="r-brand-name">R A B A T</h3>
+                  <span class="r-brand-sub">BY TIME &amp; TASTE</span>
+                </div>
+              </div>
+
+              <p class="r-brand-text">
+                Lahore's premier Moroccan-accented palace for royal Barats, Walimas, and distinguished corporate banquets, Crafted for unforgettable evenings.
+              </p>
+
+              <div class="r-socials">
+                <a href="https://instagram.com/rabatbanquethall" target="_blank" rel="noopener" aria-label="Instagram" class="r-social-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://wa.me/923017130942" target="_blank" rel="noopener" aria-label="WhatsApp" class="r-social-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </a>
+                <a href="#" aria-label="Facebook" class="r-social-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="r-social-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Divider with Diamond -->
+            <div class="r-vdivider r-vdivider-dark" aria-hidden="true">
+              <span class="r-diamond">♦</span>
+            </div>
+
+            <!-- Experiences Column -->
+            <div class="r-col r-col-exp">
+              <div class="r-col-header">
+                <span class="r-header-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M5.8 11.3 2 22l10.7-3.79M4 3h.01M22 8h.01M15 2h.01M22 20h.01M22 2l-2.24.75a10 10 0 0 0-6.4 6.4L12.6 11.4"/></svg>
+                </span>
+                <h4 class="r-col-title">Experiences</h4>
+              </div>
+              <div class="r-title-underline"><span></span></div>
+
+              <ul class="r-links-list" role="list">
+                <li><a href="#hero"><span class="r-chev">&rsaquo;</span> <span>The Grand Hall</span> <span class="r-chev-r">&rsaquo;</span></a></li>
+                <li><a href="#hallmarks"><span class="r-chev">&rsaquo;</span> <span>Palace Hallmarks</span> <span class="r-chev-r">&rsaquo;</span></a></li>
+                <li><a href="#features"><span class="r-chev">&rsaquo;</span> <span>Location &amp; Highlights</span> <span class="r-chev-r">&rsaquo;</span></a></li>
+                <li><a href="#hallplan"><span class="r-chev">&rsaquo;</span> <span>Hall Blueprint &amp; Layout</span> <span class="r-chev-r">&rsaquo;</span></a></li>
+                <li><a href="#gallery"><span class="r-chev">&rsaquo;</span> <span>Visual Gallery</span> <span class="r-chev-r">&rsaquo;</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT HALF: Brushed Champagne Gold -->
+        <div class="r-footer-half r-half-gold">
+          <!-- Decorative Corner Mandala in Gold Area -->
+          <div class="r-mandala r-mandala-br-gold" aria-hidden="true"></div>
+
+          <div class="r-gold-inner">
+            <!-- Venue Column -->
+            <div class="r-col r-col-venue">
+              <div class="r-col-header">
+                <span class="r-header-icon r-header-icon-dark">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <h4 class="r-col-title r-col-title-dark">The Venue</h4>
+              </div>
+              <div class="r-title-underline r-title-underline-dark"><span></span></div>
+
+              <div class="r-venue-details">
+                <strong class="r-venue-hall">Hall #: 16, RABAT</strong>
+                <p class="r-venue-text">
+                  Garrison Marriage Halls Complex<br>
+                  Lieutenant Saadat Farooq Shaheed Road,<br>
+                  Lahore Cantonment
+                </p>
+              </div>
+
+              <a href="https://maps.google.com/?q=Garrison+Marriage+Halls+Complex+Lieutenant+Saadat+Farooq+Shaheed+Road+Lahore+Cantonment" target="_blank" rel="noopener" class="r-btn-map-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>VIEW ON MAP</span>
+                <span class="r-arrow">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Divider with Diamond -->
+            <div class="r-vdivider r-vdivider-gold" aria-hidden="true">
+              <span class="r-diamond">♦</span>
+            </div>
+
+            <!-- Inquiries Column -->
+            <div class="r-col r-col-inq">
+              <div class="r-col-header">
+                <span class="r-header-icon r-header-icon-dark">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <h4 class="r-col-title r-col-title-dark">Inquiries</h4>
+              </div>
+              <div class="r-title-underline r-title-underline-dark"><span></span></div>
+
+              <!-- Dark Concierge Box -->
+              <div class="r-concierge-pill">
+                <div class="r-concierge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="r-concierge-text">
+                  <span class="r-concierge-label">DIRECT CONCIERGE</span>
+                  <a href="tel:+923017130942" class="r-concierge-phone">0301-7130942</a>
+                </div>
+              </div>
+
+              <!-- Alternate Desk -->
+              <div class="r-alt-desk">
+                <div class="r-alt-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span class="r-alt-label">ALTERNATE DESK</span>
+                </div>
+                <div class="r-alt-numbers">
+                  <span>+92 321 8021445</span>
+                  <span>+92 300 8021445</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 4. BOTTOM BAR -->
+      <div class="r-footer-bottom">
+        <div class="r-bottom-left">
+          <p class="r-copy">&copy; 2024 Rabat by Time &amp; Taste. All Rights Reserved.</p>
+        </div>
+        <div class="r-bottom-right">
+          <div class="r-legal-links">
+            <a href="#">Privacy Policy</a>
+            <span class="r-pipe">|</span>
+            <a href="#">Terms of Service</a>
+            <span class="r-pipe">|</span>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+
+    </footer>
 
   <!-- ========== DECOR LIGHTBOX ========== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Decor full-screen preview" aria-hidden="true">
@@ -1454,6 +1660,7 @@
     <button class="lightbox-btn lightbox-next" id="lightboxNext" type="button" aria-label="Next decor"><span aria-hidden="true">&#8250;</span></button>
   </div>
 
-  <script src="js/main.js?v=6" defer></script>
+  <script src="js/main.js?v=9" defer></script>
+  <script src="js/scroll-fx.js?v=2" defer></script>
 </body>
 </html>
