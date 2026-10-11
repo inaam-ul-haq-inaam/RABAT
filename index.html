@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/style.css?v=21">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>✦</text></svg>">
 </head>
 <body>
@@ -353,166 +353,238 @@
 
     <!-- ========== HALL PLAN PREVIEW ========== -->
     <!-- ========== HALL PLAN ========== -->
+        <!-- ========== HALL PLAN ========== -->
     <section class="hallplan scrollfade" id="hallplan" aria-labelledby="hallplan-title">
       <div class="glass-card hallplan-card">
-            <div class="hallplan-header container">
-        <span class="hallplan-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          HALL 16 BLUEPRINT &amp; CAPACITY
-        </span>
-        <h2 class="hallplan-title" id="hallplan-title">A Magnificent Canvas</h2>
-        <p class="hallplan-body">
-          Hall 16 is engineered as a single uninterrupted volume — no supporting columns to interrupt your Barat procession, Mehndi entrance, or stage choreography. Walk the blueprint, then walk the hall.
-        </p>
-      </div>
-      <div class="container">
-        <figure class="decor-card hallplan-blueprint" role="button" tabindex="0" aria-label="Preview Hall 16 blueprint full-screen">
-          <picture>
-            <source srcset="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp" type="image/webp">
-            <img
-              src="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp"
-              alt="Rabat Hall 16 courtyard and stage layout — grand banquet hall blueprint"
-              width="1376" height="768" loading="lazy">
-          </picture>
-          <figcaption class="decor-caption">
-            <span class="decor-tag">Blueprint</span>
-            <h3 class="decor-title">Hall 16 — Full Layout</h3>
-            <span class="decor-view" aria-hidden="true">View Full-Screen &#8599;</span>
-          </figcaption>
-        </figure>
-      </div>
-      <dl class="hallplan-specs container">
-        <div class="spec"><dt class="spec-label">Total Area</dt><dd class="spec-value">15,000 sq. ft.</dd></div>
-        <div class="spec"><dt class="spec-label">Ceiling Height</dt><dd class="spec-value">32 ft. clear span</dd></div>
-        <div class="spec"><dt class="spec-label">Guest Capacity</dt><dd class="spec-value">1,000+ seated</dd></div>
-        <div class="spec"><dt class="spec-label">Stage</dt><dd class="spec-value">Moving smart-stage, 40 ft. wide</dd></div>
-      </dl>
-      <div class="hallplan-cta">
-        <a href="#reserve" class="btn-outline">Reserve Your Date</a>
-      </div>
+        <div class="hallplan-header container">
+          <span class="hallplan-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            HALL 16 BLUEPRINT &amp; CAPACITY
+          </span>
+          <h2 class="hallplan-title" id="hallplan-title">A Magnificent Canvas</h2>
+          <p class="hallplan-body">
+            Hall 16 is engineered as a single uninterrupted volume &mdash; no supporting columns to interrupt your Barat procession, Mehndi entrance, or stage choreography. Walk the blueprint, then walk the hall.
+          </p>
+        </div>
+
+        <div class="container">
+          <figure class="decor-card hallplan-blueprint" role="button" tabindex="0" aria-label="Preview Hall 16 blueprint full-screen">
+            <div class="blueprint-frame">
+              <picture>
+                <source srcset="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp" type="image/webp">
+                <img
+                  src="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp"
+                  alt="Rabat Hall 16 courtyard and stage layout &mdash; grand banquet hall blueprint"
+                  width="1376" height="768" loading="lazy">
+              </picture>
+              <figcaption class="decor-caption">
+                <span class="decor-tag">Blueprint</span>
+                <h3 class="decor-title">Hall 16 &mdash; Full Layout</h3>
+                <span class="decor-view" aria-hidden="true">View Full-Screen &#8599;</span>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+
+        <!-- 4 Luxury Metric Cards -->
+        <div class="hallplan-metrics-grid container">
+          <div class="hp-metric-card">
+            <div class="hp-metric-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+                <path d="M3 3h18v18H3z"></path>
+                <path d="M3 9h18M9 21V9"></path>
+              </svg>
+            </div>
+            <div class="hp-metric-data">
+              <span class="hp-metric-label">Total Area</span>
+              <strong class="hp-metric-value">15,000 sq. ft.</strong>
+            </div>
+          </div>
+
+          <div class="hp-metric-card">
+            <div class="hp-metric-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+                <path d="M12 2v20M5 7l7-5 7 5M5 17l7 5 7-5"></path>
+              </svg>
+            </div>
+            <div class="hp-metric-data">
+              <span class="hp-metric-label">Ceiling Height</span>
+              <strong class="hp-metric-value">32 ft. clear span</strong>
+            </div>
+          </div>
+
+          <div class="hp-metric-card">
+            <div class="hp-metric-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="hp-metric-data">
+              <span class="hp-metric-label">Guest Capacity</span>
+              <strong class="hp-metric-value">1,000+ seated</strong>
+            </div>
+          </div>
+
+          <div class="hp-metric-card">
+            <div class="hp-metric-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="hp-metric-data">
+              <span class="hp-metric-label">Stage</span>
+              <strong class="hp-metric-value">Moving smart-stage, 40 ft. wide</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hallplan-cta">
+          <a href="#reserve" class="btn-pill-gold">
+            <span>Reserve Your Date</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- ========== HALL PLAN: CAPACITY TABLE ========== -->
+    <!-- ========== HALL PLAN: CAPACITIES ========== -->
     <section class="hallplan-capacity reveal reveal-delay-1" id="hallplan-capacity" aria-labelledby="capacity-title">
       <div class="container">
         <div class="hallplan-header">
-          <span class="hallplan-eyebrow">Seating Capacities</span>
+          <span class="hallplan-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Seating Capacities
+          </span>
           <h2 class="hallplan-title" id="capacity-title">Choose Your Ceremony Layout</h2>
-          <p class="hallplan-body">Round-table intimacy or grand theater seating — Hall 16 reconfigures for every scale of celebration.</p>
+          <p class="hallplan-body">Round-table intimacy or grand theatre aisle &mdash; Hall 16 adapts seamlessly to every wedding ceremony and corporate gala.</p>
         </div>
-                  <div class="capacity-wrap">
-            <div class="capacity-list-header">
-              <div class="clh-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> CEREMONY</div>
-              <div class="clh-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7 16h10"></path></svg> SEATING STYLE</div>
-              <div class="clh-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> CAPACITY</div>
-            </div>
-            <div class="capacity-list">
-              <!-- Row 1 -->
-              <div class="capacity-row">
-                <div class="cr-ceremony">
-                  <div class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path></svg></div>
-                  <div class="cr-ceremony-text">
-                    <h4>Barat</h4>
-                    <p>A grand beginning to a beautiful journey.</p>
-                  </div>
-                </div>
-                <div class="cr-img">
-                  <img src="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp" alt="Barat layout" loading="lazy">
-                </div>
-                <div class="cr-style">
-                  <h4>Round Tables</h4>
-                  <h5>Stage Center</h5>
-                  <p>Elegant round tables with a central stage for a royal feel.</p>
-                </div>
-                <div class="cr-cap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  <div class="cr-cap-text">
-                    <strong>1,000+</strong>
-                    <span>GUESTS</span>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Row 2 -->
-              <div class="capacity-row">
-                <div class="cr-ceremony">
-                  <div class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path><line x1="6" y1="17" x2="18" y2="17"></line></svg></div>
-                  <div class="cr-ceremony-text">
-                    <h4>Walima</h4>
-                    <p>A night of joy, together in elegance.</p>
-                  </div>
-                </div>
-                <div class="cr-img">
-                  <img src="images/pavilion/rabat_grand_hall_hero_1790426090821.webp" alt="Walima layout" loading="lazy">
-                </div>
-                <div class="cr-style">
-                  <h4>Round Tables</h4>
-                  <h5>Grand Aisle</h5>
-                  <p>Spacious and sophisticated with a grand aisle setup.</p>
-                </div>
-                <div class="cr-cap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  <div class="cr-cap-text">
-                    <strong>800</strong>
-                    <span>GUESTS</span>
-                  </div>
-                </div>
+        <div class="capacity-cards-grid">
+          <!-- Barat Card -->
+          <article class="capacity-card">
+            <div class="capacity-card-inner">
+              <div class="capacity-media">
+                <span class="capacity-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  BARAT
+                </span>
+                <img src="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp" alt="Barat ceremony seating layout" loading="lazy">
               </div>
+              <div class="capacity-content">
+                <div class="capacity-head-row">
+                  <div>
+                    <h3 class="capacity-title">Barat</h3>
+                    <p class="capacity-tagline">A grand beginning to a beautiful journey.</p>
+                  </div>
+                  <div class="capacity-guest-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <strong>1,000+</strong> <span>GUESTS</span>
+                  </div>
+                </div>
 
-              <!-- Row 3 -->
-              <div class="capacity-row">
-                <div class="cr-ceremony">
-                  <div class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-                  <div class="cr-ceremony-text">
-                    <h4>Mehndi</h4>
-                    <p>Colors, culture and unforgettable moments.</p>
-                  </div>
-                </div>
-                <div class="cr-img">
-                  <img src="images/decors/rabat_floral_stage_1790443124026.webp" alt="Mehndi layout" loading="lazy">
-                </div>
-                <div class="cr-style">
-                  <h4>Round Tables</h4>
-                  <h5>Dance Floor</h5>
-                  <p>Vibrant setup with a spacious dance floor for endless fun.</p>
-                </div>
-                <div class="cr-cap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  <div class="cr-cap-text">
-                    <strong>600</strong>
-                    <span>GUESTS</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Row 4 -->
-              <div class="capacity-row">
-                <div class="cr-ceremony">
-                  <div class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
-                  <div class="cr-ceremony-text">
-                    <h4>Corporate</h4>
-                    <p>Connect. Collaborate. Grow.</p>
-                  </div>
-                </div>
-                <div class="cr-img">
-                  <img src="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp" alt="Corporate layout" loading="lazy">
-                </div>
-                <div class="cr-style">
-                  <h4>Theater</h4>
-                  <h5>Conference Stage</h5>
-                  <p>Ideal for presentations, meetings and professional events.</p>
-                </div>
-                <div class="cr-cap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  <div class="cr-cap-text">
-                    <strong>400</strong>
-                    <span>GUESTS</span>
-                  </div>
+                <div class="capacity-style-box">
+                  <span class="capacity-style-tag">Round Tables &bull; Stage Center</span>
+                  <p class="capacity-desc">Elegant round tables with a central stage for a royal feel.</p>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
+
+          <!-- Walima Card -->
+          <article class="capacity-card">
+            <div class="capacity-card-inner">
+              <div class="capacity-media">
+                <span class="capacity-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  WALIMA
+                </span>
+                <img src="images/pavilion/rabat_grand_hall_hero_1790426090821.webp" alt="Walima ceremony seating layout" loading="lazy">
+              </div>
+              <div class="capacity-content">
+                <div class="capacity-head-row">
+                  <div>
+                    <h3 class="capacity-title">Walima</h3>
+                    <p class="capacity-tagline">A night of joy, together in elegance.</p>
+                  </div>
+                  <div class="capacity-guest-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <strong>800</strong> <span>GUESTS</span>
+                  </div>
+                </div>
+
+                <div class="capacity-style-box">
+                  <span class="capacity-style-tag">Round Tables &bull; Grand Aisle</span>
+                  <p class="capacity-desc">Spacious and sophisticated with a grand aisle setup.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mehndi Card -->
+          <article class="capacity-card">
+            <div class="capacity-card-inner">
+              <div class="capacity-media">
+                <span class="capacity-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  MEHNDI
+                </span>
+                <img src="images/decors/rabat_floral_stage_1790443124026.webp" alt="Mehndi celebration seating layout" loading="lazy">
+              </div>
+              <div class="capacity-content">
+                <div class="capacity-head-row">
+                  <div>
+                    <h3 class="capacity-title">Mehndi</h3>
+                    <p class="capacity-tagline">Colors, culture and unforgettable moments.</p>
+                  </div>
+                  <div class="capacity-guest-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <strong>600</strong> <span>GUESTS</span>
+                  </div>
+                </div>
+
+                <div class="capacity-style-box">
+                  <span class="capacity-style-tag">Round Tables &bull; Dance Floor</span>
+                  <p class="capacity-desc">Vibrant setup with a spacious dance floor for endless fun.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Corporate Card -->
+          <article class="capacity-card">
+            <div class="capacity-card-inner">
+              <div class="capacity-media">
+                <span class="capacity-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  CORPORATE
+                </span>
+                <img src="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp" alt="Corporate conference seating layout" loading="lazy">
+              </div>
+              <div class="capacity-content">
+                <div class="capacity-head-row">
+                  <div>
+                    <h3 class="capacity-title">Corporate</h3>
+                    <p class="capacity-tagline">Connect. Collaborate. Grow.</p>
+                  </div>
+                  <div class="capacity-guest-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <strong>400</strong> <span>GUESTS</span>
+                  </div>
+                </div>
+
+                <div class="capacity-style-box">
+                  <span class="capacity-style-tag">Theater &bull; Conference Stage</span>
+                  <p class="capacity-desc">Ideal for presentations, meetings and professional events.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
         <p class="capacity-note">Figures include banquet round tables of 10. Custom layouts and floor plans available on request.</p>
       </div>
     </section>
@@ -521,37 +593,58 @@
     <section class="hallplan-stage reveal reveal-delay-2" id="hallplan-stage" aria-labelledby="stage-title">
       <div class="container">
         <div class="hallplan-header">
-          <span class="hallplan-eyebrow">Smart Stage System</span>
+          <span class="hallplan-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Smart Stage System
+          </span>
           <h2 class="hallplan-title" id="stage-title">A Stage That Moves With You</h2>
-          <p class="hallplan-body">The motorized smart-stage glides silently across the full length of the hall — revealing or concealing the Moroccan arch curtain exactly on cue.</p>
+          <p class="hallplan-body">The motorized smart-stage glides silently across the full length of the hall &mdash; revealing or concealing the Moroccan arch curtain exactly on cue.</p>
         </div>
         <div class="stage-grid" role="list">
           <article class="point-card" role="listitem">
-            <span class="point-icon" aria-hidden="true">&#127917;</span>
+            <div class="point-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
             <h3 class="point-title">40 ft. Moving Stage</h3>
-            <p class="point-body">Motorized platform travels the full hall length — stage position set per ceremony, not per hall.</p>
+            <p class="point-body">Motorized platform travels the full hall length &mdash; stage position set per ceremony, not per hall.</p>
           </article>
           <article class="point-card" role="listitem">
-            <span class="point-icon" aria-hidden="true">&#128161;</span>
+            <div class="point-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+            </div>
             <h3 class="point-title">Intelligent Lighting</h3>
-            <p class="point-body">Programmable moving heads, wash and spot scenes — from soft Walima warmth to Mehndi glow.</p>
+            <p class="point-body">Programmable moving heads, wash and spot scenes &mdash; from soft Walima warmth to Mehndi glow.</p>
           </article>
           <article class="point-card" role="listitem">
-            <span class="point-icon" aria-hidden="true">&#128266;</span>
+            <div class="point-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </div>
             <h3 class="point-title">Acoustic Engineering</h3>
-            <p class="point-body">Full-range sound tuned to the hall's clear-span volume — clear vows, deep bass, zero dead zones.</p>
+            <p class="point-body">Full-range sound tuned to the hall's clear-span volume &mdash; clear vows, deep bass, zero dead zones.</p>
           </article>
           <article class="point-card" role="listitem">
-            <span class="point-icon" aria-hidden="true">&#128094;</span>
+            <div class="point-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
             <h3 class="point-title">Private Bridal Suite</h3>
-            <p class="point-body">Backstage readiness room with vanity and privacy — the bridal entry stays hidden till the moment.</p>
+            <p class="point-body">Backstage readiness room with vanity and privacy &mdash; the bridal entry stays hidden till the moment.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ========== DECORS & STAGES ========== -->
-    <section class="decors reveal reveal-delay-1" id="decors" aria-labelledby="decors-title">
+<section class="decors reveal reveal-delay-1" id="decors" aria-labelledby="decors-title">
             <div class="decors-header container">
         <span class="decors-eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -764,193 +857,326 @@
     </section>
 
     <!-- ========== CATERING REDESIGN ========== -->
-    <section class="catering-redesign" id="catering" aria-labelledby="catering-title">
+    <section class="catering-redesign reveal reveal-delay-1" id="catering" aria-labelledby="catering-title">
       <div class="container">
-        <!-- Header -->
+        <!-- Editorial Header -->
         <div class="catering-header-center">
           <span class="catering-pill-eyebrow">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chef-icon"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path><line x1="6" y1="17" x2="18" y2="17"></line></svg>
-            A PROJECT BY @TIMEANDTASTECATERING
+            A PROJECT BY @TIMEANDTASTECATERING &bull; ROYAL BANQUET DINING
           </span>
           <h2 class="catering-main-title" id="catering-title">Royal Wedding Feasts</h2>
           <p class="catering-main-body">
-            Time &amp; Taste Catering brings decades of culinary pedigree to Rabat Banquet Hall. Experience majestic deg-cooked biryanis, authentic Moroccan tagines, and live flaming stations.
+            Time &amp; Taste Catering brings decades of culinary pedigree to Rabat Banquet Hall. Experience majestic deg-cooked biryanis, authentic Moroccan tagines, and live flaming stations served with five-star royal banquet protocol.
           </p>
         </div>
 
-        <!-- Layout Split -->
-        <div class="catering-split">
-          
-          <!-- Left Column: Image & Text -->
-          <div class="catering-left">
-            <div class="catering-image-wrap">
-              <img src="images/catering/rabat_royal_feast_1790443145085.webp" alt="Antique Hammered Brass Chafing Displays" loading="lazy">
-              <div class="catering-image-overlay">
-                <span class="cio-eyebrow">MASTER EXECUTIVE CHEFS</span>
-                <h3 class="cio-title">Antique Hammered Brass Chafing Displays</h3>
+        <!-- Heritage Feature Panel (Executive Split Layout) -->
+        <div class="catering-heritage-panel">
+          <!-- Left: Framed Media Display -->
+          <div class="heritage-media-wrap">
+            <span class="heritage-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              MASTER EXECUTIVE CHEFS
+            </span>
+            <img src="images/catering/rabat_royal_feast_1790443145085.webp" alt="Antique Hammered Brass Chafing Displays" width="1200" height="750" loading="lazy">
+            <div class="heritage-media-caption">
+              <span class="hmc-tag">ROYAL BUFFET CRAFTSMANSHIP</span>
+              <h3 class="hmc-title">Antique Hammered Brass Chafing Displays</h3>
+            </div>
+          </div>
+
+          <!-- Right: Editorial Content & Service Pillars -->
+          <div class="heritage-content">
+            <span class="heritage-eyebrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              CULINARY CRAFTSMANSHIP
+            </span>
+            <h3 class="heritage-title">Served in Heavy Brass Cloches &amp; Royal Buffets</h3>
+            <p class="heritage-lead">
+              Every dish is kept sizzling hot in antique hammered brass chafing dishes. Our banquet service staff is impeccably trained in five-star protocol, ensuring seamless table replenishment.
+            </p>
+
+            <div class="heritage-pillars">
+              <div class="heritage-pillar">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z"/><path d="M12 4v3"/><path d="M8 7h8"/></svg>
+                </div>
+                <div class="pillar-text">
+                  <strong class="pillar-title">Hammered Brass Cloches</strong>
+                  <span class="pillar-sub">Preserving peak temperature &amp; royal aroma</span>
+                </div>
+              </div>
+              <div class="heritage-pillar">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="pillar-text">
+                  <strong class="pillar-title">Five-Star Protocol Staff</strong>
+                  <span class="pillar-sub">Liveried, discreet banquet hospitality</span>
+                </div>
+              </div>
+              <div class="heritage-pillar">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="pillar-text">
+                  <strong class="pillar-title">Seamless Table Replenishment</strong>
+                  <span class="pillar-sub">Continuous hot refills throughout the night</span>
+                </div>
               </div>
             </div>
-            <div class="catering-left-content">
-              <span class="clc-eyebrow">CULINARY CRAFTSMANSHIP</span>
-              <h3 class="clc-title">Served in Heavy Brass Cloches &amp; Royal Buffets</h3>
-              <p class="clc-desc">Every dish is kept sizzling hot in antique hammered brass chafing dishes. Our banquet service staff is impeccably trained in five-star protocol, ensuring seamless table replenishment.</p>
+
+            <div class="heritage-actions">
               <a href="#reserve" class="btn-pill-gold btn-inquire-catering">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                INQUIRE ROYAL FEAST PACKAGE &rarr;
+                <span>INQUIRE ROYAL FEAST PACKAGE</span>
+                <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
+        </div>
 
-          <!-- Right Column: Accordion -->
-          <div class="catering-right">
-            <h4 class="accordion-header-title">EXPLORE CATERING ARCHITECTURES (TAP TO EXPAND):</h4>
-            <div class="catering-accordion">
-              
-              <div class="acc-item active">
-                <div class="acc-header">
-                  <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></div>
-                  <div class="acc-title-group">
-                    <span class="acc-eyebrow">ROYAL HERITAGE</span>
-                    <h4 class="acc-title">Imperial Mughlai &amp; Deg Dum Pukht</h4>
-                  </div>
-                  <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                </div>
-                <div class="acc-body">
-                  <div class="acc-body-inner">
-                    <p class="acc-desc">Authentic copper degs sealed with dough and slow-simmered over fragrant wood coals. Features long-grain basmati soaked in saffron water, tender mutton shanks, and velvet badami zafrani gravies.</p>
-                    <div class="acc-signature">
-                      <span class="acc-sig-label">SIGNATURE OFFERING:</span>
-                      <div class="acc-sig-dish">
-                        <span>Signature Dum Pukht Biryani &amp; Badami Qorma</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                      </div>
-                    </div>
-                    <p class="acc-note">&diams; Served in heavy antique hammered brass cloches by liveried banquet staff.</p>
-                  </div>
-                </div>
-              </div>
+        <!-- Curated Dining Architectures / Grid Header -->
+        <div class="culinary-grid-intro">
+          <span class="culinary-grid-eyebrow">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            EXPLORE CATERING ARCHITECTURES
+          </span>
+          <h3 class="culinary-grid-title">Six Royal Culinary Disciplines</h3>
+          <p class="culinary-grid-subtitle">
+            Authentic deg-cooked heritage, flaming live tandoors, and curated world banquet themes crafted for grand wedding feasts.
+          </p>
+        </div>
 
-              <div class="acc-item">
-                <div class="acc-header">
-                  <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></div>
-                  <div class="acc-title-group">
-                    <span class="acc-eyebrow">MAGHREBI DELICACY</span>
-                    <h4 class="acc-title">Royal Moroccan Tagine Service</h4>
-                  </div>
-                  <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                </div>
-                <div class="acc-body">
-                  <div class="acc-body-inner">
-                    <p class="acc-desc">Slow-cooked lamb and prune tagines served in traditional conical clay pots. Fragrant with ras el hanout, toasted almonds, and saffron-infused couscous for an authentic Maghrebi feast.</p>
-                    <div class="acc-signature">
-                      <span class="acc-sig-label">SIGNATURE OFFERING:</span>
-                      <div class="acc-sig-dish">
-                        <span>Lamb Mrouzia Tagine &amp; Royal Couscous</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                      </div>
-                    </div>
-                    <p class="acc-note">&diams; Presented at the table in authentic glazed terracotta tagines.</p>
-                  </div>
-                </div>
+        <!-- 6 Image-Led Elevated Culinary Cards Grid -->
+        <div class="culinary-cards-grid">
+          <!-- CARD 1: Imperial Mughlai & Deg Dum Pukht -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  ROYAL HERITAGE
+                </span>
+                <img src="images/gallery/rabat-biryani.webp" alt="Imperial Mughlai and Deg Dum Pukht Biryani" loading="lazy">
               </div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">Imperial Mughlai &amp; Deg Dum Pukht</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z"/><path d="M12 4v3"/><path d="M8 7h8"/><path d="M2 11h20"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-desc">
+                  Authentic copper degs sealed with dough and slow-simmered over fragrant wood coals. Features long-grain basmati soaked in saffron water, tender mutton shanks, and velvet badami zafrani gravies.
+                </p>
+                <div class="culinary-sig-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    SIGNATURE OFFERING
+                  </span>
+                  <div class="culinary-sig-dish">
+                    <span>Signature Dum Pukht Biryani &amp; Badami Qorma</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Served in heavy antique hammered brass cloches by liveried banquet staff.
+                </p>
+              </div>
+            </div>
+          </article>
 
-              <div class="acc-item">
-                <div class="acc-header">
-                  <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></div>
-                  <div class="acc-title-group">
-                    <span class="acc-eyebrow">LIVE THEATRE</span>
-                    <h4 class="acc-title">Flaming Live Charcoal Tandoors</h4>
-                  </div>
-                  <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                </div>
-                <div class="acc-body">
-                  <div class="acc-body-inner">
-                    <p class="acc-desc">A live culinary theatre where our master grillers craft fresh naan, smoky seekh kebabs, and char-grilled tikkas directly from glowing wood-fired tandoors.</p>
-                    <div class="acc-signature">
-                      <span class="acc-sig-label">SIGNATURE OFFERING:</span>
-                      <div class="acc-sig-dish">
-                        <span>Saffron Reshmi Kebab &amp; Roghni Naan</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                      </div>
-                    </div>
-                    <p class="acc-note">&diams; Served sizzling hot on cast-iron platters straight to the tables.</p>
-                  </div>
-                </div>
+          <!-- CARD 2: Royal Moroccan Tagine Service -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  MAGHREBI DELICACY
+                </span>
+                <img src="images/hero/rabat_bright_royal_feast_1790426763176.webp" alt="Royal Moroccan Tagine Service" loading="lazy">
               </div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">Royal Moroccan Tagine Service</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M12 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M12 7L6 16h12L12 7z"/><path d="M3 16h18a2 2 0 0 1 2 2v1H1v-1a2 2 0 0 1 2-2z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-desc">
+                  Slow-cooked lamb and prune tagines served in traditional conical clay pots. Fragrant with ras el hanout, toasted almonds, and saffron-infused couscous for an authentic Maghrebi feast.
+                </p>
+                <div class="culinary-sig-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    SIGNATURE OFFERING
+                  </span>
+                  <div class="culinary-sig-dish">
+                    <span>Lamb Mrouzia Tagine &amp; Royal Couscous</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Presented at the table in authentic glazed terracotta tagines.
+                </p>
+              </div>
+            </div>
+          </article>
 
-              <div class="acc-item">
-                <div class="acc-header">
-                  <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></div>
-                  <div class="acc-title-group">
-                    <span class="acc-eyebrow">COCKTAIL &amp; WELCOME</span>
-                    <h4 class="acc-title">Andalusian Mezze &amp; Harira Bar</h4>
-                  </div>
-                  <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                </div>
-                <div class="acc-body">
-                  <div class="acc-body-inner">
-                    <p class="acc-desc">A lavish spread of cold and hot appetizers including creamy hummus, moutabal, warm pita, and traditional Moroccan Harira soup to warmly welcome your guests.</p>
-                    <div class="acc-signature">
-                      <span class="acc-sig-label">SIGNATURE OFFERING:</span>
-                      <div class="acc-sig-dish">
-                        <span>Royal Mezze Platter &amp; Classic Harira</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                      </div>
-                    </div>
-                    <p class="acc-note">&diams; Perfect for grand receptions and pre-dinner socializing.</p>
-                  </div>
-                </div>
+          <!-- CARD 3: Flaming Live Charcoal Tandoors -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  LIVE THEATRE
+                </span>
+                <img src="images/hero/ai_hero_table.jpg" alt="Flaming Live Charcoal Tandoor Station" loading="lazy">
               </div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">Flaming Live Charcoal Tandoors</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-desc">
+                  A live culinary theatre where our master grillers craft fresh naan, smoky seekh kebabs, and char-grilled tikkas directly from glowing wood-fired tandoors.
+                </p>
+                <div class="culinary-sig-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    SIGNATURE OFFERING
+                  </span>
+                  <div class="culinary-sig-dish">
+                    <span>Saffron Reshmi Kebab &amp; Roghni Naan</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Served sizzling hot on cast-iron platters straight to the tables.
+                </p>
+              </div>
+            </div>
+          </article>
 
-              <div class="acc-item">
-                <div class="acc-header">
-                  <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg></div>
-                  <div class="acc-title-group">
-                    <span class="acc-eyebrow">GRAND FINALE</span>
-                    <h4 class="acc-title">Shahi Mithai &amp; Saffron Rabri Fountain</h4>
-                  </div>
-                  <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                </div>
-                <div class="acc-body">
-                  <div class="acc-body-inner">
-                    <p class="acc-desc">End your celebration with an extravagant dessert station featuring 24K silver-leaf shahi mithai, warm gulab jamuns, and a flowing saffron-infused rabri fountain.</p>
-                    <div class="acc-signature">
-                      <span class="acc-sig-label">SIGNATURE OFFERING:</span>
-                      <div class="acc-sig-dish">
-                        <span>Saffron Rabri Fountain &amp; Shahi Halwa</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                      </div>
-                    </div>
-                    <p class="acc-note">&diams; Presented alongside traditional Kashmiri green tea and rich espresso.</p>
-                  </div>
-                </div>
+          <!-- CARD 4: Andalusian Mezze & Harira Bar -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  COCKTAIL &amp; WELCOME
+                </span>
+                <img src="images/pavilion/macro-table-details.jpg" alt="Andalusian Mezze and Harira Bar" loading="lazy">
               </div>
-                <div class="acc-item">
-                  <div class="acc-header">
-                    <div class="acc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-                    <div class="acc-title-group">
-                      <span class="acc-eyebrow">GLOBAL CULINARY EXPERIENCE</span>
-                      <h4 class="acc-title">International Cuisines &amp; Varieties</h4>
-                    </div>
-                    <div class="acc-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">Andalusian Mezze &amp; Harira Bar</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="6.5" r="1.5"/><circle cx="12" cy="17.5" r="1.5"/><circle cx="6.5" cy="12" r="1.5"/><circle cx="17.5" cy="12" r="1.5"/></svg>
                   </div>
-                  <div class="acc-body">
-                    <div class="acc-body-inner">
-                      <p class="acc-desc">Elevate your event with our diverse selection of world-class cuisines. Our master chefs specialize in bringing authentic global flavors to your royal banquet.</p>
-                      <ul style="list-style-type: none; padding-left: 0; margin-bottom: 1.5rem; color: var(--color-text-soft); font-size: 0.95rem; line-height: 1.8;">
-                        <li>&diams; <strong>Pakistani</strong> - Traditional spices and rich heritage</li>
-                        <li>&diams; <strong>Chinese</strong> - Authentic wok-tossed specialties</li>
-                        <li>&diams; <strong>Thai</strong> - Exotic herbs and aromatic curries</li>
-                        <li>&diams; <strong>Italian</strong> - Gourmet pastas and Mediterranean flavors</li>
-                        <li>&diams; <strong>Arabian</strong> - Slow-cooked delicacies and tender meats</li>
-                        <li>&diams; <strong>Lebanese</strong> - Fresh mezze, grills, and vibrant salads</li>
-                        <li>&diams; <strong>Japanese</strong> - Premium sushi and delicate umami dishes</li>
-                      </ul>
-                      <p class="acc-note">&diams; Customizable menus available upon consultation with our executive chef.</p>
-                    </div>
+                </div>
+                <p class="culinary-desc">
+                  A lavish spread of cold and hot appetizers including creamy hummus, moutabal, warm pita, and traditional Moroccan Harira soup to warmly welcome your guests.
+                </p>
+                <div class="culinary-sig-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    SIGNATURE OFFERING
+                  </span>
+                  <div class="culinary-sig-dish">
+                    <span>Royal Mezze Platter &amp; Classic Harira</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
                   </div>
-                </div></div>
-          </div>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Perfect for grand receptions and pre-dinner socializing.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 5: Shahi Mithai & Saffron Rabri Fountain -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  GRAND FINALE
+                </span>
+                <img src="images/pavilion/ai_luxury_table.jpg" alt="Shahi Mithai and Saffron Rabri Fountain" loading="lazy">
+              </div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">Shahi Mithai &amp; Rabri Fountain</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10l-1 7a4 4 0 0 1-8 0L7 4z"/><path d="M12 11v6"/><path d="M10 4V2h4v2"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-desc">
+                  End your celebration with an extravagant dessert station featuring 24K silver-leaf shahi mithai, warm gulab jamuns, and a flowing saffron-infused rabri fountain.
+                </p>
+                <div class="culinary-sig-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    SIGNATURE OFFERING
+                  </span>
+                  <div class="culinary-sig-dish">
+                    <span>Saffron Rabri Fountain &amp; Shahi Halwa</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Presented alongside traditional Kashmiri green tea and rich espresso.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 6: International Cuisines & Varieties -->
+          <article class="culinary-card">
+            <div class="culinary-card-inner">
+              <div class="culinary-media">
+                <span class="culinary-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  GLOBAL EXPERIENCE
+                </span>
+                <img src="images/pavilion/ai_luxury_banquet.jpg" alt="International Cuisines and Global Banquet Buffets" loading="lazy">
+              </div>
+              <div class="culinary-content">
+                <div class="culinary-head-row">
+                  <h3 class="culinary-title">International Cuisines &amp; Varieties</h3>
+                  <div class="culinary-crest" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </div>
+                </div>
+                <p class="culinary-desc">
+                  Elevate your event with our diverse selection of world-class cuisines. Our master chefs specialize in bringing authentic global flavors to your royal banquet.
+                </p>
+                <div class="culinary-sig-box culinary-cuisines-box">
+                  <span class="culinary-sig-label">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    AVAILABLE WORLD CUISINES
+                  </span>
+                  <ul class="culinary-cuisines-list" role="list">
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Pakistani</strong> &ndash; Traditional spices &amp; rich heritage</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Chinese</strong> &ndash; Authentic wok-tossed specialties</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Thai</strong> &ndash; Exotic herbs &amp; aromatic curries</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Italian</strong> &ndash; Gourmet pastas &amp; Mediterranean flavors</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Arabian</strong> &ndash; Slow-cooked delicacies &amp; tender meats</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Lebanese</strong> &ndash; Fresh mezze, grills &amp; vibrant salads</li>
+                    <li><span class="cuisine-bullet">&diams;</span> <strong>Japanese</strong> &ndash; Premium sushi &amp; delicate umami dishes</li>
+                  </ul>
+                </div>
+                <p class="culinary-note">
+                  <span class="note-bullet">&diams;</span> Customizable menus available upon consultation with our executive chef.
+                </p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1120,8 +1346,8 @@
       <div class="container">
         <header class="gallery-header">
           <span class="gallery-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
-            Interactive 3D Sphere Showcase · Live Event Photographs
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            INTERACTIVE 3D SPHERE SHOWCASE &bull; REAL EVENT ARCHIVES
           </span>
           <h2 class="gallery-title" id="gallery-title">Rabat Event Gallery</h2>
           <p class="gallery-body">Drag and spin the interactive 3D sphere to explore live photographs from Lahore's most distinguished Barats, Walimas, Mehndis, and Royal banquets hosted in Hall 16.</p>
@@ -1144,8 +1370,8 @@
           <div class="sphere-copy">
             <div class="sphere-copy-top">
               <span class="explore-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 13.6V5.9a1.4 1.4 0 0 1 2.8 0v6.1"></path><path d="M14.3 12V9.6a1.4 1.4 0 0 1 2.8 0V15a6 6 0 0 1-6 6h-.8a5 5 0 0 1-3.6-1.5l-2.2-2.2a1.5 1.5 0 0 1 2.1-2.1l1.5 1.4"></path></svg>
-                Explore Our Venue
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 13.6V5.9a1.4 1.4 0 0 1 2.8 0v6.1"></path><path d="M14.3 12V9.6a1.4 1.4 0 0 1 2.8 0V15a6 6 0 0 1-6 6h-.8a5 5 0 0 1-3.6-1.5l-2.2-2.2a1.5 1.5 0 0 1 2.1-2.1l1.5 1.4"></path></svg>
+                DRAG TO ROTATE 3D SPHERE
               </span>
               <p class="explore-sub">Drag to explore the Rabat experience</p>
             </div>
@@ -1162,19 +1388,20 @@
             <span class="sphere-halo" aria-hidden="true"></span>
             <div class="sphere-orbit" id="sphereOrbit"></div>
             <button class="sphere-action" id="sphereAction" type="button" aria-label="View details of the photo facing you">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
             </button>
           </div>
 
           <!-- ---------- right column ---------- -->
           <aside class="experience-panel" aria-labelledby="experience-title">
+            <span class="experience-eyebrow">HALL 16 HIGHLIGHTS</span>
             <h3 class="experience-title" id="experience-title">The Rabat Experience</h3>
             <span class="experience-ornament" aria-hidden="true"></span>
 
             <ul class="experience-list" role="list">
               <li class="experience-item">
                 <span class="experience-icon" aria-hidden="true">
-                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8.6L12 4l7 4.6V21"></path><path d="M9.8 21v-6.2h4.4V21"></path></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8.6L12 4l7 4.6V21"></path><path d="M9.8 21v-6.2h4.4V21"></path></svg>
                 </span>
                 <div class="experience-text">
                   <h4 class="experience-name">Elegant Venues</h4>
@@ -1183,7 +1410,7 @@
               </li>
               <li class="experience-item">
                 <span class="experience-icon" aria-hidden="true">
-                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6c2 1.8 2.7 3.7 2.7 5.4 0 1.7-1.2 3-2.7 3s-2.7-1.3-2.7-3c0-1.7.7-3.6 2.7-5.4Z"></path><path d="M12 12v9"></path><path d="M12 15.6c-1.7 0-3-1-3.7-2.5"></path><path d="M12 18c1.7 0 3-1 3.7-2.5"></path></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </span>
                 <div class="experience-text">
                   <h4 class="experience-name">Signature D&eacute;cor</h4>
@@ -1192,7 +1419,7 @@
               </li>
               <li class="experience-item">
                 <span class="experience-icon" aria-hidden="true">
-                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5h17"></path><path d="M5.8 18.5a6.2 6.2 0 0 1 12.4 0"></path><path d="M12 12.3v-2"></path><circle cx="12" cy="9.4" r="1"></circle></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z"/><path d="M12 4v3"/><path d="M8 7h8"/></svg>
                 </span>
                 <div class="experience-text">
                   <h4 class="experience-name">Royal Catering</h4>
@@ -1203,290 +1430,322 @@
           </aside>
 
           <!-- ---------- photo facing the viewer (driven by main.js) ---------- -->
-          <p class="sphere-caption" aria-live="polite">
+          <div class="sphere-caption" aria-live="polite">
+            <span class="sphere-caption-eyebrow">ACTIVE PHOTO VIEW</span>
             <span class="sphere-caption-title" id="faceTitle">Hall 16 Grand Dome</span>
             <span class="sphere-caption-desc" id="faceDesc">Grand ballroom bathed in warm candlelight and Moroccan chandeliers.</span>
-          </p>
+          </div>
         </div>
 
         <!-- ========== ARCHIVAL PHOTO CARDS ========== -->
         <div class="archive-head">
           <div class="archive-head-text">
-            <span class="archive-eyebrow">Archival Event Photographs</span>
+            <span class="archive-eyebrow">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ARCHIVAL EVENT PHOTOGRAPHS
+            </span>
             <h3 class="archive-title">Hall 16 Real Celebrations</h3>
           </div>
-                      <div class="gallery-filters" role="tablist" aria-label="Gallery filters">
-              <button class="gallery-chip active" type="button" data-filter="all">All Events</button>
-              <button class="gallery-chip" type="button" data-filter="walima">Walima</button>
-              <button class="gallery-chip" type="button" data-filter="barat">Barat</button>
-              <button class="gallery-chip" type="button" data-filter="mehndi">Mehndi</button>
-              <button class="gallery-chip" type="button" data-filter="mayon">Mayon</button>
-              <button class="gallery-chip" type="button" data-filter="nikkah">Nikkah</button>
-              <button class="gallery-chip" type="button" data-filter="corporate">Corporate</button>
-            </div>
+          <div class="gallery-filters" role="tablist" aria-label="Gallery filters">
+            <button class="gallery-chip active" type="button" data-filter="all"><span>All Events</span></button>
+            <button class="gallery-chip" type="button" data-filter="walima"><span>Walima</span></button>
+            <button class="gallery-chip" type="button" data-filter="barat"><span>Barat</span></button>
+            <button class="gallery-chip" type="button" data-filter="mehndi"><span>Mehndi</span></button>
+            <button class="gallery-chip" type="button" data-filter="mayon"><span>Mayon</span></button>
+            <button class="gallery-chip" type="button" data-filter="nikkah"><span>Nikkah</span></button>
+            <button class="gallery-chip" type="button" data-filter="corporate"><span>Corporate</span></button>
+          </div>
         </div>
         <div class="gcard-grid" id="galleryGrid">
+          <!-- CARD 1 -->
           <article class="gcard" data-cat="walima" role="button" tabindex="0" aria-label="View Royal Chandelier full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">WALIMA</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/crystal_chandelier.jpeg" alt="Crystal Chandelier" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Lighting &amp; Ambiance</span>
-                <h4 class="gcard-title">Imperial Crystal Chandelier</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Lighting &amp; Ambiance</span>
+              <h4 class="gcard-title">Imperial Crystal Chandelier</h4>
               <p class="gcard-desc">Bespoke crystal chandeliers providing a warm, luxurious glow across the hall.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Luxury Lighting</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 2 -->
           <article class="gcard" data-cat="barat" role="button" tabindex="0" aria-label="View Grand Feast Table full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">BARAT</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/eating_table.jpg" alt="Grand Feast Table" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Royal Catering</span>
-                <h4 class="gcard-title">Grand Feast Table Setup</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Royal Catering</span>
+              <h4 class="gcard-title">Grand Feast Table Setup</h4>
               <p class="gcard-desc">A lavish spread of culinary delights served on premium dinnerware.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Premium Dining</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 3 -->
           <article class="gcard" data-cat="mehndi" role="button" tabindex="0" aria-label="View Floral Entrance Gate full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">MEHNDI</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/entrace_gate.jpg" alt="Floral Entrance Gate" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Grand Entrances</span>
-                <h4 class="gcard-title">Fresh Floral Entrance Gate</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Grand Entrances</span>
+              <h4 class="gcard-title">Fresh Floral Entrance Gate</h4>
               <p class="gcard-desc">Welcome your guests through a stunning curtain of fresh cascading flowers.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Signature Entrance</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
+
+          <!-- CARD 4 -->
           <article class="gcard" data-cat="mayon" role="button" tabindex="0" aria-label="View Celestial Walima Gala full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">MAYON</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/rabat_bright_royal_feast_1790426763176.webp" alt="Celestial Walima Gala ballroom reception" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Walima Reception &middot; 950 Guests</span>
-                <h4 class="gcard-title">Celestial Walima Gala</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Walima Reception &middot; 950 Guests</span>
+              <h4 class="gcard-title">Celestial Walima Gala</h4>
               <p class="gcard-desc">Opulent 1,000-guest ballroom reception under crystal and Moroccan chandeliers with ivory linens and gold chiavari seating.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Evening Grand Banquet</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 5 -->
           <article class="gcard" data-cat="nikkah" role="button" tabindex="0" aria-label="View Grand Barat Gateway full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">NIKKAH</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/pavilion/rabat_grand_hall_hero_1790426090821.webp" alt="Grand Barat Gateway arched gateway with rose petals" loading="lazy" width="1376" height="768">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Barat Procession &middot; 800 Guests</span>
-                <h4 class="gcard-title">Grand Barat Gateway</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Barat Procession &middot; 800 Guests</span>
+              <h4 class="gcard-title">Grand Barat Gateway</h4>
               <p class="gcard-desc">Monumental Moroccan keyhole entrance arch with fresh rose petal walkway and pierced Fes brass floor lanterns.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Royal Welcoming Entry</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 6 -->
           <article class="gcard" data-cat="corporate" role="button" tabindex="0" aria-label="View Vibrant Sangeet &amp; Mehndi full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">CORPORATE</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/rabat-floral-stage.webp" alt="Vibrant Sangeet &amp; Mehndi marigold garlands and amber lanterns" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Mehndi Night &middot; 650 Guests</span>
-                <h4 class="gcard-title">Vibrant Sangeet &amp; Mehndi</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Mehndi Night &middot; 650 Guests</span>
+              <h4 class="gcard-title">Vibrant Sangeet &amp; Mehndi</h4>
               <p class="gcard-desc">Moroccan carved wooden arches with cascading marigold garlands, glowing amber lanterns, and low velvet divan seating.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Festive Music &amp; Dance</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 7 -->
           <article class="gcard" data-cat="walima" role="button" tabindex="0" aria-label="View Floral Courtyard Stage full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">WALIMA</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/decors/rabat_floral_stage_1790443124026.webp" alt="Floral Courtyard Stage with hand-crafted arches" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Bridal Stage &middot; Stage for 30+ Vips</span>
-                <h4 class="gcard-title">Floral Courtyard Stage</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Bridal Stage &middot; Stage for 30+ Vips</span>
+              <h4 class="gcard-title">Floral Courtyard Stage</h4>
               <p class="gcard-desc">Handcrafted floral arches with fresh Ecuadorian roses and jasmine garlands.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Wedding Ceremony</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 8 -->
           <article class="gcard" data-cat="barat" role="button" tabindex="0" aria-label="View Hall 16 Grand Dome full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">BARAT</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp" alt="Hall 16 Grand Dome with chandeliers and candlelight" loading="lazy" width="1376" height="768">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Hall Architecture &middot; 1,000 Guests Capacity</span>
-                <h4 class="gcard-title">Hall 16 Grand Dome</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Hall Architecture &middot; 1,000 Guests Capacity</span>
+              <h4 class="gcard-title">Hall 16 Grand Dome</h4>
               <p class="gcard-desc">Grand ballroom bathed in warm candlelight and Moroccan chandeliers.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Full Hall Buyout</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 9 -->
           <article class="gcard" data-cat="mehndi" role="button" tabindex="0" aria-label="View The Imperial Curtain Stage full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">MEHNDI</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/decors/rabat_curtain_stage_1790426115677.webp" alt="The Imperial Curtain Stage cascading ivory organza" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Imperial Draping &middot; Stage for 25 Vips</span>
-                <h4 class="gcard-title">The Imperial Curtain Stage</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Imperial Draping &middot; Stage for 25 Vips</span>
+              <h4 class="gcard-title">The Imperial Curtain Stage</h4>
               <p class="gcard-desc">Cascading ivory French organza with suspended crystal teardrop chandeliers.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Classic Reception</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 10 -->
           <article class="gcard" data-cat="mayon" role="button" tabindex="0" aria-label="View Royal Dum Pukht Feast full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">MAYON</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/catering/rabat_royal_feast_1790443145085.webp" alt="Royal Dum Pukht Feast in brass cloches" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Royal Catering &middot; Multi-course Dining</span>
-                <h4 class="gcard-title">Royal Dum Pukht Feast</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Royal Catering &middot; Multi-course Dining</span>
+              <h4 class="gcard-title">Royal Dum Pukht Feast</h4>
               <p class="gcard-desc">Traditional copper degs and antique brass cloches slow-cooked over fragrant coals.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Mughlai Dinner Service</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 11 -->
           <article class="gcard" data-cat="nikkah" role="button" tabindex="0" aria-label="View Andalusian Royal Archway full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">NIKKAH</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/decors/rabat_moroccan_decor_1790426103016.webp" alt="Andalusian Royal Archway Moorish keyhole arches" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Moroccan Decor &middot; Foyer &amp; Stage</span>
-                <h4 class="gcard-title">Andalusian Royal Archway</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Moroccan Decor &middot; Foyer &amp; Stage</span>
+              <h4 class="gcard-title">Andalusian Royal Archway</h4>
               <p class="gcard-desc">Moorish keyhole arches with pierced Fes brass filigree star lanterns.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Themed Wedding</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 12 -->
           <article class="gcard" data-cat="corporate" role="button" tabindex="0" aria-label="View Sunlit Bridal Pavilion full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">CORPORATE</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/hall-plan/rabat_bright_courtyard_stage_1790426748468.webp" alt="Sunlit Bridal Pavilion unobstructed guest sightlines" loading="lazy" width="1376" height="768">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Daylight Reception &middot; 750 Guests</span>
-                <h4 class="gcard-title">Sunlit Bridal Pavilion</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Daylight Reception &middot; 750 Guests</span>
+              <h4 class="gcard-title">Sunlit Bridal Pavilion</h4>
               <p class="gcard-desc">Unobstructed 360-degree guest sightlines for imperial daytime processions.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Afternoon Nikkah</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 13 -->
           <article class="gcard" data-cat="walima" role="button" tabindex="0" aria-label="View Nikkah Floral Garden full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">WALIMA</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/decors/rabat_floral_stage_1790443124026.webp" alt="Nikkah Floral Garden marigold and jasmine installations" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Nikkah &amp; Sangeet &middot; 500 Guests</span>
-                <h4 class="gcard-title">Nikkah Floral Garden</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Nikkah &amp; Sangeet &middot; 500 Guests</span>
+              <h4 class="gcard-title">Nikkah Floral Garden</h4>
               <p class="gcard-desc">Vibrant marigold and jasmine installations with traditional Moroccan poufs.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Intimate Ceremony</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 14 -->
           <article class="gcard" data-cat="barat" role="button" tabindex="0" aria-label="View Flaming Charcoal Arcade full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">BARAT</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/gallery/rabat-biryani.webp" alt="Flaming Charcoal Arcade live tandoor and BBQ" loading="lazy" width="1200" height="896">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Live Stations &middot; Live Tandoor &amp; BBQ</span>
-                <h4 class="gcard-title">Flaming Charcoal Arcade</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Live Stations &middot; Live Tandoor &amp; BBQ</span>
+              <h4 class="gcard-title">Flaming Charcoal Arcade</h4>
               <p class="gcard-desc">Fresh sesame roghani naans and prime seekh kebabs pulled straight from embers.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Buffet Arcade</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
 
+          <!-- CARD 15 -->
           <article class="gcard" data-cat="mehndi" role="button" tabindex="0" aria-label="View Walima Celestial Dinner full-screen">
             <div class="gcard-img">
+              <span class="gcard-cat-badge">MEHNDI</span>
+              <span class="gcard-zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="13" height="13"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
               <img src="images/pavilion/rabat_grand_hall_hero_1790426090821.webp" alt="Walima Celestial Dinner shahi mithai and saffron tea" loading="lazy" width="1376" height="768">
-              <div class="gcard-overlay">
-                <span class="gcard-eyebrow">Royal Dessert &middot; 1,000 Guests</span>
-                <h4 class="gcard-title">Walima Celestial Dinner</h4>
-              </div>
             </div>
             <div class="gcard-body">
+              <span class="gcard-eyebrow">Royal Dessert &middot; 1,000 Guests</span>
+              <h4 class="gcard-title">Walima Celestial Dinner</h4>
               <p class="gcard-desc">Five-star banquet service with 24K silver-leaf shahi mithai and saffron tea.</p>
               <div class="gcard-foot">
                 <span class="gcard-tag">Midnight Shahi Mithai</span>
-                <span class="gcard-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                <span class="gcard-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
               </div>
             </div>
           </article>
         </div>
         <div class="gallery-cta">
-          <span class="archive-eyebrow">Host Your Royal Occasion</span>
-          <h3 class="gallery-cta-title">Reserve Hall 16 for Your Milestone Event</h3>
-          <p class="gallery-cta-body">Tour the venue in person at Lahore Garrison Golf &amp; Country Club or schedule an appointment with our wedding concierge team.</p>
-          <div class="gallery-cta-btns">
-            <a href="#reserve" class="btn-primary">Inquire Date Availability</a>
-            <a href="tel:+923017130942" class="btn-outline">Direct Concierge: 0301-7130942</a>
+          <div class="gcta-inner">
+            <span class="gcta-eyebrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              HOST YOUR ROYAL OCCASION
+            </span>
+            <h3 class="gallery-cta-title">Reserve Hall 16 for Your Milestone Event</h3>
+            <p class="gallery-cta-body">Tour the venue in person at Lahore Garrison Golf &amp; Country Club or schedule an appointment with our wedding concierge team.</p>
+            <div class="gallery-cta-btns">
+              <a href="#reserve" class="btn-gcta-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>INQUIRE DATE AVAILABILITY</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="tel:+923017130942" class="btn-gcta-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>DIRECT CONCIERGE: 0301-7130942</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
