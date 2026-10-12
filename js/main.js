@@ -364,10 +364,33 @@
         }
       });
     }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
-    qsa('.reveal').forEach(function (el) {
+
+    var revealTargets = qsa('.reveal');
+    revealTargets.forEach(function (el) {
       addClass(el, 'is-hidden');
       observer.observe(el);
     });
+
+    var ticking = false;
+    function revealPassedTargets() {
+      ticking = false;
+      revealTargets.forEach(function (el) {
+        if (el.classList.contains('is-hidden') &&
+            getComputedStyle(el).display !== 'none' &&
+            el.getBoundingClientRect().top <= window.innerHeight) {
+          remClass(el, 'is-hidden');
+          observer.unobserve(el);
+        }
+      });
+    }
+    function scheduleRevealCheck() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(revealPassedTargets);
+    }
+    on(window, 'scroll', scheduleRevealCheck, { passive: true });
+    on(window, 'resize', scheduleRevealCheck);
+    scheduleRevealCheck();
   }
 
   if (document.readyState === 'complete' || document.readyState === 'interactive') {

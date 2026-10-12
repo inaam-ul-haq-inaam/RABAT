@@ -41,6 +41,9 @@
       document.querySelectorAll('.scrollfade, .photo-band')
     );
     if (!els.length) return;
+    var photoBands = Array.prototype.slice.call(
+      document.querySelectorAll('.photo-band')
+    );
 
     if (reducedMotion) {
       els.forEach(function (el) { el.classList.add('is-revealed'); });
@@ -57,16 +60,28 @@
       return true;
     });
 
+    function updatePhotoBandPositions() {
+      if (window.innerWidth > 991) return;
+      photoBands.forEach(function (el) {
+        var offset = -el.getBoundingClientRect().top;
+        var value = offset + 'px';
+        if (el.style.getPropertyValue('--photo-band-offset') !== value) {
+          el.style.setProperty('--photo-band-offset', value);
+        }
+      });
+    }
+
     function check() {
       var trigger = window.innerHeight * REVEAL_OFFSET;
       for (var i = 0; i < pending.length; i++) {
         var rect = pending[i].getBoundingClientRect();
-        if (rect.top <= trigger && rect.bottom >= 0) {
+        if (rect.top <= trigger) {
           enqueue(pending[i]);
           pending.splice(i, 1);
           i--;
         }
       }
+      updatePhotoBandPositions();
     }
 
     var ticking = false;
