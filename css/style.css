@@ -260,6 +260,7 @@ main > section.page-enter {
 .brand-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .brand-title {
