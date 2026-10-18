@@ -1,0 +1,90 @@
+/** #catering — the six culinary discipline cards (crest icons keyed by name). */
+export const CULINARY_CARDS = [
+  {
+    badge: 'ROYAL HERITAGE',
+    crest: 'cloche',
+    img: 'images/gallery/rabat-biryani.webp',
+    alt: 'Imperial Mughlai and Deg Dum Pukht Biryani',
+    title: 'Imperial Mughlai & Deg Dum Pukht',
+    desc: 'Authentic copper degs sealed with dough and slow-simmered over fragrant wood coals. Features long-grain basmati soaked in saffron water, tender mutton shanks, and velvet badami zafrani gravies.',
+    dish: 'Signature Dum Pukht Biryani & Badami Qorma',
+    note: 'Served in heavy antique hammered brass cloches by liveried banquet staff.',
+  },
+  {
+    badge: 'MAGHREBI DELICACY',
+    crest: 'tagine',
+    img: 'images/hero/rabat_bright_royal_feast_1790426763176.webp',
+    alt: 'Royal Moroccan Tagine Service',
+    title: 'Royal Moroccan Tagine Service',
+    desc: 'Slow-cooked lamb and prune tagines served in traditional conical clay pots. Fragrant with ras el hanout, toasted almonds, and saffron-infused couscous for an authentic Maghrebi feast.',
+    dish: 'Lamb Mrouzia Tagine & Royal Couscous',
+    note: 'Presented at the table in authentic glazed terracotta tagines.',
+  },
+  {
+    badge: 'LIVE THEATRE',
+    crest: 'flame',
+    img: 'images/hero/ai_hero_table.jpg',
+    alt: 'Flaming Live Charcoal Tandoor Station',
+    title: 'Flaming Live Charcoal Tandoors',
+    desc: 'A live culinary theatre where our master grillers craft fresh naan, smoky seekh kebabs, and char-grilled tikkas directly from glowing wood-fired tandoors.',
+    dish: 'Saffron Reshmi Kebab & Roghni Naan',
+    note: 'Served sizzling hot on cast-iron platters straight to the tables.',
+  },
+  {
+    badge: 'COCKTAIL & WELCOME',
+    crest: 'mezze',
+    img: 'images/pavilion/macro-table-details.jpg',
+    alt: 'Andalusian Mezze and Harira Bar',
+    title: 'Andalusian Mezze & Harira Bar',
+    desc: 'A lavish spread of cold and hot appetizers including creamy hummus, moutabal, warm pita, and traditional Moroccan Harira soup to warmly welcome your guests.',
+    dish: 'Royal Mezze Platter & Classic Harira',
+    note: 'Perfect for grand receptions and pre-dinner socializing.',
+  },
+  {
+    badge: 'GRAND FINALE',
+    crest: 'goblet',
+    img: 'images/pavilion/ai_luxury_table.jpg',
+    alt: 'Shahi Mithai and Saffron Rabri Fountain',
+    title: 'Shahi Mithai & Rabri Fountain',
+    desc: 'End your celebration with an extravagant dessert station featuring 24K silver-leaf shahi mithai, warm gulab jamuns, and a flowing saffron-infused rabri fountain.',
+    dish: 'Saffron Rabri Fountain & Shahi Halwa',
+    note: 'Presented alongside traditional Kashmiri green tea and rich espresso.',
+  },
+  {
+    badge: 'GLOBAL EXPERIENCE',
+    crest: 'globe',
+    img: 'images/pavilion/ai_luxury_banquet.jpg',
+    alt: 'International Cuisines and Global Banquet Buffets',
+    title: 'International Cuisines & Varieties',
+    desc: 'Elevate your event with our diverse selection of world-class cuisines. Our master chefs specialize in bringing authentic global flavors to your royal banquet.',
+    cuisines: [
+      { name: 'Pakistani', text: 'Traditional spices & rich heritage' },
+      { name: 'Chinese', text: 'Authentic wok-tossed specialties' },
+      { name: 'Thai', text: 'Exotic herbs & aromatic curries' },
+      { name: 'Italian', text: 'Gourmet pastas & Mediterranean flavors' },
+      { name: 'Arabian', text: 'Slow-cooked delicacies & tender meats' },
+      { name: 'Lebanese', text: 'Fresh mezze, grills & vibrant salads' },
+      { name: 'Japanese', text: 'Premium sushi & delicate umami dishes' },
+    ],
+    note: 'Customizable menus available upon consultation with our executive chef.',
+  },
+];
+
+/** #catering heritage panel — the three service pillars (right column). */
+export const HERITAGE_PILLARS = [
+  {
+    crest: 'cloche',
+    title: 'Hammered Brass Cloches',
+    sub: 'Preserving peak temperature & royal aroma',
+  },
+  {
+    crest: 'staff',
+    title: 'Five-Star Protocol Staff',
+    sub: 'Liveried, discreet banquet hospitality',
+  },
+  {
+    crest: 'check',
+    title: 'Seamless Table Replenishment',
+    sub: 'Continuous hot refills throughout the night',
+  },
+];

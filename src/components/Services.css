@@ -1,0 +1,426 @@
+/* ==========================================================================
+   Services Page & Visual Grid Styles (Tightened Spacing & High-Contrast Typography)
+   ========================================================================== */
+
+.services-page {
+  padding-top: calc(var(--nav-h, 76px) + 1.25rem);
+  padding-bottom: 4rem;
+  background: var(--color-bg, #FAF8F5);
+  color: var(--color-text, #2A2724);
+  min-height: 80vh;
+}
+
+.services-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 1.75rem auto;
+  padding: 0 1rem;
+}
+
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C6D32;
+  background: #FAF7F2;
+  border: 1px solid rgba(212, 178, 111, 0.45);
+  border-radius: 9999px;
+  padding: 0.35rem 0.95rem;
+  margin-bottom: 0.65rem;
+  box-shadow: 0 2px 8px rgba(35, 25, 15, 0.04);
+}
+
+.services-title {
+  font-family: 'Cinzel Decorative', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: #1A1816;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.services-body {
+  font-size: 0.92rem;
+  color: #5C5449;
+  line-height: 1.55;
+  margin: 0 auto;
+}
+
+/* ---------- Services Visual Grid ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Service Card with Midnight Onyx Glassmorphism & Gold Highlights */
+.service-card {
+  background: #1C1C20;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18);
+}
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.service-card:hover .service-icon-wrap {
+  transform: scale(1.05);
+  background: rgba(212, 175, 55, 0.22);
+}
+
+.service-icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.service-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.service-sub-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold, #D4AF37);
+}
+
+.service-card-title {
+  font-family: 'Cinzel Decorative', 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.service-card-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0 0 1.15rem 0;
+  flex-grow: 1;
+}
+
+/* Highlights Box */
+.service-highlights {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.service-highlights-title {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-gold, #D4AF37);
+  margin-bottom: 0.4rem;
+}
+
+.service-highlights-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.service-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.35;
+}
+
+.service-bullet {
+  color: var(--color-gold, #D4AF37);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+/* Action Buttons */
+.service-card-actions {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  margin-top: auto;
+}
+
+.btn-service-gallery {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--color-gold, #D4AF37);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-service-gallery:hover,
+.btn-service-gallery:focus-visible {
+  background: var(--color-gold, #D4AF37);
+  color: #0A0A0C;
+  border-color: var(--color-gold, #D4AF37);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+}
+
+.btn-service-reserve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-service-reserve:hover,
+.btn-service-reserve:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Bottom CTA Card */
+.services-cta {
+  background: #1C1C20;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.services-cta-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.services-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold, #D4AF37);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.services-cta-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: #fff;
+  margin-bottom: 0.65rem;
+}
+
+.services-cta-body {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
+}
+
+.services-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-scta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-gold, #D4AF37);
+  color: #0A0A0C;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-scta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.btn-scta-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   Mobile-Specific Spacing Optimization (Max-width: 768px)
+   Eliminates huge empty spaces and aligns perfectly with mobile view
+   ========================================================================== */
+@media (max-width: 768px) {
+  .services-page {
+    padding-top: calc(var(--nav-h, 60px) + 0.6rem);
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .services-header {
+    margin: 0 auto 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .services-badge {
+    font-size: 0.64rem;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .services-title {
+    font-size: 1.45rem;
+    margin-bottom: 0.35rem;
+    color: #1A1816;
+  }
+
+  .services-body {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: #5C5449;
+    max-width: 320px;
+  }
+
+  .services-grid {
+    gap: 0.9rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-card {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
+
+  .service-card-top {
+    gap: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .service-icon-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .service-card-title {
+    font-size: 1.15rem;
+  }
+
+  .service-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.85rem;
+  }
+
+  .service-highlights {
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .service-highlight-item {
+    font-size: 0.78rem;
+  }
+
+  .service-card-actions {
+    gap: 0.5rem;
+  }
+
+  .btn-service-gallery,
+  .btn-service-reserve {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.76rem;
+  }
+}
