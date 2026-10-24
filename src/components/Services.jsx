@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
-import { ArrowRightIcon, CalendarIcon, StarIcon } from './Icons.jsx';
+import { ArrowRightIcon, CalendarIcon, PhoneIcon, StarIcon } from './Icons.jsx';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 import { SERVICES_LIST } from '../data/services.js';
 import './Services.css';
 
 export default function Services() {
   const navigate = useNavigate();
+  const { openContactModal } = useContactModal();
 
   const handleFilterClick = (filter) => {
     navigate('/gallery', {
@@ -96,9 +98,15 @@ export default function Services() {
                 <span>INQUIRE ABOUT DATES</span>
                 <span aria-hidden="true">&rarr;</span>
               </SectionLink>
-              <a href="tel:+923017130942" className="btn-scta-secondary">
-                <span>CONCIERGE: 0301-7130942</span>
-              </a>
+              <button
+                type="button"
+                onClick={openContactModal}
+                className="btn-scta-secondary"
+                style={{ cursor: 'pointer', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <PhoneIcon size={16} />
+                <span>CALL / WHATSAPP CONCIERGE</span>
+              </button>
             </div>
           </div>
         </div>

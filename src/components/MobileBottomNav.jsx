@@ -8,18 +8,18 @@ import {
   Menu,
   Crown,
   LayoutGrid,
-  CalendarCheck,
   PhoneCall,
   X,
 } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 import './MobileBottomNav.css';
 
-// Navigation hierarchy using lucide-react icons:
-// First 4 visible tabs: Pavilion (Home), Services (Sparkles), Catering (UtensilsCrossed), Gallery (Images)
-// Remaining items in 'More' panel: Decors & Stages (Crown), Hall Plan (LayoutGrid), Reserve Hall (CalendarCheck), Contact Us (PhoneCall)
+// Navigation hierarchy:
+// 4 visible tabs: Pavilion (Home), Services, Catering, Gallery
+// 'More' bottom sheet panel: Decors & Stages, Hall Plan, and Interactive Contact Us
 const DEFAULT_NAV_LINKS = [
   {
-    label: 'Pavilion',
+    label: 'Home',
     path: '/',
     icon: <Home size={20} strokeWidth={1.8} />,
   },
@@ -48,32 +48,22 @@ const DEFAULT_NAV_LINKS = [
     path: '/hallplan',
     icon: <LayoutGrid size={20} strokeWidth={1.8} />,
   },
-  {
-    label: 'Reserve Hall',
-    path: '/reserve',
-    icon: <CalendarCheck size={20} strokeWidth={1.8} />,
-  },
-  {
-    label: 'Contact Us',
-    path: 'https://wa.me/923017130942',
-    external: true,
-    icon: <PhoneCall size={20} strokeWidth={1.8} />,
-  },
 ];
 
 export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const { openContactModal } = useContactModal();
   const location = useLocation();
 
   // Dynamic mapping:
   // 1. navLinks.slice(0, 4) directly onto the fixed Bottom Tab Bar: Pavilion, Services, Catering, Gallery
-  // 2. navLinks.slice(4) inside the hidden 'More' panel: Decors & Stages, Hall Plan, Reserve, Contact Us
+  // 2. navLinks.slice(4) inside the hidden 'More' panel: Decors & Stages, Hall Plan
   const primaryLinks = navLinks.slice(0, 4);
   const moreLinks = navLinks.slice(4);
 
   // Check if any link inside 'More' is currently active
   const isMoreLinkActive = moreLinks.some(
-    (link) => !link.external && location.pathname === (link.path || link.to || link.id)
+    (link) => location.pathname === (link.path || link.to || link.id)
   );
 
   // Close sheet on route change
@@ -90,7 +80,7 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
 
   return (
     <>
-      {/* 2. Fixed Bottom Tab Bar (Mobile only: max-width 768px) */}
+      {/* 1. Fixed Bottom Tab Bar (Mobile only: max-width 768px) */}
       <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
         {primaryLinks.map((link) => {
           const target = link.path || link.to || link.id || '/';
@@ -127,7 +117,7 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
         </button>
       </nav>
 
-      {/* 3. The 'More' Bottom Sheet Component */}
+      {/* 2. The 'More' Bottom Sheet Component */}
       <div
         className={`bottom-sheet-overlay ${isMoreOpen ? 'open' : ''}`}
         onClick={handleOverlayClick}
@@ -163,26 +153,6 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
             {moreLinks.map((link) => {
               const target = link.path || link.to || link.id || '/';
 
-              if (link.external) {
-                return (
-                  <li key={target} className="bottom-sheet-list-item">
-                    <a
-                      href={target}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bottom-sheet-link"
-                      onClick={() => setIsMoreOpen(false)}
-                    >
-                      {link.icon && (
-                        <span className="bottom-sheet-link-icon">{link.icon}</span>
-                      )}
-                      <span className="bottom-sheet-link-label">{link.label}</span>
-                      <span className="bottom-sheet-link-arrow">↗</span>
-                    </a>
-                  </li>
-                );
-              }
-
               return (
                 <li key={target} className="bottom-sheet-list-item">
                   <NavLink
@@ -202,6 +172,24 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
                 </li>
               );
             })}
+
+            {/* Interactive "Contact Us" Item */}
+            <li className="bottom-sheet-list-item">
+              <button
+                type="button"
+                className="bottom-sheet-link contact-toggle-btn"
+                onClick={() => {
+                  setIsMoreOpen(false);
+                  openContactModal();
+                }}
+              >
+                <span className="bottom-sheet-link-icon">
+                  <PhoneCall size={20} strokeWidth={1.8} />
+                </span>
+                <span className="bottom-sheet-link-label">Contact Us (3 Lines)</span>
+                <span className="bottom-sheet-link-arrow">→</span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>

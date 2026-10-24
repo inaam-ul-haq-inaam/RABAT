@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SectionLink from './SectionLink.jsx';
 import { ArrowUpRightIcon } from './Icons.jsx';
+import { PhoneCall } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const ANNOUNCEMENTS = [
   'A SETTING FOR EXTRAORDINARY CELEBRATIONS',
@@ -11,7 +13,7 @@ const ANNOUNCEMENTS = [
 ];
 
 const NAV_LINKS = [
-  { label: 'Pavilion', to: '/', match: '/' },
+  { label: 'Home', to: '/', match: '/' },
   { label: 'Decors & Stages', to: '/decors', match: '/decors' },
   { label: 'Royal Catering', to: '/catering', match: '/catering' },
   { label: 'Hall Plan', to: '/hallplan', match: '/hallplan' },
@@ -35,6 +37,7 @@ const DD_ICON_STYLE = {
 };
 
 export default function Navbar() {
+  const { openContactModal } = useContactModal();
   const navRef = useRef(null);
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -169,7 +172,7 @@ export default function Navbar() {
                 data-nav
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Pavilion
+                Home
               </Link>
             </li>
 
@@ -268,8 +271,20 @@ export default function Navbar() {
         </button>
 
         <div className="nav-actions">
+          <button
+            type="button"
+            className="btn-nav-call"
+            onClick={openContactModal}
+            aria-label="Contact Concierge"
+            title="Call or WhatsApp Concierge (3 Direct Lines)"
+          >
+            <PhoneCall size={14} strokeWidth={2.2} />
+            <span className="btn-nav-call-label">Concierge</span>
+          </button>
           <SectionLink to="reserve" className="btn-contact">
-            RESERVE HALL <ArrowUpRightIcon size={14} strokeWidth={2.5} />
+            <span className="btn-contact-text-full">RESERVE HALL</span>
+            <span className="btn-contact-text-short">RESERVE</span>
+            <ArrowUpRightIcon size={14} strokeWidth={2.5} />
           </SectionLink>
         </div>
       </div>

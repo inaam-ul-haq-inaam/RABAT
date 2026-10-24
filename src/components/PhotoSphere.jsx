@@ -1,26 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ZoomIcon } from './Icons.jsx';
-import { EXPERIENCE_ITEMS } from '../data/home.js';
-
-const EXPERIENCE_ICONS = {
-  venue: (
-    <>
-      <path d="M3 21h18" />
-      <path d="M5 21V8.6L12 4l7 4.6V21" />
-      <path d="M9.8 21v-6.2h4.4V21" />
-    </>
-  ),
-  decor: (
-    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-  ),
-  catering: (
-    <>
-      <path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z" />
-      <path d="M12 4v3" />
-      <path d="M8 7h8" />
-    </>
-  ),
-};
 
 const INITIAL_TITLE = 'Hall 16 Grand Dome';
 const INITIAL_DESC = 'Grand ballroom bathed in warm candlelight and Moroccan chandeliers.';
@@ -254,40 +233,6 @@ export default function PhotoSphere({ items, onOpen }) {
           <ZoomIcon size={20} strokeWidth={2.2} />
         </button>
       </div>
-
-      {/* ---------- right column ---------- */}
-      <aside className="experience-panel" aria-labelledby="experience-title">
-        <span className="experience-eyebrow">HALL 16 HIGHLIGHTS</span>
-        <h3 className="experience-title" id="experience-title">
-          The Rabat Experience
-        </h3>
-        <span className="experience-ornament" aria-hidden="true" />
-
-        <ul className="experience-list" role="list">
-          {EXPERIENCE_ITEMS.map((item) => (
-            <li className="experience-item" key={item.name}>
-              <span className="experience-icon" aria-hidden="true">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {EXPERIENCE_ICONS[item.icon]}
-                </svg>
-              </span>
-              <div className="experience-text">
-                <h4 className="experience-name">{item.name}</h4>
-                <p className="experience-desc">{item.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </aside>
 
       {/* ---------- photo facing the viewer ---------- */}
       <div className="sphere-caption" aria-live="polite">

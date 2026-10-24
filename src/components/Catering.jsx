@@ -1,7 +1,45 @@
+import { useState } from 'react';
 import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
 import { CalendarIcon, StarIcon, UsersIcon } from './Icons.jsx';
 import { CULINARY_CARDS, HERITAGE_PILLARS } from '../data/catering.js';
+
+// On phones the world-cuisine list is collapsed to the first 4 rows (CSS in
+// style.css) with a "+N more" expander — desktop always shows the full list.
+const CUISINES_SHOWN_ON_MOBILE = 4;
+
+function CuisineList({ cuisines }) {
+  const [expanded, setExpanded] = useState(false);
+  const collapsible = cuisines.length > CUISINES_SHOWN_ON_MOBILE;
+
+  return (
+    <div className="culinary-cuisines-box">
+      <ul
+        role="list"
+        className={
+          'culinary-cuisines-list' + (collapsible && !expanded ? ' is-collapsed' : '')
+        }
+      >
+        {cuisines.map((cuisine) => (
+          <li key={cuisine.name}>
+            <span className="cuisine-bullet">&diams;</span> <strong>{cuisine.name}</strong> &ndash;{' '}
+            {cuisine.text}
+          </li>
+        ))}
+      </ul>
+      {collapsible && (
+        <button
+          type="button"
+          className="culinary-more-btn"
+          onClick={() => setExpanded((open) => !open)}
+          aria-expanded={expanded}
+        >
+          {expanded ? 'Show fewer cuisines' : `+ ${cuisines.length - CUISINES_SHOWN_ON_MOBILE} more cuisines`}
+        </button>
+      )}
+    </div>
+  );
+}
 
 const CREST_ICONS = {
   cloche: (
@@ -203,19 +241,12 @@ export default function Catering() {
                   <p className="culinary-desc">{card.desc}</p>
 
                   {card.cuisines ? (
-                    <div className="culinary-sig-box culinary-cuisines-box">
+                    <div className="culinary-sig-box">
                       <span className="culinary-sig-label">
                         <StarIcon size={11} strokeWidth={2.5} />
                         AVAILABLE WORLD CUISINES
                       </span>
-                      <ul className="culinary-cuisines-list" role="list">
-                        {card.cuisines.map((cuisine) => (
-                          <li key={cuisine.name}>
-                            <span className="cuisine-bullet">&diams;</span> <strong>{cuisine.name}</strong> &ndash;{' '}
-                            {cuisine.text}
-                          </li>
-                        ))}
-                      </ul>
+                      <CuisineList cuisines={card.cuisines} />
                     </div>
                   ) : (
                     <div className="culinary-sig-box">

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Section from './Section.jsx';
-import SectionLink from './SectionLink.jsx';
 import PhotoSphere from './PhotoSphere.jsx';
 import { useLightbox } from '../context/LightboxContext.jsx';
-import { ArrowRightIcon, CalendarIcon, PhoneIcon, StarIcon, ZoomIcon } from './Icons.jsx';
+import { ArrowRightIcon, StarIcon, ZoomIcon } from './Icons.jsx';
 import { GALLERY_FILTERS, GALLERY_ITEMS } from '../data/gallery.js';
 
 /**
@@ -27,6 +26,11 @@ export default function Gallery() {
   useEffect(() => {
     if (location.state && location.state.filter) setFilter(location.state.filter);
   }, [location.key, location.state]);
+
+  const getFilterCount = (cat) => {
+    if (cat === 'all') return GALLERY_ITEMS.length;
+    return GALLERY_ITEMS.filter((item) => item.cat === cat).length;
+  };
 
   return (
     <Section className="gallery-page reveal reveal-delay-1" id="gallery" aria-labelledby="gallery-title">
@@ -72,6 +76,7 @@ export default function Gallery() {
                 onClick={() => setFilter(chip.value)}
               >
                 <span>{chip.label}</span>
+                <span className="gallery-chip-count">{getFilterCount(chip.value)}</span>
               </button>
             ))}
           </div>
@@ -99,6 +104,7 @@ export default function Gallery() {
                 onClick={() => setFilter(chip.value)}
               >
                 <span>{chip.label}</span>
+                <span className="gallery-chip-count">{getFilterCount(chip.value)}</span>
               </button>
             ))}
           </div>
@@ -143,30 +149,6 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="gallery-cta">
-          <div className="gcta-inner">
-            <span className="gcta-eyebrow">
-              <StarIcon size={14} strokeWidth={2} />
-              HOST YOUR ROYAL OCCASION
-            </span>
-            <h3 className="gallery-cta-title">Reserve Hall 16 for Your Milestone Event</h3>
-            <p className="gallery-cta-body">
-              Tour the venue in person at Lahore Garrison Golf &amp; Country Club or schedule an appointment with our
-              wedding concierge team.
-            </p>
-            <div className="gallery-cta-btns">
-              <SectionLink to="reserve" className="btn-gcta-primary">
-                <CalendarIcon size={16} />
-                <span>INQUIRE DATE AVAILABILITY</span>
-                <span aria-hidden="true">&rarr;</span>
-              </SectionLink>
-              <a href="tel:+923017130942" className="btn-gcta-secondary">
-                <PhoneIcon size={16} />
-                <span>DIRECT CONCIERGE: 0301-7130942</span>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </Section>
   );

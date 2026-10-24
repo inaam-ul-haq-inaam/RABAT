@@ -1,0 +1,430 @@
+/* ============================================================
+   SplashScreen — Grand Royal Traveler Theater Curtain Physics
+   Animation: Real velvet fabric compression with runner inertia,
+              deepening pleat shadows & natural elastic rebound settle.
+   Backlight: Imperial Stage Spotlight Bloom flaring through the seam.
+   Assets: public/curtain-left.webp & public/curtain-right.webp
+   ============================================================ */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+/* User clicks pass through immediately when curtains start opening */
+.splash.splash-active {
+  pointer-events: none;
+}
+
+/* ============================================================
+   1. Golden Stage Spotlight Bloom & Seam Light Slit
+   ============================================================ */
+
+.splash-backlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 70% at 50% 50%,
+    rgba(255, 240, 180, 0.95) 0%,
+    rgba(224, 180, 65, 0.75) 30%,
+    rgba(180, 135, 35, 0.35) 55%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  opacity: 0;
+  transform: scaleX(0.05);
+}
+
+/* Central vertical light beam emerging from the parting seam */
+.splash-backlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: #ffffff;
+  box-shadow:
+    0 0 20px 8px rgba(255, 245, 200, 1),
+    0 0 65px 28px rgba(230, 190, 75, 0.85),
+    0 0 130px 60px rgba(184, 142, 43, 0.55);
+  opacity: 0;
+}
+
+/* Parting triggers the beam ignition & golden ambient flood */
+.splash.splash-active .splash-backlight {
+  animation: backlightBloom 1.9s cubic-bezier(0.2, 0.85, 0.25, 1) forwards;
+}
+
+.splash.splash-active .splash-backlight::before {
+  animation: beamIgnite 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes beamIgnite {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0.4);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@keyframes backlightBloom {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.04);
+  }
+  22% {
+    opacity: 1;
+    transform: scaleX(0.45);
+  }
+  55% {
+    opacity: 0.85;
+    transform: scaleX(0.9);
+  }
+  80% {
+    opacity: 0.4;
+    transform: scaleX(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1.3);
+  }
+}
+
+/* ============================================================
+   2. Dual Velvet Curtain Halves (50vw Each, Seam-Joined at Center)
+   ============================================================ */
+
+.curtain-left,
+.curtain-right {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 2;
+  will-change: transform, filter;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: top left;
+  transform: scaleX(1) translateX(0);
+  background-image:
+    url('/curtain-left.webp'),
+    radial-gradient(60% 55% at 50% 0%, rgba(255, 236, 170, 0.25) 0%, rgba(255, 236, 170, 0) 60%),
+    repeating-linear-gradient(
+      90deg,
+      #4a3005 0px,
+      #7a5311 14px,
+      #b98a2e 38px,
+      #e8c25c 52px,
+      #f8e08a 58px,
+      #b98a2e 66px,
+      #6b4a10 94px,
+      #3c2604 110px
+    );
+  background-position: right center, center top, center;
+  background-size: cover, cover, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-color: #4a3005;
+  box-shadow: inset -32px 0 54px -22px rgba(0, 0, 0, 0.7);
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: top right;
+  transform: scaleX(1) translateX(0);
+  background-image:
+    url('/curtain-right.webp'),
+    radial-gradient(60% 55% at 50% 0%, rgba(255, 236, 170, 0.25) 0%, rgba(255, 236, 170, 0) 60%),
+    repeating-linear-gradient(
+      -90deg,
+      #4a3005 0px,
+      #7a5311 14px,
+      #b98a2e 38px,
+      #e8c25c 52px,
+      #f8e08a 58px,
+      #b98a2e 66px,
+      #6b4a10 94px,
+      #3c2604 110px
+    );
+  background-position: left center, center top, center;
+  background-size: cover, cover, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-color: #4a3005;
+  box-shadow: inset 32px 0 54px -22px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtle fabric sheen sweep */
+.curtain-left::after,
+.curtain-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 244, 200, 0.22) 47%,
+    rgba(255, 255, 255, 0) 62%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Top track rail shadow */
+.curtain-left::before,
+.curtain-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: linear-gradient(180deg, #201402 0%, #4a3008 70%, rgba(74, 48, 8, 0) 100%);
+  z-index: 1;
+}
+
+/* ============================================================
+   3. Grand Traveler Track Physics with Elastic Velvet Settle
+   ============================================================ */
+
+.splash.splash-active .curtain-left {
+  animation: theatricalOpenLeft 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.splash.splash-active .curtain-right {
+  animation: theatricalOpenRight 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Left Curtain: Motor tension -> fluid stage sweep -> bunched stacking -> elastic settle */
+@keyframes theatricalOpenLeft {
+  0% {
+    transform: scaleX(1) translateX(0) skewX(0);
+  }
+  20% {
+    transform: scaleX(0.95) translateX(-2vw) skewX(1deg);
+  }
+  60% {
+    transform: scaleX(0.5) translateX(-20vw) skewX(3deg);
+  }
+  100% {
+    transform: scaleX(0) translateX(-100vw) skewX(5deg);
+  }
+}
+
+/* Right Curtain: Symmetrical traveler track physics with subtle natural stagger */
+@keyframes theatricalOpenRight {
+  0% {
+    transform: scaleX(1) translateX(0) skewX(0);
+  }
+  20% {
+    transform: scaleX(0.95) translateX(2vw) skewX(-1deg);
+  }
+  60% {
+    transform: scaleX(0.5) translateX(20vw) skewX(-3deg);
+  }
+  100% {
+    transform: scaleX(0) translateX(100vw) skewX(-5deg);
+  }
+}
+
+/* ============================================================
+   4. Floating Rose Petals (Overlay Layer with Soft Breeze Dissolve)
+   ============================================================ */
+
+.splash-petals {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.splash-petal {
+  position: absolute;
+  top: -6%;
+  width: var(--petal-size, 16px);
+  height: calc(var(--petal-size, 16px) * 0.78);
+  border-radius: 88% 12% 88% 12% / 70% 30% 70% 30%;
+  background:
+    linear-gradient(
+      135deg,
+      hsl(calc(348 + var(--petal-hue, 0)), 78%, 78%) 0%,
+      hsl(calc(348 + var(--petal-hue, 0)), 85%, 52%) 45%,
+      hsl(340, 80%, 36%) 100%
+    );
+  box-shadow: inset -2px -3px 6px rgba(60, 0, 20, 0.55);
+  opacity: 0;
+  animation-name: petal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.splash-petal::after {
+  content: '';
+  position: absolute;
+  inset: 18% 30%;
+  border-radius: inherit;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  transform: rotate(6deg);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -4vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate3d(var(--petal-sway, 40px), 52vh, 0) rotate(200deg);
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(calc(var(--petal-sway, 40px) * -0.6), 108vh, 0) rotate(400deg);
+    opacity: 0;
+  }
+}
+
+/* Parting breeze causes petals to gently disperse outwards */
+.splash.splash-active .splash-petal:nth-child(odd) {
+  transform: translate3d(-100px, 70vh, 0) rotate(360deg) scale(0.7) !important;
+  opacity: 0 !important;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease !important;
+}
+
+.splash.splash-active .splash-petal:nth-child(even) {
+  transform: translate3d(100px, 70vh, 0) rotate(-360deg) scale(0.7) !important;
+  opacity: 0 !important;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease !important;
+}
+
+/* ============================================================
+   5. Centered Medallion & Brand Typography
+   ============================================================ */
+
+.splash-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 0 24px;
+  animation: splash-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.65s ease;
+  pointer-events: none;
+}
+
+@keyframes splash-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brand content softly dissolves into the light beam */
+.splash.splash-active .splash-content {
+  opacity: 0;
+  transform: scale(1.05) translateY(-10px);
+  filter: blur(3px);
+}
+
+.splash-monogram {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255, 226, 140, 0.85);
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 700;
+  color: #f8e08a;
+  background: rgba(43, 26, 2, 0.45);
+  box-shadow: 0 0 34px rgba(248, 224, 138, 0.35);
+}
+
+.splash-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fdf2c8;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.splash-sub {
+  margin: 10px 0 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(13px, 2.2vw, 16px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 236, 170, 0.9);
+}
+
+.splash-divider {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #f8e08a;
+}
+
+.splash-divider span {
+  width: 84px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(248, 224, 138, 0) 0%, rgba(248, 224, 138, 0.8) 100%);
+}
+
+.splash-divider span:last-child {
+  transform: scaleX(-1);
+}
+
+/* Accessibility: respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .curtain-left,
+  .curtain-right,
+  .splash-backlight,
+  .splash-content,
+  .splash-petals,
+  .splash-petal {
+    transition: none !important;
+    animation: none !important;
+  }
+  .splash.splash-active .curtain-left,
+  .splash.splash-active .curtain-right,
+  .splash.splash-active .splash-backlight,
+  .splash.splash-active .splash-content,
+  .splash.splash-active .splash-petals {
+    opacity: 0 !important;
+  }
+}

@@ -54,10 +54,10 @@ export const DECOR_CARDS = [
 ];
 
 /**
- * #decors intro paragraph — kept byte-for-byte from index.html, which already
- * contains two runs of double-encoded mojibake ("ï¿½", i.e. U+00EF U+00BF
- * U+00BD) where em dashes were intended — a pre-existing encoding artefact in
- * the source file, reproduced here exactly so the rendering is unchanged.
+ * #decors intro paragraph — em dashes restored. The original index.html (and
+ * this file's first version) shipped double-encoded mojibake ("ï¿½", i.e.
+ * U+00EF U+00BF U+00BD) where em dashes were intended — a pre-existing
+ * encoding artefact that rendered as broken "½" glyphs on the page.
  */
 export const DECORS_BODY =
-  'Fifteen-plus signature stage architectures \u00EF\u00BF\u00BD from the imperial Moroccan arch curtain to bright floral and royal feast setups \u00EF\u00BF\u00BD each fully rigged with intelligent lighting, acoustic reinforcement and our moving smart-stage.';
+  'Fifteen-plus signature stage architectures — from the imperial Moroccan arch curtain to bright floral and royal feast setups — each fully rigged with intelligent lighting, acoustic reinforcement and our moving smart-stage.';

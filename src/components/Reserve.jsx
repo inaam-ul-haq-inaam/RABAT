@@ -3,6 +3,7 @@ import Section from './Section.jsx';
 import { WhatsAppIcon } from './Icons.jsx';
 import { Calendar, User, Users, Utensils } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext.jsx';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const WA_NUMBER = '923017130942';
 
@@ -14,13 +15,16 @@ const MENU_OPTIONS = [
 ];
 
 export default function Reserve() {
-  const { theme } = useTheme();
+  const { theme, selectTheme } = useTheme();
+  const { openContactModal } = useContactModal();
 
   // 1. React State Management for Form Inputs
+  const todayDate = new Date().toISOString().split('T')[0];
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [guests, setGuests] = useState('');
   const [selectedMenus, setSelectedMenus] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Toggle selection for Menu Preference checkboxes
   const handleMenuToggle = (menuOption) => {
@@ -35,14 +39,28 @@ export default function Reserve() {
   const handleWhatsAppSubmit = (e) => {
     if (e) e.preventDefault();
 
+    if (!name.trim()) {
+      setErrorMessage('Please enter your full name to proceed with the booking inquiry.');
+      document.getElementById('resName')?.focus();
+      return;
+    }
+
+    if (!date) {
+      setErrorMessage('Please select your target event date.');
+      document.getElementById('resDate')?.focus();
+      return;
+    }
+
+    setErrorMessage('');
+
     const formattedMenus =
       selectedMenus.length > 0 ? selectedMenus.join(', ') : 'Not Specified';
 
     // Construct professional message using template literals
     let message = `Hello Rabat Banquet Hall, I would like to inquire about a booking.
-Name: ${name.trim() || 'N/A'}
-Date: ${date || 'Not Set'}
-Expected Guests: ${guests || 'N/A'}
+Name: ${name.trim()}
+Date: ${date}
+Expected Guests: ${guests.trim() || 'N/A'}
 Menu Preferences: ${formattedMenus}`;
 
     if (theme) {
@@ -97,6 +115,7 @@ Menu Preferences: ${formattedMenus}`;
             border: '1px solid var(--color-divider, #E5DCCB)',
             boxShadow: '0 8px 30px rgba(35, 25, 15, 0.06)',
             marginTop: '2rem',
+            marginBottom: '4rem',
           }}
         >
           <p
@@ -113,6 +132,49 @@ Menu Preferences: ${formattedMenus}`;
           >
             Select Date &amp; Schedule Walkthrough
           </p>
+
+          {/* Selected Stage Theme Badge */}
+          {theme && (
+            <div
+              style={{
+                marginBottom: '1.5rem',
+                padding: '0.65rem 1rem',
+                borderRadius: '9999px',
+                background: 'rgba(212, 175, 55, 0.1)',
+                border: '1px solid rgba(212, 175, 55, 0.45)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '8px',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem' }}>
+                <span style={{ color: 'var(--color-gold, #D4AF37)', fontWeight: '700' }}>✨ Stage Theme:</span>
+                <span style={{ color: 'var(--color-text, #111827)', fontWeight: '600' }}>{theme}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => selectTheme('')}
+                aria-label="Remove selected theme"
+                title="Remove selected theme"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--color-text-muted, #8C6D32)',
+                  fontSize: '1.1rem',
+                  lineHeight: '1',
+                  padding: '2px 6px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                &times;
+              </button>
+            </div>
+          )}
 
           <form className="res-form" id="reserveForm" onSubmit={handleWhatsAppSubmit}>
             {/* Field 1: Target Event Date */}
@@ -139,8 +201,12 @@ Menu Preferences: ${formattedMenus}`;
                 className="rinput"
                 type="date"
                 id="resDate"
+                min={todayDate}
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                  if (errorMessage) setErrorMessage('');
+                }}
                 style={{
                   width: '100%',
                   padding: '0.85rem 1rem',
@@ -178,7 +244,10 @@ Menu Preferences: ${formattedMenus}`;
                 id="resName"
                 placeholder="e.g. Malik Muhammad Ali"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  if (errorMessage) setErrorMessage('');
+                }}
                 autoComplete="name"
                 style={{
                   width: '100%',
@@ -298,6 +367,30 @@ Menu Preferences: ${formattedMenus}`;
               </div>
             </div>
 
+            {/* Validation Notice */}
+            {errorMessage && (
+              <div
+                style={{
+                  marginBottom: '1.25rem',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '10px',
+                  background: 'rgba(212, 175, 55, 0.12)',
+                  border: '1.5px solid #D4B26F',
+                  color: '#9E7728',
+                  fontSize: '0.85rem',
+                  fontWeight: '700',
+                  textAlign: 'center',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
+              >
+                <span>⚠️</span>
+                <span>{errorMessage}</span>
+              </div>
+            )}
+
             {/* Field 5: WhatsApp Action Button */}
             <button
               type="submit"
@@ -327,7 +420,23 @@ Menu Preferences: ${formattedMenus}`;
           </form>
 
           <p className="res-alt" style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem' }}>
-            Prefer to talk now? <a href="tel:+923017130942" style={{ fontWeight: '600', color: 'var(--color-gold, #D4AF37)' }}>0301-7130942</a>
+            Prefer to talk now?{' '}
+            <button
+              type="button"
+              onClick={openContactModal}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                fontWeight: '600',
+                color: 'var(--color-gold, #D4AF37)',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              Call or WhatsApp Concierge (3 Direct Lines)
+            </button>
           </p>
         </div>
       </div>

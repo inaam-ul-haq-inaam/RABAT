@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SectionLink from './SectionLink.jsx';
 import { CalendarIcon, PhoneIcon, PinIcon, WhatsAppIcon } from './Icons.jsx';
+import { useContactModal } from '../context/ContactModalContext.jsx';
+import { CONTACT_NUMBERS } from '../data/contact.js';
 
 const EXPERIENCE_LINKS = [
   { to: 'hero', label: 'The Grand Hall' },
@@ -14,6 +16,14 @@ const MAP_URL =
   'https://www.google.com/maps/search/?api=1&query=RABAT%20banquet%20hall%20by%20Time%20%26%20Taste%2C%20Moulana%20Shoukat%2C%20Ali%20Road%2C%20Plot%209%20Saadat%20Farooq%20Rd%2C%20Saddar%20Town%2C%20Lahore%2C%20Pakistan';
 
 export default function Footer() {
+  const { openContactModal } = useContactModal();
+  const location = useLocation();
+
+  // Hide entire footer on the dedicated Reserve page
+  if (location.pathname === '/reserve') {
+    return null;
+  }
+
   return (
     <footer className="r-footer" id="footer" role="contentinfo">
       {/* 1. TOP BANNER: Blurred Ambient Photo & Curved Invitation Card */}
@@ -36,26 +46,24 @@ export default function Footer() {
 
           {/* Right Action Buttons */}
           <div className="r-banner-actions">
-            <a
-              href="https://wa.me/923017130942"
+            <SectionLink
+              to="reserve"
               className="r-btn-gold-pill"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <CalendarIcon size={18} />
               <span>SCHEDULE A PRIVATE TOUR</span>
               <span className="r-arrow">&rarr;</span>
-            </a>
+            </SectionLink>
 
-            <a
-              href="https://wa.me/923017130942"
+            <button
+              type="button"
+              onClick={openContactModal}
               className="r-btn-dark-pill"
-              target="_blank"
-              rel="noopener noreferrer"
+              style={{ cursor: 'pointer', border: 'none' }}
             >
               <WhatsAppIcon size={18} />
               <span>CHAT ON WHATSAPP</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -228,7 +236,8 @@ export default function Footer() {
                 <p className="r-venue-text">
                   RABAT Banquet Hall by Time &amp; Taste
                   <br />
-                  Moulana Shoukat, Ali Road, Plot 9 Saadat Farooq Rd,
+                    <br />
+                  Plot 9 Saadat Farooq Rd,
                   <br />
                   Saddar Town, Lahore, Pakistan
                 </p>
@@ -263,29 +272,39 @@ export default function Footer() {
                 <span />
               </div>
 
-              {/* Dark Concierge Box */}
-              <div className="r-concierge-pill">
-                <div className="r-concierge-icon">
-                  <PhoneIcon size={18} strokeWidth={2} color="#C5A059" />
-                </div>
-                <div className="r-concierge-text">
-                  <span className="r-concierge-label">DIRECT CONCIERGE</span>
-                  <a href="tel:+923017130942" className="r-concierge-phone">
-                    0301-7130942
-                  </a>
-                </div>
-              </div>
-
-              {/* Alternate Desk */}
-              <div className="r-alt-desk">
-                <div className="r-alt-row">
-                  <PhoneIcon size={16} strokeWidth={2} color="#1A1A1A" />
-                  <span className="r-alt-label">ALTERNATE DESK</span>
-                </div>
-                <div className="r-alt-numbers">
-                  <span>+92 321 8021445</span>
-                  <span>+92 300 8021445</span>
-                </div>
+              {/* 3 Contact Numbers (matching More > Contact Us) */}
+              <div className="r-footer-contacts-list">
+                {CONTACT_NUMBERS.map((item) => (
+                  <div key={item.display} className="r-footer-contact-row">
+                    <a
+                      href={`tel:${item.tel}`}
+                      className="r-footer-phone-val"
+                      title={`Call ${item.display}`}
+                    >
+                      {item.display}
+                    </a>
+                    <div className="r-footer-contact-actions">
+                      <a
+                        href={`https://wa.me/${item.wa}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="r-footer-action-btn r-footer-wa-btn"
+                        aria-label={`WhatsApp ${item.display}`}
+                        title={`Chat on WhatsApp (${item.display})`}
+                      >
+                        <WhatsAppIcon size={16} />
+                      </a>
+                      <a
+                        href={`tel:${item.tel}`}
+                        className="r-footer-action-btn r-footer-call-btn"
+                        aria-label={`Call ${item.display}`}
+                        title={`Call ${item.display}`}
+                      >
+                        <PhoneIcon size={14} color="#C5A059" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -295,7 +314,7 @@ export default function Footer() {
       {/* 4. BOTTOM BAR */}
       <div className="r-footer-bottom">
         <div className="r-bottom-left">
-          <p className="r-copy">&copy; 2024 Rabat by Time &amp; Taste. All Rights Reserved.</p>
+          <p className="r-copy">&copy; {new Date().getFullYear()} Rabat by Time &amp; Taste. All Rights Reserved.</p>
         </div>
         <div className="r-bottom-right">
           <div className="r-legal-links">

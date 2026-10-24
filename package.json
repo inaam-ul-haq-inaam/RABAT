@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "curtain:split": "node scripts/split-curtain.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.58.0",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.35.5",
     "vite": "^5.4.11"
   }
 }

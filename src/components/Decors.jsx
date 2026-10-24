@@ -2,6 +2,7 @@ import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
 import { CalendarIcon, CrownIcon, DiamondIcon, PhoneIcon } from './Icons.jsx';
 import { useTheme } from '../context/ThemeContext.jsx';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 import { DECOR_CARDS, DECORS_BODY } from '../data/decors.js';
 
 const FLOURISH_SMALL = (
@@ -84,6 +85,7 @@ function ThemeFooter({ card, onSelect }) {
 
 export default function Decors() {
   const { selectTheme } = useTheme();
+  const { openContactModal } = useContactModal();
   const [cardOne, cardTwo, cardThree] = DECOR_CARDS;
 
   return (
@@ -201,10 +203,15 @@ export default function Decors() {
               <CalendarIcon size={18} />
               BOOK DESIGN CONSULTATION
             </SectionLink>
-            <a href="tel:+923017130942" className="btn-csc-secondary">
+            <button
+              type="button"
+              onClick={openContactModal}
+              className="btn-csc-secondary"
+              style={{ cursor: 'pointer', border: 'none' }}
+            >
               <PhoneIcon size={18} />
-              CALL DECOR MASTER: 0301-7130942
-            </a>
+              CALL / WHATSAPP CONCIERGE
+            </button>
           </div>
         </div>
       </div>

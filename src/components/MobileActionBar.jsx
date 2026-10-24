@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SectionLink from './SectionLink.jsx';
 import { CalendarIcon, WhatsAppIcon } from './Icons.jsx';
+import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const REVEAL_AFTER = 320;
 
 export default function MobileActionBar() {
   const location = useLocation();
   const [visible, setVisible] = useState(false);
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 680px)');
@@ -39,15 +41,15 @@ export default function MobileActionBar() {
         <CalendarIcon size={17} />
         <span>Check date</span>
       </SectionLink>
-      <a
+      <button
+        type="button"
         className="mobile-action-link mobile-action-link--whatsapp"
-        href="https://wa.me/923017130942"
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={openContactModal}
+        aria-label="Contact Concierge on WhatsApp"
       >
         <WhatsAppIcon size={18} />
         <span>WhatsApp</span>
-      </a>
+      </button>
     </aside>
   );
 }

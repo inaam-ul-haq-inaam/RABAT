@@ -1,11 +1,20 @@
 import { useEffect } from 'react';
 
-const QUEUE_DELAY = 150; // ms between reveals, same as the original
+const QUEUE_DELAY = 150; // ms between reveals, same as the original stagger
 const REVEAL_OFFSET = 0.94; // reveal when the element top reaches 94% viewport
 
 /**
- * Port of js/scroll-fx.js — the 94% waypoint fade for .scrollfade sections and
- * the full-bleed .photo bands. Re-runs per route so newly mounted sections are queued again.
+ * Port of js/scroll-fx.js — the 94%-waypoint fade for .scrollfade sections and
+ * the full-bleed .photo bands. Re-runs per route so newly mounted sections are
+ * queued again.
+ *
+ * Hybrid drive (both unobserve-style cheap):
+ *  1. IntersectionObserver handles the normal downward scroll — zero work per
+ *     scroll event, reveals fire as elements cross the bottom edge.
+ *  2. An rAF-throttled "passed" sweep covers the edge case IO can't: elements
+ *     scrolled PAST (faster than they intersect, deep-link jumps) would stay
+ *     hidden forever with IO alone. The sweep enqueues them into the same FIFO
+ *     queue, so they still fade in one-by-one instead of all at once.
  */
 export default function useScrollFx(routeKey) {
   useEffect(() => {
@@ -44,43 +53,59 @@ export default function useScrollFx(routeKey) {
       }
     }
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            enqueue(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      // top pushes the root far above the viewport (elements taller than the
+      // page fold plane are caught by the sweep below; this margin keeps
+      // partially-off-screen tall sections eligible), bottom is the 94% line
+      { rootMargin: '0px 0px -6% 0px', threshold: 0 },
+    );
+
     // sections hidden by the page switcher were marked revealed up front
-    const pending = els.filter((el) => {
-      if (getComputedStyle(el).display === 'none') {
-        el.classList.add('is-revealed');
-        return false;
-      }
-      return true;
+    els.forEach((el) => {
+      if (getComputedStyle(el).display === 'none') el.classList.add('is-revealed');
+      else observer.observe(el);
     });
 
-    function check() {
-      const trigger = window.innerHeight * REVEAL_OFFSET;
-      for (let i = 0; i < pending.length; i += 1) {
-        if (pending[i].getBoundingClientRect().top <= trigger) {
-          enqueue(pending[i]);
-          pending.splice(i, 1);
-          i -= 1;
+    /* --- "passed" sweep --- */
+    let ticking = false;
+    function sweep() {
+      ticking = false;
+      for (let i = 0; i < els.length; i += 1) {
+        const el = els[i];
+        if (el.classList.contains('is-revealed')) continue;
+        if (el.getBoundingClientRect().top <= window.innerHeight * REVEAL_OFFSET) {
+          enqueue(el);
         }
       }
     }
-
-    let ticking = false;
     function onScroll() {
       if (ticking) return;
       ticking = true;
-      window.requestAnimationFrame(() => {
-        ticking = false;
-        check();
-      });
+      window.requestAnimationFrame(sweep);
+    }
+
+    const pending = els.filter((el) => !el.classList.contains('is-revealed'));
+    if (!pending.length) {
+      observer.disconnect();
+      return () => {};
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', check);
-    check();
+    window.addEventListener('resize', onScroll);
+    sweep();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', check);
+      window.removeEventListener('resize', onScroll);
       window.clearTimeout(timer);
       els.forEach((el) => el.classList.remove('is-revealed'));
     };

@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import SplashScreen from './components/SplashScreen.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
-import MobileActionBar from './components/MobileActionBar.jsx';
 import MobileBottomNav from './components/MobileBottomNav.jsx';
+import MobileActionBar from './components/MobileActionBar.jsx';
 import useReveal from './hooks/useReveal.js';
 import useScrollFx from './hooks/useScrollFx.js';
 import { pendingScroll, scrollToId, scrollToSelector } from './lib/navigation.js';
@@ -15,8 +16,24 @@ import GalleryPage from './pages/GalleryPage.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 import ReservePage from './pages/ReservePage.jsx';
 
+const PAGE_TITLES = {
+  '/': 'Rabat Banquet Hall — Moroccan Luxury Venue | Lahore',
+  '/services': 'Our Royal Services — Rabat Banquet Hall',
+  '/catering': 'Royal Catering & Feasts — Rabat Banquet Hall',
+  '/decors': 'Signature Stages & Décor — Rabat Banquet Hall',
+  '/gallery': 'Photo Gallery & 3D Tour — Rabat Banquet Hall',
+  '/hallplan': 'Hall Blueprint & Capacity — Rabat Banquet Hall',
+  '/reserve': 'Reserve Your Wedding Date — Rabat Banquet Hall',
+};
+
 export default function App() {
   const location = useLocation();
+
+  // Update browser tab title dynamically per page
+  useEffect(() => {
+    document.title =
+      PAGE_TITLES[location.pathname] || 'Rabat Banquet Hall — Moroccan Luxury Venue | Lahore';
+  }, [location.pathname]);
 
   // scroll-reveal + 94%-waypoint fade, re-initialised for every page swap
   useReveal(location.key);
@@ -42,6 +59,8 @@ export default function App() {
 
   return (
     <>
+      <SplashScreen />
+
       <Navbar />
 
       <main>
@@ -57,8 +76,8 @@ export default function App() {
         </Routes>
       </main>
 
-      <MobileActionBar />
       <MobileBottomNav />
+      <MobileActionBar />
       <Footer />
     </>
   );

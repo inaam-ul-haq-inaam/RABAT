@@ -22,6 +22,29 @@ export function LightboxProvider({ children }) {
   const [open, setOpen] = useState(false);
   const closeRef = useRef(null);
   const lastFocus = useRef(null);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+
+  const handleTouchStart = (e) => {
+    if (!e.touches || !e.touches[0]) return;
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!e.changedTouches || !e.changedTouches[0] || !touchStartX.current) return;
+    const diffX = e.changedTouches[0].clientX - touchStartX.current;
+    const diffY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Detect dominant horizontal swipe with threshold 45px
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+      if (diffX < 0) {
+        step(1); // Swiped Left -> Next image
+      } else {
+        step(-1); // Swiped Right -> Previous image
+      }
+    }
+  };
 
   const closeLightbox = useCallback(() => {
     setOpen(false);
@@ -88,6 +111,8 @@ export function LightboxProvider({ children }) {
         aria-modal="true"
         aria-label="Decor full-screen preview"
         aria-hidden={open ? 'false' : 'true'}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onClick={(event) => {
           if (event.target === event.currentTarget) closeLightbox();
         }}
