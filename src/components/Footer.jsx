@@ -12,12 +12,16 @@ const EXPERIENCE_LINKS = [
   { to: 'gallery', label: 'Visual Gallery' },
 ];
 
-const MAP_URL =
-  'https://www.google.com/maps/search/?api=1&query=RABAT%20banquet%20hall%20by%20Time%20%26%20Taste%2C%20Moulana%20Shoukat%2C%20Ali%20Road%2C%20Plot%209%20Saadat%20Farooq%20Rd%2C%20Saddar%20Town%2C%20Lahore%2C%20Pakistan';
+const MAP_URL = 'https://maps.app.goo.gl/UjANVPoav1E5t1du8';
 
 export default function Footer() {
   const { openContactModal } = useContactModal();
   const location = useLocation();
+
+  const isDecorsPage = location.pathname === '/decors';
+  const footerContacts = isDecorsPage
+    ? [{ display: '0325-6572839', tel: '03256572839', wa: '923256572839' }]
+    : CONTACT_NUMBERS;
 
   // Hide entire footer on the dedicated Reserve page
   if (location.pathname === '/reserve') {
@@ -57,7 +61,11 @@ export default function Footer() {
 
             <button
               type="button"
-              onClick={openContactModal}
+              onClick={
+                isDecorsPage
+                  ? () => window.open('https://wa.me/923256572839', '_blank')
+                  : openContactModal
+              }
               className="r-btn-dark-pill"
               style={{ cursor: 'pointer', border: 'none' }}
             >
@@ -261,9 +269,9 @@ export default function Footer() {
                 <span />
               </div>
 
-              {/* 2 Contact Numbers */}
+              {/* Contact Numbers */}
               <div className="r-footer-contacts-list">
-                {CONTACT_NUMBERS.map((item) => (
+                {footerContacts.map((item) => (
                   <div key={item.display} className="r-footer-contact-row">
                     <a
                       href={`tel:${item.tel}`}

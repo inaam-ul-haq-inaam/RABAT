@@ -98,7 +98,7 @@ export default function Decors() {
           SIGNATURE THEMES &amp; AMBIANCE
         </span>
         <h2 className="decors-title" id="decors-title">
-          Bespoke Stage Decors for Every Ceremony
+          Decor by Blissfull Event Planner
         </h2>
         <p className="decors-body">{DECORS_BODY}</p>
       </div>
@@ -203,15 +203,16 @@ export default function Decors() {
               <CalendarIcon size={18} />
               BOOK DESIGN CONSULTATION
             </SectionLink>
-            <button
-              type="button"
-              onClick={openContactModal}
+            <a
+              href="https://wa.me/923256572839"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-csc-secondary"
-              style={{ cursor: 'pointer', border: 'none' }}
+              style={{ cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
             >
               <PhoneIcon size={18} style={{ color: '#25D366' }} />
-              CALL / WHATSAPP CONCIERGE
-            </button>
+              0325-6572839
+            </a>
           </div>
         </div>
       </div>

@@ -1,17 +1,32 @@
 import { useState } from 'react';
 import Section from './Section.jsx';
 import { WhatsAppIcon } from './Icons.jsx';
-import { Calendar, User, Users, Utensils } from 'lucide-react';
+import { Calendar, User, Users, Utensils, HelpCircle, UserCheck, Sparkles } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const WA_NUMBER = '923017130942';
 
+const EVENT_TYPE_OPTIONS = [
+  'Mayoun',
+  'Mehndi',
+  'Nikkah',
+  'Barat',
+  'walima',
+  'Shehndi',
+  'Shalima',
+  'Corporate',
+  'Get To Gather',
+];
+
 const MENU_OPTIONS = [
-  'Traditional Menu',
-  'Royal Buffet',
-  'Hi-Tea',
-  'Custom Menu',
+  'Chicken One Dish',
+  'Mutton One Dish',
+];
+
+const ATTEND_OPTIONS = [
+  'Yes',
+  'No',
 ];
 
 export default function Reserve() {
@@ -20,48 +35,45 @@ export default function Reserve() {
 
   // 1. React State Management for Form Inputs
   const todayDate = new Date().toISOString().split('T')[0];
-  const [date, setDate] = useState('');
-  const [name, setName] = useState('');
-  const [guests, setGuests] = useState('');
-  const [selectedMenus, setSelectedMenus] = useState([]);
+  const [expectedDate, setExpectedDate] = useState('');
+  const [hostName, setHostName] = useState('');
+  const [numberOfGuests, setNumberOfGuests] = useState('');
+  const [eventType, setEventType] = useState('');
+  const [menu, setMenu] = useState('');
+  const [attendedBefore, setAttendedBefore] = useState('');
+  const [reference, setReference] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  // Toggle selection for Menu Preference checkboxes
-  const handleMenuToggle = (menuOption) => {
-    setSelectedMenus((prev) =>
-      prev.includes(menuOption)
-        ? prev.filter((item) => item !== menuOption)
-        : [...prev, menuOption]
-    );
-  };
 
   // 2. WhatsApp Dynamic Integration Logic
   const handleWhatsAppSubmit = (e) => {
     if (e) e.preventDefault();
 
-    if (!name.trim()) {
-      setErrorMessage('Please enter your full name to proceed with the booking inquiry.');
-      document.getElementById('resName')?.focus();
+    if (!hostName.trim()) {
+      setErrorMessage('Please enter host full name.');
+      document.getElementById('resHostName')?.focus();
       return;
     }
 
-    if (!date) {
-      setErrorMessage('Please select your target event date.');
-      document.getElementById('resDate')?.focus();
+    if (!expectedDate) {
+      setErrorMessage('Please select your expected event date.');
+      document.getElementById('resExpectedDate')?.focus();
       return;
     }
 
     setErrorMessage('');
 
-    const formattedMenus =
-      selectedMenus.length > 0 ? selectedMenus.join(', ') : 'Not Specified';
-
-    // Construct professional message using template literals
+    // Format fields properly into WhatsApp message
     let message = `Hello Rabat Banquet Hall, I would like to inquire about a booking.
-Name: ${name.trim()}
-Date: ${date}
-Expected Guests: ${guests.trim() || 'N/A'}
-Menu Preferences: ${formattedMenus}`;
+Host Name: ${hostName.trim()}
+Event Type: ${eventType || 'Not Specified'}
+Expected Date: ${expectedDate}
+Numbers of Guests: ${numberOfGuests.trim() || 'N/A'}
+Menu: ${menu || 'Not Specified'}
+Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
+
+    if (reference.trim()) {
+      message += `\nRef, If Attend: ${reference.trim()}`;
+    }
 
     if (theme) {
       message += `\nSelected Decor Theme: ${theme}`;
@@ -69,6 +81,41 @@ Menu Preferences: ${formattedMenus}`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodedMessage}`, '_blank');
+  };
+
+  const selectStyle = {
+    width: '100%',
+    padding: '0.85rem 1rem',
+    background: 'var(--color-bg, #FAF8F5)',
+    border: '1px solid var(--color-divider, #E5DCCB)',
+    borderRadius: '10px',
+    fontSize: '0.92rem',
+    color: 'var(--color-text, #111827)',
+    outline: 'none',
+    cursor: 'pointer',
+  };
+
+  const inputStyle = {
+    width: '100%',
+    padding: '0.85rem 1rem',
+    background: 'var(--color-bg, #FAF8F5)',
+    border: '1px solid var(--color-divider, #E5DCCB)',
+    borderRadius: '10px',
+    fontSize: '0.92rem',
+    color: 'var(--color-text, #111827)',
+    outline: 'none',
+  };
+
+  const labelStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    marginBottom: '0.45rem',
+    color: 'var(--color-text-muted, #8C6D32)',
+    fontSize: '0.8rem',
+    fontWeight: '700',
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
   };
 
   return (
@@ -93,7 +140,7 @@ Menu Preferences: ${formattedMenus}`;
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            Hall 16 - Lahore Garrison Golf &amp; Country Club
+            Hall 16 - Rabat Garrison Marriage Hall
           </span>
           <h2 className="reserve-title" id="reserve-title">
             Reserve Your Wedding Date
@@ -177,194 +224,149 @@ Menu Preferences: ${formattedMenus}`;
           )}
 
           <form className="res-form" id="reserveForm" onSubmit={handleWhatsAppSubmit}>
-            {/* Field 1: Target Event Date */}
+            {/* Field 1: Expected Date */}
             <div className="rfield" style={{ marginBottom: '1.25rem' }}>
-              <label
-                className="rfield-label"
-                htmlFor="resDate"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  marginBottom: '0.45rem',
-                  color: 'var(--color-text-muted, #8C6D32)',
-                  fontSize: '0.8rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
+              <label className="rfield-label" htmlFor="resExpectedDate" style={labelStyle}>
                 <Calendar size={14} />
-                <span>Target Event Date</span>
+                <span>Expected Date</span>
               </label>
               <input
                 className="rinput"
                 type="date"
-                id="resDate"
+                id="resExpectedDate"
                 min={todayDate}
-                value={date}
+                value={expectedDate}
                 onChange={(e) => {
-                  setDate(e.target.value);
+                  setExpectedDate(e.target.value);
                   if (errorMessage) setErrorMessage('');
                 }}
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  background: 'var(--color-bg, #FAF8F5)',
-                  border: '1px solid var(--color-divider, #E5DCCB)',
-                  borderRadius: '10px',
-                  fontSize: '0.92rem',
-                }}
+                style={inputStyle}
               />
             </div>
 
-            {/* Field 2: Host Full Name */}
+            {/* Field 2: Host Name */}
             <div className="rfield" style={{ marginBottom: '1.25rem' }}>
-              <label
-                className="rfield-label"
-                htmlFor="resName"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  marginBottom: '0.45rem',
-                  color: 'var(--color-text-muted, #8C6D32)',
-                  fontSize: '0.8rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
+              <label className="rfield-label" htmlFor="resHostName" style={labelStyle}>
                 <User size={14} />
-                <span>Host Full Name</span>
+                <span>Host Name</span>
               </label>
               <input
                 className="rinput"
                 type="text"
-                id="resName"
+                id="resHostName"
                 placeholder="e.g. Inaam Ul Haq"
-                value={name}
+                value={hostName}
                 onChange={(e) => {
-                  setName(e.target.value);
+                  setHostName(e.target.value);
                   if (errorMessage) setErrorMessage('');
                 }}
                 autoComplete="name"
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  background: 'var(--color-bg, #FAF8F5)',
-                  border: '1px solid var(--color-divider, #E5DCCB)',
-                  borderRadius: '10px',
-                  fontSize: '0.92rem',
-                }}
+                style={inputStyle}
               />
             </div>
 
-            {/* Field 3: Expected Number of Guests */}
-            <div className="rfield" style={{ marginBottom: '1.5rem' }}>
-              <label
-                className="rfield-label"
-                htmlFor="resGuests"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  marginBottom: '0.45rem',
-                  color: 'var(--color-text-muted, #8C6D32)',
-                  fontSize: '0.8rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
+            {/* Field 3: Numbers of Guests */}
+            <div className="rfield" style={{ marginBottom: '1.25rem' }}>
+              <label className="rfield-label" htmlFor="resGuests" style={labelStyle}>
                 <Users size={14} />
-                <span>Number of Guests</span>
+                <span>Numbers of Guests</span>
               </label>
               <input
                 className="rinput"
                 type="number"
                 id="resGuests"
-                placeholder="Expected Guests - e.g. 300"
-                min="50"
-                max="2500"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  background: 'var(--color-bg, #FAF8F5)',
-                  border: '1px solid var(--color-divider, #E5DCCB)',
-                  borderRadius: '10px',
-                  fontSize: '0.92rem',
-                }}
+                placeholder="Numbers of guests - e.g. 300"
+                min="1"
+                value={numberOfGuests}
+                onChange={(e) => setNumberOfGuests(e.target.value)}
+                style={inputStyle}
               />
             </div>
 
-            {/* Field 4: Menu Selection (Stylish Checkbox Group) */}
-            <div className="rfield" style={{ marginBottom: '1.75rem' }}>
-              <label
-                className="rfield-label"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  marginBottom: '0.65rem',
-                  color: 'var(--color-text-muted, #8C6D32)',
-                  fontSize: '0.8rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                <Utensils size={14} />
-                <span>Menu Selection (Select All That Apply)</span>
+            {/* Field 4: Event Type Dropdown */}
+            <div className="rfield" style={{ marginBottom: '1.25rem' }}>
+              <label className="rfield-label" htmlFor="resEventType" style={labelStyle}>
+                <Sparkles size={14} />
+                <span>Event Type</span>
               </label>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-                  gap: '0.65rem',
-                }}
+              <select
+                id="resEventType"
+                value={eventType}
+                onChange={(e) => setEventType(e.target.value)}
+                style={selectStyle}
               >
-                {MENU_OPTIONS.map((menu) => {
-                  const isChecked = selectedMenus.includes(menu);
-                  return (
-                    <label
-                      key={menu}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '0.75rem 1rem',
-                        background: isChecked ? 'rgba(212, 175, 55, 0.12)' : 'var(--color-bg, #FAF8F5)',
-                        border: isChecked
-                          ? '1.5px solid var(--color-gold, #D4AF37)'
-                          : '1px solid var(--color-divider, #E5DCCB)',
-                        borderRadius: '10px',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                        color: isChecked ? '#1A1816' : 'var(--color-text, #2A2724)',
-                        fontWeight: isChecked ? '600' : '500',
-                        fontSize: '0.88rem',
-                        userSelect: 'none',
-                      }}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => handleMenuToggle(menu)}
-                        style={{
-                          accentColor: 'var(--color-gold, #D4AF37)',
-                          width: '17px',
-                          height: '17px',
-                          cursor: 'pointer',
-                        }}
-                      />
-                      <span>{menu}</span>
-                    </label>
-                  );
-                })}
-              </div>
+                <option value="" disabled>
+                  Select Event Type
+                </option>
+                {EVENT_TYPE_OPTIONS.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 5: Menu Dropdown */}
+            <div className="rfield" style={{ marginBottom: '1.25rem' }}>
+              <label className="rfield-label" htmlFor="resMenu" style={labelStyle}>
+                <Utensils size={14} />
+                <span>Menu</span>
+              </label>
+              <select
+                id="resMenu"
+                value={menu}
+                onChange={(e) => setMenu(e.target.value)}
+                style={selectStyle}
+              >
+                <option value="" disabled>
+                  Select Menu
+                </option>
+                {MENU_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 6: Have you attend us before Dropdown */}
+            <div className="rfield" style={{ marginBottom: '1.25rem' }}>
+              <label className="rfield-label" htmlFor="resAttended" style={labelStyle}>
+                <HelpCircle size={14} />
+                <span>Have you attend us before</span>
+              </label>
+              <select
+                id="resAttended"
+                value={attendedBefore}
+                onChange={(e) => setAttendedBefore(e.target.value)}
+                style={selectStyle}
+              >
+                <option value="" disabled>
+                  Select Option
+                </option>
+                {ATTEND_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 7: Ref, If Attend */}
+            <div className="rfield" style={{ marginBottom: '1.5rem' }}>
+              <label className="rfield-label" htmlFor="resReference" style={labelStyle}>
+                <UserCheck size={14} />
+                <span>Ref, If Attend</span>
+              </label>
+              <input
+                className="rinput"
+                type="text"
+                id="resReference"
+                placeholder="Ref, If Attend (Optional reference or event attended)"
+                value={reference}
+                onChange={(e) => setReference(e.target.value)}
+                style={inputStyle}
+              />
             </div>
 
             {/* Validation Notice */}
@@ -391,7 +393,7 @@ Menu Preferences: ${formattedMenus}`;
               </div>
             )}
 
-            {/* Field 5: WhatsApp Action Button */}
+            {/* Submit Action Button */}
             <button
               type="submit"
               className="btn-primary"
