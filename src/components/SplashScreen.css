@@ -209,49 +209,31 @@
    ============================================================ */
 
 .splash.splash-active .curtain-left {
-  animation: theatricalOpenLeft 3.5s cubic-bezier(0.25, 0.9, 0.25, 1) forwards;
+  animation: theatricalOpenLeft 2s cubic-bezier(0.4,0,0.2,1) forwards;
+  animation-delay: 3s;
 }
 
 .splash.splash-active .curtain-right {
-  animation: theatricalOpenRight 3.5s cubic-bezier(0.25, 0.9, 0.25, 1) forwards;
+  animation: theatricalOpenRight 2s cubic-bezier(0.4,0,0.2,1) forwards;
+  animation-delay: 3s;
 }
 
-/* Left Curtain: Graceful slow theatrical gather with realistic fabric drape & skew */
+}
+
+/* Left Curtain: Theatrical 3D sweep */
 @keyframes theatricalOpenLeft {
-  0% {
-    transform: scaleX(1) translateX(0) skewX(0);
-  }
-  18% {
-    transform: scaleX(0.93) translateX(-5vw) skewX(1.2deg);
-  }
-  48% {
-    transform: scaleX(0.68) translateX(-28vw) skewX(2.5deg);
-  }
-  78% {
-    transform: scaleX(0.35) translateX(-64vw) skewX(3.5deg);
-  }
-  100% {
-    transform: scaleX(0.06) translateX(-105vw) skewX(4deg);
-  }
+  0% {transform: scaleX(1) translateX(0) skewX(0);}
+  20% {transform: scaleX(0.95) translateX(-2vw) skewX(1deg);}
+  60% {transform: scaleX(0.5) translateX(-20vw) skewX(3deg);}
+  100% {transform: scaleX(0) translateX(-100vw) skewX(5deg);}
 }
 
 /* Right Curtain: Symmetrical slow theatrical gather */
 @keyframes theatricalOpenRight {
-  0% {
-    transform: scaleX(1) translateX(0) skewX(0);
-  }
-  18% {
-    transform: scaleX(0.93) translateX(5vw) skewX(-1.2deg);
-  }
-  48% {
-    transform: scaleX(0.68) translateX(28vw) skewX(-2.5deg);
-  }
-  78% {
-    transform: scaleX(0.35) translateX(64vw) skewX(-3.5deg);
-  }
-  100% {
-    transform: scaleX(0.06) translateX(105vw) skewX(-4deg);
-  }
+  0% {transform: scaleX(1) translateX(0) skewX(0);}
+  20% {transform: scaleX(0.95) translateX(2vw) skewX(-1deg);}
+  60% {transform: scaleX(0.5) translateX(20vw) skewX(-3deg);}
+  100% {transform: scaleX(0) translateX(100vw) skewX(-5deg);}
 }
 
 /* ============================================================
