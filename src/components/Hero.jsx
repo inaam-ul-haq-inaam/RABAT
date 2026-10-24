@@ -52,16 +52,18 @@ export default function Hero() {
 
       <div className="container">
         <div className="hero-content">
-          <p className="hero-eyebrow">LAHORE’S SIGNATURE EVENT DESTINATION</p>
+          <p className="hero-eyebrow">LAHORE’S SIGNATURE EVENT DESTINATION &bull; TOP BANQUET HALL</p>
           <h1 className="hero-title" id="hero-title">
             {/* the original markup keeps a whitespace text node between the two
                 spans — visible below 680px where they become inline */}
             <span>Where Grand Celebrations</span>{' '}
             <span>Become Timeless Memories</span>
+            <span style={{ display: 'block', fontSize: '0.48em', fontWeight: '600', letterSpacing: '0.06em', color: 'var(--color-gold, #D4AF37)', marginTop: '0.55rem', textTransform: 'uppercase' }}>
+              Rabat Hall &bull; Top Banquet Hall In Lahore
+            </span>
           </h1>
           <p className="hero-lead">
-            From regal wedding ceremonies to unforgettable receptions, discover exceptional celebrations at Rabat,
-            Lahore.
+            From regal wedding ceremonies to unforgettable receptions, discover exceptional celebrations at Rabat Hall — the top banquet hall in Lahore with top catering and extra ordinary banquet services.
           </p>
           <div className="hero-actions">
             <SectionLink to="reserve" className="btn-primary">
