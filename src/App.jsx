@@ -17,13 +17,13 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import ReservePage from './pages/ReservePage.jsx';
 
 const PAGE_TITLES = {
-  '/': 'Rabat Banquet Hall — Moroccan Luxury Venue | Lahore',
-  '/services': 'Our Royal Services — Rabat Banquet Hall',
-  '/catering': 'Royal Catering & Feasts — Rabat Banquet Hall',
-  '/decors': 'Signature Stages & Décor — Rabat Banquet Hall',
-  '/gallery': 'Photo Gallery & 3D Tour — Rabat Banquet Hall',
-  '/hallplan': 'Hall Blueprint & Capacity — Rabat Banquet Hall',
-  '/reserve': 'Reserve Your Wedding Date — Rabat Banquet Hall',
+  '/': 'Rabat Hall — Top Banquet Hall In Lahore | Moroccan Luxury Venue',
+  '/services': 'Extra Ordinary Banquet Services & Top Catering — Rabat Hall',
+  '/catering': 'Top Catering & Royal Wedding Feasts — Rabat Hall Lahore',
+  '/decors': 'Signature Stages & Décor — Rabat Hall',
+  '/gallery': 'Photo Gallery & 3D Tour — Rabat Hall',
+  '/hallplan': 'Hall Blueprint & Capacity — Rabat Hall',
+  '/reserve': 'Reserve Your Wedding Date — Rabat Hall',
 };
 
 export default function App() {

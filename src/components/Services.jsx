@@ -23,14 +23,13 @@ export default function Services() {
         <header className="services-header">
           <span className="services-badge">
             <StarIcon size={14} strokeWidth={2} />
-            BESPOKE MILESTONE CELEBRATIONS &bull; HALL 16
+            EXTRA ORDINARY BANQUET SERVICES &bull; HALL 16
           </span>
           <h2 className="services-title" id="services-title">
-            Our Royal Event Services
+            Royal Event Services at Rabat Hall
           </h2>
           <p className="services-body">
-            From imperial Walima receptions and regal Barats to joyous Mehndis and distinguished corporate banquets,
-            explore how Rabat crafts every celebration into an unforgettable royal memory.
+            Recognized as the top banquet hall in Lahore, Rabat hall pairs imperial Moroccan architecture with top catering and extra ordinary banquet services. From royal Walimas and grand Barats to festive Mehndis, serene Nikkahs, and executive summits, we craft every milestone into an extraordinary celebration.
           </p>
         </header>
 

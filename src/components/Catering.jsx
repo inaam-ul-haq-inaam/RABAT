@@ -115,15 +115,13 @@ export default function Catering() {
               <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
               <line x1="6" y1="17" x2="18" y2="17" />
             </svg>
-            A PROJECT BY @TIMEANDTASTECATERING &bull; ROYAL BANQUET DINING
+            TOP CATERING BY @TIMEANDTASTECATERING &bull; RABAT HALL
           </span>
           <h2 className="catering-main-title" id="catering-title">
-            Royal Wedding Feasts
+            Top Catering &amp; Royal Wedding Feasts at Rabat Hall
           </h2>
           <p className="catering-main-body">
-            Time &amp; Taste Catering brings decades of culinary pedigree to Rabat Banquet Hall. Experience majestic
-            deg-cooked biryanis, authentic Moroccan tagines, and live flaming stations served with five-star royal
-            banquet protocol.
+            Time &amp; Taste Catering brings decades of culinary pedigree to Rabat hall, celebrated as the top banquet hall in Lahore. Experience top catering with majestic deg-cooked biryanis, authentic Moroccan tagines, and live flaming stations served with extra ordinary banquet services.
           </p>
         </div>
 
@@ -137,7 +135,7 @@ export default function Catering() {
             </span>
             <img
               src="images/catering/rabat_royal_feast_1790443145085.webp"
-              alt="Antique Hammered Brass Chafing Displays"
+              alt="Rabat hall - Top catering buffet display with antique hammered brass cloches in Lahore"
               width="1200"
               height="750"
               loading="lazy"
@@ -203,10 +201,9 @@ export default function Catering() {
             <StarIcon size={13} strokeWidth={2} />
             EXPLORE CATERING ARCHITECTURES
           </span>
-          <h3 className="culinary-grid-title">Six Royal Culinary Disciplines</h3>
+          <h3 className="culinary-grid-title">Six Royal Culinary Disciplines at Rabat Hall</h3>
           <p className="culinary-grid-subtitle">
-            Authentic deg-cooked heritage, flaming live tandoors, and curated world banquet themes crafted for grand
-            wedding feasts.
+            Authentic deg-cooked heritage, flaming live tandoors, and curated world banquet themes crafted for top catering and grand wedding feasts.
           </p>
         </div>
 

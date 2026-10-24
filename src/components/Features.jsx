@@ -11,7 +11,7 @@ export default function Features() {
             <source srcSet="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp" type="image/webp" />
             <img
               src="images/hall-plan/rabat_bright_palace_hall_1790426732749.webp"
-              alt="Rabat banquet hall interior showcasing Moroccan dome and colonnades"
+              alt="Rabat hall - Top banquet hall in Lahore showcasing Moroccan dome, colonnades, and grand interior"
               className="features-img"
               width="1376"
               height="768"
@@ -23,14 +23,13 @@ export default function Features() {
         <div className="features-content">
           <span className="features-eyebrow">
             <PinIcon size={14} strokeWidth={2} />{' '}
-            Garrison Golf &amp; Country Club Prestige
+            ABOUT RABAT HALL &bull; GARRISON GOLF &amp; COUNTRY CLUB
           </span>
           <h2 className="features-title" id="features-title">
-            An Oasis of Privacy and Grandeur in Lahore Cantt
+            Why Rabat Hall Is the Top Banquet Hall in Lahore
           </h2>
           <p className="features-lead">
-            Nestled inside the prestigious Lahore Garrison Golf &amp; Country Club on New Airport Road, Hall 16 offers
-            elite privacy, zero traffic bottlenecks, and scenic manicured greenery.
+            Nestled inside the prestigious Lahore Garrison Golf &amp; Country Club on New Airport Road, Rabat hall stands out as the top banquet hall in Lahore. Designed for couples and families who seek royal sophistication, our venue pairs Moroccan architectural grandeur with elite Cantt privacy, expansive parking, and extra ordinary banquet services that ensure every occasion is effortless and unforgettable.
           </p>
           <div className="features-cards" role="list">
             <article className="feature-card" role="listitem">
@@ -53,8 +52,8 @@ export default function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="feature-title">Military-Grade Perimeter &amp; Security</h3>
-                <p className="feature-body">Peace of mind for your VIP dignitaries, families, and overseas guests.</p>
+                <h3 className="feature-title">Prime Cantt Location &amp; Military-Grade Security</h3>
+                <p className="feature-body">Rabat hall offers complete peace of mind, zero traffic bottlenecks, and secure protocols for your VIP dignitaries, families, and overseas guests.</p>
               </div>
             </article>
             <article className="feature-card" role="listitem">
@@ -73,9 +72,9 @@ export default function Features() {
                 </svg>
               </div>
               <div>
-                <h3 className="feature-title">Dedicated Event Concierge</h3>
+                <h3 className="feature-title">Extra Ordinary Banquet Services &amp; Concierge</h3>
                 <p className="feature-body">
-                  Full acoustic sound engineering, intelligent moving stage lighting, and private bridal suite.
+                  From acoustic sound engineering and motorized smart-stage technology to custom bridal vanity suites and top catering coordination, Rabat hall delivers excellence.
                 </p>
               </div>
             </article>

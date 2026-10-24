@@ -73,9 +73,9 @@ export default function Hallmarks() {
       <div className="premium-card">
         <div className="premium-head">
           {/* the original keeps a whitespace text node between these two spans */}
-          <span className="eyebrow">The Rabat Experience</span>{' '}
+          <span className="eyebrow">The Rabat Hall Experience</span>{' '}
           <span className="eyebrow-mark" aria-hidden="true" />
-          <h2 className="premium-title">Excellence in Every Celebration</h2>
+          <h2 className="premium-title">Top Banquet Hall Standards in Every Celebration</h2>
           <span className="premium-rule" aria-hidden="true">
             <svg
               viewBox="0 0 112 20"
