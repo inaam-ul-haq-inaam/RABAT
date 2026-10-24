@@ -437,7 +437,7 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
                 textDecoration: 'underline',
               }}
             >
-              Call or WhatsApp Concierge (Direct Lines)
+              Call or WhatsApp - Contact Us (Direct Lines)
             </button>
           </p>
         </div>

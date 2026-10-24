@@ -186,7 +186,7 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
                 <span className="bottom-sheet-link-icon">
                   <PhoneCall size={20} strokeWidth={1.8} />
                 </span>
-                <span className="bottom-sheet-link-label">concierge</span>
+                <span className="bottom-sheet-link-label">Contact Us</span>
                 <span className="bottom-sheet-link-arrow">→</span>
               </button>
             </li>

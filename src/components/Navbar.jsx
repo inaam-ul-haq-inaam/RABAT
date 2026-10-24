@@ -269,11 +269,11 @@ export default function Navbar() {
             type="button"
             className="btn-nav-call"
             onClick={openContactModal}
-            aria-label="Contact Concierge"
-            title="Call or WhatsApp Concierge (Direct Lines)"
+            aria-label="Contact Us"
+            title="Call or WhatsApp - Contact Us"
           >
             <PhoneCall size={14} strokeWidth={2.4} className="btn-nav-call-icon" style={{ color: '#25D366' }} />
-            <span className="btn-nav-call-label">Concierge</span>
+            <span className="btn-nav-call-label">Contact Us</span>
           </button>
           <SectionLink to="reserve" className="btn-contact">
             <span className="btn-contact-text-full">RESERVE HALL</span>

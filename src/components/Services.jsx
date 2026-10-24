@@ -105,7 +105,7 @@ export default function Services() {
                 style={{ cursor: 'pointer', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
               >
                 <PhoneIcon size={16} style={{ color: '#25D366' }} />
-                <span>CALL / WHATSAPP CONCIERGE</span>
+                <span>CALL / WHATSAPP - CONTACT US</span>
               </button>
             </div>
           </div>
