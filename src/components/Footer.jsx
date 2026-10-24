@@ -103,7 +103,14 @@ export default function Footer() {
             <div className="r-col r-col-brand">
               <div className="r-brand-header">
                 <div className="r-brand-logo-hex">
-                  <svg viewBox="0 0 533 999" fill="#C5A059" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="28"
+                    height="52"
+                    viewBox="0 0 533 999"
+                    fill="#C5A059"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ width: '28px', height: '52px', display: 'block' }}
+                  >
                     <path d="M 159,558 L 156,563 L 156,634 L 154,671 L 155,706 L 236,789 L 242,791 L 245,787 L 246,777 L 245,740 L 248,644 L 242,636 L 167,562 Z" fillRule="evenodd" />
                     <path d="M 281,314 L 280,317 L 279,344 L 280,350 L 279,369 L 281,374 L 286,378 L 294,388 L 310,403 L 313,405 L 316,406 L 318,403 L 319,377 L 318,366 L 319,346 L 317,342 L 287,313 Z" fillRule="evenodd" />
                     <path d="M 286,182 L 284,183 L 283,185 L 281,240 L 287,247 L 287,248 L 303,263 L 311,272 L 316,276 L 319,276 L 321,274 L 322,267 L 322,240 L 321,231 L 322,215 L 321,213 L 303,196 L 300,192 L 291,184 L 288,182 Z" fillRule="evenodd" />
