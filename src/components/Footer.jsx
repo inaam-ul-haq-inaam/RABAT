@@ -12,7 +12,8 @@ const EXPERIENCE_LINKS = [
   { to: 'gallery', label: 'Visual Gallery' },
 ];
 
-const MAP_URL = 'https://maps.app.goo.gl/jNPWDGijUNv76Rtg7';
+const MAP_URL =
+  'https://www.google.com/maps/search/?api=1&query=RABAT%20banquet%20hall%20by%20Time%20%26%20Taste%2C%20G9PV%2B63G%2C%20Saadat%20Farooq%20Rd%2C%20Saddar%20Town%2C%20Area%20Garrison%2C%20Lahore%2C%2054000%2C%20Pakistan';
 
 export default function Footer() {
   const { openContactModal } = useContactModal();
@@ -233,10 +234,9 @@ export default function Footer() {
                 <p className="r-venue-text">
                   RABAT Banquet Hall by Time &amp; Taste
                   <br />
-                    <br />
-                  Plot 9 Saadat Farooq Rd,
+                  Saadat Farooq Rd, Area Garrison,
                   <br />
-                  Saddar Town, Lahore, Pakistan
+                  Saddar Town, Lahore, 54000, Pakistan
                 </p>
               </div>
 
