@@ -242,7 +242,7 @@ Menu Preferences: ${formattedMenus}`;
                 className="rinput"
                 type="text"
                 id="resName"
-                placeholder="e.g. Malik Muhammad Ali"
+                placeholder="e.g. Inaam Ul Haq"
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
