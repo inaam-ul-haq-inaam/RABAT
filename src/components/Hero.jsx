@@ -52,15 +52,16 @@ export default function Hero() {
 
       <div className="container">
         <div className="hero-content">
-          <p className="hero-eyebrow">TOP BANQUET HALL IN LAHORE &bull; PALATIAL MOROCCAN LUXURY</p>
+          <p className="hero-eyebrow">LAHORE’S SIGNATURE EVENT DESTINATION</p>
           <h1 className="hero-title" id="hero-title">
             {/* the original markup keeps a whitespace text node between the two
                 spans — visible below 680px where they become inline */}
-            <span>Rabat Hall</span>{' '}
-            <span>Top Banquet Hall In Lahore</span>
+            <span>Where Grand Celebrations</span>{' '}
+            <span>Become Timeless Memories</span>
           </h1>
           <p className="hero-lead">
-            Welcome to Rabat hall, acclaimed as the top banquet hall in Lahore. From regal weddings and majestic Barats to lavish Walima receptions, experience extra ordinary banquet services, palatial Moroccan architecture, and celebrated culinary artistry inside Lahore Garrison Golf &amp; Country Club.
+            From regal wedding ceremonies to unforgettable receptions, discover exceptional celebrations at Rabat,
+            Lahore.
           </p>
           <div className="hero-actions">
             <SectionLink to="reserve" className="btn-primary">
