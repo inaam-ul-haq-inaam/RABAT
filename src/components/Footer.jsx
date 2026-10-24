@@ -12,7 +12,7 @@ const EXPERIENCE_LINKS = [
   { to: 'gallery', label: 'Visual Gallery' },
 ];
 
-const MAP_URL = 'https://maps.app.goo.gl/UjANVPoav1E5t1du8';
+const MAP_URL = 'https://maps.app.goo.gl/jNPWDGijUNv76Rtg7';
 
 export default function Footer() {
   const { openContactModal } = useContactModal();
