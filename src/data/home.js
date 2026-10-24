@@ -6,9 +6,10 @@ export const HERO_FEATURES = [
   { icon: 'parking', strong: 'Ample Parking', span: 'Valet & Security' },
 ];
 
-/** The five hero slides, in original order (first one is the eager slide). */
+/** The hero slides, including the illuminated palace facade. */
 export const HERO_SLIDES = [
-  { src: 'images/hero/ai_hero_stage.jpg', alt: 'Rabat grand stage', type: 'image/jpeg', width: 1376, height: 768, eager: true },
+  { src: 'images/hero/rabat_exterior_night.jpg', alt: 'Rabat grand banquet hall illuminated facade', type: 'image/jpeg', width: 1376, height: 768, eager: true },
+  { src: 'images/hero/ai_hero_stage.jpg', alt: 'Rabat grand stage', type: 'image/jpeg', width: 1376, height: 768, eager: false },
   { src: 'images/hero/ai_hero_table.jpg', alt: 'Rabat luxury table setting', type: 'image/jpeg', width: 1376, height: 768, eager: false },
   { src: 'images/hero/ai_hero_arch.jpg', alt: 'Rabat grand architecture', type: 'image/jpeg', width: 1376, height: 768, eager: false },
   { src: 'images/hero/ai_luxury_table.jpg', alt: 'Rabat luxury table', type: 'image/jpeg', width: 1376, height: 768, eager: false },
