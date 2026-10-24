@@ -435,7 +435,7 @@ Menu Preferences: ${formattedMenus}`;
                 textDecoration: 'underline',
               }}
             >
-              Call or WhatsApp Concierge (3 Direct Lines)
+              Call or WhatsApp Concierge (Direct Lines)
             </button>
           </p>
         </div>

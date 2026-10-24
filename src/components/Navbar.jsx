@@ -270,7 +270,7 @@ export default function Navbar() {
             className="btn-nav-call"
             onClick={openContactModal}
             aria-label="Contact Concierge"
-            title="Call or WhatsApp Concierge (3 Direct Lines)"
+            title="Call or WhatsApp Concierge (Direct Lines)"
           >
             <PhoneCall size={14} strokeWidth={2.4} className="btn-nav-call-icon" style={{ color: '#25D366' }} />
             <span className="btn-nav-call-label">Concierge</span>

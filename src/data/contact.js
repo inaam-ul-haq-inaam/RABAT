@@ -9,15 +9,8 @@ export const CONTACT_NUMBERS = [
   {
     id: '2',
     label: 'Concierge Desk 2',
-    display: '0321-8021445',
-    tel: '+923218021445',
-    wa: '923218021445',
-  },
-  {
-    id: '3',
-    label: 'Concierge Desk 3',
-    display: '0300-8021445',
-    tel: '+923008021445',
-    wa: '923008021445',
+    display: '0300-4080234',
+    tel: '+923004080234',
+    wa: '923004080234',
   },
 ];

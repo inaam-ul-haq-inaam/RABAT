@@ -261,7 +261,7 @@ export default function Footer() {
                 <span />
               </div>
 
-              {/* 3 Contact Numbers (matching More > Contact Us) */}
+              {/* 2 Contact Numbers */}
               <div className="r-footer-contacts-list">
                 {CONTACT_NUMBERS.map((item) => (
                   <div key={item.display} className="r-footer-contact-row">
