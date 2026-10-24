@@ -52,7 +52,7 @@ export default function Hero() {
 
       <div className="container">
         <div className="hero-content">
-          <p className="hero-eyebrow">LAHORE’S SIGNATURE WEDDING DESTINATION</p>
+          <p className="hero-eyebrow">LAHORE’S SIGNATURE EVENT DESTINATION</p>
           <h1 className="hero-title" id="hero-title">
             {/* the original markup keeps a whitespace text node between the two
                 spans — visible below 680px where they become inline */}

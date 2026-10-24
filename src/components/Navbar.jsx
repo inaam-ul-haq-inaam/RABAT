@@ -272,7 +272,7 @@ export default function Navbar() {
             aria-label="Contact Concierge"
             title="Call or WhatsApp Concierge (3 Direct Lines)"
           >
-            <PhoneCall size={14} strokeWidth={2.2} />
+            <PhoneCall size={14} strokeWidth={2.4} className="btn-nav-call-icon" style={{ color: '#25D366' }} />
             <span className="btn-nav-call-label">Concierge</span>
           </button>
           <SectionLink to="reserve" className="btn-contact">

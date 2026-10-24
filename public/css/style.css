@@ -497,33 +497,34 @@ main > section.page-enter {
   margin-right: auto;
 }
 
-/* Refined wedding-destination eyebrow */
+/* Refined event-destination eyebrow */
 .hero .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 1rem;
-  padding: 0.35rem 0.8rem;
-  border: 1px solid rgba(240, 217, 140, 0.42);
+  margin-bottom: 1.15rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(240, 217, 140, 0.6);
   border-radius: 999px;
-  background: rgba(10, 8, 5, 0.48);
+  background: rgba(10, 8, 5, 0.65);
   color: var(--color-gold-light);
-  font-size: 0.7rem;
+  font-size: clamp(0.92rem, 1.35vw, 1.15rem);
   font-weight: 700;
   letter-spacing: 0.18em;
-  line-height: 1.5;
+  line-height: 1.4;
   text-transform: uppercase;
-  text-shadow: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 /* Restrained two-line display headline */
 .hero .hero-title {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 0 0.9rem;
   color: var(--color-on-dark);
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 4.4vw, 4.15rem);
+  font-size: clamp(2.05rem, 3.2vw, 2.95rem);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.015em;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.48);
 }
@@ -651,8 +652,8 @@ main > section.page-enter {
 @media (max-width: 680px) {
   .hero .hero-title {
     max-width: 100%;
-    font-size: clamp(2.45rem, 8.8vw, 3.25rem);
-    line-height: 1.04;
+    font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+    line-height: 1.08;
   }
 
   .hero .hero-title span {
@@ -5174,7 +5175,7 @@ textarea.rinput { resize: vertical; min-height: 84px; line-height: 1.6; }
   .hero-content { padding-top: 4rem; }
 
   .hero-title {
-    font-size: clamp(2.25rem, 10vw, 3.25rem);
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem);
   }
 
   .hero-lead {
@@ -8695,12 +8696,13 @@ textarea.rinput { resize: vertical; min-height: 84px; line-height: 1.6; }
   }
 
   .hero .hero-eyebrow {
-    font-size: 0.61rem;
-    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    padding: 0.4rem 0.95rem;
   }
 
   .hero .hero-title {
-    font-size: clamp(2.25rem, 9.5vw, 2.8rem);
+    font-size: clamp(1.75rem, 7vw, 2.2rem);
   }
 }
 

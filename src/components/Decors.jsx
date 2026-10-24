@@ -209,7 +209,7 @@ export default function Decors() {
               className="btn-csc-secondary"
               style={{ cursor: 'pointer', border: 'none' }}
             >
-              <PhoneIcon size={18} />
+              <PhoneIcon size={18} style={{ color: '#25D366' }} />
               CALL / WHATSAPP CONCIERGE
             </button>
           </div>

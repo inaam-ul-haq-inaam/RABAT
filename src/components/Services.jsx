@@ -104,7 +104,7 @@ export default function Services() {
                 className="btn-scta-secondary"
                 style={{ cursor: 'pointer', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
               >
-                <PhoneIcon size={16} />
+                <PhoneIcon size={16} style={{ color: '#25D366' }} />
                 <span>CALL / WHATSAPP CONCIERGE</span>
               </button>
             </div>
