@@ -1,11 +1,12 @@
 import './Testimonials.css';
 import { useEffect, useState } from 'react';
-import { Star, CheckCircle2 } from 'lucide-react';
+import { Star, CheckCircle2, PenLine } from 'lucide-react';
 import Section from './Section.jsx';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons.jsx';
 import { TESTIMONIALS } from '../data/testimonials.js';
+import { useReviewModal } from '../context/ReviewModalContext.jsx';
 
-const AUTOCHANGE_MS = 3000;
+const AUTOCHANGE_MS = 3800;
 
 const AVATAR_ICONS = {
   users: (
@@ -25,11 +26,13 @@ const AVATAR_ICONS = {
 };
 
 export default function Testimonials() {
-  const total = TESTIMONIALS.length;
+  const { openReviewModal, userReviews } = useReviewModal();
+  const allSlides = [...userReviews, ...TESTIMONIALS];
+  const total = allSlides.length;
   const [currentIdx, setCurrentIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  /* 5. TESTIMONIAL CAROUSEL — 3s autoplay, paused on hover/focus */
+  /* 5. TESTIMONIAL CAROUSEL — 3.8s autoplay, paused on hover/focus */
   useEffect(() => {
     if (total < 2 || paused) return undefined;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
@@ -61,17 +64,30 @@ export default function Testimonials() {
     <Section className="testimonials reveal reveal-delay-1" id="testimonials" aria-labelledby="testimonials-title">
       <div className="testimonials-inner container">
         <div className="testi-header">
-          <div className="testi-rating-badge">
-            <div className="testi-stars-row" aria-label="5 star rating">
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+          <div className="testi-header-top-row">
+            <div className="testi-rating-badge">
+              <div className="testi-stars-row" aria-label="5 star rating">
+                <Star size={16} fill="#F59E0B" color="#F59E0B" />
+                <Star size={16} fill="#F59E0B" color="#F59E0B" />
+                <Star size={16} fill="#F59E0B" color="#F59E0B" />
+                <Star size={16} fill="#F59E0B" color="#F59E0B" />
+                <Star size={16} fill="#F59E0B" color="#F59E0B" />
+              </div>
+              <span className="testi-rating-text">
+                <strong>4.9 / 5.0</strong> &bull; Google Verified Host Reviews
+              </span>
             </div>
-            <span className="testi-rating-text">
-              <strong>4.9 / 5.0</strong> &bull; Google Verified Host Reviews
-            </span>
+
+            <button
+              type="button"
+              className="testi-write-review-btn"
+              onClick={openReviewModal}
+              aria-label="Write or add your review"
+              title="Click to write and submit your review"
+            >
+              <PenLine size={15} strokeWidth={2.4} />
+              <span>✍️ Add Your Review</span>
+            </button>
           </div>
 
           <h2 className="testi-title" id="testimonials-title">
@@ -92,14 +108,14 @@ export default function Testimonials() {
           onBlur={() => setPaused(false)}
         >
           <div className="carousel-track" id="carouselTrack" role="list">
-            {TESTIMONIALS.map((slide, index) => (
+            {allSlides.map((slide, index) => (
               <figure
                 className={'slide' + (index === currentIdx ? ' active' : '')}
                 role="listitem"
                 aria-roledescription="slide"
                 aria-label={'Slide ' + (index + 1) + ' of ' + total}
                 aria-hidden={index === currentIdx ? 'false' : 'true'}
-                key={slide.name}
+                key={slide.name + index}
               >
                 <div className="testi-card">
                   <div className="testi-left">
@@ -115,16 +131,14 @@ export default function Testimonials() {
                   </div>
                   <div className="testi-right">
                     <div className="testi-card-topbar">
-                      <div className="testi-card-stars" aria-label="5 out of 5 stars">
-                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
-                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
-                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
-                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
-                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                      <div className="testi-card-stars" aria-label={`${slide.rating || 5} out of 5 stars`}>
+                        {Array.from({ length: slide.rating || 5 }).map((_, sIdx) => (
+                          <Star key={sIdx} size={17} fill="#F59E0B" color="#F59E0B" />
+                        ))}
                       </div>
                       <span className="testi-verified-badge">
                         <CheckCircle2 size={13} strokeWidth={2.4} />
-                        Verified Host
+                        {slide.isCustomUserReview ? 'Verified Guest Story' : 'Verified Host'}
                       </span>
                     </div>
 
@@ -138,7 +152,7 @@ export default function Testimonials() {
                     <figcaption className="testi-author">
                       <div className="testi-avatar">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          {AVATAR_ICONS[slide.avatar]}
+                          {AVATAR_ICONS[slide.avatar] || AVATAR_ICONS.users}
                         </svg>
                       </div>
                       <div className="testi-author-info">
@@ -158,7 +172,7 @@ export default function Testimonials() {
             </button>
             <div className="dots" id="carouselDots" role="tablist" aria-label="Slides">
               {total > 1 &&
-                TESTIMONIALS.map((slide, index) => (
+                allSlides.map((slide, index) => (
                   <button
                     key={'dot-' + index}
                     type="button"

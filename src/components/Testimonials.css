@@ -2,6 +2,15 @@
    Testimonials & Client Reviews Enhancements
    ============================================================ */
 
+.testi-header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
 .testi-rating-badge {
   display: inline-flex;
   align-items: center;
@@ -10,7 +19,7 @@
   border: 1px solid rgba(212, 175, 55, 0.35);
   padding: 8px 22px;
   border-radius: 9999px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.08);
 }
 
@@ -31,6 +40,31 @@
   color: #b45309;
   font-weight: 700;
   font-size: 0.95rem;
+}
+
+/* ✍️ Dedicated "Add Your Review" Gold Button */
+.testi-write-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FAF7F2 0%, #F5E8D3 100%);
+  border: 1.5px solid #D4B26F;
+  border-radius: 9999px;
+  padding: 8px 20px;
+  color: #7A531A;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(212, 178, 111, 0.2);
+  transition: all 0.22s ease;
+}
+
+.testi-write-review-btn:hover {
+  background: linear-gradient(135deg, #E6C280 0%, #D4AF37 100%);
+  color: #0B100C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.38);
 }
 
 .testi-card-topbar {

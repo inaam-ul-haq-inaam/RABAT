@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { ContactModalProvider } from './context/ContactModalContext.jsx';
+import { ReviewModalProvider } from './context/ReviewModalContext.jsx';
 import { LightboxProvider } from './context/LightboxContext.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { normalizeLegacyHash } from './lib/navigation.js';
@@ -17,7 +18,9 @@ createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <LightboxProvider>
         <ContactModalProvider>
-          <App />
+          <ReviewModalProvider>
+            <App />
+          </ReviewModalProvider>
         </ContactModalProvider>
       </LightboxProvider>
     </ThemeProvider>
