@@ -1,3 +1,4 @@
+import './Decors.css';
 import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
 import { CalendarIcon, CrownIcon, DiamondIcon, PhoneIcon } from './Icons.jsx';
@@ -97,9 +98,17 @@ export default function Decors() {
           </svg>
           SIGNATURE THEMES &amp; AMBIANCE
         </span>
-        <h2 className="decors-title" id="decors-title">
-          Decor by Blissfull Event Planner
-        </h2>
+        <div className="decors-brand-wrap" id="decors-title" role="heading" aria-level="2" aria-label="Decor by Blissfull Event Planners">
+          <span className="decors-by-tag">Décor by</span>
+          <img
+            src="images/decors/blissfull_logo_transparent.png"
+            alt="Blissfull Event Planners"
+            className="decors-partner-logo"
+            width="810"
+            height="700"
+            loading="eager"
+          />
+        </div>
         <p className="decors-body">{DECORS_BODY}</p>
       </div>
 
@@ -211,7 +220,7 @@ export default function Decors() {
               style={{ cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
             >
               <PhoneIcon size={18} style={{ color: '#25D366' }} />
-              0325-6572839
+              <span>Blissfull Direct: 0325-6572839</span>
             </a>
           </div>
         </div>
