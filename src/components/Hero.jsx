@@ -19,15 +19,20 @@ const FEATURE_ICONS = {
 
 export default function Hero() {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
 
-  /* 13. HERO SLIDER — swaps slides after splash screen completes (7s initial delay, then every 4s) */
+  /* 13. HERO SLIDER — swaps slides after splash screen completes (8.5s initial delay, then every 4s) */
   useEffect(() => {
     if (HERO_SLIDES.length < 2) return undefined;
     let timer;
     const initialDelay = window.setTimeout(() => {
-      setSlideIndex((index) => (index + 1) % HERO_SLIDES.length);
+      setPrevIndex(0);
+      setSlideIndex(1);
       timer = window.setInterval(() => {
-        setSlideIndex((index) => (index + 1) % HERO_SLIDES.length);
+        setSlideIndex((curr) => {
+          setPrevIndex(curr);
+          return (curr + 1) % HERO_SLIDES.length;
+        });
       }, 4000);
     }, 8500);
 
@@ -40,22 +45,27 @@ export default function Hero() {
   return (
     <Section className="hero" id="hero" aria-labelledby="hero-title">
       <div className="hero-media">
-        {HERO_SLIDES.map((slide, index) => (
-          <picture
-            className={'hero-slide' + (index === slideIndex ? ' hero-slide--active' : '')}
-            key={slide.src}
-          >
-            <source srcSet={slide.src} type={slide.type} />
-            <img
-              src={slide.src}
-              alt={slide.alt}
-              width={slide.width}
-              height={slide.height}
-              loading={slide.eager ? 'eager' : 'lazy'}
-              fetchpriority={slide.eager ? 'high' : undefined}
-            />
-          </picture>
-        ))}
+        {HERO_SLIDES.map((slide, index) => {
+          const isActive = index === slideIndex;
+          const isPrev = index === prevIndex;
+          let slideClass = 'hero-slide';
+          if (isActive) slideClass += ' hero-slide--active';
+          else if (isPrev) slideClass += ' hero-slide--prev';
+
+          return (
+            <picture className={slideClass} key={slide.src}>
+              <source srcSet={slide.src} type={slide.type} />
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                width={slide.width}
+                height={slide.height}
+                loading={slide.eager ? 'eager' : 'lazy'}
+                fetchpriority={slide.eager ? 'high' : undefined}
+              />
+            </picture>
+          );
+        })}
         <div className="hero-overlay" aria-hidden="true" />
       </div>
 

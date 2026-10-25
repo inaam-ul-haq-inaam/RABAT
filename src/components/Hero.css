@@ -1,17 +1,50 @@
 /* ============================================================
    Hero Slider — Cinematic Ken Burns Gentle Zoom Effect
-   Each active slide gently scales from 1.0 to 1.08 over 5.5s
+   Always zooms in, holds scale on exit, and never zooms out
    ============================================================ */
 
 .hero-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
+.hero-slide picture,
 .hero-slide img {
-  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
   transform-origin: center 35%;
   will-change: transform;
-  transition: transform 1.2s ease-out;
+}
+
+/* Hidden/reset slide: scale is 1, no transition */
+.hero-slide:not(.hero-slide--active):not(.hero-slide--prev) img {
+  transform: scale(1);
+  transition: none;
+}
+
+/* Previous (outgoing) slide: stays underneath, holds full zoom (scale 1.08), and softly dissolves */
+.hero-slide.hero-slide--prev {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+}
+
+.hero-slide.hero-slide--prev img {
+  transform: scale(1.08);
+  transition: none; /* Crucial: NEVER zoom out! */
+}
+
+/* Active (incoming) slide: on top, fades in, and continuously zooms in */
+.hero-slide.hero-slide--active {
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 1.4s ease-in-out;
 }
 
 .hero-slide.hero-slide--active img {
