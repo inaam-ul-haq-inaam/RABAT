@@ -199,6 +199,8 @@ export default function Footer() {
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                   </a>
+                  {/* Remaining social links commented out — only Instagram active */}
+                  {/*
                   <a
                     href="https://wa.me/923017130942"
                     target="_blank"
@@ -221,6 +223,7 @@ export default function Footer() {
                       <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
                     </svg>
                   </Link>
+                  */}
                 </div>
               )}
             </div>
