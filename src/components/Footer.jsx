@@ -8,7 +8,7 @@ const EXPERIENCE_LINKS = [
   { to: 'hero', label: 'The Grand Hall' },
   { to: 'hallmarks', label: 'Palace Hallmarks' },
   { to: 'features', label: 'Location & Highlights' },
-  { to: 'hallplan', label: 'Hall Blueprint & Layout' },
+  { to: 'testimonials', label: 'Client Reviews & Ratings' },
   { to: 'gallery', label: 'Visual Gallery' },
 ];
 

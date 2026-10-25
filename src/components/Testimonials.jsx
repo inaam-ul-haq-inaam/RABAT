@@ -1,4 +1,6 @@
+import './Testimonials.css';
 import { useEffect, useState } from 'react';
+import { Star, CheckCircle2 } from 'lucide-react';
 import Section from './Section.jsx';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons.jsx';
 import { TESTIMONIALS } from '../data/testimonials.js';
@@ -59,11 +61,25 @@ export default function Testimonials() {
     <Section className="testimonials reveal reveal-delay-1" id="testimonials" aria-labelledby="testimonials-title">
       <div className="testimonials-inner container">
         <div className="testi-header">
-          <span className="testi-eyebrow">Honored Words</span>
+          <div className="testi-rating-badge">
+            <div className="testi-stars-row" aria-label="5 star rating">
+              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+              <Star size={16} fill="#F59E0B" color="#F59E0B" />
+            </div>
+            <span className="testi-rating-text">
+              <strong>4.9 / 5.0</strong> &bull; Google Verified Host Reviews
+            </span>
+          </div>
+
           <h2 className="testi-title" id="testimonials-title">
-            Praised by Lahore's Distinguished Hosts
+            Client Reviews &amp; Verified Wedding Stories
           </h2>
-          <p className="testi-body">Swipe or use the arrows to explore verified host experiences at Hall 16</p>
+          <p className="testi-body">
+            Explore authentic experiences and five-star reviews from Lahore's distinguished wedding &amp; corporate hosts at Rabat Hall
+          </p>
         </div>
 
         <div
@@ -98,6 +114,20 @@ export default function Testimonials() {
                     </svg>
                   </div>
                   <div className="testi-right">
+                    <div className="testi-card-topbar">
+                      <div className="testi-card-stars" aria-label="5 out of 5 stars">
+                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                        <Star size={17} fill="#F59E0B" color="#F59E0B" />
+                      </div>
+                      <span className="testi-verified-badge">
+                        <CheckCircle2 size={13} strokeWidth={2.4} />
+                        Verified Host
+                      </span>
+                    </div>
+
                     <blockquote className="testi-quote">
                       <span className="testi-quote-icon" aria-hidden="true">
                         &ldquo;
