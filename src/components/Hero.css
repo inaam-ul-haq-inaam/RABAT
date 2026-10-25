@@ -1,6 +1,6 @@
 /* ============================================================
-   Hero Slider — Cinematic Ken Burns Gentle Zoom Effect
-   Always zooms in, holds scale on exit, and never zooms out
+   Hero Slider — Cinematic Ken Burns Continuous Zoom Effect
+   Constant linear zoom in: never stops, never pauses, never zooms out
    ============================================================ */
 
 .hero-slide {
@@ -22,33 +22,30 @@
   will-change: transform;
 }
 
-/* Hidden/reset slide: scale is 1, no transition */
+/* Hidden/reset slide: scale is 1, animation stopped */
 .hero-slide:not(.hero-slide--active):not(.hero-slide--prev) img {
+  animation: none;
   transform: scale(1);
-  transition: none;
 }
 
-/* Previous (outgoing) slide: stays underneath, holds full zoom (scale 1.08), and softly dissolves */
+/* Previous (outgoing) slide: stays underneath, fades out, and CONTINUES zooming without stopping */
 .hero-slide.hero-slide--prev {
   z-index: 1;
   opacity: 0;
   transition: opacity 1.4s ease-in-out;
 }
 
-.hero-slide.hero-slide--prev img {
-  transform: scale(1.08);
-  transition: none; /* Crucial: NEVER zoom out! */
-}
-
-/* Active (incoming) slide: on top, fades in, and continuously zooms in */
+/* Active (incoming) slide: stays on top, fades in, and continuously zooms in */
 .hero-slide.hero-slide--active {
   z-index: 2;
   opacity: 1;
   transition: opacity 1.4s ease-in-out;
 }
 
-.hero-slide.hero-slide--active img {
-  animation: heroKenBurns 5.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+/* Both active and previous slides keep the continuous linear zoom running seamlessly without pausing */
+.hero-slide.hero-slide--active img,
+.hero-slide.hero-slide--prev img {
+  animation: heroKenBurns 8s linear forwards;
 }
 
 @keyframes heroKenBurns {
@@ -56,12 +53,13 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.08);
+    transform: scale(1.10);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide.hero-slide--active img {
+  .hero-slide.hero-slide--active img,
+  .hero-slide.hero-slide--prev img {
     animation: none !important;
   }
 }
