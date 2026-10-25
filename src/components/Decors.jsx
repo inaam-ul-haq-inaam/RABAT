@@ -101,14 +101,22 @@ export default function Decors() {
         </span>
         <div className="decors-brand-wrap" id="decors-title" role="heading" aria-level="2" aria-label="Decor by Blissfull Event Planners">
           <span className="decors-by-tag">Décor by</span>
-          <img
-            src="images/decors/blissfull_logo_transparent.png"
-            alt="Blissfull Event Planners"
-            className="decors-partner-logo"
-            width="810"
-            height="700"
-            loading="eager"
-          />
+          <a
+            href="https://www.instagram.com/blissfull158?obrf=MWYya2M4MTVobTQxcg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Follow Blissfull Event Planners on Instagram"
+            className="decors-logo-link"
+          >
+            <img
+              src="images/decors/blissfull_logo_transparent.png"
+              alt="Blissfull Event Planners"
+              className="decors-partner-logo"
+              width="810"
+              height="700"
+              loading="eager"
+            />
+          </a>
         </div>
         <p className="decors-body">{DECORS_BODY}</p>
       </div>

@@ -118,14 +118,21 @@ export default function Footer() {
                 <div className="r-brand-header r-brand-header--blissfull">
                   <div className="r-footer-blissfull-wrap">
                     <span className="r-footer-by-tag">Décor by</span>
-                    <img
-                      src="images/decors/blissfull_logo_transparent.png"
-                      alt="Blissfull Event Planners"
-                      className="r-footer-blissfull-logo"
-                      width="810"
-                      height="700"
-                      loading="lazy"
-                    />
+                    <a
+                      href="https://www.instagram.com/blissfull158?obrf=MWYya2M4MTVobTQxcg=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Follow Blissfull Event Planners on Instagram"
+                    >
+                      <img
+                        src="images/decors/blissfull_logo_transparent.png"
+                        alt="Blissfull Event Planners"
+                        className="r-footer-blissfull-logo"
+                        width="810"
+                        height="700"
+                        loading="lazy"
+                      />
+                    </a>
                   </div>
                 </div>
               ) : (
@@ -160,43 +167,62 @@ export default function Footer() {
                   : "Lahore's premier Moroccan-accented palace for royal Barats, Walimas, and distinguished corporate banquets, Crafted for unforgettable evenings."}
               </p>
 
-              <div className="r-socials">
-                <a
-                  href="https://instagram.com/rabatbanquethall"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="r-social-link"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </a>
-                <a
-                  href={isDecorsPage ? 'https://wa.me/923256572839' : 'https://wa.me/923017130942'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="r-social-link"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                  </svg>
-                </a>
-                <Link to="/" aria-label="Facebook" className="r-social-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </Link>
-                <Link to="/" aria-label="YouTube" className="r-social-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z" />
-                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-                  </svg>
-                </Link>
-              </div>
+              {isDecorsPage ? (
+                <div className="r-socials">
+                  <a
+                    href="https://www.instagram.com/blissfull158?obrf=MWYya2M4MTVobTQxcg=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Blissfull Event Planners Instagram"
+                    className="r-social-link"
+                    title="Follow Blissfull Event Planners on Instagram"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
+              ) : (
+                <div className="r-socials">
+                  <a
+                    href="https://instagram.com/rabatbanquethall"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="r-social-link"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://wa.me/923017130942"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="r-social-link"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </a>
+                  <Link to="/" aria-label="Facebook" className="r-social-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  </Link>
+                  <Link to="/" aria-label="YouTube" className="r-social-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z" />
+                      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                    </svg>
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Divider with Diamond */}
