@@ -6725,6 +6725,51 @@ textarea.rinput { resize: vertical; min-height: 84px; line-height: 1.6; }
   flex: 1.25;
 }
 
+.r-brand-header--blissfull {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.r-footer-blissfull-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.r-footer-by-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C8A27A);
+}
+
+.r-footer-by-tag::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200, 162, 122, 0.8) 0%, rgba(200, 162, 122, 0) 100%);
+}
+
+.r-footer-blissfull-logo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 16px rgba(72, 20, 83, 0.22));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.r-footer-blissfull-logo:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 6px 20px rgba(72, 20, 83, 0.32));
+}
+
 .r-brand-header {
   display: flex;
   align-items: center;

@@ -40,12 +40,16 @@ export default function Footer() {
           {/* Left Curved Card */}
           <div className="r-banner-card">
             <div className="r-card-tag">
-              <span>PLAN YOUR IMPERIAL CELEBRATION</span>
+              <span>{isDecorsPage ? 'PLAN YOUR BESPOKE STAGE & DÉCOR' : 'PLAN YOUR IMPERIAL CELEBRATION'}</span>
               <span className="r-tag-line" />
             </div>
-            <h2 className="r-card-title">Begin Your Journey at Rabat</h2>
+            <h2 className="r-card-title">
+              {isDecorsPage ? 'Bespoke Stages & Décor by Blissfull' : 'Begin Your Journey at Rabat'}
+            </h2>
             <p className="r-card-desc">
-              Experience the grandeur of bespoke culinary curation and opulent Moroccan architecture in Lahore Cantt.
+              {isDecorsPage
+                ? 'Transform Hall 16 with custom floral arches, royal Moroccan stages, and cinematic wedding styling curated by Blissfull Event Planners.'
+                : 'Experience the grandeur of bespoke culinary curation and opulent Moroccan architecture in Lahore Cantt.'}
             </p>
           </div>
 
@@ -56,7 +60,7 @@ export default function Footer() {
               className="r-btn-gold-pill"
             >
               <CalendarIcon size={18} />
-              <span>SCHEDULE A PRIVATE TOUR</span>
+              <span>{isDecorsPage ? 'INQUIRE DÉCOR & DATES' : 'SCHEDULE A PRIVATE TOUR'}</span>
               <span className="r-arrow">&rarr;</span>
             </SectionLink>
 
@@ -110,33 +114,50 @@ export default function Footer() {
           <div className="r-dark-inner">
             {/* Brand Column */}
             <div className="r-col r-col-brand">
-              <div className="r-brand-header">
-                <div className="r-brand-logo-hex">
-                  <svg
-                    width="28"
-                    height="52"
-                    viewBox="0 0 533 999"
-                    fill="#C5A059"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ width: '28px', height: '52px', display: 'block' }}
-                  >
-                    <path d="M 159,558 L 156,563 L 156,634 L 154,671 L 155,706 L 236,789 L 242,791 L 245,787 L 246,777 L 245,740 L 248,644 L 242,636 L 167,562 Z" fillRule="evenodd" />
-                    <path d="M 281,314 L 280,317 L 279,344 L 280,350 L 279,369 L 281,374 L 286,378 L 294,388 L 310,403 L 313,405 L 316,406 L 318,403 L 319,377 L 318,366 L 319,346 L 317,342 L 287,313 Z" fillRule="evenodd" />
-                    <path d="M 286,182 L 284,183 L 283,185 L 281,240 L 287,247 L 287,248 L 303,263 L 311,272 L 316,276 L 319,276 L 321,274 L 322,267 L 322,240 L 321,231 L 322,215 L 321,213 L 303,196 L 300,192 L 291,184 L 288,182 Z" fillRule="evenodd" />
-                    <path d="M 424,178 L 420,194 L 411,542 L 291,648 L 286,781 L 290,782 L 454,645 L 496,605 L 508,278 Z" fillRule="evenodd" />
-                    <path d="M 117,154 L 34,222 L 25,240 L 26,744 L 235,964 L 258,980 L 345,910 L 349,799 L 342,797 L 262,856 L 118,719 Z" fillRule="evenodd" />
-                    <path d="M 281,25 L 178,129 L 174,486 L 269,607 L 285,596 L 310,568 L 311,516 L 305,514 L 273,542 L 213,473 L 218,154 L 283,94 L 318,129 L 318,73 Z" fillRule="evenodd" />
-                  </svg>
+              {isDecorsPage ? (
+                <div className="r-brand-header r-brand-header--blissfull">
+                  <div className="r-footer-blissfull-wrap">
+                    <span className="r-footer-by-tag">Décor by</span>
+                    <img
+                      src="images/decors/blissfull_logo_transparent.png"
+                      alt="Blissfull Event Planners"
+                      className="r-footer-blissfull-logo"
+                      width="810"
+                      height="700"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-                <div className="r-brand-titles">
-                  <h3 className="r-brand-name">RABAT</h3>
-                  <span className="r-brand-sub">by Time &amp; Taste Catering</span>
+              ) : (
+                <div className="r-brand-header">
+                  <div className="r-brand-logo-hex">
+                    <svg
+                      width="28"
+                      height="52"
+                      viewBox="0 0 533 999"
+                      fill="#C5A059"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ width: '28px', height: '52px', display: 'block' }}
+                    >
+                      <path d="M 159,558 L 156,563 L 156,634 L 154,671 L 155,706 L 236,789 L 242,791 L 245,787 L 246,777 L 245,740 L 248,644 L 242,636 L 167,562 Z" fillRule="evenodd" />
+                      <path d="M 281,314 L 280,317 L 279,344 L 280,350 L 279,369 L 281,374 L 286,378 L 294,388 L 310,403 L 313,405 L 316,406 L 318,403 L 319,377 L 318,366 L 319,346 L 317,342 L 287,313 Z" fillRule="evenodd" />
+                      <path d="M 286,182 L 284,183 L 283,185 L 281,240 L 287,247 L 287,248 L 303,263 L 311,272 L 316,276 L 319,276 L 321,274 L 322,267 L 322,240 L 321,231 L 322,215 L 321,213 L 303,196 L 300,192 L 291,184 L 288,182 Z" fillRule="evenodd" />
+                      <path d="M 424,178 L 420,194 L 411,542 L 291,648 L 286,781 L 290,782 L 454,645 L 496,605 L 508,278 Z" fillRule="evenodd" />
+                      <path d="M 117,154 L 34,222 L 25,240 L 26,744 L 235,964 L 258,980 L 345,910 L 349,799 L 342,797 L 262,856 L 118,719 Z" fillRule="evenodd" />
+                      <path d="M 281,25 L 178,129 L 174,486 L 269,607 L 285,596 L 310,568 L 311,516 L 305,514 L 273,542 L 213,473 L 218,154 L 283,94 L 318,129 L 318,73 Z" fillRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="r-brand-titles">
+                    <h3 className="r-brand-name">RABAT</h3>
+                    <span className="r-brand-sub">by Time &amp; Taste Catering</span>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <p className="r-brand-text">
-                Lahore's premier Moroccan-accented palace for royal Barats, Walimas, and distinguished corporate
-                banquets, Crafted for unforgettable evenings.
+                {isDecorsPage
+                  ? "Lahore's premier event planners and stage designers for bespoke Moroccan themes, floral artistry, and unforgettable luxury celebrations at Rabat Banquet Hall."
+                  : "Lahore's premier Moroccan-accented palace for royal Barats, Walimas, and distinguished corporate banquets, Crafted for unforgettable evenings."}
               </p>
 
               <div className="r-socials">
@@ -154,7 +175,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://wa.me/923017130942"
+                  href={isDecorsPage ? 'https://wa.me/923256572839' : 'https://wa.me/923017130942'}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
@@ -230,13 +251,27 @@ export default function Footer() {
               </div>
 
               <div className="r-venue-details">
-                <strong className="r-venue-hall">Hall #: 16, RABAT</strong>
+                <strong className="r-venue-hall">
+                  {isDecorsPage ? 'Official Décor Partner · Hall 16' : 'Hall #: 16, RABAT'}
+                </strong>
                 <p className="r-venue-text">
-                  RABAT Banquet Hall by Time &amp; Taste Catering
-                  <br />
-                  Saadat Farooq Rd, Area Garrison,
-                  <br />
-                  Saddar Town, Lahore, 54000, Pakistan
+                  {isDecorsPage ? (
+                    <>
+                      Blissfull Event Planners at RABAT Banquet Hall
+                      <br />
+                      Saadat Farooq Rd, Area Garrison,
+                      <br />
+                      Saddar Town, Lahore, 54000, Pakistan
+                    </>
+                  ) : (
+                    <>
+                      RABAT Banquet Hall by Time &amp; Taste Catering
+                      <br />
+                      Saadat Farooq Rd, Area Garrison,
+                      <br />
+                      Saddar Town, Lahore, 54000, Pakistan
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -311,7 +346,12 @@ export default function Footer() {
       {/* 4. BOTTOM BAR */}
       <div className="r-footer-bottom">
         <div className="r-bottom-left">
-          <p className="r-copy">&copy; {new Date().getFullYear()} Rabat by Time &amp; Taste Catering. All Rights Reserved.</p>
+          <p className="r-copy">
+            &copy; {new Date().getFullYear()}{' '}
+            {isDecorsPage
+              ? 'Blissfull Event Planners • Official Décor Partner at Rabat Hall. All Rights Reserved.'
+              : 'Rabat by Time & Taste Catering. All Rights Reserved.'}
+          </p>
         </div>
         <div className="r-bottom-right">
           <div className="r-legal-links">
