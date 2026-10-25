@@ -3,7 +3,7 @@ import './SplashScreen.css';
 
 // Splash lifetime: 2.8s fully visible closed curtain, then 3.5s slow cinematic theatrical parting.
 const SHOW_MS = 2000;
-const OPEN_MS = 4200; // 3.6s parting animation (& fade) before DOM unmount
+const OPEN_MS = 4000; // 3.6s parting animation (& fade) before DOM unmount
 
 // Falling petal tracks are generated once (module constant) so every load
 // feels consistent while individual petals remain naturally scattered.
