@@ -1,0 +1,107 @@
+/* ============================================================
+   Decors Ambient Falling Rose Petals — True Viewport Overlay
+   White, Pink, Red Velvet Rose Petals
+   Two-Axis Decoupled GPU Physics: Linear Fall + Harmonic Sway
+   ============================================================ */
+
+.decor-petals-viewport {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 60;
+  overflow: hidden;
+}
+
+/* Vertical Falling Track — Runs pure constant linear fall */
+.decor-petal-track {
+  position: absolute;
+  top: -50px;
+  pointer-events: none;
+  will-change: transform, opacity;
+  perspective: 600px;
+  animation-name: decorTrackFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes decorTrackFall {
+  0% {
+    transform: translate3d(0, -60px, 0);
+    opacity: 0;
+  }
+  3% {
+    opacity: 0.95;
+  }
+  94% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(0, 108vh, 0);
+    opacity: 0;
+  }
+}
+
+/* Horizontal Floating Leaf — Runs organic pendular sway & flutter */
+.decor-petal-leaf {
+  position: relative;
+  border-radius: 75% 25% 75% 25% / 65% 35% 65% 35%;
+  pointer-events: none;
+  will-change: transform;
+  animation-name: decorLeafSway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Delicate organic center petal vein */
+.decor-petal-leaf::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  bottom: 20%;
+  left: 48%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: rotate(6deg);
+  border-radius: 1px;
+}
+
+@keyframes decorLeafSway {
+  0% {
+    transform: translate3d(calc(var(--sway-amount, 35px) * -1), 0, 0) rotate(-28deg) rotateY(0deg) scale(0.92);
+  }
+  100% {
+    transform: translate3d(var(--sway-amount, 35px), 0, 0) rotate(28deg) rotateY(42deg) scale(1.08);
+  }
+}
+
+/* 🌹 Royal Crimson Red Velvet Petal */
+.decor-petal--red {
+  background: radial-gradient(ellipse at 35% 30%, #ff2a4b 0%, #c1121f 55%, #700014 100%);
+  box-shadow: 0 4px 10px rgba(112, 0, 20, 0.32), inset -1px -2px 4px rgba(60, 0, 10, 0.45);
+}
+
+/* 🌸 Fresh Blush Pink Rose Petal */
+.decor-petal--pink {
+  background: radial-gradient(ellipse at 35% 30%, #fff0f4 0%, #ff8fa3 50%, #e03a62 100%);
+  box-shadow: 0 4px 10px rgba(224, 58, 98, 0.28), inset -1px -2px 4px rgba(160, 20, 50, 0.35);
+}
+
+/* 🤍 Silk Pearl White / Champagne Petal */
+.decor-petal--white {
+  background: radial-gradient(ellipse at 35% 30%, #ffffff 0%, #fff7f2 60%, #eedfd5 100%);
+  border: 0.5px solid rgba(220, 200, 180, 0.55);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset -1px -2px 4px rgba(210, 190, 170, 0.3);
+}
+
+.decor-petal--white::after {
+  background: rgba(200, 180, 160, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-petals-viewport {
+    display: none !important;
+  }
+}
