@@ -75,7 +75,7 @@ export const HERITAGE_PILLARS = [
   {
     crest: 'cloche',
     title: 'Top Catering Pedigree',
-    sub: 'Over 30 years of Time & Taste culinary excellence in Lahore',
+    sub: 'Over 30 years of Time & Taste Catering culinary excellence in Lahore',
   },
   {
     crest: 'staff',

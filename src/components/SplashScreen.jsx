@@ -82,7 +82,7 @@ export default function SplashScreen() {
           </svg>
         </div>
         <h1 className="splash-title">RABAT</h1>
-        <p className="splash-sub">by Time &amp; Taste</p>
+        <p className="splash-sub">by Time &amp; Taste Catering</p>
         <div className="splash-divider">
           <span />
           <i>&#10022;</i>

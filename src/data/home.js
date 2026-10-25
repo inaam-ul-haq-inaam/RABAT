@@ -50,7 +50,7 @@ export const HERO_SLIDES = [
   },
   {
     src: 'images/hero/rabat_bright_royal_feast_1790426763176.webp',
-    alt: 'Rabat hall - Royal wedding feast buffet with top catering by Time and Taste in Lahore',
+    alt: 'Rabat hall - Royal wedding feast buffet with top catering by Time and Taste Catering in Lahore',
     type: 'image/webp',
     width: 1376,
     height: 768,

@@ -7,7 +7,7 @@ import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const ANNOUNCEMENTS = [
   'RABAT HALL — TOP BANQUET HALL IN LAHORE',
-  'TOP CATERING BY TIME & TASTE',
+  'TOP CATERING BY TIME & TASTE CATERING',
   'EXTRA ORDINARY BANQUET SERVICES • HALL 16',
   'TIMELESS ELEGANCE, UNFORGETTABLE MOMENTS',
   'A SETTING FOR EXTRAORDINARY CELEBRATIONS',
@@ -154,7 +154,7 @@ export default function Navbar() {
           </svg>
           <div className="brand-text">
             <span className="brand-title">RABAT</span>
-            <span className="brand-sub">by Time &amp; Taste</span>
+            <span className="brand-sub">by Time &amp; Taste Catering</span>
           </div>
         </Link>
 

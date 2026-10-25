@@ -6,7 +6,7 @@ export const SERVICES_LIST = [
     alt: 'Rabat hall - Walima grand reception with top catering and extra ordinary banquet services in Lahore',
     title: 'Walima',
     sub: 'Grand Reception',
-    desc: 'An evening of royal opulence at Rabat hall, where extra ordinary banquet services meet top catering by Time & Taste, featuring bespoke culinary menus, palatial chandeliers, and celebratory hospitality.',
+    desc: 'An evening of royal opulence at Rabat hall, where extra ordinary banquet services meet top catering by Time & Taste Catering, featuring bespoke culinary menus, palatial chandeliers, and celebratory hospitality.',
     highlights: ['Grand Imperial Banquet', 'Top Catering & Gourmet Feasts', 'Majestic Centerstage Lighting'],
   },
   {

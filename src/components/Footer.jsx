@@ -130,7 +130,7 @@ export default function Footer() {
                 </div>
                 <div className="r-brand-titles">
                   <h3 className="r-brand-name">RABAT</h3>
-                  <span className="r-brand-sub">by Time &amp; Taste</span>
+                  <span className="r-brand-sub">by Time &amp; Taste Catering</span>
                 </div>
               </div>
 
@@ -232,7 +232,7 @@ export default function Footer() {
               <div className="r-venue-details">
                 <strong className="r-venue-hall">Hall #: 16, RABAT</strong>
                 <p className="r-venue-text">
-                  RABAT Banquet Hall by Time &amp; Taste
+                  RABAT Banquet Hall by Time &amp; Taste Catering
                   <br />
                   Saadat Farooq Rd, Area Garrison,
                   <br />
@@ -311,7 +311,7 @@ export default function Footer() {
       {/* 4. BOTTOM BAR */}
       <div className="r-footer-bottom">
         <div className="r-bottom-left">
-          <p className="r-copy">&copy; {new Date().getFullYear()} Rabat by Time &amp; Taste. All Rights Reserved.</p>
+          <p className="r-copy">&copy; {new Date().getFullYear()} Rabat by Time &amp; Taste Catering. All Rights Reserved.</p>
         </div>
         <div className="r-bottom-right">
           <div className="r-legal-links">

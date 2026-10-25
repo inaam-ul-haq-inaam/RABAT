@@ -79,9 +79,7 @@ export default function Features() {
               </div>
             </article>
           </div>
-          <SectionLink to="hallplan" className="btn-pill-gold">
-            INSPECT HALL PLAN BLUEPRINT
-          </SectionLink>
+          
         </div>
       </div>
     </Section>

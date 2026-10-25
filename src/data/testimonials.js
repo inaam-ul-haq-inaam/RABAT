@@ -4,7 +4,7 @@ export const TESTIMONIALS = [
     img: 'images/hall-plan/rabat_bright_palace_hall_1790426732749.webp',
     alt: 'Barat Nuptials Event',
     quote:
-      "We hosted our daughter's Barat at Rabat Hall & The Moroccan arch curtain stage was breathtaking, and our guests are still raving about the Time & Taste Mutton Biryani.",
+      "We hosted our daughter's Barat at Rabat Hall & The Moroccan arch curtain stage was breathtaking, and our guests are still raving about the Time & Taste Catering Mutton Biryani.",
     name: 'Chaudhry Taimoor & Family',
     event: 'BARAT NIGHT · 7TH OCTOBER',
     avatar: 'users',
