@@ -84,6 +84,25 @@ function ThemeFooter({ card, onSelect }) {
   );
 }
 
+// Constant petal distribution for Decors page (White, Pink, Red)
+const DECOR_PETALS = Array.from({ length: 33 }, (_, i) => {
+  const rand = (seed) => {
+    const x = Math.sin(i * 43.17 + seed * 79.3) * 10000;
+    return x - Math.floor(x);
+  };
+  const colorTypes = ['white', 'pink', 'red'];
+  const type = colorTypes[i % 3];
+
+  return {
+    type,
+    left: `${(rand(1) * 98 + 1).toFixed(1)}%`,
+    delay: `${(-rand(2) * 8).toFixed(2)}s`,
+    duration: `${(5.5 + rand(3) * 3.5).toFixed(2)}s`,
+    size: 13 + Math.round(rand(4) * 10),
+    sway: Math.round(rand(5) * 110 - 55),
+  };
+});
+
 export default function Decors() {
   const { selectTheme } = useTheme();
   const { openContactModal } = useContactModal();
@@ -91,6 +110,22 @@ export default function Decors() {
 
   return (
     <Section className="decors reveal reveal-delay-1" id="decors" aria-labelledby="decors-title">
+      {/* Ambient Falling Flower Petals Overlay (White, Pink, Red) */}
+      <div className="decor-petals-container" aria-hidden="true">
+        {DECOR_PETALS.map((p, idx) => (
+          <span
+            key={idx}
+            className={`decor-petal decor-petal--${p.type}`}
+            style={{
+              left: p.left,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+              '--petal-size': `${p.size}px`,
+              '--petal-sway': `${p.sway}px`,
+            }}
+          />
+        ))}
+      </div>
       <div className="decors-header container">
         <span className="decors-eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

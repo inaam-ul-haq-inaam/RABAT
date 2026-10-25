@@ -9248,3 +9248,112 @@ textarea.rinput { resize: vertical; min-height: 84px; line-height: 1.6; }
   transform: scale(1.02);
   filter: drop-shadow(0 8px 24px rgba(72, 20, 83, 0.16));
 }
+
+
+
+/* ============================================================
+   Decors Ambient Falling Flower Petals (White, Pink, Red)
+   Continuous, romantic, floating petals across the screen
+   ============================================================ */
+
+.decor-petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 12;
+  overflow: hidden;
+}
+
+.decor-petal {
+  position: absolute;
+  top: -8%;
+  width: var(--petal-size, 16px);
+  height: calc(var(--petal-size, 16px) * 0.76);
+  border-radius: 88% 12% 88% 12% / 70% 30% 70% 30%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation-name: decor-petal-fall;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-iteration-count: infinite;
+}
+
+.decor-petal::after {
+  content: '';
+  position: absolute;
+  inset: 20% 32%;
+  border-radius: inherit;
+  transform: rotate(6deg);
+}
+
+/* White Rose Petal */
+.decor-petal--white {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #faf3ee 45%,
+    #ebe0d5 100%
+  );
+  box-shadow: inset -1px -2px 4px rgba(180, 160, 140, 0.4), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.decor-petal--white::after {
+  border-left: 1px solid rgba(220, 200, 180, 0.6);
+}
+
+/* Pink Rose Petal */
+.decor-petal--pink {
+  background: linear-gradient(
+    135deg,
+    #ffe2ea 0%,
+    #ff8fa3 45%,
+    #d93d62 100%
+  );
+  box-shadow: inset -1px -2px 5px rgba(140, 20, 45, 0.45), 0 2px 7px rgba(220, 60, 95, 0.22);
+}
+
+.decor-petal--pink::after {
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Royal Red Velvet Petal */
+.decor-petal--red {
+  background: linear-gradient(
+    135deg,
+    #e63946 0%,
+    #b5172b 45%,
+    #590d18 100%
+  );
+  box-shadow: inset -2px -2px 6px rgba(50, 0, 0, 0.6), 0 2px 8px rgba(100, 0, 0, 0.35);
+}
+
+.decor-petal--red::after {
+  border-left: 1px solid rgba(255, 180, 190, 0.55);
+}
+
+@keyframes decor-petal-fall {
+  0% {
+    transform: translate3d(0, -6vh, 0) rotate(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.88;
+  }
+  50% {
+    transform: translate3d(var(--petal-sway, 45px), 52vh, 0) rotate(190deg) rotateY(180deg);
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(calc(var(--petal-sway, 45px) * -0.5), 110vh, 0) rotate(380deg) rotateY(360deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-petals-container {
+    display: none !important;
+  }
+}
