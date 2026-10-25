@@ -5,7 +5,7 @@ import { Calendar, User, Users, Utensils, HelpCircle, UserCheck, Sparkles } from
 import { useTheme } from '../context/ThemeContext.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 
-const WA_NUMBER = '923017130942';
+const WA_NUMBER = '923004080234';
 
 const EVENT_TYPE_OPTIONS = [
   'Mayoun',
