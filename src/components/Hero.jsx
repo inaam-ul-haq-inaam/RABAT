@@ -1,3 +1,4 @@
+import './Hero.css';
 import { Fragment, useEffect, useState } from 'react';
 import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
