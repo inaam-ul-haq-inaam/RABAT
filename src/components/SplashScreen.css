@@ -61,11 +61,11 @@
 
 /* Parting triggers the beam ignition & golden ambient flood */
 .splash.splash-active .splash-backlight {
-  animation: backlightBloom 2.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: backlightBloom 3.8s cubic-bezier(0.37, 0, 0.63, 1) forwards;
 }
 
 .splash.splash-active .splash-backlight::before {
-  animation: beamIgnite 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: beamIgnite 2.8s cubic-bezier(0.37, 0, 0.63, 1) forwards;
 }
 
 @keyframes beamIgnite {
@@ -207,34 +207,45 @@
 }
 
 /* ============================================================
-   3. Grand Royal Curtain Parting (Ultra-Smooth Hardware-Accelerated)
+   3. Grand Royal Curtain Parting (Slow, Cinematic, Zero-Jerk)
+   Curtains glide slowly from center and gather smoothly into the sides
    ============================================================ */
 
 .splash.splash-active .curtain-left {
-  animation: smoothCurtainLeft 2.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation: slowCurtainLeft 3.8s cubic-bezier(0.37, 0, 0.63, 1) forwards;
 }
 
 .splash.splash-active .curtain-right {
-  animation: smoothCurtainRight 2.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation: slowCurtainRight 3.8s cubic-bezier(0.37, 0, 0.63, 1) forwards;
 }
 
-/* Left Curtain: Pure GPU-accelerated horizontal parting */
-@keyframes smoothCurtainLeft {
+/* Left Curtain: Glides slowly and gathers into the left side */
+@keyframes slowCurtainLeft {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scaleX(1);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
   }
   100% {
-    transform: translate3d(-102%, 0, 0);
+    transform: translate3d(-102%, 0, 0) scaleX(0.82);
+    opacity: 0;
   }
 }
 
-/* Right Curtain: Pure GPU-accelerated horizontal parting */
-@keyframes smoothCurtainRight {
+/* Right Curtain: Glides slowly and gathers into the right side */
+@keyframes slowCurtainRight {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scaleX(1);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
   }
   100% {
-    transform: translate3d(102%, 0, 0);
+    transform: translate3d(102%, 0, 0) scaleX(0.82);
+    opacity: 0;
   }
 }
 
@@ -324,9 +335,9 @@
   max-width: 680px;
   margin: 0 auto;
   animation: splash-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 0.65s ease;
+  transition: opacity 1.2s cubic-bezier(0.37, 0, 0.63, 1),
+              transform 1.2s cubic-bezier(0.37, 0, 0.63, 1),
+              filter 1.2s ease;
   pointer-events: none;
 }
 

@@ -19,13 +19,21 @@ const FEATURE_ICONS = {
 export default function Hero() {
   const [slideIndex, setSlideIndex] = useState(0);
 
-  /* 13. HERO SLIDER — original swaps .hero-slide--active every 3s */
+  /* 13. HERO SLIDER — swaps slides after splash screen completes (7s initial delay, then every 4s) */
   useEffect(() => {
     if (HERO_SLIDES.length < 2) return undefined;
-    const timer = window.setInterval(() => {
+    let timer;
+    const initialDelay = window.setTimeout(() => {
       setSlideIndex((index) => (index + 1) % HERO_SLIDES.length);
-    }, 3000);
-    return () => window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        setSlideIndex((index) => (index + 1) % HERO_SLIDES.length);
+      }, 4000);
+    }, 7000);
+
+    return () => {
+      window.clearTimeout(initialDelay);
+      if (timer) window.clearInterval(timer);
+    };
   }, []);
 
   return (
