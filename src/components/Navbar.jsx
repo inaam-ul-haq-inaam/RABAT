@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SectionLink from './SectionLink.jsx';
 import { ArrowUpRightIcon } from './Icons.jsx';
-import { PhoneCall, Star } from 'lucide-react';
-import { useReviewModal } from '../context/ReviewModalContext.jsx';
+import { PhoneCall } from 'lucide-react';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 
 const ANNOUNCEMENTS = [
@@ -40,7 +39,6 @@ const DD_ICON_STYLE = {
 
 export default function Navbar() {
   const { openContactModal } = useContactModal();
-  const { openReviewModal } = useReviewModal();
   const navRef = useRef(null);
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -251,32 +249,6 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="nav-item-review-mobile">
-              <button
-                type="button"
-                className="nav-link"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  color: '#F59E0B',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '0.65rem 0',
-                  font: 'inherit',
-                  fontWeight: '700',
-                  width: '100%',
-                }}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openReviewModal();
-                }}
-              >
-                <Star size={16} fill="#F59E0B" color="#F59E0B" />
-                <span>✍️ Add Your Review</span>
-              </button>
-            </li>
           </ul>
         </nav>
 
@@ -294,16 +266,6 @@ export default function Navbar() {
         </button>
 
         <div className="nav-actions">
-          <button
-            type="button"
-            className="btn-nav-review"
-            onClick={openReviewModal}
-            aria-label="Add Review"
-            title="Click to write or add your review of Rabat Banquet Hall"
-          >
-            <Star size={13} fill="#F59E0B" color="#F59E0B" />
-            <span className="btn-nav-review-label">Add Review</span>
-          </button>
           <button
             type="button"
             className="btn-nav-call"

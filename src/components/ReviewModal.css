@@ -366,47 +366,4 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ==========================================================================
-   Header Navbar Review Button
-   ========================================================================== */
-
-.btn-nav-review {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 0.55rem 0.95rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(245, 158, 11, 0.55);
-  background: rgba(245, 158, 11, 0.12);
-  color: #FAF7F2;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-nav-review:hover,
-.btn-nav-review:focus-visible {
-  background: rgba(245, 158, 11, 0.26);
-  border-color: #F59E0B;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
-}
-
-@media (max-width: 680px) {
-  .btn-nav-review {
-    padding: 0.45rem;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-  }
-  .btn-nav-review-label {
-    display: none;
-  }
-}
 
