@@ -28,7 +28,7 @@ export default function Hero() {
       timer = window.setInterval(() => {
         setSlideIndex((index) => (index + 1) % HERO_SLIDES.length);
       }, 4000);
-    }, 7000);
+    }, 8500);
 
     return () => {
       window.clearTimeout(initialDelay);

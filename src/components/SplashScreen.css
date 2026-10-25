@@ -60,11 +60,11 @@
 
 /* Parting triggers the beam ignition & golden ambient flood */
 .splash.splash-active .splash-backlight {
-  animation: backlightBloom 3.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: backlightBloom 5.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
 .splash.splash-active .splash-backlight::before {
-  animation: beamIgnite 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: beamIgnite 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
 @keyframes beamIgnite {
@@ -207,19 +207,19 @@ position: absolute;
 }
 
 /* ============================================================
-   3. Grand Royal Curtain Parting (Instant Responsive Start, Butter-Smooth)
-   Zero lag at start: immediate silky departure with natural side-gather
+   3. Grand Royal Curtain Parting (Majestic Slow 5.0s Theatrical Glide)
+   Slow, steady, constant motorized glide into the side wings
    ============================================================ */
 
 .splash.splash-active .curtain-left {
-  animation: slowCurtainLeft 3.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slowCurtainLeft 5.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
 .splash.splash-active .curtain-right {
-  animation: slowCurtainRight 3.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slowCurtainRight 5.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
-/* Left Curtain: Starts moving immediately from frame 1, gathers smoothly into left wing */
+/* Left Curtain: Glides slowly and steadily into the left side */
 @keyframes slowCurtainLeft {
   0% {
     transform: translate3d(0, 0, 0) scaleX(1);
@@ -234,7 +234,7 @@ position: absolute;
   }
 }
 
-/* Right Curtain: Starts moving immediately from frame 1, gathers smoothly into right wing */
+/* Right Curtain: Glides slowly and steadily into the right side */
 @keyframes slowCurtainRight {
   0% {
     transform: translate3d(0, 0, 0) scaleX(1);
@@ -313,7 +313,7 @@ position: absolute;
 /* Parting breeze: entire petal layer gently dissolves via GPU opacity without interrupting particle physics */
 .splash.splash-active .splash-petals {
   opacity: 0;
-  transition: opacity 1.0s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 /* ============================================================
