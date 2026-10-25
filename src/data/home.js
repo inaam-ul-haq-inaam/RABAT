@@ -61,7 +61,7 @@ export const HERO_SLIDES = [
 /** The full-bleed photo bands between the home-page sections. */
 export const PHOTO_BANDS = [
   { id: 'band-1', image: 'images/pavilion/rabat_hall_interior_banquet.jpg' },
-  { id: 'band-2', image: 'images/pavilion/ai_luxury_table.jpg' },
+  { id: 'band-2', image: 'images/pavilion/rabat_royal_dining_chargha.jpg' },
   { id: 'band-3', image: 'images/pavilion/rabat_hall_buffet_dining.jpg' },
 ];
 
