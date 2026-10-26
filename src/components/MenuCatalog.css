@@ -432,511 +432,109 @@
   margin: 0;
 }
 
-/* ── 5. VIEW MODE TOGGLE (Featured Tab vs All 7) ── */
-.view-mode-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #f0e9dc;
-  padding: 4px;
-  border-radius: 9999px;
-  margin-top: 1.25rem;
-  border: 1px solid #dfceb2;
-}
-
-.view-mode-btn {
-  padding: 8px 18px;
-  border-radius: 9999px;
-  border: none;
-  background: transparent;
-  color: #5c4d3c;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.view-mode-btn.active {
-  background: #12100e;
-  color: #f7e199;
-  box-shadow: 0 2px 8px rgba(18, 16, 14, 0.2);
-}
-
-/* ── 6. PACKAGE TABS (M1 to M7) ── */
-.package-tabs {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  margin-bottom: 2rem;
-}
-
-.pkg-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 6px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1.5px solid #e8decb;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.22s ease;
-}
-
-.pkg-tab:hover {
-  border-color: #c5a059;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
-}
-
-.pkg-tab--active {
-  background: linear-gradient(145deg, #181410 0%, #0d0a08 100%);
-  border-color: #d4af37;
-  box-shadow: 0 6px 20px rgba(18, 16, 14, 0.22);
-}
-
-.pkg-tab-code {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #c5a059;
-  margin-bottom: 4px;
-}
-
-.pkg-tab--active .pkg-tab-code {
-  color: #f7e199;
-}
-
-.pkg-tab-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  color: #8c7d6b;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.pkg-tab--active .pkg-tab-tag {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* ── 7. ACTIVE PACKAGE PRESENTATION CARD (Featured View) ── */
-.active-pkg-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1.5px solid #e2d7c5;
-  box-shadow: 0 12px 40px rgba(35, 25, 15, 0.08);
-  padding: clamp(1.75rem, 4vw, 3rem);
-  animation: cardFadeIn 0.35s ease;
-  position: relative;
-}
-
-@keyframes cardFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.pkg-card-top {
-  border-bottom: 1px solid #eee5d8;
-  padding-bottom: 1.75rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.pkg-card-ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 1rem;
-}
-
-.ornament-line {
-  height: 1px;
-  width: 60px;
-  background: linear-gradient(90deg, transparent, #d4af37, transparent);
-}
-
-.ornament-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #aa820a;
-}
-
-.pkg-badge-cluster {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.pkg-code-pill {
-  padding: 4px 14px;
-  border-radius: 9999px;
-  background: #12100e;
-  color: #f7e199;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(212, 175, 55, 0.45);
-}
-
-.pkg-suitable-pill {
-  padding: 5px 14px;
-  border-radius: 9999px;
-  background: rgba(197, 160, 89, 0.12);
-  color: #8c6d32;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.pkg-card-title {
-  margin: 0 0 0.5rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 3.8vw, 2.7rem);
-  font-weight: 700;
-  color: #12100e;
-}
-
-.pkg-card-highlight {
-  max-width: 680px;
-  margin: 0 auto;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: #635545;
-  line-height: 1.6;
-}
-
-/* ── 8. ONE DISH STRUCTURED COURSE ROWS ── */
-.one-dish-course-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 2.25rem;
-}
-
-.one-dish-row {
-  background: #FAF8F5;
-  border: 1px solid #EDE3D3;
-  border-radius: 14px;
-  padding: 1.15rem 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.2s ease;
-}
-
-.one-dish-row:hover {
-  border-color: #c5a059;
-  background: #FFFDF9;
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.08);
-}
-
-.one-dish-row--choice {
-  background: linear-gradient(90deg, #FBF8F1 0%, #FFFFFF 100%);
-  border-color: #DFCDB1;
-  box-shadow: inset 0 0 0 1px rgba(197, 160, 89, 0.15);
-}
-
-.one-dish-row-num {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #12100E;
-  color: #F7E199;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.one-dish-row-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.one-dish-row-meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.one-dish-course-icon {
-  font-size: 1rem;
-}
-
-.one-dish-course-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #8C6D32;
-}
-
-.one-dish-options-wrap {
-  margin-top: 2px;
-}
-
-.choice-pill-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.choice-pill-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.dish-name-badge {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
-  font-weight: 700;
-  color: #181410;
-  line-height: 1.25;
-}
-
-.dish-name-badge--single {
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
-  font-weight: 600;
-  color: #2a241e;
-}
-
-.choice-or-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  color: #0d0b09;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.35);
-  flex-shrink: 0;
-}
-
-.one-dish-note {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  color: #7A6C5B;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 3px;
-  flex-wrap: wrap;
-}
-
-.note-text {
-  font-style: italic;
-}
-
-.note-action-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  color: #8C6D32;
-  font-weight: 700;
-  font-size: 0.78rem;
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color 0.15s ease;
-}
-
-.note-action-btn:hover {
-  color: #12100E;
-}
-
-/* Card Footer Actions */
-.pkg-card-footer {
-  border-top: 1px solid #eee5d8;
-  padding-top: 1.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.pkg-footer-info {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.84rem;
-  color: #7a6b58;
-  font-weight: 500;
-}
-
-.pkg-footer-btns {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.btn-pkg-inquire {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 9999px;
-  background: #12100e;
-  color: #f7e199;
-  border: 1px solid #c5a059;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-pkg-inquire:hover {
-  background: #25201a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(18, 16, 14, 0.2);
-}
-
-.all-menus-prompt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 1.5rem;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  background: rgba(197, 160, 89, 0.08);
-  border: 1px dashed rgba(197, 160, 89, 0.4);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  color: #5C4D3C;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.all-menus-prompt-btn {
-  background: #12100E;
-  color: #F7E199;
-  border: 1px solid #D4AF37;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.all-menus-prompt-btn:hover {
-  background: #25201A;
-  transform: translateY(-1px);
-}
-
-/* ── 9. ALL 7 MENUS BROCHURE GRID ── */
+/* ── 5. ALL 7 MENUS BROCHURE GRID ── */
 .all-packages-brochure-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.75rem;
 }
 
 .brochure-pkg-card {
-  background: #FFFFFF;
-  border: 1.5px solid #E5DCCB;
-  border-radius: 18px;
-  padding: 1.6rem 1.4rem;
+  background: #ffffff;
+  border: 1.5px solid #e5dccb;
+  border-radius: 20px;
+  padding: 1.85rem 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 6px 24px rgba(35, 25, 15, 0.05);
+  box-shadow: 0 8px 24px rgba(35, 25, 15, 0.05);
   transition: all 0.25s ease;
   position: relative;
 }
 
 .brochure-pkg-card:hover {
-  border-color: #D4AF37;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(197, 160, 89, 0.15);
+  border-color: #d4af37;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(197, 160, 89, 0.18);
 }
 
 .brochure-card-header {
   border-bottom: 1px solid #eee5d8;
-  padding-bottom: 1rem;
-  margin-bottom: 1.25rem;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.35rem;
   text-align: center;
+}
+
+.brochure-ornament-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.4rem;
+}
+
+.brochure-ornament-line {
+  height: 1px;
+  width: 40px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
 }
 
 .brochure-one-dish-tag {
   display: inline-block;
   font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   color: #aa820a;
   text-transform: uppercase;
-  margin-bottom: 0.3rem;
 }
 
 .brochure-pkg-code {
-  margin: 0 0 0.4rem;
+  margin: 0.2rem 0 0.4rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.85rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: #12100e;
+  line-height: 1.15;
 }
 
 .brochure-pkg-suitable {
-  display: block;
+  display: inline-block;
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  color: #8c7d6b;
-  font-weight: 500;
+  font-size: 0.74rem;
+  color: #8c6d32;
+  font-weight: 600;
+  background: rgba(197, 160, 89, 0.12);
+  padding: 3px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
 }
 
 .brochure-items-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11px;
+  flex: 1;
 }
 
 .brochure-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: #3d3429;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .brochure-item-bullet {
   color: #c5a059;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .brochure-item-text {
@@ -963,63 +561,47 @@
 
 .brochure-or-badge {
   display: inline-block;
-  padding: 1px 6px;
-  border-radius: 4px;
-  background: #12100E;
-  color: #f7e199;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
   font-family: 'Inter', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   margin: 0 2px;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.35);
 }
 
 .brochure-card-footer {
   border-top: 1px solid #eee5d8;
-  padding-top: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding-top: 1.35rem;
 }
 
 .btn-brochure-inquire {
-  flex: 1;
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 10px 14px;
+  gap: 8px;
+  padding: 12px 18px;
   border-radius: 9999px;
-  background: #12100E;
+  background: #12100e;
   color: #f7e199;
   border: 1px solid #c5a059;
   font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 700;
+  letter-spacing: 0.03em;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-brochure-inquire:hover {
-  background: #25201A;
-}
-
-.btn-brochure-detail {
-  padding: 10px 14px;
-  border-radius: 9999px;
-  background: #FAF8F5;
-  color: #4A3D2C;
-  border: 1px solid #E5DCCB;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-brochure-detail:hover {
-  border-color: #c5a059;
-  color: #12100E;
+  background: #25201a;
+  border-color: #d4af37;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(18, 16, 14, 0.25);
 }
 
 /* ── 10. OFFICIAL DESSERTS CARDS ── */

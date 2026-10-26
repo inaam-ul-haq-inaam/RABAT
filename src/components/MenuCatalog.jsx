@@ -18,9 +18,7 @@ import './MenuCatalog.css';
 const WA_NUMBER = '923256572839';
 
 export default function MenuCatalog() {
-  const [activePackageId, setActivePackageId] = useState('m1');
   const [activeSection, setActiveSection] = useState('packages');
-  const [packageViewMode, setPackageViewMode] = useState('featured'); // 'featured' | 'all'
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const location = useLocation();
   const { openContactModal } = useContactModal();
@@ -56,10 +54,8 @@ export default function MenuCatalog() {
       // If hash matches a package (m1 - m7)
       const foundPkg = MENU_PACKAGES.find((p) => p.id === hash);
       if (foundPkg) {
-        setActivePackageId(foundPkg.id);
         setActiveSection('packages');
-        setPackageViewMode('featured');
-        const el = document.getElementById('packages');
+        const el = document.getElementById(foundPkg.id) || document.getElementById('packages');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
@@ -72,8 +68,6 @@ export default function MenuCatalog() {
       }
     }
   }, [location.hash]);
-
-  const activePackage = MENU_PACKAGES.find((p) => p.id === activePackageId) || MENU_PACKAGES[0];
 
   const handleInquirePackage = (pkg) => {
     const summary = pkg.courses
@@ -214,214 +208,59 @@ export default function MenuCatalog() {
                   Official banquet menu packages compliant with government One Dish regulations,
                   served with premium mutton, chicken specialties, fresh tandoor naan, gourmet salad, raita, dessert, and drinks.
                 </p>
-
-                {/* View Mode Switcher: Detailed Tab vs All 7 At A Glance */}
-                <div className="view-mode-toggle">
-                  <button
-                    type="button"
-                    className={`view-mode-btn ${packageViewMode === 'featured' ? 'active' : ''}`}
-                    onClick={() => setPackageViewMode('featured')}
-                  >
-                    💎 Detailed Selected View
-                  </button>
-                  <button
-                    type="button"
-                    className={`view-mode-btn ${packageViewMode === 'all' ? 'active' : ''}`}
-                    onClick={() => setPackageViewMode('all')}
-                  >
-                    📜 All 7 Menus At A Glance
-                  </button>
-                </div>
               </div>
 
-              {packageViewMode === 'featured' ? (
-                <>
-                  {/* Package Selector Tabs */}
-                  <div className="package-tabs" role="tablist">
-                    {MENU_PACKAGES.map((pkg) => (
-                      <button
-                        key={pkg.id}
-                        type="button"
-                        role="tab"
-                        aria-selected={activePackageId === pkg.id}
-                        className={`pkg-tab ${activePackageId === pkg.id ? 'pkg-tab--active' : ''}`}
-                        onClick={() => setActivePackageId(pkg.id)}
-                      >
-                        <span className="pkg-tab-code">{pkg.code}</span>
-                        <span className="pkg-tab-tag">{pkg.tag}</span>
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Active Package Card Presentation */}
-                  <article className="active-pkg-card" key={activePackage.id}>
-                    <header className="pkg-card-top">
-                      <div className="pkg-card-ornament">
-                        <span className="ornament-line" />
-                        <span className="ornament-text">ONE DISH MENU</span>
-                        <span className="ornament-line" />
+              {/* All 7 Menus Grid View (Official Brochure Cards) */}
+              <div className="all-packages-brochure-grid">
+                {MENU_PACKAGES.map((pkg) => (
+                  <article className="brochure-pkg-card" key={pkg.id} id={pkg.id}>
+                    <header className="brochure-card-header">
+                      <div className="brochure-ornament-row">
+                        <span className="brochure-ornament-line" />
+                        <span className="brochure-one-dish-tag">ONE DISH MENU</span>
+                        <span className="brochure-ornament-line" />
                       </div>
-                      <div className="pkg-badge-cluster">
-                        <span className="pkg-code-pill">{activePackage.code}</span>
-                        <span className="pkg-suitable-pill">{activePackage.suitableFor}</span>
-                      </div>
-                      <h3 className="pkg-card-title">{activePackage.code} &mdash; Official Banquet Package</h3>
-                      <p className="pkg-card-highlight">{activePackage.highlight}</p>
+                      <h3 className="brochure-pkg-code">{pkg.code}</h3>
+                      <span className="brochure-pkg-suitable">{pkg.suitableFor}</span>
                     </header>
 
-                    {/* Structured Course List */}
-                    <div className="one-dish-course-list">
-                      {activePackage.courses.map((c, idx) => (
-                        <div
-                          key={idx}
-                          className={`one-dish-row ${c.hasChoice ? 'one-dish-row--choice' : ''}`}
-                        >
-                          <div className="one-dish-row-num">{idx + 1}</div>
-                          <div className="one-dish-row-content">
-                            <div className="one-dish-row-meta">
-                              <span className="one-dish-course-icon">{c.icon}</span>
-                              <span className="one-dish-course-label">{c.label}</span>
-                            </div>
-
-                            <div className="one-dish-options-wrap">
-                              {c.hasChoice ? (
-                                <div className="choice-pill-group">
-                                  {c.options.map((opt, oIdx) => (
-                                    <span key={oIdx} className="choice-pill-item">
-                                      <span className="dish-name-badge">{opt}</span>
-                                      {oIdx < c.options.length - 1 && (
-                                        <span className="choice-or-badge" aria-label="or">
-                                          OR
-                                        </span>
-                                      )}
-                                    </span>
-                                  ))}
-                                </div>
-                              ) : (
-                                <span className="dish-name-badge dish-name-badge--single">
-                                  {c.options[0]}
-                                </span>
-                              )}
-                            </div>
-
-                            {c.note && (
-                              <div className="one-dish-note">
-                                <span className="note-text">{c.note}</span>
-                                {c.label.toLowerCase().includes('dessert') && (
-                                  <button
-                                    type="button"
-                                    className="note-action-btn"
-                                    onClick={() => scrollToCategory('desserts')}
-                                  >
-                                    View 10 Dessert Choices &darr;
-                                  </button>
-                                )}
-                                {c.label.toLowerCase().includes('salad') && (
-                                  <button
-                                    type="button"
-                                    className="note-action-btn"
-                                    onClick={() => scrollToCategory('salads')}
-                                  >
-                                    View Salad Options &darr;
-                                  </button>
-                                )}
-                              </div>
+                    <ul className="brochure-items-list">
+                      {pkg.courses.map((c, i) => (
+                        <li key={i} className={`brochure-item ${c.hasChoice ? 'has-choice' : ''}`}>
+                          <span className="brochure-item-bullet">•</span>
+                          <div className="brochure-item-text">
+                            {c.hasChoice ? (
+                              <span className="brochure-choice-line">
+                                {c.options.map((opt, oIdx) => (
+                                  <span key={oIdx} className="choice-span">
+                                    <strong>{opt}</strong>
+                                    {oIdx < c.options.length - 1 && (
+                                      <span className="brochure-or-badge">OR</span>
+                                    )}
+                                  </span>
+                                ))}
+                              </span>
+                            ) : (
+                              <span>{c.options[0]}</span>
                             )}
                           </div>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
 
-                    <footer className="pkg-card-footer">
-                      <div className="pkg-footer-info">
-                        <span>
-                          🏛️ Hall 16 Standard &bull; Curated by Time &amp; Taste Catering (30+ Years Heritage)
-                        </span>
-                      </div>
-                      <div className="pkg-footer-btns">
-                        <button
-                          type="button"
-                          className="btn-pkg-inquire"
-                          onClick={() => handleInquirePackage(activePackage)}
-                        >
-                          <WhatsAppIcon size={18} />
-                          <span>Inquire {activePackage.code} On WhatsApp</span>
-                        </button>
-                      </div>
+                    <footer className="brochure-card-footer">
+                      <button
+                        type="button"
+                        className="btn-brochure-inquire"
+                        onClick={() => handleInquirePackage(pkg)}
+                      >
+                        <WhatsAppIcon size={16} />
+                        <span>Inquire {pkg.code} On WhatsApp</span>
+                      </button>
                     </footer>
                   </article>
-
-                  {/* Prompt to compare all 7 */}
-                  <div className="all-menus-prompt">
-                    <span>Want to see all 7 One Dish menus side by side?</span>
-                    <button
-                      type="button"
-                      className="all-menus-prompt-btn"
-                      onClick={() => setPackageViewMode('all')}
-                    >
-                      Switch to All 7 Menus View 📜
-                    </button>
-                  </div>
-                </>
-              ) : (
-                /* All 7 Menus Grid View (Brochure Style) */
-                <div className="all-packages-brochure-grid">
-                  {MENU_PACKAGES.map((pkg) => (
-                    <article className="brochure-pkg-card" key={pkg.id}>
-                      <header className="brochure-card-header">
-                        <span className="brochure-one-dish-tag">ONE DISH MENU</span>
-                        <h3 className="brochure-pkg-code">{pkg.code}</h3>
-                        <span className="brochure-pkg-suitable">{pkg.suitableFor}</span>
-                      </header>
-
-                      <ul className="brochure-items-list">
-                        {pkg.courses.map((c, i) => (
-                          <li key={i} className={`brochure-item ${c.hasChoice ? 'has-choice' : ''}`}>
-                            <span className="brochure-item-bullet">•</span>
-                            <div className="brochure-item-text">
-                              {c.hasChoice ? (
-                                <span className="brochure-choice-line">
-                                  {c.options.map((opt, oIdx) => (
-                                    <span key={oIdx} className="choice-span">
-                                      <strong>{opt}</strong>
-                                      {oIdx < c.options.length - 1 && (
-                                        <span className="brochure-or-badge">OR</span>
-                                      )}
-                                    </span>
-                                  ))}
-                                </span>
-                              ) : (
-                                <span>{c.options[0]}</span>
-                              )}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <footer className="brochure-card-footer">
-                        <button
-                          type="button"
-                          className="btn-brochure-inquire"
-                          onClick={() => handleInquirePackage(pkg)}
-                        >
-                          <WhatsAppIcon size={16} />
-                          <span>Inquire {pkg.code}</span>
-                        </button>
-                        <button
-                          type="button"
-                          className="btn-brochure-detail"
-                          onClick={() => {
-                            setActivePackageId(pkg.id);
-                            setPackageViewMode('featured');
-                          }}
-                        >
-                          Full Details &rarr;
-                        </button>
-                      </footer>
-                    </article>
-                  ))}
-                </div>
-              )}
+                ))}
+              </div>
             </section>
 
             {/* ════════════ SECTION 02: DESSERTS (10 OFFICIAL DESSERTS) ════════════ */}
