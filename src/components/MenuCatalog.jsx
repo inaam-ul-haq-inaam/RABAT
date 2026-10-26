@@ -19,10 +19,11 @@ const WA_NUMBER = '923256572839';
 export default function MenuCatalog() {
   const [activePackageId, setActivePackageId] = useState('m1');
   const [activeCategory, setActiveCategory] = useState('packages');
+  const [packageViewMode, setPackageViewMode] = useState('featured'); // 'featured' | 'all'
   const location = useLocation();
   const { openContactModal } = useContactModal();
 
-  // Scroll to hash if provided (e.g., from navbar dropdown /menu#desserts or /menu#m3)
+  // Scroll to hash if provided (e.g., /menu#desserts or /menu#m3)
   useEffect(() => {
     if (location.hash) {
       const hash = location.hash.replace('#', '').toLowerCase();
@@ -31,6 +32,7 @@ export default function MenuCatalog() {
       if (foundPkg) {
         setActivePackageId(foundPkg.id);
         setActiveCategory('packages');
+        setPackageViewMode('featured');
         const el = document.getElementById('packages');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
@@ -48,15 +50,23 @@ export default function MenuCatalog() {
   const activePackage = MENU_PACKAGES.find((p) => p.id === activePackageId) || MENU_PACKAGES[0];
 
   const handleInquirePackage = (pkg) => {
+    const summary = pkg.courses
+      ? pkg.courses.map((c, i) => `${i + 1}. ${c.options.join(' OR ')}`).join('%0A')
+      : pkg.tag;
+    const text = `Hello Rabat Banquet Hall, I am inquiring about ONE DISH MENU: *${pkg.code}*%0A%0A*Menu Details:*%0A${summary}%0A%0APlease share pricing and availability for Hall 16.`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+  };
+
+  const handleInquireDessert = (dessert) => {
     const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I am interested in booking catering for my event. I would like details and pricing for package: *${pkg.code} - ${pkg.name} (${pkg.tag})*.`
+      `Hello Rabat Banquet Hall, I am inquiring about including royal dessert: *${dessert.name} (${dessert.tag})* for my event catering.`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
 
   const handleCustomInquiry = () => {
     const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I would like to design a bespoke *Custom Catering Menu* with your executive chef for our upcoming celebration.`
+      `Hello Rabat Banquet Hall, I would like to design a bespoke *Custom Catering Menu* with your executive chef for our upcoming event.`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
@@ -82,12 +92,13 @@ export default function MenuCatalog() {
         <div className="container">
           <span className="menu-hero-badge">
             <span className="menu-badge-dot" />
-            Time &amp; Taste Catering &bull; Hall 16
+            Time &amp; Taste Catering &bull; Hall 16 Banquet Standard
           </span>
           <h1 className="menu-hero-title">Royal Banquet Menus</h1>
           <p className="menu-hero-lead">
-            Curated by Time &amp; Taste Catering with over three decades of royal culinary heritage in Lahore.
-            Explore our 7 signature feast packages (M1 to M7), live charcoal grills, fresh seafoods, gourmet salads, and decadent desserts.
+            Official <strong>One Dish Menus (Menu 1 to Menu 7)</strong> and <strong>10 Signature Royal Desserts</strong>,
+            curated by Time &amp; Taste Catering with over three decades of royal culinary heritage in Lahore Cantt.
+            Also featuring live charcoal barbecue, fresh seafoods, gourmet salads, and continental specialties.
           </p>
 
           <div className="menu-hero-actions">
@@ -96,7 +107,14 @@ export default function MenuCatalog() {
               onClick={() => scrollToCategory('packages')}
               className="menu-btn-gold"
             >
-              Explore Packages M1 - M7 &darr;
+              Explore One Dish Menus 1 - 7 &darr;
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToCategory('desserts')}
+              className="menu-btn-glass"
+            >
+              🍨 10 Royal Desserts
             </button>
             <button
               type="button"
@@ -104,7 +122,7 @@ export default function MenuCatalog() {
               className="menu-btn-glass"
             >
               <WhatsAppIcon size={18} />
-              <span>Custom Menu Inquiries</span>
+              <span>Custom Inquiries</span>
             </button>
           </div>
         </div>
@@ -130,147 +148,284 @@ export default function MenuCatalog() {
       </nav>
 
       <div className="container menu-main-content">
-        {/* ── SECTION 1: SET PACKAGES M1 - M7 ── */}
+        {/* ── SECTION 1: ONE DISH MENUS (M1 - M7) ── */}
         <section id="packages" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">ROYAL FEAST SETS</span>
-            <h2 className="menu-sec-title">Seven Signature Royal Packages (M1 - M7)</h2>
+            <span className="menu-sec-tag">OFFICIAL BANQUET BROCHURE</span>
+            <h2 className="menu-sec-title">ONE DISH MENU (Menu 1 &mdash; Menu 7)</h2>
             <p className="menu-sec-sub">
-              Complete multi-course banquet menus designed for Barats, Walimas, Mehndis, and Corporate Galas.
+              Official banquet menu packages compliant with government One Dish regulations,
+              served with premium mutton, chicken specialties, fresh tandoor naan, gourmet salad, raita, dessert, and drinks.
+            </p>
+
+            {/* View Mode Switcher: Featured vs All 7 */}
+            <div className="view-mode-toggle">
+              <button
+                type="button"
+                className={`view-mode-btn ${packageViewMode === 'featured' ? 'active' : ''}`}
+                onClick={() => setPackageViewMode('featured')}
+              >
+                💎 Detailed Selected View
+              </button>
+              <button
+                type="button"
+                className={`view-mode-btn ${packageViewMode === 'all' ? 'active' : ''}`}
+                onClick={() => setPackageViewMode('all')}
+              >
+                📜 All 7 Menus At A Glance
+              </button>
+            </div>
+          </div>
+
+          {packageViewMode === 'featured' ? (
+            <>
+              {/* Package Selector Tabs */}
+              <div className="package-tabs" role="tablist">
+                {MENU_PACKAGES.map((pkg) => (
+                  <button
+                    key={pkg.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={activePackageId === pkg.id}
+                    className={`pkg-tab ${activePackageId === pkg.id ? 'pkg-tab--active' : ''}`}
+                    onClick={() => setActivePackageId(pkg.id)}
+                  >
+                    <span className="pkg-tab-code">{pkg.code}</span>
+                    <span className="pkg-tab-tag">{pkg.tag}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Active Package Card Presentation */}
+              <article className="active-pkg-card" key={activePackage.id}>
+                <header className="pkg-card-top">
+                  <div className="pkg-card-ornament">
+                    <span className="ornament-line" />
+                    <span className="ornament-text">ONE DISH MENU</span>
+                    <span className="ornament-line" />
+                  </div>
+                  <div className="pkg-badge-cluster">
+                    <span className="pkg-code-pill">{activePackage.code}</span>
+                    <span className="pkg-suitable-pill">{activePackage.suitableFor}</span>
+                  </div>
+                  <h3 className="pkg-card-title">{activePackage.code} &mdash; Official Banquet Package</h3>
+                  <p className="pkg-card-highlight">{activePackage.highlight}</p>
+                </header>
+
+                {/* Structured Course List */}
+                <div className="one-dish-course-list">
+                  {activePackage.courses.map((c, idx) => (
+                    <div
+                      key={idx}
+                      className={`one-dish-row ${c.hasChoice ? 'one-dish-row--choice' : ''}`}
+                    >
+                      <div className="one-dish-row-num">{idx + 1}</div>
+                      <div className="one-dish-row-content">
+                        <div className="one-dish-row-meta">
+                          <span className="one-dish-course-icon">{c.icon}</span>
+                          <span className="one-dish-course-label">{c.label}</span>
+                        </div>
+
+                        <div className="one-dish-options-wrap">
+                          {c.hasChoice ? (
+                            <div className="choice-pill-group">
+                              {c.options.map((opt, oIdx) => (
+                                <span key={oIdx} className="choice-pill-item">
+                                  <span className="dish-name-badge">{opt}</span>
+                                  {oIdx < c.options.length - 1 && (
+                                    <span className="choice-or-badge" aria-label="or">
+                                      OR
+                                    </span>
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          ) : (
+                            <span className="dish-name-badge dish-name-badge--single">
+                              {c.options[0]}
+                            </span>
+                          )}
+                        </div>
+
+                        {c.note && (
+                          <div className="one-dish-note">
+                            <span className="note-text">{c.note}</span>
+                            {c.label.toLowerCase().includes('dessert') && (
+                              <button
+                                type="button"
+                                className="note-action-btn"
+                                onClick={() => scrollToCategory('desserts')}
+                              >
+                                View 10 Dessert Choices &darr;
+                              </button>
+                            )}
+                            {c.label.toLowerCase().includes('salad') && (
+                              <button
+                                type="button"
+                                className="note-action-btn"
+                                onClick={() => scrollToCategory('salads')}
+                              >
+                                View Salad Options &darr;
+                              </button>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <footer className="pkg-card-footer">
+                  <div className="pkg-footer-info">
+                    <span>
+                      🏛️ Hall 16 Standard &bull; Curated by Time &amp; Taste Catering (30+ Years Heritage)
+                    </span>
+                  </div>
+                  <div className="pkg-footer-btns">
+                    <button
+                      type="button"
+                      className="btn-pkg-inquire"
+                      onClick={() => handleInquirePackage(activePackage)}
+                    >
+                      <WhatsAppIcon size={18} />
+                      <span>Inquire {activePackage.code} On WhatsApp</span>
+                    </button>
+                    <Link to="/reserve" className="btn-pkg-reserve">
+                      Reserve Date &amp; Hall &rarr;
+                    </Link>
+                  </div>
+                </footer>
+              </article>
+
+              {/* Quick Prompt to view all 7 */}
+              <div className="all-menus-prompt">
+                <span>Want to see all 7 One Dish menus side by side?</span>
+                <button
+                  type="button"
+                  className="all-menus-prompt-btn"
+                  onClick={() => setPackageViewMode('all')}
+                >
+                  Switch to All 7 Menus View 📜
+                </button>
+              </div>
+            </>
+          ) : (
+            /* All 7 Menus Grid View (Brochure Style) */
+            <div className="all-packages-brochure-grid">
+              {MENU_PACKAGES.map((pkg) => (
+                <article className="brochure-pkg-card" key={pkg.id}>
+                  <header className="brochure-card-header">
+                    <span className="brochure-one-dish-tag">ONE DISH MENU</span>
+                    <h3 className="brochure-pkg-code">{pkg.code}</h3>
+                    <span className="brochure-pkg-suitable">{pkg.suitableFor}</span>
+                  </header>
+
+                  <ul className="brochure-items-list">
+                    {pkg.courses.map((c, i) => (
+                      <li key={i} className={`brochure-item ${c.hasChoice ? 'has-choice' : ''}`}>
+                        <span className="brochure-item-bullet">•</span>
+                        <div className="brochure-item-text">
+                          {c.hasChoice ? (
+                            <span className="brochure-choice-line">
+                              {c.options.map((opt, oIdx) => (
+                                <span key={oIdx} className="choice-span">
+                                  <strong>{opt}</strong>
+                                  {oIdx < c.options.length - 1 && (
+                                    <span className="brochure-or-badge">OR</span>
+                                  )}
+                                </span>
+                              ))}
+                            </span>
+                          ) : (
+                            <span>{c.options[0]}</span>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <footer className="brochure-card-footer">
+                    <button
+                      type="button"
+                      className="btn-brochure-inquire"
+                      onClick={() => handleInquirePackage(pkg)}
+                    >
+                      <WhatsAppIcon size={16} />
+                      <span>Inquire {pkg.code}</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-brochure-detail"
+                      onClick={() => {
+                        setActivePackageId(pkg.id);
+                        setPackageViewMode('featured');
+                      }}
+                    >
+                      Full Details &rarr;
+                    </button>
+                  </footer>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* ── SECTION 2: DESSERTS SELECTION (10 OFFICIAL DESSERTS) ── */}
+        <section id="desserts" className="menu-section">
+          <div className="menu-section-header">
+            <span className="menu-sec-tag">OFFICIAL BROCHURE SELECTION</span>
+            <h2 className="menu-sec-title">Ten Royal Desserts (10 Signature Choices)</h2>
+            <p className="menu-sec-sub">
+              Every One Dish Menu (Menu 1 to Menu 7) includes your choice of <strong>One Dessert</strong> from the 10 official royal desserts below, crafted fresh by Time &amp; Taste master chefs and halwais.
             </p>
           </div>
 
-          {/* Package Selector Tabs */}
-          <div className="package-tabs" role="tablist">
-            {MENU_PACKAGES.map((pkg) => (
-              <button
-                key={pkg.id}
-                type="button"
-                role="tab"
-                aria-selected={activePackageId === pkg.id}
-                className={`pkg-tab ${activePackageId === pkg.id ? 'pkg-tab--active' : ''}`}
-                onClick={() => setActivePackageId(pkg.id)}
-              >
-                <span className="pkg-tab-code">{pkg.code}</span>
-                <span className="pkg-tab-name">{pkg.name}</span>
-                <span className="pkg-tab-tag">{pkg.tag}</span>
-              </button>
+          <div className="desserts-official-grid">
+            {MENU_DESSERTS.map((d) => (
+              <div className="dessert-royal-card" key={d.id}>
+                <div className="dessert-card-top">
+                  <div className="dessert-badge-group">
+                    <span className="dessert-num-badge">#{d.id}</span>
+                    <span className="dessert-icon">{d.icon}</span>
+                  </div>
+                  <span className="dessert-tag-pill">{d.tag}</span>
+                </div>
+                <h3 className="dessert-title">{d.name}</h3>
+                <p className="dessert-desc">{d.desc}</p>
+                <div className="dessert-footer">
+                  <span className="dessert-avail-pill">Included with Menus 1-7</span>
+                  <button
+                    type="button"
+                    className="dessert-inquire-link"
+                    onClick={() => handleInquireDessert(d)}
+                    title="Inquire about this dessert on WhatsApp"
+                  >
+                    <WhatsAppIcon size={14} />
+                    <span>Inquire</span>
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Active Package Card Presentation */}
-          <article className="active-pkg-card" key={activePackage.id}>
-            <header className="pkg-card-top">
-              <div className="pkg-badge-cluster">
-                <span className="pkg-code-pill">{activePackage.code}</span>
-                <span className="pkg-suitable-pill">{activePackage.suitableFor}</span>
-              </div>
-              <h3 className="pkg-card-title">{activePackage.name}</h3>
-              <p className="pkg-card-highlight">{activePackage.highlight}</p>
-            </header>
-
-            <div className="pkg-courses-grid">
-              {/* Welcome Drinks */}
-              <div className="course-box">
-                <div className="course-box-head">
-                  <span className="course-icon">🍹</span>
-                  <h4>Welcome Drinks</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.welcomeDrinks.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Starters & BBQ */}
-              <div className="course-box">
-                <div className="course-box-head">
-                  <span className="course-icon">🍢</span>
-                  <h4>Starters &amp; Live Barbecue</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.starters.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Royal Main Course */}
-              <div className="course-box course-box--mains">
-                <div className="course-box-head">
-                  <span className="course-icon">🥘</span>
-                  <h4>Royal Main Courses</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.mains.map((item, idx) => (
-                    <li key={idx} className="item-highlight">{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Breads & Tandoor */}
-              <div className="course-box">
-                <div className="course-box-head">
-                  <span className="course-icon">🫓</span>
-                  <h4>Breads &amp; Tandoor</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.breads.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Salads & Raitas */}
-              <div className="course-box">
-                <div className="course-box-head">
-                  <span className="course-icon">🥗</span>
-                  <h4>Salads &amp; Accompaniments</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.salads.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Traditional Desserts */}
-              <div className="course-box">
-                <div className="course-box-head">
-                  <span className="course-icon">🍨</span>
-                  <h4>Dessert Grand Finale</h4>
-                </div>
-                <ul className="course-items">
-                  {activePackage.desserts.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+          <div className="dessert-banner-note">
+            <div className="dessert-banner-content">
+              <h4>Want a multi-dessert sweet buffet or live jalebi counter?</h4>
+              <p>
+                You can add multiple desserts or live dessert stations (Jalebi with Rabri, Belgian Chocolate Fountain, Kashmiri Chai) to your banquet package.
+              </p>
             </div>
-
-            <footer className="pkg-card-footer">
-              <div className="pkg-footer-info">
-                <span>Tailored for 200 to 1,500+ guests &bull; Hall 16 Banquet Standard</span>
-              </div>
-              <div className="pkg-footer-btns">
-                <button
-                  type="button"
-                  className="btn-pkg-inquire"
-                  onClick={() => handleInquirePackage(activePackage)}
-                >
-                  <WhatsAppIcon size={18} />
-                  <span>Inquire {activePackage.code} On WhatsApp</span>
-                </button>
-                <Link to="/reserve" className="btn-pkg-reserve">
-                  Reserve Date &amp; Hall &rarr;
-                </Link>
-              </div>
-            </footer>
-          </article>
+            <button
+              type="button"
+              className="dessert-banner-btn"
+              onClick={() => scrollToCategory('addons')}
+            >
+              Explore Sweet Live Stations &darr;
+            </button>
+          </div>
         </section>
 
-        {/* ── SECTION 2: ADD-ONS & LIVE STATIONS ── */}
+        {/* ── SECTION 3: ADD-ONS & LIVE STATIONS ── */}
         <section id="addons" className="menu-section">
           <div className="menu-section-header">
             <span className="menu-sec-tag">CULINARY THEATRE</span>
@@ -294,36 +449,13 @@ export default function MenuCatalog() {
           </div>
         </section>
 
-        {/* ── SECTION 3: DESSERTS ── */}
-        <section id="desserts" className="menu-section">
-          <div className="menu-section-header">
-            <span className="menu-sec-tag">ROYAL SWEETS</span>
-            <h2 className="menu-sec-title">Imperial Desserts &amp; Sweet Bar</h2>
-            <p className="menu-sec-sub">
-              Traditional silver-leaf halwas, chilled earthen clay kheer, and authentic Moroccan pastries.
-            </p>
-          </div>
-
-          <div className="item-cards-grid">
-            {MENU_DESSERTS.map((d, idx) => (
-              <div className="item-card" key={idx}>
-                <div className="item-card-head">
-                  <h3 className="item-name">{d.name}</h3>
-                  <span className="item-tag">{d.tag}</span>
-                </div>
-                <p className="item-desc">{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* ── SECTION 4: SALADS ── */}
         <section id="salads" className="menu-section">
           <div className="menu-section-header">
             <span className="menu-sec-tag">FRESH &amp; VIBRANT</span>
             <h2 className="menu-sec-title">Gourmet Salads &amp; Cold Mezze</h2>
             <p className="menu-sec-sub">
-              Crisp seasonal vegetables, artisan cheeses, and house dressings to complement every feast.
+              Crisp seasonal vegetables, artisan dressings, and house raitas to complement your royal banquet spread.
             </p>
           </div>
 

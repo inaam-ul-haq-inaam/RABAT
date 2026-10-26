@@ -1,6 +1,7 @@
 /* ============================================================
    Rabat Banquet Hall — Royal Menu Catalog Stylesheet
    Luxury Editorial Aesthetic matching Rabat Imperial Palace
+   Time & Taste Catering Official Brochure Integration
    ============================================================ */
 
 .menu-page-wrap {
@@ -67,12 +68,17 @@
 }
 
 .menu-hero-lead {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto 2rem;
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.menu-hero-lead strong {
+  color: #fae19c;
+  font-weight: 600;
 }
 
 .menu-hero-actions {
@@ -204,7 +210,7 @@
 
 .menu-section-header {
   text-align: center;
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto 2.5rem;
 }
 
@@ -235,10 +241,41 @@
   margin: 0;
 }
 
+/* ── View Mode Toggle (Featured vs All 7) ── */
+.view-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0e9dc;
+  padding: 4px;
+  border-radius: 9999px;
+  margin-top: 1.25rem;
+  border: 1px solid #dfceb2;
+}
+
+.view-mode-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: #5c4d3c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn.active {
+  background: #12100e;
+  color: #f7e199;
+  box-shadow: 0 2px 8px rgba(18, 16, 14, 0.2);
+}
+
 /* ── Package Tabs (M1 to M7) ── */
 .package-tabs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   margin-bottom: 2rem;
 }
@@ -248,7 +285,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 14px 10px;
+  padding: 12px 8px;
   border-radius: 12px;
   background: #ffffff;
   border: 1.5px solid #e8decb;
@@ -271,7 +308,7 @@
 
 .pkg-tab-code {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 700;
   line-height: 1;
   color: #c5a059;
@@ -282,36 +319,29 @@
   color: #f7e199;
 }
 
-.pkg-tab-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #12100e;
-  margin-bottom: 2px;
-}
-
-.pkg-tab--active .pkg-tab-name {
-  color: #ffffff;
-}
-
 .pkg-tab-tag {
   font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: #8c7d6b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .pkg-tab--active .pkg-tab-tag {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* ── Active Package Presentation Card ── */
+/* ── Active Package Presentation Card (Featured View) ── */
 .active-pkg-card {
   background: #ffffff;
   border-radius: 20px;
-  border: 1px solid #e2d7c5;
-  box-shadow: 0 10px 40px rgba(35, 25, 15, 0.08);
+  border: 1.5px solid #e2d7c5;
+  box-shadow: 0 12px 40px rgba(35, 25, 15, 0.08);
   padding: clamp(1.75rem, 4vw, 3rem);
   animation: cardFadeIn 0.35s ease;
+  position: relative;
 }
 
 @keyframes cardFadeIn {
@@ -323,29 +353,55 @@
   border-bottom: 1px solid #eee5d8;
   padding-bottom: 1.75rem;
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pkg-card-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 1rem;
+}
+
+.ornament-line {
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.ornament-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #aa820a;
 }
 
 .pkg-badge-cluster {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 0.8rem;
   flex-wrap: wrap;
 }
 
 .pkg-code-pill {
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: 9999px;
   background: #12100e;
   color: #f7e199;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.05em;
+  border: 1px solid rgba(212, 175, 55, 0.45);
 }
 
 .pkg-suitable-pill {
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 9999px;
   background: rgba(197, 160, 89, 0.12);
   color: #8c6d32;
@@ -357,96 +413,170 @@
 .pkg-card-title {
   margin: 0 0 0.5rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-size: clamp(2rem, 3.8vw, 2.7rem);
   font-weight: 700;
   color: #12100e;
 }
 
 .pkg-card-highlight {
-  margin: 0;
+  max-width: 680px;
+  margin: 0 auto;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   color: #635545;
   line-height: 1.6;
 }
 
-/* ── Courses Grid Inside Package Card ── */
-.pkg-courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+/* ── One Dish Structured Course Rows ── */
+.one-dish-course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 2.25rem;
 }
 
-.course-box {
-  background: #faf8f5;
-  border: 1px solid #ede3d3;
+.one-dish-row {
+  background: #FAF8F5;
+  border: 1px solid #EDE3D3;
   border-radius: 14px;
-  padding: 1.25rem 1.4rem;
-  transition: border-color 0.2s ease;
-}
-
-.course-box:hover {
-  border-color: #c5a059;
-}
-
-.course-box--mains {
-  background: #fdfbf7;
-  border-color: #dfceb2;
-  box-shadow: inset 0 0 0 1px rgba(197, 160, 89, 0.2);
-}
-
-.course-box-head {
+  padding: 1.15rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid #ebd9c0;
+  gap: 16px;
+  transition: all 0.2s ease;
 }
 
-.course-icon {
-  font-size: 1.2rem;
+.one-dish-row:hover {
+  border-color: #c5a059;
+  background: #FFFDF9;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.08);
 }
 
-.course-box-head h4 {
-  margin: 0;
+.one-dish-row--choice {
+  background: linear-gradient(90deg, #FBF8F1 0%, #FFFFFF 100%);
+  border-color: #DFCDB1;
+  box-shadow: inset 0 0 0 1px rgba(197, 160, 89, 0.15);
+}
+
+.one-dish-row-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #12100E;
+  color: #F7E199;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #1a1612;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.4);
 }
 
-.course-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.one-dish-row-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 3px;
 }
 
-.course-items li {
-  position: relative;
-  padding-left: 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.86rem;
-  color: #3d3429;
-  line-height: 1.45;
+.one-dish-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.course-items li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #c5a059;
+.one-dish-course-icon {
   font-size: 1rem;
 }
 
-.course-items li.item-highlight {
+.one-dish-course-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6D32;
+}
+
+.one-dish-options-wrap {
+  margin-top: 2px;
+}
+
+.choice-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.choice-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dish-name-badge {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: #181410;
+  line-height: 1.25;
+}
+
+.dish-name-badge--single {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
   font-weight: 600;
-  color: #12100e;
+  color: #2a241e;
+}
+
+.choice-or-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.35);
+  flex-shrink: 0;
+}
+
+.one-dish-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #7A6C5B;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+}
+
+.note-text {
+  font-style: italic;
+}
+
+.note-action-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #8C6D32;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.note-action-btn:hover {
+  color: #12100E;
 }
 
 /* Card Footer Actions */
@@ -462,8 +592,8 @@
 
 .pkg-footer-info {
   font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  color: #8c7d6b;
+  font-size: 0.84rem;
+  color: #7a6b58;
   font-weight: 500;
 }
 
@@ -478,7 +608,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 9999px;
   background: #12100e;
   color: #f7e199;
@@ -501,7 +631,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 9999px;
   background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
   color: #0d0b09;
@@ -518,7 +648,376 @@
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
 }
 
-/* ── 4. Add-Ons Grid ── */
+.all-menus-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px dashed rgba(197, 160, 89, 0.4);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #5C4D3C;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.all-menus-prompt-btn {
+  background: #12100E;
+  color: #F7E199;
+  border: 1px solid #D4AF37;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.all-menus-prompt-btn:hover {
+  background: #25201A;
+  transform: translateY(-1px);
+}
+
+/* ── All 7 Menus Grid View (Brochure Style) ── */
+.all-packages-brochure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.brochure-pkg-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E5DCCB;
+  border-radius: 18px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 24px rgba(35, 25, 15, 0.05);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.brochure-pkg-card:hover {
+  border-color: #D4AF37;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(197, 160, 89, 0.15);
+}
+
+.brochure-card-header {
+  border-bottom: 1px solid #eee5d8;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.brochure-one-dish-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #aa820a;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.brochure-pkg-code {
+  margin: 0 0 0.4rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #12100e;
+}
+
+.brochure-pkg-suitable {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: #8c7d6b;
+  font-weight: 500;
+}
+
+.brochure-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brochure-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  color: #3d3429;
+  line-height: 1.4;
+}
+
+.brochure-item-bullet {
+  color: #c5a059;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.brochure-item-text {
+  flex: 1;
+}
+
+.brochure-choice-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.brochure-choice-line strong {
+  font-weight: 700;
+  color: #181410;
+}
+
+.choice-span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brochure-or-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #12100E;
+  color: #f7e199;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0 2px;
+}
+
+.brochure-card-footer {
+  border-top: 1px solid #eee5d8;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-brochure-inquire {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  background: #12100E;
+  color: #f7e199;
+  border: 1px solid #c5a059;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-brochure-inquire:hover {
+  background: #25201A;
+}
+
+.btn-brochure-detail {
+  padding: 10px 14px;
+  border-radius: 9999px;
+  background: #FAF8F5;
+  color: #4A3D2C;
+  border: 1px solid #E5DCCB;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-brochure-detail:hover {
+  border-color: #c5a059;
+  color: #12100E;
+}
+
+/* ── 4. Official Desserts Grid (10 Signature Choices) ── */
+.desserts-official-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.dessert-royal-card {
+  background: #FFFFFF;
+  border: 1px solid #E8DED0;
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.dessert-royal-card:hover {
+  border-color: #c5a059;
+  box-shadow: 0 8px 24px rgba(35, 25, 15, 0.08);
+  transform: translateY(-2px);
+}
+
+.dessert-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.dessert-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dessert-num-badge {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #aa820a;
+  background: rgba(197, 160, 89, 0.12);
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.dessert-icon {
+  font-size: 1.35rem;
+}
+
+.dessert-tag-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #FAF4E8;
+  color: #8C6D32;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.dessert-title {
+  margin: 0 0 0.4rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #12100E;
+}
+
+.dessert-desc {
+  margin: 0 0 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  color: #6B5E4F;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.dessert-footer {
+  border-top: 1px solid #F0E8DC;
+  padding-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dessert-avail-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: #8C7D6B;
+  font-weight: 500;
+}
+
+.dessert-inquire-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 3px 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #12100E;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.dessert-inquire-link:hover {
+  background: rgba(197, 160, 89, 0.15);
+  color: #8C6D32;
+}
+
+.dessert-banner-note {
+  background: #FAF6EE;
+  border: 1px solid #DFCEB2;
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.dessert-banner-content h4 {
+  margin: 0 0 0.3rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #12100E;
+}
+
+.dessert-banner-content p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #6B5E4F;
+  line-height: 1.5;
+}
+
+.dessert-banner-btn {
+  padding: 10px 20px;
+  border-radius: 9999px;
+  background: #12100E;
+  color: #F7E199;
+  border: 1px solid #D4AF37;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dessert-banner-btn:hover {
+  background: #25201A;
+  transform: translateY(-1px);
+}
+
+/* ── 5. Add-Ons Grid ── */
 .addons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -577,7 +1076,7 @@
   line-height: 1.55;
 }
 
-/* ── 5. Standard Item Cards Grid (Desserts, Salads, BBQ, Seafood, Continental) ── */
+/* ── 6. Standard Item Cards Grid (Salads, BBQ, Seafood, Continental) ── */
 .item-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -635,7 +1134,7 @@
   line-height: 1.5;
 }
 
-/* ── 6. Custom Menu Banner ── */
+/* ── 7. Custom Menu Banner ── */
 .custom-menu-banner {
   background: radial-gradient(circle at 70% 30%, #1f1a14 0%, #110e0b 70%, #080605 100%);
   border-radius: 24px;
@@ -747,6 +1246,12 @@
 }
 
 /* ── Responsive Refinements ── */
+@media (max-width: 900px) {
+  .package-tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .menu-sticky-nav {
     top: 60px;
@@ -754,6 +1259,15 @@
 
   .package-tabs {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .one-dish-row {
+    padding: 1rem;
+    gap: 12px;
+  }
+
+  .dish-name-badge {
+    font-size: 1.15rem;
   }
 
   .pkg-card-footer {
@@ -770,57 +1284,32 @@
     width: 100%;
     justify-content: center;
   }
+
+  .dessert-banner-note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dessert-banner-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
   .package-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-/* ── Navbar Menu Dropdown Enhancements ── */
-.menu-dd-column {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+  .one-dish-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-.menu-dd-heading {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-gold, #C5A059);
-  padding: 6px 10px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  margin-bottom: 6px;
-}
-
-.dd-icon--code {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(212, 175, 55, 0.14);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  color: #fae19c;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.dd-icon--emoji {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  flex-shrink: 0;
+  .one-dish-row-num {
+    width: 26px;
+    height: 26px;
+    font-size: 0.95rem;
+  }
 }
