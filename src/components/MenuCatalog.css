@@ -1088,6 +1088,9 @@
   border: 1px solid #e8ded0;
   border-radius: 14px;
   padding: 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: all 0.2s ease;
 }
 
@@ -1132,6 +1135,51 @@
   font-size: 0.84rem;
   color: #6b5e4f;
   line-height: 1.5;
+  flex: 1;
+}
+
+.item-title-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.item-icon-small {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.item-card-action {
+  margin-top: 0.85rem;
+  border-top: 1px solid #f2eadf;
+  padding-top: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-item-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #faf8f5;
+  border: 1px solid #e2d7c5;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #2b2219;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-item-wa:hover {
+  background: #12100e;
+  color: #f7e199;
+  border-color: #d4af37;
+  transform: translateY(-1px);
 }
 
 /* ── 7. Custom Menu Banner ── */

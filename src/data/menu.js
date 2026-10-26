@@ -1,22 +1,31 @@
 /**
  * Rabat Banquet Hall — Royal Banquet Menus & Culinary Catalog
- * Curated by Time & Taste Catering (30+ Years Heritage in Lahore)
+ * Curated by Time & Taste Catering (30+ Years Heritage in Lahore Cantt)
  *
- * Official One Dish Menus (Menu 1 to Menu 7) and Official Desserts (10 Items)
- * transcribed directly from Time & Taste Catering's official printed banquet brochure.
+ * Official Data Transcribed Directly From Printed Banquet Brochure:
+ *   1. ONE DISH MENU (Menu 1 to Menu 7)
+ *   2. DESSERTS (10 Official Items)
+ *   3. CUSTOM SELECTION (10 Signature Royal Items)
+ *   4. ADD ON'S (10 Items: Soups, Breads, Teas, Stations, Drinks)
+ *   5. SALADS (7 Official Salads)
+ *   6. CHARCOAL (9 Live Wood-Coal BBQ & Roast Specialties)
+ *   7. SEA FOOD (5 Fresh Fish & Prawn Specialties)
+ *   8. CONTINENTAL (7 Steaks, Asian Woks & Rice Specialties)
  */
 
 export const MENU_CATEGORIES = [
   { id: 'packages', label: 'One Dish Menus (M1-M7)', icon: '👑', short: 'One Dish (M1-M7)' },
-  { id: 'desserts', label: 'Royal Desserts (10 Choices)', icon: '🍨', short: 'Desserts' },
-  { id: 'addons', label: 'Add-Ons & Live Stations', icon: '✨', short: 'Add-Ons' },
+  { id: 'desserts', label: 'Royal Desserts (10)', icon: '🍨', short: 'Desserts' },
+  { id: 'custom-selection', label: 'Custom Selection', icon: '💎', short: 'Custom Selection' },
+  { id: 'addons', label: "Add-On's & Stations", icon: '✨', short: "Add-On's" },
   { id: 'salads', label: 'Gourmet Salads', icon: '🥗', short: 'Salads' },
-  { id: 'charcoal', label: 'Charcoal BBQ & Grills', icon: '🔥', short: 'Charcoal BBQ' },
-  { id: 'seafoods', label: 'Fresh Sea Foods', icon: '🦐', short: 'Sea Foods' },
-  { id: 'continental', label: 'Continental Specialties', icon: '🍝', short: 'Continental' },
-  { id: 'custom', label: 'Custom Menu Selection', icon: '✍️', short: 'Custom Build' },
+  { id: 'charcoal', label: 'Charcoal BBQ & Roasts', icon: '🔥', short: 'Charcoal BBQ' },
+  { id: 'seafoods', label: 'Fresh Sea Food', icon: '🦐', short: 'Sea Food' },
+  { id: 'continental', label: 'Continental & Chinese', icon: '🍝', short: 'Continental' },
+  { id: 'custom', label: 'Build Custom Menu', icon: '✍️', short: 'Custom Build' },
 ];
 
+/* ── 1. ONE DISH MENUS (M1 to M7) ── */
 export const MENU_PACKAGES = [
   {
     id: 'm1',
@@ -50,7 +59,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -105,7 +114,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -160,7 +169,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -215,7 +224,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -270,7 +279,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -325,7 +334,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -380,7 +389,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from Gourmet Salad selection',
+        note: 'Choice from 7 official gourmet salads',
       },
       {
         label: 'Sauces & Raita',
@@ -405,6 +414,7 @@ export const MENU_PACKAGES = [
   },
 ];
 
+/* ── 2. DESSERTS (10 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_DESSERTS = [
   {
     id: 1,
@@ -478,92 +488,314 @@ export const MENU_DESSERTS = [
   },
 ];
 
+/* ── 3. CUSTOM SELECTION (10 OFFICIAL BROCHURE ITEMS) ── */
+export const MENU_CUSTOM_SELECTION = [
+  {
+    name: 'Mutton Kandhari',
+    tag: 'Royal Mutton',
+    desc: 'Tender baby mutton simmered in rich pomegranate and dry-fruit infused Kandhari gravy with aromatic whole spices.',
+    icon: '🍖',
+  },
+  {
+    name: 'Chicken Kandhari',
+    tag: 'Signature Chicken',
+    desc: 'Chicken cooked with fragrant crushed spices, roasted dry fruits, and traditional Kandhari red masala sauce.',
+    icon: '🍗',
+  },
+  {
+    name: 'Shahi Mutton Stew',
+    tag: 'Mughlai Specialty',
+    desc: 'Traditional royal whole-spice mutton stew slow-cooked with whole red chilies, onions, garlic, and fresh ginger juliennes.',
+    icon: '🥘',
+  },
+  {
+    name: 'Rajisthani Qorma',
+    tag: 'Spicy Royal Gravy',
+    desc: 'Rich aromatic royal qorma prepared with roasted spices, thick yogurt, golden brown fried onions, and pure desi ghee.',
+    icon: '🍲',
+  },
+  {
+    name: 'Chicken Kabab Biryani',
+    tag: 'Biryani Specialty',
+    desc: 'Long-grain aged basmati dum biryani layered with succulent charcoal grilled chicken seekh kababs and fresh mint.',
+    icon: '🍚',
+  },
+  {
+    name: 'Chicken Sultani Pulao (Boneless)',
+    tag: 'Boneless Pulao',
+    desc: 'Delicate yakhni-simmered fragrant pulao prepared with tender boneless chicken cuts, fried onions, and golden almonds.',
+    icon: '🍚',
+  },
+  {
+    name: 'Chicken Sultani Biryani ((Boneless)',
+    tag: 'Boneless Biryani',
+    desc: 'Aromatic layered dum biryani cooked exclusively with tender boneless chicken pieces, rich saffron, and plum essence.',
+    icon: '🍛',
+  },
+  {
+    name: 'Shahi Chicken Roast Biryani',
+    tag: 'Roast & Rice',
+    desc: 'Fragrant saffron rice served alongside succulent, whole-spiced oven-roasted shahi chicken portions.',
+    icon: '🍗',
+  },
+  {
+    name: 'Mutton Mandi Biryani',
+    tag: 'Arabian Heritage',
+    desc: 'Fragrant Arabian-spiced smoked rice paired with fall-apart tender slow-roasted mutton cuts and roasted nuts.',
+    icon: '👑',
+  },
+  {
+    name: 'Fruit & Cream (Sweet)',
+    tag: 'Cold Sweet Selection',
+    desc: 'Chilled rich dairy cream delicately folded with fresh seasonal cocktail fruits, cherries, honey, and dry nuts.',
+    icon: '🍨',
+  },
+];
+
+/* ── 4. ADD ON'S (10 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_ADD_ONS = [
   {
-    title: 'Live Tandoor & Barbecue Station',
-    desc: 'Master grillers serving sizzling seekh kebabs, tikka boti, and fresh naan directly from glowing wood coals.',
-    icon: '🔥',
-    popular: true,
-  },
-  {
-    title: 'Live Mutton Karahi & Tawa Counter',
-    desc: 'Live high-flame wok cooking customized with fresh ginger, chilies, and pure butter to order.',
-    icon: '🥘',
-    popular: true,
-  },
-  {
-    title: 'Whole Roasted Stuffed Dumba / Lamb',
-    desc: 'Grand royal centerpiece: whole slow-roasted spiced lamb stuffed with aromatic saffron rice, dry fruits, and boiled eggs.',
-    icon: '👑',
-    popular: false,
-  },
-  {
-    title: 'Live Jalebi & Halwa Station',
-    desc: 'Crispy piping hot saffron jalebis swirled live into desi ghee and served with chilled thick rabri.',
-    icon: '🍯',
-    popular: true,
-  },
-  {
-    title: 'Artisan Kashmiri Chai & Coffee Bar',
-    desc: 'Pink Kashmiri noon chai served from antique samovars with crushed pistachios, plus freshly brewed espresso.',
-    icon: '☕',
-    popular: false,
-  },
-  {
-    title: 'Belgian Chocolate Fondue Fountain',
-    desc: 'Flowing multi-tier warm Belgian chocolate fountain with fresh strawberries, marshmallows, and waffle bites.',
-    icon: '🍫',
-    popular: true,
-  },
-  {
-    title: 'Live Gol Gappay & Street Chaat Counter',
-    desc: 'Crisp gol gappay with khatta meetha water, papri chaat, and dahi bhallay for vibrant pre-dinner socializing.',
+    name: 'Hot & Sour Soup',
+    tag: 'Warm Starter',
+    desc: 'Classic thick Chinese soup with shredded chicken, egg drops, mushrooms, and tangy chili vinegar.',
     icon: '🥣',
-    popular: false,
   },
   {
-    title: 'Fresh Seafood / Prawns Fry Bar',
-    desc: 'Live tempura batter and crumb-fried jumbo prawns and pomfret fillets served smoking hot with specialty dips.',
-    icon: '🍤',
-    popular: false,
+    name: '19 B Soup',
+    tag: 'Gourmet Specialty',
+    desc: 'Chef specialty dark rich broth with diced prawns, chicken, Chinese greens, and subtle oriental spices.',
+    icon: '🍲',
+  },
+  {
+    name: 'Chicken Corn Soup',
+    tag: 'Banquet Classic',
+    desc: 'Smooth comforting chicken broth with sweet corn kernels and delicate silky egg ribbons.',
+    icon: '🌽',
+  },
+  {
+    name: 'Qeema Naan / Cheese Naan',
+    tag: 'Live Tandoor',
+    desc: 'Freshly baked tandoori naan stuffed with spiced minced meat or gooey melted cheddar cheese.',
+    icon: '🫓',
+  },
+  {
+    name: 'Tea / Qehwa',
+    tag: 'Hot Beverage',
+    desc: 'Freshly brewed traditional Doodh Patti chai or fragrant green tea qehwa with green cardamom & lemon.',
+    icon: '☕',
+  },
+  {
+    name: 'Kashmiri Tea',
+    tag: 'Pink Royal Tea',
+    desc: 'Authentic slow-brewed pink noon chai served steaming hot with crushed pistachios, almonds, and malai.',
+    icon: '🫖',
+  },
+  {
+    name: 'Coffee Station',
+    tag: 'Live Counter',
+    desc: 'Live barista station serving freshly brewed espresso, rich cappuccino, and hot cafe mocha to guests.',
+    icon: '☕',
+  },
+  {
+    name: 'Tin Pack (Soft Drink)',
+    tag: 'Chilled Drinks',
+    desc: 'Individual chilled aluminum cans of premium carbonated sodas (Coke, Sprite, Fanta, Diet Coke).',
+    icon: '🥤',
+  },
+  {
+    name: 'Pinna Cloda / Mint Margrita',
+    tag: 'Welcome Mocktail',
+    desc: 'Refreshing ice-blended mocktails: Creamy Pineapple Pina Colada or sparkling Zesty Mint Margarita.',
+    icon: '🍹',
+  },
+  {
+    name: 'Plum Sauce (Aloo Bukhara Chutney)',
+    tag: 'Royal Chutney',
+    desc: 'Sweet & tangy royal whole dried plum sauce simmered with melon seeds (charonji), vinegar, and spices.',
+    icon: '🍯',
   },
 ];
 
+/* ── 5. SALADS (7 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_SALADS = [
-  { name: 'Classic Russian Salad', desc: 'Diced potatoes, carrots, peas, apples, and pineapple in creamy sweet mayonnaise.', type: 'Creamy' },
-  { name: 'Greek Feta & Olive Salad', desc: 'Crisp romaine lettuce, cucumber, cherry tomatoes, Kalamata olives, and Greek feta cheese.', type: 'Mediterranean' },
-  { name: 'Traditional Lahori Kachumber', desc: 'Finely diced cucumber, onion, and tomato with fresh coriander, lemon juice, and chaat masala.', type: 'Traditional' },
-  { name: 'Mediterranean Chickpea & Mint Salad', desc: 'Boiled kabuli chickpeas, pomegranate pearls, mint leaves, and light olive oil vinaigrette.', type: 'Healthy' },
-  { name: 'Fresh Garden Greens with Vinaigrette', desc: 'Seasonal greens, carrots, radishes, and bell peppers with herb dressing.', type: 'Light' },
-  { name: 'Sweet Apple & Cabbage Slaw', desc: 'Crunchy red and green cabbage with crisp red apples and light honey dressing.', type: 'Crunchy' },
-  { name: 'Creamy Beetroot & Sweet Corn Salad', desc: 'Roasted beet cubes with golden corn, walnut bits, and lemon mayonnaise.', type: 'Gourmet' },
+  {
+    name: 'Russian',
+    tag: 'Creamy Classic',
+    desc: 'Diced potatoes, sweet garden peas, tender carrots, apples, and pineapple chunks in rich creamy sweet mayonnaise.',
+    icon: '🥗',
+  },
+  {
+    name: 'Apple Cabbage',
+    tag: 'Crunchy Slaw',
+    desc: 'Crisp shredded red and green cabbage with tart green apples tossed in a light sweet and tangy honey glaze.',
+    icon: '🍏',
+  },
+  {
+    name: 'Caesar',
+    tag: 'Continental',
+    desc: 'Crisp romaine lettuce leaves, golden butter croutons, and grated parmesan tossed in creamy Caesar dressing.',
+    icon: '🥬',
+  },
+  {
+    name: 'Fresh Cube Salad',
+    tag: 'Garden Fresh',
+    desc: 'Crisp bite-sized cubes of cucumber, ripe tomatoes, red radishes, and bell peppers with fresh lemon vinaigrette.',
+    icon: '🥒',
+  },
+  {
+    name: 'Italian',
+    tag: 'Mediterranean',
+    desc: 'Assorted garden greens, cherry tomatoes, black Kalamata olives, bell peppers, and herbs in zesty Italian dressing.',
+    icon: '🫒',
+  },
+  {
+    name: 'Pasta Salad',
+    tag: 'Cold Pasta',
+    desc: 'Al dente spiral fusilli pasta tossed with diced vegetables, sweet corn, Italian herbs, and tangy dressing.',
+    icon: '🍝',
+  },
+  {
+    name: 'Multi Beens Salad',
+    tag: 'Protein Healthy',
+    desc: 'Nutritious mix of red kidney beans, white chickpeas, black beans, diced onions, and fresh lemon-herb dressing.',
+    icon: '🥣',
+  },
 ];
 
+/* ── 6. CHARCOAL (9 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_CHARCOAL = [
-  { name: 'Mutton Seekh Kebab (Sultanate Recipe)', desc: 'Minced mutton blended with bone marrow, papaya, and 14 secret spices on skewers.', type: 'Mutton' },
-  { name: 'Velvety Chicken Malai Boti', desc: 'Boneless chicken cubes marinated in heavy cream, yogurt, white pepper, and green cardamom.', type: 'Chicken' },
-  { name: 'Char-Grilled Spicy Chicken Tikka', desc: 'Quarter chicken quarters marinated in spicy tandoori masala and seared over wood coals.', type: 'Chicken' },
-  { name: 'Tender Beef Bihari Boti', desc: 'Thin strips of beef tenderloin marinated in raw papaya and mustard oil, melt-in-mouth texture.', type: 'Beef' },
-  { name: 'Saffron Reshmi Kebab', desc: 'Finely ground chicken breast with saffron butter, slow grilled to delicate golden perfection.', type: 'Chicken' },
-  { name: 'Charcoal Fish Tikka', desc: 'Boneless fish fillets coated with carom seeds (ajwain), lemon, and red chili, grilled in tandoor.', type: 'Seafood' },
-  { name: 'Wood-Fired Roghni & Garlic Naan', desc: 'Fresh tandoor breads brushed with pure desi ghee, toasted sesame seeds, and garlic butter.', type: 'Breads' },
+  {
+    name: 'Chicken Malai Boti',
+    tag: 'Creamy BBQ',
+    desc: 'Boneless chicken cubes marinated in fresh dairy cream, yogurt, green cardamom, and mild white pepper, grilled over wood embers.',
+    icon: '🍢',
+  },
+  {
+    name: 'Chicken Sultani Boti',
+    tag: 'Royal BBQ',
+    desc: 'Tender chicken cubes in chef special royal yellow spice marinade, grilled to smoky golden perfection.',
+    icon: '🍗',
+  },
+  {
+    name: 'Mutton Chops',
+    tag: 'Tender Chops',
+    desc: 'Prime mutton rib chops marinated in raw papaya, ginger garlic paste, and crushed ground spices, char-grilled on skewers.',
+    icon: '🥩',
+  },
+  {
+    name: 'Mutton Kabab',
+    tag: 'Mutton Specialty',
+    desc: 'Finely minced mutton blended with suet, fried onions, roasted gram, and aromatic spices seared over hot coals.',
+    icon: '🍢',
+  },
+  {
+    name: 'Chicken Seekh Kabab',
+    tag: 'Tandoor Grill',
+    desc: 'Spiced minced chicken breast blended with fresh coriander, mint, green chilies, and grilled to succulent tenderness.',
+    icon: '🍢',
+  },
+  {
+    name: 'Chicken Steam Roast',
+    tag: 'Lahori Roast',
+    desc: 'Whole chicken portions marinated in traditional Lahori spices, gently steamed and flash-seared for a golden exterior.',
+    icon: '🍗',
+  },
+  {
+    name: 'Mutton Tikka',
+    tag: 'Charcoal Skewers',
+    desc: 'Boneless bite-sized mutton cubes skewered and slow-roasted over wood coals with lemon and chaat masala.',
+    icon: '🥩',
+  },
+  {
+    name: 'Mutton Roast',
+    tag: 'Grand Feast',
+    desc: 'Whole spiced mutton leg roasted slowly till the meat falls off the bone with rich aromatic pan juices.',
+    icon: '🍖',
+  },
+  {
+    name: 'Mutton Dampukht',
+    tag: 'Pashtun Heritage',
+    desc: 'Authentic slow-cooked mutton prepared in sealed degs with whole potatoes, garlic bulbs, bone marrow, and minimal spices.',
+    icon: '🥘',
+  },
 ];
 
+/* ── 7. SEA FOOD (5 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_SEAFOODS = [
-  { name: 'Golden Crumb Fried Fish', desc: 'Crispy panko-breaded white fish fillets served with homemade caper tartar sauce.', type: 'Deep Fried' },
-  { name: 'Crispy Jumbo Dynamite Prawns', desc: 'Tempura-fried giant tiger prawns tossed in spicy sweet sriracha dynamite glaze.', type: 'Appetizer' },
-  { name: 'Lahori Fried Rahu / Sole Fish', desc: 'Traditional spiced gram flour batter with ajwain, coriander seeds, and tangy amchoor.', type: 'Traditional' },
-  { name: 'Tandoori Whole Grilled Pomfret', desc: 'Fresh whole pomfret scored and marinated in red yogurt masala, flame-grilled on skewers.', type: 'Tandoori' },
-  { name: 'Pan-Seared Fish in Lemon Butter Sauce', desc: 'Delicate white fish fillet seared with capers, garlic, fresh parsley, and lemon butter.', type: 'Continental' },
-  { name: 'Spicy Garlic Chili Prawns', desc: 'Wok-tossed king prawns with red chilies, scallions, roasted garlic, and soy glaze.', type: 'Oriental' },
+  {
+    name: 'Fried Fish Lahori Masala',
+    tag: 'Lahori Classic',
+    desc: 'Fresh river sole / rahu fish fillets coated in seasoned gram flour batter with ajwain (carom), coriander, and deep-fried till crispy.',
+    icon: '🐟',
+  },
+  {
+    name: 'Fried Fish With Crumbs',
+    tag: 'Crispy Breaded',
+    desc: 'Delicate boneless fish fillets coated in golden Japanese panko crumbs, served hot with tartar sauce and lemon wedges.',
+    icon: '🍤',
+  },
+  {
+    name: 'Fish Tikka BBQ',
+    tag: 'Charcoal Tandoori',
+    desc: 'Fresh boneless fish cubes marinated in tandoori red yogurt spice blend, skewered and char-grilled over glowing coals.',
+    icon: '🍢',
+  },
+  {
+    name: 'Tempura Fried Prawns',
+    tag: 'Crispy Jumbo',
+    desc: 'Giant tiger prawns dipped in light, airy Japanese tempura batter and fried to golden crisp perfection, served with sweet chili dip.',
+    icon: '🦐',
+  },
+  {
+    name: 'Grilled Prawns BBQ',
+    tag: 'Live Charcoal',
+    desc: 'Jumbo prawns marinated in garlic herb butter and crushed chili flakes, grilled fresh on open fire grates.',
+    icon: '🔥',
+  },
 ];
 
+/* ── 8. CONTINENTAL (7 OFFICIAL BROCHURE ITEMS) ── */
 export const MENU_CONTINENTAL = [
-  { name: 'Grilled Chicken Steak (Wild Mushroom)', desc: 'Tenderized grilled chicken breast served with rich mushroom cream sauce and sautéed greens.', type: 'Steaks' },
-  { name: 'Black Pepper Beef Steak', desc: 'Prime beef tenderloin medallion seared to perfection with peppercorn reduction and mashed potatoes.', type: 'Steaks' },
-  { name: 'Fettuccine Alfredo with Grilled Chicken', desc: 'Ribbon pasta in rich garlic parmesan cream sauce topped with herb grilled chicken.', type: 'Pasta' },
-  { name: 'Crispy Chicken Parmesan', desc: 'Golden breaded chicken breast topped with marinara sauce, melted mozzarella, and fresh basil.', type: 'Mains' },
-  { name: 'Penne Arrabbiata with Basil', desc: 'Al dente penne pasta tossed in spicy crushed tomato, garlic, and extra virgin olive oil.', type: 'Pasta' },
-  { name: 'Crispy Golden Chicken Cordon Bleu', desc: 'Rolled chicken breast stuffed with savory cheese and herbs, deep fried until golden molten.', type: 'Mains' },
-  { name: 'Creamy Tuscan Garlic Chicken', desc: 'Pan-seared chicken with sun-dried tomatoes, baby spinach, and garlic cream with herb rice.', type: 'Mains' },
+  {
+    name: 'Egg Fried Rice',
+    tag: 'Oriental Classic',
+    desc: 'Fragrant wok-fried long grain rice with fluffy scrambled egg, scallions, finely diced carrots, and light soy sauce.',
+    icon: '🍚',
+  },
+  {
+    name: 'Garlic Rice',
+    tag: 'Aromatic Rice',
+    desc: 'Steamed basmati rice tossed in golden roasted garlic butter, green onions, and fresh garden parsley.',
+    icon: '🧄',
+  },
+  {
+    name: 'Chicken Cashew Nuts',
+    tag: 'Chinese Gourmet',
+    desc: 'Tender chicken slices stir-fried with crunchy roasted cashew nuts, bell peppers, and scallions in savory brown sauce.',
+    icon: '🥘',
+  },
+  {
+    name: 'Sweet & Sour Chicken',
+    tag: 'Crispy Oriental',
+    desc: 'Crispy battered chicken bites tossed with pineapple chunks, bell peppers, and onions in vibrant sweet & sour glaze.',
+    icon: '🍗',
+  },
+  {
+    name: 'Chicken with Chilli Vegetable',
+    tag: 'Spicy Wok',
+    desc: 'Sliced tender chicken breast sautéed with seasonal crisp vegetables, red & green chilies, and oriental garlic sauce.',
+    icon: '🌶️',
+  },
+  {
+    name: 'Chicken Black Paper Steaks',
+    tag: 'Sizzling Steaks',
+    desc: 'Succulent char-grilled chicken breast steaks served with rich cracked black peppercorn reduction sauce and sautéed vegetables.',
+    icon: '🥩',
+  },
+  {
+    name: 'Fish with Lemon Butter Sauce',
+    tag: 'Continental Classic',
+    desc: 'Pan-seared tender white fish fillets drizzled with a velvety emulsified fresh lemon, caper, and garlic butter reduction.',
+    icon: '🐟',
+  },
 ];

@@ -3,8 +3,9 @@ import { useLocation, Link } from 'react-router-dom';
 import {
   MENU_CATEGORIES,
   MENU_PACKAGES,
-  MENU_ADD_ONS,
   MENU_DESSERTS,
+  MENU_CUSTOM_SELECTION,
+  MENU_ADD_ONS,
   MENU_SALADS,
   MENU_CHARCOAL,
   MENU_SEAFOODS,
@@ -57,9 +58,9 @@ export default function MenuCatalog() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
 
-  const handleInquireDessert = (dessert) => {
+  const handleInquireItem = (itemName, category) => {
     const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I am inquiring about including royal dessert: *${dessert.name} (${dessert.tag})* for my event catering.`
+      `Hello Rabat Banquet Hall, I am inquiring about adding *${itemName}* from the *${category}* section to our event catering menu.`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
@@ -96,9 +97,9 @@ export default function MenuCatalog() {
           </span>
           <h1 className="menu-hero-title">Royal Banquet Menus</h1>
           <p className="menu-hero-lead">
-            Official <strong>One Dish Menus (Menu 1 to Menu 7)</strong> and <strong>10 Signature Royal Desserts</strong>,
+            Official <strong>One Dish Menus (Menu 1 to Menu 7)</strong>, <strong>10 Royal Desserts</strong>, and full culinary catalog
             curated by Time &amp; Taste Catering with over three decades of royal culinary heritage in Lahore Cantt.
-            Also featuring live charcoal barbecue, fresh seafoods, gourmet salads, and continental specialties.
+            Explore custom specialties, live charcoal grills, fresh seafoods, gourmet salads, and continental woks.
           </p>
 
           <div className="menu-hero-actions">
@@ -397,7 +398,7 @@ export default function MenuCatalog() {
                   <button
                     type="button"
                     className="dessert-inquire-link"
-                    onClick={() => handleInquireDessert(d)}
+                    onClick={() => handleInquireItem(d.name, 'Royal Desserts')}
                     title="Inquire about this dessert on WhatsApp"
                   >
                     <WhatsAppIcon size={14} />
@@ -425,37 +426,85 @@ export default function MenuCatalog() {
           </div>
         </section>
 
-        {/* ── SECTION 3: ADD-ONS & LIVE STATIONS ── */}
-        <section id="addons" className="menu-section">
+        {/* ── SECTION 3: CUSTOM SELECTION (10 OFFICIAL BROCHURE ITEMS) ── */}
+        <section id="custom-selection" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">CULINARY THEATRE</span>
-            <h2 className="menu-sec-title">Add-Ons &amp; Live Gourmet Stations</h2>
+            <span className="menu-sec-tag">OFFICIAL BROCHURE SELECTION</span>
+            <h2 className="menu-sec-title">Custom Selection (Signature Dishes)</h2>
             <p className="menu-sec-sub">
-              Upgrade your celebration with live cooking displays, artisan sweet counters, and premium whole-roast centerpieces.
+              Exclusive a la carte royal specialties from Time &amp; Taste Catering, available for custom menu curation, main course replacements, and VIP dinner upgrades.
             </p>
           </div>
 
-          <div className="addons-grid">
-            {MENU_ADD_ONS.map((item, idx) => (
-              <div className="addon-card" key={idx}>
-                <div className="addon-top">
-                  <span className="addon-icon">{item.icon}</span>
-                  {item.popular && <span className="addon-badge">MOST POPULAR</span>}
+          <div className="item-cards-grid">
+            {MENU_CUSTOM_SELECTION.map((item, idx) => (
+              <div className="item-card" key={idx}>
+                <div className="item-card-head">
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{item.icon}</span>
+                    <h3 className="item-name">{item.name}</h3>
+                  </div>
+                  <span className="item-tag">{item.tag}</span>
                 </div>
-                <h3 className="addon-title">{item.title}</h3>
-                <p className="addon-desc">{item.desc}</p>
+                <p className="item-desc">{item.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(item.name, 'Custom Selection')}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Inquire Dish</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION 4: SALADS ── */}
+        {/* ── SECTION 4: ADD-ON'S (10 OFFICIAL BROCHURE ITEMS) ── */}
+        <section id="addons" className="menu-section">
+          <div className="menu-section-header">
+            <span className="menu-sec-tag">OFFICIAL BROCHURE ADD-ON'S</span>
+            <h2 className="menu-sec-title">Add-On's &amp; Live Stations</h2>
+            <p className="menu-sec-sub">
+              Upgrade your celebration with artisanal hot soups, live stuffed naans, antique tea samovars, live coffee stations, and refreshing mocktails.
+            </p>
+          </div>
+
+          <div className="item-cards-grid">
+            {MENU_ADD_ONS.map((item, idx) => (
+              <div className="item-card" key={idx}>
+                <div className="item-card-head">
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{item.icon}</span>
+                    <h3 className="item-name">{item.name}</h3>
+                  </div>
+                  <span className="item-tag">{item.tag}</span>
+                </div>
+                <p className="item-desc">{item.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(item.name, "Add-On's")}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Inquire Add-On</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── SECTION 5: SALADS (7 OFFICIAL BROCHURE ITEMS) ── */}
         <section id="salads" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">FRESH &amp; VIBRANT</span>
-            <h2 className="menu-sec-title">Gourmet Salads &amp; Cold Mezze</h2>
+            <span className="menu-sec-tag">OFFICIAL BROCHURE SALADS</span>
+            <h2 className="menu-sec-title">Gourmet Salads (Salad Bar Selection)</h2>
             <p className="menu-sec-sub">
-              Crisp seasonal vegetables, artisan dressings, and house raitas to complement your royal banquet spread.
+              Every One Dish Menu includes your choice of <strong>One Fresh Salad</strong>. Explore our 7 official salad varieties prepared fresh for your event.
             </p>
           </div>
 
@@ -463,22 +512,35 @@ export default function MenuCatalog() {
             {MENU_SALADS.map((s, idx) => (
               <div className="item-card" key={idx}>
                 <div className="item-card-head">
-                  <h3 className="item-name">{s.name}</h3>
-                  <span className="item-tag">{s.type}</span>
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{s.icon}</span>
+                    <h3 className="item-name">{s.name}</h3>
+                  </div>
+                  <span className="item-tag">{s.tag}</span>
                 </div>
                 <p className="item-desc">{s.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(s.name, 'Salads')}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Select for Menu</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION 5: CHARCOAL BBQ & GRILLS ── */}
+        {/* ── SECTION 6: CHARCOAL (9 OFFICIAL BROCHURE ITEMS) ── */}
         <section id="charcoal" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">WOOD COALS &amp; FLAMES</span>
-            <h2 className="menu-sec-title">Live Charcoal Barbecue &amp; Grills</h2>
+            <span className="menu-sec-tag">OFFICIAL BROCHURE CHARCOAL</span>
+            <h2 className="menu-sec-title">Live Charcoal BBQ &amp; Royal Roasts</h2>
             <p className="menu-sec-sub">
-              Slow-marinated tender meats flame-kissed over burning wood charcoal by master grillers.
+              Flame-kissed over burning wood coals: authentic mutton chops, succulent malai boti, steam roasts, and Pashtun-style mutton dampukht.
             </p>
           </div>
 
@@ -486,22 +548,35 @@ export default function MenuCatalog() {
             {MENU_CHARCOAL.map((c, idx) => (
               <div className="item-card" key={idx}>
                 <div className="item-card-head">
-                  <h3 className="item-name">{c.name}</h3>
-                  <span className="item-tag">{c.type}</span>
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{c.icon}</span>
+                    <h3 className="item-name">{c.name}</h3>
+                  </div>
+                  <span className="item-tag">{c.tag}</span>
                 </div>
                 <p className="item-desc">{c.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(c.name, 'Charcoal BBQ')}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Inquire Live BBQ</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION 6: FRESH SEA FOODS ── */}
+        {/* ── SECTION 7: SEA FOOD (5 OFFICIAL BROCHURE ITEMS) ── */}
         <section id="seafoods" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">OCEAN DELICACIES</span>
-            <h2 className="menu-sec-title">Fresh Sea Foods &amp; Coastal Grills</h2>
+            <span className="menu-sec-tag">OFFICIAL BROCHURE SEA FOOD</span>
+            <h2 className="menu-sec-title">Fresh Sea Food Delicacies</h2>
             <p className="menu-sec-sub">
-              Crispy crumbed fillets, giant tiger prawns, and whole pomfret tandoor roasts.
+              Crisp Lahori masala fish, golden panko crumb fillets, tandoori fish tikka, and crispy giant tempura tiger prawns.
             </p>
           </div>
 
@@ -509,22 +584,35 @@ export default function MenuCatalog() {
             {MENU_SEAFOODS.map((sf, idx) => (
               <div className="item-card" key={idx}>
                 <div className="item-card-head">
-                  <h3 className="item-name">{sf.name}</h3>
-                  <span className="item-tag">{sf.type}</span>
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{sf.icon}</span>
+                    <h3 className="item-name">{sf.name}</h3>
+                  </div>
+                  <span className="item-tag">{sf.tag}</span>
                 </div>
                 <p className="item-desc">{sf.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(sf.name, 'Sea Food')}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Inquire Sea Food</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION 7: CONTINENTAL SPECIALTIES ── */}
+        {/* ── SECTION 8: CONTINENTAL (7 OFFICIAL BROCHURE ITEMS) ── */}
         <section id="continental" className="menu-section">
           <div className="menu-section-header">
-            <span className="menu-sec-tag">INTERNATIONAL CUISINE</span>
-            <h2 className="menu-sec-title">Continental &amp; Global Specialties</h2>
+            <span className="menu-sec-tag">OFFICIAL BROCHURE CONTINENTAL</span>
+            <h2 className="menu-sec-title">Continental &amp; Chinese Specialties</h2>
             <p className="menu-sec-sub">
-              Gourmet steaks, authentic Italian pastas, and European banquet favorites.
+              Char-grilled black pepper steaks, oriental egg fried rice, chicken cashew nuts, sweet &amp; sour wok, and lemon butter fish.
             </p>
           </div>
 
@@ -532,16 +620,29 @@ export default function MenuCatalog() {
             {MENU_CONTINENTAL.map((cont, idx) => (
               <div className="item-card" key={idx}>
                 <div className="item-card-head">
-                  <h3 className="item-name">{cont.name}</h3>
-                  <span className="item-tag">{cont.type}</span>
+                  <div className="item-title-cluster">
+                    <span className="item-icon-small">{cont.icon}</span>
+                    <h3 className="item-name">{cont.name}</h3>
+                  </div>
+                  <span className="item-tag">{cont.tag}</span>
                 </div>
                 <p className="item-desc">{cont.desc}</p>
+                <div className="item-card-action">
+                  <button
+                    type="button"
+                    className="btn-item-wa"
+                    onClick={() => handleInquireItem(cont.name, 'Continental')}
+                  >
+                    <WhatsAppIcon size={13} />
+                    <span>Inquire Dish</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION 8: CUSTOM MENU SELECTION BANNER ── */}
+        {/* ── SECTION 9: CUSTOM MENU SELECTION BANNER ── */}
         <section id="custom" className="menu-section">
           <div className="custom-menu-banner">
             <div className="custom-banner-content">
