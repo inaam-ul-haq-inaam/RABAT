@@ -21,7 +21,8 @@ import ReservePage from './pages/ReservePage.jsx';
 const PAGE_TITLES = {
   '/': 'Rabat Hall — Top Banquet Hall In Lahore | Moroccan Luxury Venue',
   '/menu': 'Royal Banquet Menus & Catering Packages — Rabat Hall',
-  '/services': 'Royal Banquet Menus & Catering Packages — Rabat Hall',
+  '/services': 'Other Event Services & Enhancements — Rabat Hall',
+  '/other-services': 'Other Event Services & Enhancements — Rabat Hall',
   '/catering': 'Top Catering & Royal Wedding Feasts — Rabat Hall Lahore',
   '/decors': 'Signature Stages & Décor — Rabat Hall',
   '/gallery': 'Photo Gallery & 3D Tour — Rabat Hall',
@@ -73,7 +74,8 @@ export default function App() {
           <Route path="/hallplan" element={<HallPlanPage />} />
           <Route path="/decors" element={<DecorsPage />} />
           <Route path="/catering" element={<CateringPage />} />
-          <Route path="/services" element={<Navigate to="/menu" replace />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/other-services" element={<ServicesPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/reserve" element={<ReservePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

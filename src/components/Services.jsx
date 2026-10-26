@@ -1,19 +1,20 @@
-import { useNavigate } from 'react-router-dom';
 import Section from './Section.jsx';
 import SectionLink from './SectionLink.jsx';
-import { ArrowRightIcon, CalendarIcon, PhoneIcon, StarIcon } from './Icons.jsx';
+import { CalendarIcon, PhoneIcon, StarIcon, WhatsAppIcon } from './Icons.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 import { SERVICES_LIST } from '../data/services.js';
 import './Services.css';
 
+const WA_NUMBER = '923256572839';
+
 export default function Services() {
-  const navigate = useNavigate();
   const { openContactModal } = useContactModal();
 
-  const handleFilterClick = (filter) => {
-    navigate('/gallery', {
-      state: { filter, scrollTo: '.gallery-top-filter-bar', scrollOffset: 80 },
-    });
+  const handleInquireService = (serviceTitle) => {
+    const text = encodeURIComponent(
+      `Hello Rabat Banquet Hall, I am inquiring about booking your *${serviceTitle}* service for our upcoming event.`
+    );
+    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
 
   return (
@@ -25,11 +26,13 @@ export default function Services() {
             <StarIcon size={14} strokeWidth={2} />
             EXTRA ORDINARY BANQUET SERVICES &bull; HALL 16
           </span>
-          <h2 className="services-title" id="services-title">
-            Royal Event Services at Rabat Hall
-          </h2>
+          <h1 className="services-title" id="services-title">
+            Other Event Services at Rabat Hall
+          </h1>
           <p className="services-body">
-            Recognized as the top banquet hall in Lahore, Rabat hall pairs imperial Moroccan architecture with top catering and extra ordinary banquet services. From royal Walimas and grand Barats to festive Mehndis, serene Nikkahs, and executive summits, we craft every milestone into an extraordinary celebration.
+            Enhance your celebration beyond luxury banquet halls and fine royal dining with our signature event additions.
+            From 360 photo booths and cinematic photography to artisan celebration cakes, concert sound, and grand couple entries,
+            we curate every detail into an extraordinary royal experience.
           </p>
         </header>
 
@@ -38,12 +41,15 @@ export default function Services() {
           {SERVICES_LIST.map((service) => (
             <article key={service.id} className="service-card" role="listitem">
               <div className="service-card-top">
-                <div className="service-icon-wrap">
-                  <img src={service.icon} alt={service.alt} className="service-icon-img" />
+                <div className="service-icon-wrap" aria-hidden="true">
+                  <span className="service-emoji-icon">{service.icon}</span>
                 </div>
                 <div className="service-meta">
-                  <span className="service-sub-badge">{service.sub}</span>
-                  <h3 className="service-card-title">{service.title}</h3>
+                  <div className="service-letter-row">
+                    <span className="service-letter-pill">SERVICE {service.letter}</span>
+                    <span className="service-sub-badge">{service.sub}</span>
+                  </div>
+                  <h2 className="service-card-title">{service.title}</h2>
                 </div>
               </div>
 
@@ -64,16 +70,22 @@ export default function Services() {
               <div className="service-card-actions">
                 <button
                   type="button"
-                  className="btn-service-gallery"
-                  onClick={() => handleFilterClick(service.filter)}
+                  className="btn-service-wa"
+                  onClick={() => handleInquireService(service.title)}
+                  aria-label={`Inquire about ${service.title} on WhatsApp`}
                 >
-                  <span>View {service.title} Photos</span>
-                  <ArrowRightIcon size={14} />
+                  <WhatsAppIcon size={15} />
+                  <span>Inquire on WhatsApp</span>
                 </button>
-                <SectionLink to="reserve" className="btn-service-reserve">
-                  <CalendarIcon size={14} />
-                  <span>Reserve</span>
-                </SectionLink>
+                <button
+                  type="button"
+                  className="btn-service-concierge"
+                  onClick={openContactModal}
+                  aria-label={`Contact Concierge for ${service.title}`}
+                >
+                  <PhoneIcon size={14} />
+                  <span>Contact Team</span>
+                </button>
               </div>
             </article>
           ))}
@@ -88,23 +100,22 @@ export default function Services() {
             </span>
             <h3 className="services-cta-title">Looking for a Tailored Royal Experience?</h3>
             <p className="services-cta-body">
-              Our master wedding concierges and executive culinary team work closely with you to design bespoke menus,
-              custom stages, and personalized royal hospitality.
+              Our master wedding concierges and executive production team work closely with you to curate custom packages,
+              coordinate live artists, and ensure seamless royal hospitality for your big day.
             </p>
             <div className="services-cta-btns">
               <SectionLink to="reserve" className="btn-scta-primary">
                 <CalendarIcon size={16} />
-                <span>INQUIRE ABOUT DATES</span>
+                <span>INQUIRE ABOUT EVENT DATES</span>
                 <span aria-hidden="true">&rarr;</span>
               </SectionLink>
               <button
                 type="button"
                 onClick={openContactModal}
                 className="btn-scta-secondary"
-                style={{ cursor: 'pointer', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
               >
-                <PhoneIcon size={16} style={{ color: '#25D366' }} />
-                <span>CALL / WHATSAPP - CONTACT US</span>
+                <WhatsAppIcon size={16} />
+                <span>DIRECT CONCIERGE CALL / WHATSAPP</span>
               </button>
             </div>
           </div>

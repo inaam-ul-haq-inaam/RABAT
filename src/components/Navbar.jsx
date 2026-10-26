@@ -18,7 +18,7 @@ const NAV_LINKS = [
   { label: 'Menu', to: '/menu', match: '/menu' },
   { label: 'Decors & Stages', to: '/decors', match: '/decors' },
   { label: 'Royal Catering', to: '/catering', match: '/catering' },
-  { label: 'Other Services', to: '/hallplan', match: '/hallplan' },
+  { label: 'Other Services', to: '/services', match: '/services' },
   { label: 'Gallery', to: '/gallery', match: '/gallery' },
 ];
 

@@ -45,8 +45,8 @@ const DEFAULT_NAV_LINKS = [
   },
   {
     label: 'Other Services',
-    path: '/hallplan',
-    icon: <LayoutGrid size={20} strokeWidth={1.8} />,
+    path: '/services',
+    icon: <Sparkles size={20} strokeWidth={1.8} />,
   },
 ];
 
