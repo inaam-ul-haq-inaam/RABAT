@@ -157,6 +157,23 @@ export default function MenuCatalog() {
                   </button>
                 ))}
               </nav>
+
+              {/* Sidebar Team Assistance Card */}
+              <div className="sidebar-chef-card">
+                <div className="chef-card-header">
+                  <span className="chef-card-icon">🏛️</span>
+                  <h4>Need Assistance?</h4>
+                </div>
+                <p>Have specific dishes in mind or questions? Connect directly with our team.</p>
+                <button
+                  type="button"
+                  className="btn-sidebar-wa"
+                  onClick={openContactModal}
+                >
+                  <WhatsAppIcon size={14} />
+                  <span>Consult With Our Team</span>
+                </button>
+              </div>
             </div>
           </aside>
 
@@ -637,6 +654,20 @@ export default function MenuCatalog() {
                   <span className="drawer-row-arrow">&rarr;</span>
                 </button>
               ))}
+            </div>
+
+            <div className="drawer-team-box">
+              <button
+                type="button"
+                className="btn-drawer-team-wa"
+                onClick={() => {
+                  setMobileDrawerOpen(false);
+                  openContactModal();
+                }}
+              >
+                <WhatsAppIcon size={16} />
+                <span>Consult With Our Team</span>
+              </button>
             </div>
           </div>
         </div>

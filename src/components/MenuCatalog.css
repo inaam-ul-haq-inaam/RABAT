@@ -297,6 +297,69 @@
   flex-shrink: 0;
 }
 
+/* Sidebar Team Assistance Card */
+.sidebar-chef-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  padding: 1.1rem;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.chef-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 0.35rem;
+}
+
+.chef-card-icon {
+  font-size: 1.25rem;
+}
+
+.sidebar-chef-card h4 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f7e199;
+}
+
+.sidebar-chef-card p {
+  margin: 0 0 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.45;
+}
+
+.btn-sidebar-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.btn-sidebar-wa:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.5);
+  color: #000;
+}
+
 /* ── 4. MAIN CONTENT STREAM & SECTION HEADERS ── */
 .menu-content-stream {
   min-width: 0;
@@ -1123,6 +1186,36 @@
 .drawer-row-arrow {
   color: #d4af37;
   font-size: 1.1rem;
+}
+
+.drawer-team-box {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.btn-drawer-team-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-drawer-team-wa:active {
+  transform: scale(0.98);
 }
 
 /* ── 14. RESPONSIVE BREAKPOINTS ── */
