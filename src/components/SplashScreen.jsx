@@ -63,8 +63,8 @@ export default function SplashScreen() {
       {/* ── 1. FULL-SCREEN HALL BACKDROP (Ken Burns Parallax) ── */}
       <div className="r-cinema-bg-wrap">
         <img
-          src="images/hero/rabat_intro_hall.jpg"
-          alt="Rabat Grand Hall"
+          src="images/hero/rabat_palace_night_burst.jpg"
+          alt="Rabat Grand Palace Night"
           className="r-cinema-bg-img"
           loading="eager"
           decoding="async"
