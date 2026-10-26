@@ -117,7 +117,6 @@ export default function Footer() {
               {isDecorsPage ? (
                 <div className="r-brand-header r-brand-header--blissfull">
                   <div className="r-footer-blissfull-wrap">
-                    <span className="r-footer-by-tag">Décor by</span>
                     <a
                       href="https://www.instagram.com/blissfull158?obrf=MWYya2M4MTVobTQxcg=="
                       target="_blank"
