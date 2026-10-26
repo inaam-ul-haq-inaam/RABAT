@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import './DecorPetals.css';
 
-const PETAL_COUNT = 54;
+const PETAL_COUNT = 30;
 const PETAL_COLORS = ['red', 'pink', 'white'];
 
 function generatePetals(count) {
