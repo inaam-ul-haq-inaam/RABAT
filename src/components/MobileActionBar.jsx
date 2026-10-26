@@ -11,7 +11,15 @@ export default function MobileActionBar() {
   const [visible, setVisible] = useState(false);
   const { openContactModal } = useContactModal();
 
+  const isExcludedPage =
+    location.pathname.startsWith('/reserve') || location.pathname.startsWith('/menu');
+
   useEffect(() => {
+    if (isExcludedPage) {
+      setVisible(false);
+      return;
+    }
+
     const media = window.matchMedia('(max-width: 680px)');
     const footer = document.querySelector('.r-footer');
 
@@ -19,7 +27,7 @@ export default function MobileActionBar() {
       const footerRect = footer ? footer.getBoundingClientRect() : null;
       const footerVisible = footerRect && footerRect.top < window.innerHeight && footerRect.bottom > 0;
       const nextVisible =
-        media.matches && window.scrollY > REVEAL_AFTER && location.pathname !== '/reserve' && !footerVisible;
+        media.matches && window.scrollY > REVEAL_AFTER && !footerVisible;
       setVisible((current) => (current === nextVisible ? current : nextVisible));
     }
 
@@ -31,9 +39,9 @@ export default function MobileActionBar() {
       window.removeEventListener('scroll', updateVisibility);
       media.removeEventListener('change', updateVisibility);
     };
-  }, [location.pathname]);
+  }, [location.pathname, isExcludedPage]);
 
-  if (!visible) return null;
+  if (isExcludedPage || !visible) return null;
 
   return (
     <aside className="mobile-action-bar" aria-label="Quick booking actions">

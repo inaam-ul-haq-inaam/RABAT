@@ -1873,3 +1873,11 @@
     justify-content: space-between;
   }
 }
+
+
+/* Ensure global MobileActionBar never displays on Menu Page to avoid overlap */
+body:has(.menu-page-wrap) .mobile-action-bar,
+.menu-page-wrap ~ .mobile-action-bar,
+.menu-page-wrap + .mobile-action-bar {
+  display: none !important;
+}
