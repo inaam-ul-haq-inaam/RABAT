@@ -24,8 +24,8 @@ const DEFAULT_NAV_LINKS = [
     icon: <Home size={20} strokeWidth={1.8} />,
   },
   {
-    label: 'Services',
-    path: '/services',
+    label: 'Menu',
+    path: '/menu',
     icon: <Sparkles size={20} strokeWidth={1.8} />,
   },
   {

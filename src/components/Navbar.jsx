@@ -21,21 +21,25 @@ const NAV_LINKS = [
   { label: 'Gallery', to: '/gallery', match: '/gallery' },
 ];
 
-const SERVICES = [
-  { filter: 'walima', icon: 'images/walima-icon.png', alt: 'Walima', title: 'Walima', sub: 'Grand Reception' },
-  { filter: 'mayon', icon: 'images/mayon-icon.png', alt: 'Mayon', title: 'Mayon', sub: 'Intimate Gathering' },
-  { filter: 'barat', icon: 'images/barat-icon.png', alt: 'Barat', title: 'Barat', sub: 'Traditional Procession' },
-  { filter: 'nikkah', icon: 'images/nikah-icon.png', alt: 'Nikkah', title: 'Nikkah', sub: 'Sacred Ceremony' },
-  { filter: 'mehndi', icon: 'images/mehndi-icon.png', alt: 'Mehndi', title: 'Mehndi', sub: 'Color & Celebration' },
-  { filter: 'corporate', icon: 'images/corporate-icon.png', alt: 'Corporate', title: 'Corporate Event', sub: 'Business & Banquet' },
+const MENU_DROPDOWN_PACKAGES = [
+  { id: 'm1', code: 'M1', title: 'M1 — Imperial Feast', sub: 'Barat & Grand Reception' },
+  { id: 'm2', code: 'M2', title: 'M2 — Shahi Dawat', sub: 'Walima Signature' },
+  { id: 'm3', code: 'M3', title: 'M3 — Mughal-e-Azam', sub: 'Heritage Mughlai' },
+  { id: 'm4', code: 'M4', title: 'M4 — Darbar-e-Rabat', sub: 'Mehndi & Live Stations' },
+  { id: 'm5', code: 'M5', title: 'M5 — Noor-e-Jahan', sub: 'Modern Royal Fusion' },
+  { id: 'm6', code: 'M6', title: 'M6 — Executive Gala', sub: 'Corporate Continental' },
+  { id: 'm7', code: 'M7', title: 'M7 — Moroccan Sultanate', sub: 'Authentic Maghrebi' },
 ];
 
-const DD_ICON_STYLE = {
-  width: '28px',
-  height: '28px',
-  objectFit: 'contain',
-  filter: 'drop-shadow(0 2px 4px rgba(200,162,122,0.2))',
-};
+const MENU_DROPDOWN_SECTIONS = [
+  { id: 'addons', icon: '✨', title: 'Add-Ons & Live Stations', sub: 'Tandoor, Tawa & Fountains' },
+  { id: 'desserts', icon: '🍨', title: 'Royal Desserts', sub: 'Halwas, Kheer & Kunafa' },
+  { id: 'salads', icon: '🥗', title: 'Gourmet Salads', sub: 'Russian, Greek & Mezze' },
+  { id: 'charcoal', icon: '🔥', title: 'Charcoal BBQ & Grills', sub: 'Tikka, Seekh & Reshmi' },
+  { id: 'seafoods', icon: '🦐', title: 'Fresh Sea Foods', sub: 'Fried Fish & Tiger Prawns' },
+  { id: 'continental', icon: '🍝', title: 'Continental Specialties', sub: 'Steaks, Pastas & Cordon Bleu' },
+  { id: 'custom', icon: '✍️', title: 'Custom Menu Selection', sub: 'Design Your Bespoke Feast' },
+];
 
 export default function Navbar() {
   const { openContactModal } = useContactModal();
@@ -107,6 +111,14 @@ export default function Navbar() {
     };
   }, []);
 
+  /* ---- Menu dropdown click helper ---- */
+  function onMenuClick(event, targetHash) {
+    event.preventDefault();
+    setDropdownOpen(false);
+    setMobileMenuOpen(false);
+    navigate(`/menu#${targetHash}`);
+  }
+
   /* ---- data-filter-trigger: open the gallery tab pre-filtered ---- */
   function onServiceClick(event, filter) {
     event.preventDefault();
@@ -174,16 +186,16 @@ export default function Navbar() {
             <li className={'nav-dropdown services-dropdown' + (dropdownOpen ? ' open' : '')} ref={dropdownRef}>
               <button
                 type="button"
-                className="nav-link nav-dropdown-trigger"
+                className={'nav-link nav-dropdown-trigger' + (location.pathname === '/menu' ? ' active' : '')}
                 aria-expanded={dropdownOpen}
-                aria-controls="servicesMenu"
+                aria-controls="menuDropdown"
                 aria-haspopup="true"
                 onClick={(event) => {
                   event.preventDefault();
                   setDropdownOpen((open) => !open);
                 }}
               >
-                Services{' '}
+                Menu{' '}
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
                   <path
                     d="M1 1L5 5L9 1"
@@ -194,43 +206,72 @@ export default function Navbar() {
                   />
                 </svg>
               </button>
-              <div className="dropdown-menu mega-menu">
-                <div className="mega-grid" id="servicesMenu">
-                  {SERVICES.map((service) => (
-                    <a
-                      key={service.filter}
-                      href="#gallery"
-                      className="dropdown-link"
-                      data-filter-trigger={service.filter}
-                      onClick={(event) => onServiceClick(event, service.filter)}
-                    >
-                      <div className="dd-icon">
-                        <img src={service.icon} alt={service.alt} style={DD_ICON_STYLE} />
-                      </div>
-                      <div className="dd-text">
-                        <span className="dd-title">{service.title}</span>
-                        <span className="dd-sub">{service.sub}</span>
-                      </div>
-                      <div className="dd-arrow">&rarr;</div>
-                    </a>
-                  ))}
+              <div className="dropdown-menu mega-menu" style={{ width: 'clamp(320px, 90vw, 680px)' }}>
+                <div className="mega-grid" id="menuDropdown">
+                  {/* Left Column: Set Packages M1 - M7 */}
+                  <div className="menu-dd-column">
+                    <span className="menu-dd-heading">👑 Royal Set Packages</span>
+                    {MENU_DROPDOWN_PACKAGES.map((pkg) => (
+                      <a
+                        key={pkg.id}
+                        href={`/menu#${pkg.id}`}
+                        className="dropdown-link"
+                        onClick={(e) => onMenuClick(e, pkg.id)}
+                      >
+                        <div className="dd-icon--code">
+                          <span>{pkg.code}</span>
+                        </div>
+                        <div className="dd-text">
+                          <span className="dd-title">{pkg.title}</span>
+                          <span className="dd-sub">{pkg.sub}</span>
+                        </div>
+                        <div className="dd-arrow">&rarr;</div>
+                      </a>
+                    ))}
+                  </div>
+
+                  {/* Right Column: Specialty Segments */}
+                  <div className="menu-dd-column">
+                    <span className="menu-dd-heading">🍽️ Specialty Segments</span>
+                    {MENU_DROPDOWN_SECTIONS.map((sec) => (
+                      <a
+                        key={sec.id}
+                        href={`/menu#${sec.id}`}
+                        className="dropdown-link"
+                        onClick={(e) => onMenuClick(e, sec.id)}
+                      >
+                        <div className="dd-icon--emoji">
+                          <span>{sec.icon}</span>
+                        </div>
+                        <div className="dd-text">
+                          <span className="dd-title">{sec.title}</span>
+                          <span className="dd-sub">{sec.sub}</span>
+                        </div>
+                        <div className="dd-arrow">&rarr;</div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-                <div style={{ padding: '0.65rem 1rem 0.35rem', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
+
+                <div style={{ padding: '0.75rem 1rem 0.4rem', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
                   <Link
-                    to="/services"
+                    to="/menu"
                     style={{
                       color: 'var(--color-gold, #D4AF37)',
-                      fontSize: '0.82rem',
-                      fontWeight: '600',
+                      fontSize: '0.84rem',
+                      fontWeight: '700',
                       letterSpacing: '0.04em',
                       textDecoration: 'none',
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '6px',
                     }}
-                    onClick={() => setDropdownOpen(false)}
+                    onClick={() => {
+                      setDropdownOpen(false);
+                      setMobileMenuOpen(false);
+                    }}
                   >
-                    <span>View Dedicated Services Visual Grid</span>
+                    <span>Explore Full Interactive Royal Menu &amp; Packages</span>
                     <span>&rarr;</span>
                   </Link>
                 </div>

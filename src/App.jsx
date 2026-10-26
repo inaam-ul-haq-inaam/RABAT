@@ -15,11 +15,13 @@ import DecorsPage from './pages/DecorsPage.jsx';
 import CateringPage from './pages/CateringPage.jsx';
 import GalleryPage from './pages/GalleryPage.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
+import MenuPage from './pages/MenuPage.jsx';
 import ReservePage from './pages/ReservePage.jsx';
 
 const PAGE_TITLES = {
   '/': 'Rabat Hall — Top Banquet Hall In Lahore | Moroccan Luxury Venue',
-  '/services': 'Extra Ordinary Banquet Services & Top Catering — Rabat Hall',
+  '/menu': 'Royal Banquet Menus & Catering Packages — Rabat Hall',
+  '/services': 'Royal Banquet Menus & Catering Packages — Rabat Hall',
   '/catering': 'Top Catering & Royal Wedding Feasts — Rabat Hall Lahore',
   '/decors': 'Signature Stages & Décor — Rabat Hall',
   '/gallery': 'Photo Gallery & 3D Tour — Rabat Hall',
@@ -67,10 +69,11 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
           <Route path="/hallplan" element={<HallPlanPage />} />
           <Route path="/decors" element={<DecorsPage />} />
           <Route path="/catering" element={<CateringPage />} />
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services" element={<Navigate to="/menu" replace />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/reserve" element={<ReservePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
