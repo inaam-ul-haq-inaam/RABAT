@@ -9,10 +9,6 @@
   background-color: var(--color-bg, #FAF8F5);
   min-height: 100vh;
   padding-bottom: 6rem;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  box-sizing: border-box;
 }
 
 /* ── 1. Hero Section ── */
@@ -20,16 +16,13 @@
   position: relative;
   background: radial-gradient(circle at 50% 30%, #1c1712 0%, #0d0b09 70%, #060504 100%);
   color: #fff;
-  padding-top: calc(var(--nav-h, 110px) + clamp(2rem, 4vw, 3.5rem));
-  padding-bottom: clamp(2rem, 4vw, 3rem);
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: calc(var(--nav-h, 110px) + clamp(2.5rem, 5vw, 4rem));
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   text-align: center;
   border-bottom: 1px solid rgba(212, 175, 55, 0.25);
   overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
 }
 
 .menu-hero::before {
@@ -152,8 +145,6 @@
   max-width: 1360px;
   margin: 0 auto;
   padding: 2.5rem 1.25rem;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .menu-split-layout {
@@ -162,8 +153,6 @@
   gap: 2.75rem;
   align-items: flex-start;
   position: relative;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 /* ── 3. STICKY LUXURY DIRECTORY SIDEBAR (Desktop) ── */
@@ -337,10 +326,7 @@
 
 .sec-arch-line {
   height: 1px;
-  width: 60px;
-  max-width: 15vw;
-  flex: 0 1 60px;
-  min-width: 15px;
+  width: 70px;
   background: linear-gradient(90deg, transparent, #c5a059, transparent);
 }
 
@@ -388,10 +374,8 @@
 /* ── 5. ALL 7 MENUS BROCHURE GRID ── */
 .all-packages-brochure-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.75rem;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .brochure-pkg-card {
@@ -562,11 +546,9 @@
 /* ── 10. OFFICIAL DESSERTS CARDS ── */
 .desserts-official-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
   margin-bottom: 2rem;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .dessert-royal-card {
@@ -731,10 +713,8 @@
 /* ── 11. ULTRA-PREMIUM ITEM CARDS (Custom, Add-Ons, Salads, BBQ, Seafood, Continental) ── */
 .item-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.35rem;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .item-card {
@@ -834,6 +814,117 @@
   color: #f7e199;
   border-color: #d4af37;
   transform: translateY(-1px);
+}
+
+/* ── 12. CUSTOM MENU BANNER ── */
+.custom-menu-banner {
+  background: radial-gradient(circle at 70% 30%, #1f1a14 0%, #110e0b 70%, #080605 100%);
+  border-radius: 24px;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-menu-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.custom-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.custom-banner-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #f7e199;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.custom-banner-title {
+  margin: 0 0 1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.custom-banner-text {
+  margin: 0 auto 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.custom-banner-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-custom-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-custom-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.6);
+}
+
+.btn-custom-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-custom-call:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #f7e199;
+  color: #f7e199;
 }
 
 /* ── 13. MOBILE FLOATING DIRECTORY BAR & BOTTOM SHEET DRAWER ── */
@@ -1040,12 +1131,15 @@
     grid-template-columns: 250px 1fr;
     gap: 1.75rem;
   }
+
+  .package-tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 991px) {
   .menu-split-layout {
     display: block;
-    width: 100%;
   }
 
   .menu-royal-sidebar {
@@ -1055,43 +1149,43 @@
   .mobile-directory-floating-bar {
     display: block;
   }
+
+  .package-tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .menu-catalog-container {
-    padding: 1.5rem 1rem;
+  .package-tabs {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .all-packages-brochure-grid,
-  .desserts-official-grid,
-  .item-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.15rem;
+  .one-dish-row {
+    padding: 1rem;
+    gap: 12px;
   }
 
-  .brochure-pkg-card {
-    padding: 1.35rem 1.15rem;
-    border-radius: 16px;
+  .dish-name-badge {
+    font-size: 1.15rem;
   }
 
-  .brochure-pkg-code {
-    font-size: 1.75rem;
+  .pkg-card-footer {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .item-card,
-  .dessert-royal-card {
-    padding: 1.2rem 1.1rem;
-    border-radius: 14px;
+  .pkg-footer-btns {
+    flex-direction: column;
   }
 
-  .menu-sec-title {
-    font-size: 1.85rem;
+  .btn-pkg-inquire {
+    width: 100%;
+    justify-content: center;
   }
 
   .dessert-banner-note {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.25rem 1.15rem;
   }
 
   .dessert-banner-btn {
@@ -1101,28 +1195,19 @@
 }
 
 @media (max-width: 480px) {
-  .menu-catalog-container {
-    padding: 1.25rem 0.65rem;
+  .package-tabs {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .brochure-pkg-card {
-    padding: 1.2rem 0.9rem;
+  .one-dish-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
-  .brochure-item {
-    font-size: 0.84rem;
-  }
-
-  .brochure-choice-line {
-    font-size: 0.82rem;
-  }
-
-  .item-card,
-  .dessert-royal-card {
-    padding: 1.1rem 0.85rem;
-  }
-
-  .menu-sec-title {
-    font-size: 1.6rem;
+  .one-dish-row-num {
+    width: 26px;
+    height: 26px;
+    font-size: 0.95rem;
   }
 }
