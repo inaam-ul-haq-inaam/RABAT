@@ -15,44 +15,22 @@ const ANNOUNCEMENTS = [
 
 const NAV_LINKS = [
   { label: 'Home', to: '/', match: '/' },
+  { label: 'Menu', to: '/menu', match: '/menu' },
   { label: 'Decors & Stages', to: '/decors', match: '/decors' },
   { label: 'Royal Catering', to: '/catering', match: '/catering' },
   { label: 'Other Services', to: '/hallplan', match: '/hallplan' },
   { label: 'Gallery', to: '/gallery', match: '/gallery' },
 ];
 
-const MENU_DROPDOWN_PACKAGES = [
-  { id: 'm1', code: 'M1', title: 'M1 — Imperial Feast', sub: 'Barat & Grand Reception' },
-  { id: 'm2', code: 'M2', title: 'M2 — Shahi Dawat', sub: 'Walima Signature' },
-  { id: 'm3', code: 'M3', title: 'M3 — Mughal-e-Azam', sub: 'Heritage Mughlai' },
-  { id: 'm4', code: 'M4', title: 'M4 — Darbar-e-Rabat', sub: 'Mehndi & Live Stations' },
-  { id: 'm5', code: 'M5', title: 'M5 — Noor-e-Jahan', sub: 'Modern Royal Fusion' },
-  { id: 'm6', code: 'M6', title: 'M6 — Executive Gala', sub: 'Corporate Continental' },
-  { id: 'm7', code: 'M7', title: 'M7 — Moroccan Sultanate', sub: 'Authentic Maghrebi' },
-];
-
-const MENU_DROPDOWN_SECTIONS = [
-  { id: 'addons', icon: '✨', title: 'Add-Ons & Live Stations', sub: 'Tandoor, Tawa & Fountains' },
-  { id: 'desserts', icon: '🍨', title: 'Royal Desserts', sub: 'Halwas, Kheer & Kunafa' },
-  { id: 'salads', icon: '🥗', title: 'Gourmet Salads', sub: 'Russian, Greek & Mezze' },
-  { id: 'charcoal', icon: '🔥', title: 'Charcoal BBQ & Grills', sub: 'Tikka, Seekh & Reshmi' },
-  { id: 'seafoods', icon: '🦐', title: 'Fresh Sea Foods', sub: 'Fried Fish & Tiger Prawns' },
-  { id: 'continental', icon: '🍝', title: 'Continental Specialties', sub: 'Steaks, Pastas & Cordon Bleu' },
-  { id: 'custom', icon: '✍️', title: 'Custom Menu Selection', sub: 'Design Your Bespoke Feast' },
-];
-
 export default function Navbar() {
   const { openContactModal } = useContactModal();
   const navRef = useRef(null);
-  const dropdownRef = useRef(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setDropdownOpen(false);
   }, [location.pathname]);
 
   /* ---- 1. STICKY NAV — scroll shadow + hide/show on scroll direction ---- */
@@ -90,16 +68,13 @@ export default function Navbar() {
     };
   }, []);
 
-  /* ---- 3. SERVICES DROPDOWN — outside click + Escape ---- */
+  /* ---- Close mobile menu on outside click or Escape ---- */
   useEffect(() => {
     function onDocumentClick(event) {
-      const dropdown = dropdownRef.current;
-      if (dropdown && !dropdown.contains(event.target)) setDropdownOpen(false);
       if (navRef.current && !navRef.current.contains(event.target)) setMobileMenuOpen(false);
     }
     function onKeyDown(event) {
       if (event.key === 'Escape') {
-        setDropdownOpen(false);
         setMobileMenuOpen(false);
       }
     }
@@ -110,24 +85,6 @@ export default function Navbar() {
       document.removeEventListener('keydown', onKeyDown);
     };
   }, []);
-
-  /* ---- Menu dropdown click helper ---- */
-  function onMenuClick(event, targetHash) {
-    event.preventDefault();
-    setDropdownOpen(false);
-    setMobileMenuOpen(false);
-    navigate(`/menu#${targetHash}`);
-  }
-
-  /* ---- data-filter-trigger: open the gallery tab pre-filtered ---- */
-  function onServiceClick(event, filter) {
-    event.preventDefault();
-    setDropdownOpen(false);
-    setMobileMenuOpen(false);
-    navigate('/gallery', {
-      state: { filter, scrollTo: '.gallery-filters', scrollOffset: 80 },
-    });
-  }
 
   return (
     <header className="navbar" id="navbar" role="banner" ref={navRef}>
@@ -172,113 +129,7 @@ export default function Navbar() {
 
         <nav className={'nav-menu' + (mobileMenuOpen ? ' open' : '')} id="navMenu" aria-label="Primary">
           <ul className="nav-list" role="list">
-            <li>
-              <Link
-                to="/"
-                className={'nav-link' + (location.pathname === '/' ? ' active' : '')}
-                data-nav
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-
-            <li className={'nav-dropdown services-dropdown' + (dropdownOpen ? ' open' : '')} ref={dropdownRef}>
-              <button
-                type="button"
-                className={'nav-link nav-dropdown-trigger' + (location.pathname === '/menu' ? ' active' : '')}
-                aria-expanded={dropdownOpen}
-                aria-controls="menuDropdown"
-                aria-haspopup="true"
-                onClick={(event) => {
-                  event.preventDefault();
-                  setDropdownOpen((open) => !open);
-                }}
-              >
-                Menu{' '}
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                  <path
-                    d="M1 1L5 5L9 1"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <div className="dropdown-menu mega-menu" style={{ width: 'clamp(320px, 90vw, 680px)' }}>
-                <div className="mega-grid" id="menuDropdown">
-                  {/* Left Column: Set Packages M1 - M7 */}
-                  <div className="menu-dd-column">
-                    <span className="menu-dd-heading">👑 Royal Set Packages</span>
-                    {MENU_DROPDOWN_PACKAGES.map((pkg) => (
-                      <a
-                        key={pkg.id}
-                        href={`/menu#${pkg.id}`}
-                        className="dropdown-link"
-                        onClick={(e) => onMenuClick(e, pkg.id)}
-                      >
-                        <div className="dd-icon--code">
-                          <span>{pkg.code}</span>
-                        </div>
-                        <div className="dd-text">
-                          <span className="dd-title">{pkg.title}</span>
-                          <span className="dd-sub">{pkg.sub}</span>
-                        </div>
-                        <div className="dd-arrow">&rarr;</div>
-                      </a>
-                    ))}
-                  </div>
-
-                  {/* Right Column: Specialty Segments */}
-                  <div className="menu-dd-column">
-                    <span className="menu-dd-heading">🍽️ Specialty Segments</span>
-                    {MENU_DROPDOWN_SECTIONS.map((sec) => (
-                      <a
-                        key={sec.id}
-                        href={`/menu#${sec.id}`}
-                        className="dropdown-link"
-                        onClick={(e) => onMenuClick(e, sec.id)}
-                      >
-                        <div className="dd-icon--emoji">
-                          <span>{sec.icon}</span>
-                        </div>
-                        <div className="dd-text">
-                          <span className="dd-title">{sec.title}</span>
-                          <span className="dd-sub">{sec.sub}</span>
-                        </div>
-                        <div className="dd-arrow">&rarr;</div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div style={{ padding: '0.75rem 1rem 0.4rem', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
-                  <Link
-                    to="/menu"
-                    style={{
-                      color: 'var(--color-gold, #D4AF37)',
-                      fontSize: '0.84rem',
-                      fontWeight: '700',
-                      letterSpacing: '0.04em',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                    }}
-                    onClick={() => {
-                      setDropdownOpen(false);
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    <span>Explore Full Interactive Royal Menu &amp; Packages</span>
-                    <span>&rarr;</span>
-                  </Link>
-                </div>
-              </div>
-            </li>
-
-            {NAV_LINKS.slice(1).map((link) => (
+            {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <Link
                   to={link.to}
