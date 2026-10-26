@@ -22,7 +22,6 @@ export const MENU_CATEGORIES = [
   { id: 'charcoal', num: '06', label: 'Charcoal BBQ & Roasts', icon: '🔥', short: 'Charcoal BBQ', count: '9 Specialties', tag: 'Wood-Coal Flame Grills' },
   { id: 'seafoods', num: '07', label: 'Fresh Sea Food', icon: '🦐', short: 'Sea Food', count: '5 Specialties', tag: 'Lahori Fish & Prawns' },
   { id: 'continental', num: '08', label: 'Continental & Chinese', icon: '🍝', short: 'Continental', count: '7 Dishes', tag: 'Steaks & Wok Rice' },
-  { id: 'custom', num: '09', label: 'Build Custom Menu', icon: '✍️', short: 'Custom Build', count: 'Consult', tag: 'Bespoke Event Menu' },
 ];
 
 /* ── 1. ONE DISH MENUS (M1 to M7) ── */

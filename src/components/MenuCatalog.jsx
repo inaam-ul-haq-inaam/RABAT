@@ -12,7 +12,6 @@ import {
   MENU_CONTINENTAL,
 } from '../data/menu.js';
 import { WhatsAppIcon } from './Icons.jsx';
-import { useContactModal } from '../context/ContactModalContext.jsx';
 import './MenuCatalog.css';
 
 const WA_NUMBER = '923256572839';
@@ -21,7 +20,6 @@ export default function MenuCatalog() {
   const [activeSection, setActiveSection] = useState('packages');
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const location = useLocation();
-  const { openContactModal } = useContactModal();
 
   // Scrollspy via IntersectionObserver for automatic sticky sidebar active item highlighting
   useEffect(() => {
@@ -84,13 +82,6 @@ export default function MenuCatalog() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
 
-  const handleCustomInquiry = () => {
-    const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I would like to design a bespoke *Custom Catering Menu* with your executive chef for our upcoming event.`
-    );
-    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
-  };
-
   const scrollToCategory = (catId) => {
     setActiveSection(catId);
     const element = document.getElementById(catId);
@@ -129,7 +120,7 @@ export default function MenuCatalog() {
       </section>
 
       {/* ── 2. TWO-COLUMN SPLIT LAYOUT (Sticky Luxury Sidebar + Content Stream) ── */}
-      <div className="container menu-catalog-container">
+      <div className="menu-catalog-container">
         <div className="menu-split-layout">
           {/* ── LEFT COLUMN: STICKY LUXURY DIRECTORY SIDEBAR (Desktop) ── */}
           <aside className="menu-royal-sidebar" aria-label="Menu Sections Directory">
@@ -534,38 +525,6 @@ export default function MenuCatalog() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </section>
-
-            {/* ════════════ SECTION 09: CUSTOM MENU CONSULTATION BANNER ════════════ */}
-            <section id="custom" className="menu-section">
-              <div className="custom-menu-banner">
-                <div className="custom-banner-content">
-                  <span className="custom-banner-tag">BESPOKE CATERING CONSULTATION</span>
-                  <h2 className="custom-banner-title">Build Your Own Custom Menu</h2>
-                  <p className="custom-banner-text">
-                    Every celebration is unique. If you prefer to mix and match dishes across our packages or introduce
-                    signature family recipes, our executive chef from Time &amp; Taste Catering will personally curate
-                    a bespoke menu tailored precisely to your taste, guest count, and presentation style.
-                  </p>
-                  <div className="custom-banner-btns">
-                    <button
-                      type="button"
-                      className="btn-custom-wa"
-                      onClick={handleCustomInquiry}
-                    >
-                      <WhatsAppIcon size={18} />
-                      <span>Consult Executive Chef On WhatsApp</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="btn-custom-call"
-                      onClick={openContactModal}
-                    >
-                      Schedule A Tasting Session &rarr;
-                    </button>
-                  </div>
-                </div>
               </div>
             </section>
           </main>
