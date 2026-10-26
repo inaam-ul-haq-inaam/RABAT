@@ -54,7 +54,7 @@ export default function SplashScreen() {
       {/* ── BOTTOM HALF: Hall Reveal with Light Burst ── */}
       <div className="splash-hall">
         <img
-          src="images/hero/ai_hero_table.jpg"
+          src="images/hero/rabat_intro_hall.jpg"
           alt="Rabat Banquet Hall"
           className="splash-hall-img"
         />
