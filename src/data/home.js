@@ -1,6 +1,6 @@
 /** #hero — the four feature bullets under the hero actions. */
 export const HERO_FEATURES = [
-  { icon: 'pavilion', strong: ' SQ. FT.', span: 'Grand Pavilion' },
+  { icon: 'pavilion', strong: 'Capacity 800', span: 'Grand Hall' },
   { icon: 'interior', strong: 'Royal Interiors', span: 'Timeless Elegance' },
   { icon: 'catering', strong: 'Royal Catering', span: 'World-Class Cuisine' },
   { icon: 'parking', strong: 'Ample Parking', span: 'Valet & Security' },

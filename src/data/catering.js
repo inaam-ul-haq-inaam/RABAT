@@ -61,7 +61,7 @@ export const CULINARY_CARDS = [
       { name: 'Pakistani', text: 'Traditional spices & rich heritage' },
       { name: 'Chinese', text: 'Authentic wok-tossed specialties' },
       { name: 'Thai', text: 'Exotic herbs & aromatic curries' },
-      { name: 'Italian', text: 'Gourmet pastas & Mediterranean flavors' },
+      { name: 'Italian', text: 'Artisan pastas & Mediterranean flavors' },
       { name: 'Arabian', text: 'Slow-cooked delicacies & tender meats' },
       { name: 'Lebanese', text: 'Fresh mezze, grills & vibrant salads' },
       { name: 'Japanese', text: 'Premium sushi & delicate umami dishes' },

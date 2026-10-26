@@ -238,7 +238,7 @@ export default function MenuCatalog() {
                 <h2 className="menu-sec-title">ONE DISH MENU (Menu 1 &mdash; Menu 7)</h2>
                 <p className="menu-sec-sub">
                   Official banquet menu packages compliant with government One Dish regulations,
-                  served with premium mutton, chicken specialties, fresh tandoor naan, gourmet salad, raita, dessert, and drinks.
+                  served with premium mutton, chicken specialties, fresh tandoor naan, fresh salad, raita, dessert, and drinks.
                 </p>
               </div>
 
@@ -438,7 +438,7 @@ export default function MenuCatalog() {
               </div>
             </section>
 
-            {/* ════════════ SECTION 05: GOURMET SALADS ════════════ */}
+            {/* ════════════ SECTION 05: ROYAL SALADS ════════════ */}
             <section id="salads" className="menu-section menu-section--salads">
               <div className="menu-section-header">
                 <div className="section-royal-crown">
@@ -447,7 +447,7 @@ export default function MenuCatalog() {
                   <span className="sec-arch-line" />
                 </div>
                 <span className="menu-sec-tag">OFFICIAL BROCHURE SALADS</span>
-                <h2 className="menu-sec-title">Gourmet Salads (Salad Bar Selection)</h2>
+                <h2 className="menu-sec-title">Royal Salads (Salad Bar Selection)</h2>
                 <p className="menu-sec-sub">
                   Every One Dish Menu includes your choice of <strong>One Fresh Salad</strong>. Explore our 7 official salad varieties prepared fresh for your event.
                 </p>

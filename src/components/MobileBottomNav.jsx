@@ -15,7 +15,7 @@ import { useContactModal } from '../context/ContactModalContext.jsx';
 import './MobileBottomNav.css';
 
 // Navigation hierarchy:
-// 4 visible tabs: Pavilion (Home), Services, Catering, Gallery
+// 4 visible tabs: Home, Services, Catering, Gallery
 // 'More' bottom sheet panel: Decors & Stages, Hall Plan, and Interactive Contact Us
 const DEFAULT_NAV_LINKS = [
   {
@@ -56,7 +56,7 @@ export default function MobileBottomNav({ navLinks = DEFAULT_NAV_LINKS }) {
   const location = useLocation();
 
   // Dynamic mapping:
-  // 1. navLinks.slice(0, 4) directly onto the fixed Bottom Tab Bar: Pavilion, Services, Catering, Gallery
+  // 1. navLinks.slice(0, 4) directly onto the fixed Bottom Tab Bar: Home, Services, Catering, Gallery
   // 2. navLinks.slice(4) inside the hidden 'More' panel: Decors & Stages, Hall Plan
   const primaryLinks = navLinks.slice(0, 4);
   const moreLinks = navLinks.slice(4);

@@ -45,7 +45,7 @@ export const SERVICES_LIST = [
     icon: '🎂',
     title: 'Special Cakes',
     sub: 'Artisan Designer Cakes',
-    desc: 'Multi-tiered bespoke wedding and celebration cakes crafted by master pastry chefs. Custom floral sugarcraft, metallic gold leaf accents, elegant cake-cutting staging, and decadent international gourmet flavors.',
+    desc: 'Multi-tiered bespoke wedding and celebration cakes crafted by master pastry chefs. Custom floral sugarcraft, metallic gold leaf accents, elegant cake-cutting staging, and decadent international signature flavors.',
     highlights: [
       'Multi-Tier Grand Architectural Cakes',
       'Handcrafted Sugar Flowers & Edible Gold Leaf',

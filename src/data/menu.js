@@ -18,7 +18,7 @@ export const MENU_CATEGORIES = [
   { id: 'desserts', num: '02', label: 'Royal Desserts', icon: '🍨', short: 'Desserts', count: '10 Items', tag: 'Included with M1-M7' },
   { id: 'custom-selection', num: '03', label: 'Custom Selection', icon: '💎', short: 'Custom Dishes', count: '10 Dishes', tag: 'Chef Royal Specialties' },
   { id: 'addons', num: '04', label: "Add-On's & Stations", icon: '✨', short: "Add-On's", count: '10 Items', tag: 'Live Counters & Drinks' },
-  { id: 'salads', num: '05', label: 'Gourmet Salads', icon: '🥗', short: 'Salads', count: '7 Varieties', tag: 'Salad Bar Selection' },
+  { id: 'salads', num: '05', label: 'Royal Salads', icon: '🥗', short: 'Salads', count: '7 Varieties', tag: 'Salad Bar Selection' },
   { id: 'charcoal', num: '06', label: 'Charcoal BBQ & Roasts', icon: '🔥', short: 'Charcoal BBQ', count: '9 Specialties', tag: 'Wood-Coal Flame Grills' },
   { id: 'seafoods', num: '07', label: 'Fresh Sea Food', icon: '🦐', short: 'Sea Food', count: '5 Specialties', tag: 'Lahori Fish & Prawns' },
   { id: 'continental', num: '08', label: 'Continental & Chinese', icon: '🍝', short: 'Continental', count: '7 Dishes', tag: 'Steaks & Wok Rice' },
@@ -59,7 +59,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -114,7 +114,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -169,7 +169,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -224,7 +224,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -279,7 +279,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -334,7 +334,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -389,7 +389,7 @@ export const MENU_PACKAGES = [
         icon: '🥗',
         hasChoice: false,
         options: ['One Salad'],
-        note: 'Choice from 7 official gourmet salads',
+        note: 'Choice from 7 official royal salads',
       },
       {
         label: 'Sauces & Raita',
@@ -448,7 +448,7 @@ export const MENU_DESSERTS = [
     id: 5,
     name: 'Fruit Trifle',
     desc: 'Artfully layered banquet dessert featuring delicate sponge cake, fresh seasonal fruits, rich vanilla custard, and whipped cream.',
-    tag: 'Chilled Gourmet',
+    tag: 'Chilled Royal',
     icon: '🍓',
   },
   {
@@ -562,7 +562,7 @@ export const MENU_ADD_ONS = [
   },
   {
     name: '19 B Soup',
-    tag: 'Gourmet Specialty',
+    tag: 'Royal Specialty',
     desc: 'Chef specialty dark rich broth with diced prawns, chicken, Chinese greens, and subtle oriental spices.',
     icon: '🍲',
   },
@@ -770,7 +770,7 @@ export const MENU_CONTINENTAL = [
   },
   {
     name: 'Chicken Cashew Nuts',
-    tag: 'Chinese Gourmet',
+    tag: 'Chinese Cuisine',
     desc: 'Tender chicken slices stir-fried with crunchy roasted cashew nuts, bell peppers, and scallions in savory brown sauce.',
     icon: '🥘',
   },
@@ -879,7 +879,7 @@ export const CUSTOM_BUILDER_SECTIONS = [
     items: [
       { id: 'b_egg_rice', name: 'Egg Fried Rice', tag: 'Oriental Wok Classic', icon: '🍚' },
       { id: 'b_garlic_rice', name: 'Garlic Rice', tag: 'Golden Roasted Butter', icon: '🧄' },
-      { id: 'b_cashew_chicken', name: 'Chicken Cashew Nuts', tag: 'Chinese Gourmet Wok', icon: '🥘' },
+      { id: 'b_cashew_chicken', name: 'Chicken Cashew Nuts', tag: 'Chinese Special Wok', icon: '🥘' },
       { id: 'b_sweet_sour', name: 'Sweet & Sour Chicken', tag: 'Crispy Pineapple Glaze', icon: '🍗' },
       { id: 'b_chilli_veg', name: 'Chicken with Chilli Vegetable', tag: 'Spicy Wok Garlic', icon: '🌶️' },
       { id: 'b_black_pepper', name: 'Chicken Black Paper Steaks', tag: 'Sizzling Peppercorn', icon: '🥩' },
@@ -888,7 +888,7 @@ export const CUSTOM_BUILDER_SECTIONS = [
   },
   {
     id: 'salads',
-    category: 'Gourmet Salads & Raita',
+    category: 'Royal Salads & Raita',
     icon: '🥗',
     items: [
       { id: 'b_russian', name: 'Russian Salad', tag: 'Creamy Pineapple Apple', icon: '🥗' },
