@@ -10,6 +10,7 @@ import {
   MENU_CHARCOAL,
   MENU_SEAFOODS,
   MENU_CONTINENTAL,
+  CUSTOM_BUILDER_SECTIONS,
 } from '../data/menu.js';
 import { WhatsAppIcon } from './Icons.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
@@ -22,6 +23,11 @@ export default function MenuCatalog() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const location = useLocation();
   const { openContactModal } = useContactModal();
+
+  // Custom Menu Builder Interactive State
+  const [selectedCustomItems, setSelectedCustomItems] = useState([]);
+  const [builderActiveFilter, setBuilderActiveFilter] = useState('all');
+  const [builderSearchQuery, setBuilderSearchQuery] = useState('');
 
   // Scrollspy via IntersectionObserver for automatic sticky sidebar active item highlighting
   useEffect(() => {
@@ -84,6 +90,57 @@ export default function MenuCatalog() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
   };
 
+  // Custom Menu Builder Item Toggle
+  const toggleCustomItem = (item, categoryName) => {
+    setSelectedCustomItems((prev) => {
+      const exists = prev.some((i) => i.id === item.id);
+      if (exists) {
+        return prev.filter((i) => i.id !== item.id);
+      } else {
+        return [...prev, { ...item, category: categoryName }];
+      }
+    });
+  };
+
+  const isItemSelected = (itemId) => {
+    return selectedCustomItems.some((i) => i.id === itemId);
+  };
+
+  const removeCustomItem = (itemId) => {
+    setSelectedCustomItems((prev) => prev.filter((i) => i.id !== itemId));
+  };
+
+  const clearAllCustomItems = () => {
+    setSelectedCustomItems([]);
+  };
+
+  // Send Custom Curated Menu to WhatsApp
+  const handleSendCustomMenuWA = () => {
+    if (selectedCustomItems.length === 0) return;
+
+    // Group selected dishes by category
+    const grouped = {};
+    selectedCustomItems.forEach((item) => {
+      if (!grouped[item.category]) grouped[item.category] = [];
+      grouped[item.category].push(item.name);
+    });
+
+    let message = `*Custom Banquet Menu Inquiry — Rabat Banquet Hall*\n\n`;
+    message += `Assalam-o-Alaikum! I have selected *${selectedCustomItems.length} custom dishes* for our upcoming event catering menu:\n\n`;
+
+    Object.entries(grouped).forEach(([cat, dishes]) => {
+      message += `*${cat}:*\n`;
+      dishes.forEach((d) => {
+        message += `  • ${d}\n`;
+      });
+      message += `\n`;
+    });
+
+    message += `Kindly share catering availability, menu per-head package quotation, and tasting details. Thank you!`;
+
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   const handleCustomInquiry = () => {
     const text = encodeURIComponent(
       `Hello Rabat Banquet Hall, I would like to design a bespoke *Custom Catering Menu* with your executive chef for our upcoming event.`
@@ -122,14 +179,14 @@ export default function MenuCatalog() {
               onClick={() => setMobileDrawerOpen(true)}
               className="menu-btn-glass mobile-only-btn"
             >
-              📋 All 8 Categories
+              📋 All Categories
             </button>
           </div>
         </div>
       </section>
 
       {/* ── 2. TWO-COLUMN SPLIT LAYOUT (Sticky Luxury Sidebar + Content Stream) ── */}
-      <div className="container menu-catalog-container">
+      <div className="menu-catalog-container">
         <div className="menu-split-layout">
           {/* ── LEFT COLUMN: STICKY LUXURY DIRECTORY SIDEBAR (Desktop) ── */}
           <aside className="menu-royal-sidebar" aria-label="Menu Sections Directory">
@@ -554,40 +611,231 @@ export default function MenuCatalog() {
               </div>
             </section>
 
-            {/* ════════════ SECTION 09: CUSTOM MENU CONSULTATION BANNER ════════════ */}
-            <section id="custom" className="menu-section">
-              <div className="custom-menu-banner">
-                <div className="custom-banner-content">
-                  <span className="custom-banner-tag">BESPOKE CATERING CONSULTATION</span>
-                  <h2 className="custom-banner-title">Build Your Own Custom Menu</h2>
-                  <p className="custom-banner-text">
-                    Every celebration is unique. If you prefer to mix and match dishes across our packages or introduce
-                    signature family recipes, our executive chef from Time &amp; Taste Catering will personally curate
-                    a bespoke menu tailored precisely to your taste, guest count, and presentation style.
-                  </p>
-                  <div className="custom-banner-btns">
-                    <button
-                      type="button"
-                      className="btn-custom-wa"
-                      onClick={handleCustomInquiry}
-                    >
-                      <WhatsAppIcon size={18} />
-                      <span>Consult Executive Chef On WhatsApp</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="btn-custom-call"
-                      onClick={openContactModal}
-                    >
-                      Schedule A Tasting Session &rarr;
-                    </button>
+            {/* ════════════ SECTION 09: INTERACTIVE CUSTOM MENU BUILDER ════════════ */}
+            <section id="custom" className="menu-section menu-section--custom-builder">
+              <div className="menu-section-header">
+                <div className="section-royal-crown">
+                  <span className="sec-arch-line" />
+                  <span className="sec-number-badge">SECTION 09 &bull; INTERACTIVE BUILDER</span>
+                  <span className="sec-arch-line" />
+                </div>
+                <span className="menu-sec-tag">BESPOKE CATERING STUDIO</span>
+                <h2 className="menu-sec-title">Build Your Custom Menu</h2>
+                <p className="menu-sec-sub">
+                  Pick multiple items across our complete royal culinary catalog. Click any dish to select or deselect,
+                  and send your personalized menu directly to our team via WhatsApp for instant quotation.
+                </p>
+              </div>
+
+              <div className="custom-builder-container">
+                {/* Builder Controls: Search + Category Filters */}
+                <div className="builder-toolbar">
+                  <div className="builder-search-box">
+                    <span className="builder-search-icon">🔍</span>
+                    <input
+                      type="text"
+                      className="builder-search-input"
+                      placeholder="Search dishes (e.g. Mutton, Biryani, Fish, Kheer)..."
+                      value={builderSearchQuery}
+                      onChange={(e) => setBuilderSearchQuery(e.target.value)}
+                    />
+                    {builderSearchQuery && (
+                      <button
+                        type="button"
+                        className="builder-search-clear"
+                        onClick={() => setBuilderSearchQuery('')}
+                        aria-label="Clear search"
+                      >
+                        ✕
+                      </button>
+                    )}
                   </div>
+
+                  {/* Category Filter Pills */}
+                  <div className="builder-cat-pills" role="tablist">
+                    <button
+                      type="button"
+                      className={`builder-pill ${builderActiveFilter === 'all' ? 'active' : ''}`}
+                      onClick={() => setBuilderActiveFilter('all')}
+                    >
+                      <span>All Dishes</span>
+                      <span className="builder-pill-count">
+                        {CUSTOM_BUILDER_SECTIONS.reduce((acc, s) => acc + s.items.length, 0)}
+                      </span>
+                    </button>
+                    {CUSTOM_BUILDER_SECTIONS.map((sec) => (
+                      <button
+                        key={sec.id}
+                        type="button"
+                        className={`builder-pill ${builderActiveFilter === sec.id ? 'active' : ''}`}
+                        onClick={() => setBuilderActiveFilter(sec.id)}
+                      >
+                        <span>{sec.icon} {sec.category.split(' ')[0]}</span>
+                        <span className="builder-pill-count">{sec.items.length}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Dishes Multi-Select Grid / Rows Grouped by Category */}
+                <div className="builder-sections-list">
+                  {CUSTOM_BUILDER_SECTIONS.filter((sec) =>
+                    builderActiveFilter === 'all' ? true : sec.id === builderActiveFilter
+                  ).map((sec) => {
+                    const filteredItems = sec.items.filter((item) =>
+                      builderSearchQuery
+                        ? item.name.toLowerCase().includes(builderSearchQuery.toLowerCase()) ||
+                          item.tag.toLowerCase().includes(builderSearchQuery.toLowerCase())
+                        : true
+                    );
+
+                    if (filteredItems.length === 0) return null;
+
+                    return (
+                      <div key={sec.id} className="builder-group-box">
+                        <div className="builder-group-header">
+                          <div className="builder-group-title-wrap">
+                            <span className="builder-group-icon">{sec.icon}</span>
+                            <h3 className="builder-group-title">{sec.category}</h3>
+                          </div>
+                          <span className="builder-group-count">{filteredItems.length} Dishes</span>
+                        </div>
+
+                        <div className="builder-items-grid">
+                          {filteredItems.map((item) => {
+                            const selected = isItemSelected(item.id);
+                            return (
+                              <div
+                                key={item.id}
+                                className={`builder-item-card ${selected ? 'is-selected' : ''}`}
+                                onClick={() => toggleCustomItem(item, sec.category)}
+                                role="checkbox"
+                                aria-checked={selected}
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                  if (e.key === ' ' || e.key === 'Enter') {
+                                    e.preventDefault();
+                                    toggleCustomItem(item, sec.category);
+                                  }
+                                }}
+                              >
+                                <div className="builder-card-checkbox">
+                                  <span className="checkbox-ring">
+                                    {selected && <span className="checkbox-check">✓</span>}
+                                  </span>
+                                </div>
+                                <span className="builder-item-icon">{item.icon}</span>
+                                <div className="builder-item-info">
+                                  <span className="builder-item-name">{item.name}</span>
+                                  <span className="builder-item-tag">{item.tag}</span>
+                                </div>
+                                {selected && (
+                                  <span className="builder-selected-badge">Selected</span>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Selection Summary Tray */}
+                <div className={`builder-selection-tray ${selectedCustomItems.length > 0 ? 'has-items' : 'is-empty'}`}>
+                  {selectedCustomItems.length > 0 ? (
+                    <>
+                      <div className="tray-top-bar">
+                        <div className="tray-count-cluster">
+                          <span className="tray-count-badge">{selectedCustomItems.length}</span>
+                          <div className="tray-headings">
+                            <h4 className="tray-title">Your Custom Menu Selection</h4>
+                            <span className="tray-sub">
+                              Review your selected items and submit directly to our event team
+                            </span>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          className="btn-tray-clear"
+                          onClick={clearAllCustomItems}
+                          title="Reset selection"
+                        >
+                          Clear All
+                        </button>
+                      </div>
+
+                      <div className="tray-selected-chips">
+                        {selectedCustomItems.map((item) => (
+                          <span key={item.id} className="tray-chip">
+                            <span className="tray-chip-icon">{item.icon}</span>
+                            <span className="tray-chip-name">{item.name}</span>
+                            <button
+                              type="button"
+                              className="tray-chip-remove"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                removeCustomItem(item.id);
+                              }}
+                              aria-label={`Remove ${item.name}`}
+                            >
+                              ✕
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="tray-actions-row">
+                        <button
+                          type="button"
+                          className="btn-tray-wa"
+                          onClick={handleSendCustomMenuWA}
+                        >
+                          <WhatsAppIcon size={18} />
+                          <span>Send Custom Menu On WhatsApp ({selectedCustomItems.length} Dishes)</span>
+                        </button>
+                        <button
+                          type="button"
+                          className="btn-tray-call"
+                          onClick={openContactModal}
+                        >
+                          <span>Inquire via Call / Concierge</span>
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="tray-empty-hint">
+                      <span className="tray-hint-icon">👆</span>
+                      <p className="tray-hint-text">
+                        <strong>Tap or click any dishes above</strong> to start building your custom banquet menu. You can select multiple items across all categories!
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </section>
           </main>
         </div>
       </div>
+
+      {/* Floating Selected Custom Items Bar (when items are selected) */}
+      {selectedCustomItems.length > 0 && (
+        <aside className="builder-floating-badge" aria-label="Selected custom menu summary">
+          <div className="floating-badge-content" onClick={() => scrollToCategory('custom')}>
+            <span className="floating-badge-count">{selectedCustomItems.length}</span>
+            <span className="floating-badge-text">Dishes Selected</span>
+          </div>
+          <button
+            type="button"
+            className="floating-badge-wa-btn"
+            onClick={handleSendCustomMenuWA}
+            title="Send Custom Menu on WhatsApp"
+          >
+            <WhatsAppIcon size={15} />
+            <span>Send to WhatsApp</span>
+          </button>
+        </aside>
+      )}
 
       {/* ── 3. MOBILE FLOATING DIRECTORY BAR & BOTTOM DRAWER ── */}
       <div className="mobile-directory-floating-bar">
