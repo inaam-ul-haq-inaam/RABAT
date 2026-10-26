@@ -93,6 +93,7 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
     color: 'var(--color-text, #111827)',
     outline: 'none',
     cursor: 'pointer',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   };
 
   const inputStyle = {
@@ -104,6 +105,7 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
     fontSize: '0.92rem',
     color: 'var(--color-text, #111827)',
     outline: 'none',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   };
 
   const labelStyle = {
@@ -116,6 +118,7 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
     fontWeight: '700',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   };
 
   return (
@@ -142,8 +145,35 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
             </svg>
             Hall 16 - Rabat Garrison Marriage Hall
           </span>
+
+          {/* White and Pink Rose Flower Bunch Near Main Heading */}
+          <div
+            className="reserve-floral-wrap"
+            style={{
+              margin: '0.5rem auto 0.75rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              src="images/white_pink_roses.png"
+              alt="White and pink rose bouquet"
+              className="reserve-floral-bunch"
+              style={{
+                width: 'clamp(180px, 26vw, 270px)',
+                height: 'auto',
+                display: 'block',
+                filter: 'drop-shadow(0 8px 20px rgba(190, 110, 130, 0.18))',
+              }}
+              width="270"
+              height="113"
+              loading="eager"
+            />
+          </div>
+
           <h2 className="reserve-title" id="reserve-title">
-            Reserve Your Wedding Date
+            Reserve Your Event Date
           </h2>
           <p className="reserve-lead">
             Schedule your private palace walkthrough with our event concierge to discuss your event requirements.
@@ -163,18 +193,20 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
             boxShadow: '0 8px 30px rgba(35, 25, 15, 0.06)',
             marginTop: '2rem',
             marginBottom: '4rem',
+            fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           }}
         >
           <p
             className="form-title"
             style={{
               marginBottom: '1.75rem',
-              fontSize: '1.25rem',
-              fontFamily: "'Cinzel Decorative', 'Cormorant Garamond', serif",
-              color: 'var(--color-gold, #D4AF37)',
+              fontSize: '1.35rem',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: 'var(--color-gold, #C5A059)',
               textAlign: 'center',
-              letterSpacing: '0.04em',
+              letterSpacing: '0.12em',
               fontWeight: '700',
+              textTransform: 'uppercase',
             }}
           >
             Select Date &amp; Schedule Walkthrough

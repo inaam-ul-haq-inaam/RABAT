@@ -24,7 +24,7 @@ const PAGE_TITLES = {
   '/decors': 'Signature Stages & Décor — Rabat Hall',
   '/gallery': 'Photo Gallery & 3D Tour — Rabat Hall',
   '/hallplan': 'Hall Blueprint & Capacity — Rabat Hall',
-  '/reserve': 'Reserve Your Wedding Date — Rabat Hall',
+  '/reserve': 'Reserve Your Event Date — Rabat Hall',
 };
 
 export default function App() {
