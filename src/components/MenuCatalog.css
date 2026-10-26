@@ -2,12 +2,13 @@
    Rabat Banquet Hall — Royal Menu Catalog Stylesheet
    Luxury Editorial Aesthetic matching Rabat Imperial Palace
    Time & Taste Catering Official Brochure Integration
+   Two-Column Master-Detail Layout + Sticky Sidebar + Mobile Drawer
    ============================================================ */
 
 .menu-page-wrap {
   background-color: var(--color-bg, #FAF8F5);
   min-height: 100vh;
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
 }
 
 /* ── 1. Hero Section ── */
@@ -70,20 +71,6 @@
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
 }
 
-.menu-hero-lead {
-  max-width: 760px;
-  margin: 0 auto 2rem;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.menu-hero-lead strong {
-  color: #fae19c;
-  font-weight: 600;
-}
-
 .menu-hero-actions {
   display: flex;
   align-items: center;
@@ -136,85 +123,285 @@
   color: #fae19c;
 }
 
-/* ── 2. Sticky Category Bar ── */
-.menu-sticky-nav {
-  position: sticky;
-  top: var(--nav-h, 108px); /* below main sticky navbar */
-  z-index: 40;
-  background: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-divider, #E5DCCB);
-  box-shadow: 0 4px 16px rgba(35, 25, 15, 0.05);
-}
-
-.menu-nav-inner {
-  padding: 10px 0;
-}
-
-.menu-nav-scroll {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 2px 4px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.menu-nav-scroll::-webkit-scrollbar {
+.mobile-only-btn {
   display: none;
 }
 
-.menu-nav-pill {
+@media (max-width: 991px) {
+  .mobile-only-btn {
+    display: inline-flex;
+  }
+}
+
+/* ── 2. TWO-COLUMN MASTER-DETAIL LAYOUT ── */
+.menu-catalog-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.menu-split-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 2.75rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* ── 3. STICKY LUXURY DIRECTORY SIDEBAR (Desktop) ── */
+.menu-royal-sidebar {
+  position: sticky;
+  top: calc(var(--nav-h, 110px) + 20px);
+  max-height: calc(100vh - var(--nav-h, 110px) - 40px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
+}
+
+.menu-royal-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu-royal-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
+}
+
+.sidebar-sticky-inner {
+  background: linear-gradient(180deg, #181410 0%, #0d0a08 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+  padding: 1.5rem 1.15rem;
+}
+
+.sidebar-brand-box {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.15rem;
+  text-align: center;
+}
+
+.sidebar-badge-top {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #d4af37;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.sidebar-title {
+  margin: 0 0 0.25rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-subtitle {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  width: 100%;
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #f7e199;
+  border-color: rgba(212, 175, 55, 0.25);
+  transform: translateX(2px);
+}
+
+.sidebar-nav-item.active {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border-color: #d4af37;
+  color: #ffffff;
+  box-shadow: inset 0 0 14px rgba(212, 175, 55, 0.15);
+}
+
+.sidebar-nav-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #c5a059;
+  width: 22px;
   flex-shrink: 0;
+}
+
+.sidebar-nav-item.active .sidebar-nav-num {
+  color: #f7e199;
+}
+
+.sidebar-nav-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.sidebar-nav-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1px;
+}
+
+.sidebar-nav-item.active .sidebar-nav-count {
+  color: #fae19c;
+}
+
+.sidebar-active-glow {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 8px #d4af37;
+  flex-shrink: 0;
+}
+
+/* Sidebar Master Chef Assistance Card */
+.sidebar-chef-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.chef-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 0.35rem;
+}
+
+.chef-card-icon {
+  font-size: 1.25rem;
+}
+
+.sidebar-chef-card h4 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f7e199;
+}
+
+.sidebar-chef-card p {
+  margin: 0 0 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.45;
+}
+
+.btn-sidebar-wa {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 16px;
+  width: 100%;
+  padding: 8px 12px;
   border-radius: 9999px;
-  background: #ffffff;
-  border: 1px solid #e2d7c5;
-  color: #4a3d2c;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
   font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
 }
 
-.menu-nav-pill:hover {
-  border-color: #c5a059;
-  color: #12100e;
+.btn-sidebar-wa:hover {
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
-.menu-nav-pill.active {
-  background: #12100e;
-  border-color: #d4af37;
-  color: #fae19c;
-  box-shadow: 0 2px 10px rgba(18, 16, 14, 0.18);
-}
-
-.pill-icon {
-  font-size: 0.95rem;
-}
-
-/* ── 3. Main Content & Sections ── */
-.menu-main-content {
-  padding-top: 3.5rem;
+/* ── 4. MAIN CONTENT STREAM & SECTION HEADERS ── */
+.menu-content-stream {
+  min-width: 0;
 }
 
 .menu-section {
-  margin-bottom: 4.5rem;
-  scroll-margin-top: calc(var(--nav-h, 108px) + 65px);
+  margin-bottom: 5rem;
+  scroll-margin-top: calc(var(--nav-h, 110px) + 25px);
+  position: relative;
 }
 
+/* Clear Segment Separators & Royal Frames */
 .menu-section-header {
   text-align: center;
   max-width: 720px;
   margin: 0 auto 2.5rem;
+  position: relative;
+}
+
+.section-royal-crown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 0.6rem;
+}
+
+.sec-arch-line {
+  height: 1px;
+  width: 70px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+}
+
+.sec-number-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #aa820a;
+  background: rgba(197, 160, 89, 0.12);
+  padding: 3px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
 }
 
 .menu-sec-tag {
@@ -230,10 +417,11 @@
 
 .menu-sec-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
   font-weight: 700;
   color: #12100e;
   margin: 0 0 0.6rem;
+  line-height: 1.18;
 }
 
 .menu-sec-sub {
@@ -244,7 +432,7 @@
   margin: 0;
 }
 
-/* ── View Mode Toggle (Featured vs All 7) ── */
+/* ── 5. VIEW MODE TOGGLE (Featured Tab vs All 7) ── */
 .view-mode-toggle {
   display: inline-flex;
   align-items: center;
@@ -275,7 +463,7 @@
   box-shadow: 0 2px 8px rgba(18, 16, 14, 0.2);
 }
 
-/* ── Package Tabs (M1 to M7) ── */
+/* ── 6. PACKAGE TABS (M1 to M7) ── */
 .package-tabs {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -288,7 +476,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px 8px;
+  padding: 12px 6px;
   border-radius: 12px;
   background: #ffffff;
   border: 1.5px solid #e8decb;
@@ -336,7 +524,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ── Active Package Presentation Card (Featured View) ── */
+/* ── 7. ACTIVE PACKAGE PRESENTATION CARD (Featured View) ── */
 .active-pkg-card {
   background: #ffffff;
   border-radius: 20px;
@@ -430,7 +618,7 @@
   line-height: 1.6;
 }
 
-/* ── One Dish Structured Course Rows ── */
+/* ── 8. ONE DISH STRUCTURED COURSE ROWS ── */
 .one-dish-course-list {
   display: flex;
   flex-direction: column;
@@ -630,27 +818,6 @@
   box-shadow: 0 4px 14px rgba(18, 16, 14, 0.2);
 }
 
-.btn-pkg-reserve {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 24px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  color: #0d0b09;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.btn-pkg-reserve:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
-}
-
 .all-menus-prompt {
   display: flex;
   align-items: center;
@@ -686,7 +853,7 @@
   transform: translateY(-1px);
 }
 
-/* ── All 7 Menus Grid View (Brochure Style) ── */
+/* ── 9. ALL 7 MENUS BROCHURE GRID ── */
 .all-packages-brochure-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -855,7 +1022,7 @@
   color: #12100E;
 }
 
-/* ── 4. Official Desserts Grid (10 Signature Choices) ── */
+/* ── 10. OFFICIAL DESSERTS CARDS ── */
 .desserts-official-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -865,13 +1032,14 @@
 
 .dessert-royal-card {
   background: #FFFFFF;
-  border: 1px solid #E8DED0;
+  border: 1.5px solid #E8DED0;
   border-radius: 16px;
   padding: 1.4rem 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(35, 25, 15, 0.04);
 }
 
 .dessert-royal-card:hover {
@@ -957,20 +1125,21 @@
   align-items: center;
   gap: 5px;
   background: none;
-  border: none;
-  padding: 3px 6px;
+  border: 1px solid #E2D7C5;
+  border-radius: 9999px;
+  padding: 3px 10px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #12100E;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.15s ease;
+  transition: all 0.18s ease;
 }
 
 .dessert-inquire-link:hover {
-  background: rgba(197, 160, 89, 0.15);
-  color: #8C6D32;
+  background: #12100E;
+  color: #F7E199;
+  border-color: #D4AF37;
 }
 
 .dessert-banner-note {
@@ -1020,86 +1189,28 @@
   transform: translateY(-1px);
 }
 
-/* ── 5. Add-Ons Grid ── */
-.addons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-}
-
-.addon-card {
-  background: #ffffff;
-  border: 1px solid #e5dccb;
-  border-radius: 16px;
-  padding: 1.5rem 1.4rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.addon-card:hover {
-  transform: translateY(-3px);
-  border-color: #c5a059;
-  box-shadow: 0 8px 24px rgba(35, 25, 15, 0.07);
-}
-
-.addon-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.addon-icon {
-  font-size: 1.6rem;
-}
-
-.addon-badge {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 3px 8px;
-  border-radius: 9999px;
-  background: rgba(197, 160, 89, 0.15);
-  color: #8c6d32;
-}
-
-.addon-title {
-  margin: 0 0 0.5rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #12100e;
-}
-
-.addon-desc {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: #6b5e4f;
-  line-height: 1.55;
-}
-
-/* ── 6. Standard Item Cards Grid (Salads, BBQ, Seafood, Continental) ── */
+/* ── 11. ULTRA-PREMIUM ITEM CARDS (Custom, Add-Ons, Salads, BBQ, Seafood, Continental) ── */
 .item-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .item-card {
   background: #ffffff;
-  border: 1px solid #e8ded0;
-  border-radius: 14px;
+  border: 1.5px solid #e8ded0;
+  border-radius: 16px;
   padding: 1.4rem 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 14px rgba(35, 25, 15, 0.04);
 }
 
 .item-card:hover {
   border-color: #c5a059;
-  box-shadow: 0 6px 20px rgba(35, 25, 15, 0.06);
+  box-shadow: 0 8px 24px rgba(35, 25, 15, 0.08);
   transform: translateY(-2px);
 }
 
@@ -1108,13 +1219,25 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.item-title-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.item-icon-small {
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .item-name {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.2rem;
+  font-size: 1.28rem;
   font-weight: 700;
   color: #12100e;
   line-height: 1.25;
@@ -1133,30 +1256,17 @@
 }
 
 .item-desc {
-  margin: 0;
+  margin: 0 0 1rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.84rem;
   color: #6b5e4f;
-  line-height: 1.5;
+  line-height: 1.52;
   flex: 1;
-}
-
-.item-title-cluster {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-}
-
-.item-icon-small {
-  font-size: 1.2rem;
-  flex-shrink: 0;
 }
 
 .item-card-action {
-  margin-top: 0.85rem;
   border-top: 1px solid #f2eadf;
-  padding-top: 0.65rem;
+  padding-top: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1165,13 +1275,13 @@
 .btn-item-wa {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: #faf8f5;
   border: 1px solid #e2d7c5;
   border-radius: 9999px;
-  padding: 4px 12px;
+  padding: 5px 14px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #2b2219;
   cursor: pointer;
@@ -1185,11 +1295,11 @@
   transform: translateY(-1px);
 }
 
-/* ── 7. Custom Menu Banner ── */
+/* ── 12. CUSTOM MENU BANNER ── */
 .custom-menu-banner {
   background: radial-gradient(circle at 70% 30%, #1f1a14 0%, #110e0b 70%, #080605 100%);
   border-radius: 24px;
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
   padding: clamp(2rem, 5vw, 3.5rem);
   color: #ffffff;
@@ -1296,18 +1406,235 @@
   color: #f7e199;
 }
 
-/* ── Responsive Refinements ── */
-@media (max-width: 900px) {
+/* ── 13. MOBILE FLOATING DIRECTORY BAR & BOTTOM SHEET DRAWER ── */
+.mobile-directory-floating-bar {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 85;
+}
+
+.mobile-directory-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  background: #12100E;
+  color: #ffffff;
+  border: 1.5px solid #D4AF37;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-directory-btn:active {
+  transform: scale(0.97);
+}
+
+.dir-btn-icon {
+  font-size: 1.1rem;
+}
+
+.dir-btn-text {
+  font-size: 0.84rem;
+}
+
+.dir-btn-pill {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* Mobile Drawer Modal Backdrop */
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobile-drawer-panel {
+  background: #1a1612;
+  border-top: 1.5px solid #d4af37;
+  border-radius: 24px 24px 0 0;
+  width: 100%;
+  max-width: 540px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.25rem 1.25rem 2.5rem;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.drawer-handle-bar {
+  width: 44px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 auto 1.25rem;
+}
+
+.drawer-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  margin-bottom: 1.25rem;
+}
+
+.drawer-kicker {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #d4af37;
+}
+
+.drawer-heading {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.drawer-x-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.drawer-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-cat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  width: 100%;
+}
+
+.drawer-cat-row:hover,
+.drawer-cat-row.active {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: #d4af37;
+}
+
+.drawer-row-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #d4af37;
+  width: 24px;
+}
+
+.drawer-row-icon {
+  font-size: 1.35rem;
+}
+
+.drawer-row-info {
+  flex: 1;
+}
+
+.drawer-row-title {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.drawer-row-meta {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.drawer-row-arrow {
+  color: #d4af37;
+  font-size: 1.1rem;
+}
+
+/* ── 14. RESPONSIVE BREAKPOINTS ── */
+@media (max-width: 1100px) {
+  .menu-split-layout {
+    grid-template-columns: 250px 1fr;
+    gap: 1.75rem;
+  }
+
+  .package-tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .menu-split-layout {
+    display: block;
+  }
+
+  .menu-royal-sidebar {
+    display: none;
+  }
+
+  .mobile-directory-floating-bar {
+    display: block;
+  }
+
   .package-tabs {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .menu-sticky-nav {
-    top: var(--nav-h, 76px);
-  }
-
   .package-tabs {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1330,8 +1657,7 @@
     flex-direction: column;
   }
 
-  .btn-pkg-inquire,
-  .btn-pkg-reserve {
+  .btn-pkg-inquire {
     width: 100%;
     justify-content: center;
   }

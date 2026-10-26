@@ -14,15 +14,15 @@
  */
 
 export const MENU_CATEGORIES = [
-  { id: 'packages', label: 'One Dish Menus (M1-M7)', icon: '👑', short: 'One Dish (M1-M7)' },
-  { id: 'desserts', label: 'Royal Desserts (10)', icon: '🍨', short: 'Desserts' },
-  { id: 'custom-selection', label: 'Custom Selection', icon: '💎', short: 'Custom Selection' },
-  { id: 'addons', label: "Add-On's & Stations", icon: '✨', short: "Add-On's" },
-  { id: 'salads', label: 'Gourmet Salads', icon: '🥗', short: 'Salads' },
-  { id: 'charcoal', label: 'Charcoal BBQ & Roasts', icon: '🔥', short: 'Charcoal BBQ' },
-  { id: 'seafoods', label: 'Fresh Sea Food', icon: '🦐', short: 'Sea Food' },
-  { id: 'continental', label: 'Continental & Chinese', icon: '🍝', short: 'Continental' },
-  { id: 'custom', label: 'Build Custom Menu', icon: '✍️', short: 'Custom Build' },
+  { id: 'packages', num: '01', label: 'One Dish Menus (M1-M7)', icon: '👑', short: 'One Dish M1-M7', count: '7 Packages', tag: 'Hall 16 Banquet Standard' },
+  { id: 'desserts', num: '02', label: 'Royal Desserts', icon: '🍨', short: 'Desserts', count: '10 Items', tag: 'Included with M1-M7' },
+  { id: 'custom-selection', num: '03', label: 'Custom Selection', icon: '💎', short: 'Custom Dishes', count: '10 Dishes', tag: 'Chef Royal Specialties' },
+  { id: 'addons', num: '04', label: "Add-On's & Stations", icon: '✨', short: "Add-On's", count: '10 Items', tag: 'Live Counters & Drinks' },
+  { id: 'salads', num: '05', label: 'Gourmet Salads', icon: '🥗', short: 'Salads', count: '7 Varieties', tag: 'Salad Bar Selection' },
+  { id: 'charcoal', num: '06', label: 'Charcoal BBQ & Roasts', icon: '🔥', short: 'Charcoal BBQ', count: '9 Specialties', tag: 'Wood-Coal Flame Grills' },
+  { id: 'seafoods', num: '07', label: 'Fresh Sea Food', icon: '🦐', short: 'Sea Food', count: '5 Specialties', tag: 'Lahori Fish & Prawns' },
+  { id: 'continental', num: '08', label: 'Continental & Chinese', icon: '🍝', short: 'Continental', count: '7 Dishes', tag: 'Steaks & Wok Rice' },
+  { id: 'custom', num: '09', label: 'Build Custom Menu', icon: '✍️', short: 'Custom Build', count: 'Consult', tag: 'Bespoke Event Menu' },
 ];
 
 /* ── 1. ONE DISH MENUS (M1 to M7) ── */
