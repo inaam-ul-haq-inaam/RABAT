@@ -15,7 +15,10 @@
   position: relative;
   background: radial-gradient(circle at 50% 30%, #1c1712 0%, #0d0b09 70%, #060504 100%);
   color: #fff;
-  padding: clamp(4rem, 9vw, 6.5rem) 1.5rem clamp(3rem, 6vw, 4.5rem);
+  padding-top: calc(var(--nav-h, 110px) + clamp(2.5rem, 5vw, 4rem));
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   text-align: center;
   border-bottom: 1px solid rgba(212, 175, 55, 0.25);
   overflow: hidden;
@@ -55,7 +58,7 @@
 }
 
 .menu-hero-title {
-  margin: 0 0 1rem;
+  margin: 0 0 2rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(2.5rem, 6.5vw, 4.5rem);
   font-weight: 700;
@@ -136,7 +139,7 @@
 /* ── 2. Sticky Category Bar ── */
 .menu-sticky-nav {
   position: sticky;
-  top: 72px; /* below main sticky navbar */
+  top: var(--nav-h, 108px); /* below main sticky navbar */
   z-index: 40;
   background: rgba(250, 248, 245, 0.95);
   backdrop-filter: blur(12px);
@@ -205,7 +208,7 @@
 
 .menu-section {
   margin-bottom: 4.5rem;
-  scroll-margin-top: 140px;
+  scroll-margin-top: calc(var(--nav-h, 108px) + 65px);
 }
 
 .menu-section-header {
@@ -1302,7 +1305,7 @@
 
 @media (max-width: 768px) {
   .menu-sticky-nav {
-    top: 60px;
+    top: var(--nav-h, 76px);
   }
 
   .package-tabs {

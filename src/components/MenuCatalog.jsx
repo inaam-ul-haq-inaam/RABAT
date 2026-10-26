@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   MENU_CATEGORIES,
   MENU_PACKAGES,
@@ -96,11 +96,6 @@ export default function MenuCatalog() {
             Time &amp; Taste Catering &bull; Hall 16 Banquet Standard
           </span>
           <h1 className="menu-hero-title">Royal Banquet Menus</h1>
-          <p className="menu-hero-lead">
-            Official <strong>One Dish Menus (Menu 1 to Menu 7)</strong>, <strong>10 Royal Desserts</strong>, and full culinary catalog
-            curated by Time &amp; Taste Catering with over three decades of royal culinary heritage in Lahore Cantt.
-            Explore custom specialties, live charcoal grills, fresh seafoods, gourmet salads, and continental woks.
-          </p>
 
           <div className="menu-hero-actions">
             <button
@@ -116,14 +111,6 @@ export default function MenuCatalog() {
               className="menu-btn-glass"
             >
               🍨 10 Royal Desserts
-            </button>
-            <button
-              type="button"
-              onClick={handleCustomInquiry}
-              className="menu-btn-glass"
-            >
-              <WhatsAppIcon size={18} />
-              <span>Custom Inquiries</span>
             </button>
           </div>
         </div>
@@ -291,9 +278,6 @@ export default function MenuCatalog() {
                       <WhatsAppIcon size={18} />
                       <span>Inquire {activePackage.code} On WhatsApp</span>
                     </button>
-                    <Link to="/reserve" className="btn-pkg-reserve">
-                      Reserve Date &amp; Hall &rarr;
-                    </Link>
                   </div>
                 </footer>
               </article>
