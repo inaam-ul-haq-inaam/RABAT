@@ -16,7 +16,7 @@ import { WhatsAppIcon } from './Icons.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 import './MenuCatalog.css';
 
-const WA_NUMBER = '923256572839';
+const WA_NUMBER = '923017130942';
 
 export default function MenuCatalog() {
   const [activeSection, setActiveSection] = useState('packages');
@@ -75,19 +75,12 @@ export default function MenuCatalog() {
     }
   }, [location.hash]);
 
-  const handleInquirePackage = (pkg) => {
-    const summary = pkg.courses
-      ? pkg.courses.map((c, i) => `${i + 1}. ${c.options.join(' OR ')}`).join('%0A')
-      : pkg.tag;
-    const text = `Hello Rabat Banquet Hall, I am inquiring about ONE DISH MENU: *${pkg.code}*%0A%0A*Menu Details:*%0A${summary}%0A%0APlease share pricing and availability for Hall 16.`;
-    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+    const handleInquirePackage = () => {
+    openContactModal();
   };
 
-  const handleInquireItem = (itemName, category) => {
-    const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I am inquiring about adding *${itemName}* from the *${category}* section to our event catering menu.`
-    );
-    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+  const handleInquireItem = () => {
+    openContactModal();
   };
 
   // Custom Menu Builder Item Toggle
@@ -142,10 +135,7 @@ export default function MenuCatalog() {
   };
 
   const handleCustomInquiry = () => {
-    const text = encodeURIComponent(
-      `Hello Rabat Banquet Hall, I would like to design a bespoke *Custom Catering Menu* with your executive chef for our upcoming event.`
-    );
-    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+    openContactModal();
   };
 
   const scrollToCategory = (catId) => {
@@ -294,10 +284,11 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-brochure-inquire"
-                        onClick={() => handleInquirePackage(pkg)}
+                        onClick={openContactModal}
+                        aria-label={`Inquire ${pkg.code}`}
                       >
                         <WhatsAppIcon size={16} />
-                        <span>Inquire {pkg.code} On WhatsApp</span>
+                        <span>Inquire {pkg.code}</span>
                       </button>
                     </footer>
                   </article>
@@ -337,8 +328,8 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="dessert-inquire-link"
-                        onClick={() => handleInquireItem(d.name, 'Royal Desserts')}
-                        title="Inquire about this dessert on WhatsApp"
+                        onClick={openContactModal}
+                        title="Inquire about this dessert"
                       >
                         <WhatsAppIcon size={14} />
                         <span>Inquire</span>
@@ -395,7 +386,7 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(item.name, 'Custom Selection')}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
                         <span>Inquire Dish</span>
@@ -436,7 +427,7 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(item.name, "Add-On's")}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
                         <span>Inquire Add-On</span>
@@ -477,10 +468,10 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(s.name, 'Salads')}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
-                        <span>Select for Menu</span>
+                        <span>Inquire Salad</span>
                       </button>
                     </div>
                   </div>
@@ -518,7 +509,7 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(c.name, 'Charcoal BBQ')}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
                         <span>Inquire Live BBQ</span>
@@ -559,7 +550,7 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(sf.name, 'Sea Food')}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
                         <span>Inquire Sea Food</span>
@@ -600,7 +591,7 @@ export default function MenuCatalog() {
                       <button
                         type="button"
                         className="btn-item-wa"
-                        onClick={() => handleInquireItem(cont.name, 'Continental')}
+                        onClick={openContactModal}
                       >
                         <WhatsAppIcon size={13} />
                         <span>Inquire Dish</span>
