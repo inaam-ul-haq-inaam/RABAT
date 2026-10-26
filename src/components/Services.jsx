@@ -1,6 +1,5 @@
 import Section from './Section.jsx';
-import SectionLink from './SectionLink.jsx';
-import { CalendarIcon, PhoneIcon, StarIcon, WhatsAppIcon } from './Icons.jsx';
+import { PhoneIcon, StarIcon, WhatsAppIcon } from './Icons.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 import { SERVICES_LIST } from '../data/services.js';
 import './Services.css';
@@ -104,11 +103,6 @@ export default function Services() {
               coordinate live artists, and ensure seamless royal hospitality for your big day.
             </p>
             <div className="services-cta-btns">
-              <SectionLink to="reserve" className="btn-scta-primary">
-                <CalendarIcon size={16} />
-                <span>INQUIRE ABOUT EVENT DATES</span>
-                <span aria-hidden="true">&rarr;</span>
-              </SectionLink>
               <button
                 type="button"
                 onClick={openContactModal}
