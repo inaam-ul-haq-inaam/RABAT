@@ -1,10 +1,32 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Phone, PhoneCall, X } from 'lucide-react';
 import { WhatsAppIcon } from './Icons.jsx';
 import { CONTACT_NUMBERS } from '../data/contact.js';
 import './ContactModal.css';
 
 export default function ContactModal({ isOpen, onClose }) {
+  const location = useLocation();
+
+  const isDecorOrServices =
+    location.pathname.startsWith('/decors') ||
+    location.pathname.startsWith('/services') ||
+    location.pathname.startsWith('/other-services');
+
+  const numbersToDisplay = isDecorOrServices
+    ? [
+        {
+          id: 'decor-services-direct',
+          label: location.pathname.startsWith('/decors')
+            ? 'Blissfull Event Planners & Decor'
+            : 'Event Services & Production Desk',
+          display: '0325-6572839',
+          tel: '+923256572839',
+          wa: '923256572839',
+        },
+      ]
+    : CONTACT_NUMBERS;
+
   // ESC key to close modal
   useEffect(() => {
     if (!isOpen) return;
@@ -51,17 +73,25 @@ export default function ContactModal({ isOpen, onClose }) {
           <div className="contact-modal-crest" aria-hidden="true">
             <PhoneCall size={22} strokeWidth={1.8} />
           </div>
-          <span className="contact-modal-eyebrow">RABAT BANQUET CONCIERGE</span>
+          <span className="contact-modal-eyebrow">
+            {isDecorOrServices
+              ? (location.pathname.startsWith('/decors') ? 'BLISSFULL EVENT PLANNERS' : 'RABAT EVENT PRODUCTION')
+              : 'RABAT BANQUET CONCIERGE'}
+          </span>
           <h2 id="contactModalTitle" className="contact-modal-title">
-            Direct Contact &amp; Booking
+            {isDecorOrServices
+              ? (location.pathname.startsWith('/decors') ? 'Stage & Décor Direct Desk' : 'Other Services Direct Desk')
+              : 'Direct Contact & Booking'}
           </h2>
           <p className="contact-modal-sub">
-            Connect directly with our event managers via WhatsApp or Phone Call
+            {isDecorOrServices
+              ? 'Connect directly via WhatsApp or Call on 0325-6572839'
+              : 'Connect directly with our event managers via WhatsApp or Phone Call'}
           </p>
         </div>
 
         <div className="contact-modal-list">
-          {CONTACT_NUMBERS.map((item) => (
+          {numbersToDisplay.map((item) => (
             <div key={item.id} className="contact-modal-card">
               <div className="contact-modal-details">
                 <span className="contact-modal-badge">{item.label}</span>
@@ -94,7 +124,9 @@ export default function ContactModal({ isOpen, onClose }) {
         </div>
 
         <div className="contact-modal-footer">
-          <span>Available 7 Days a Week &middot; 11:00 AM &ndash; 11:00 PM PKT</span>
+          <p className="contact-modal-timing">
+            <span>Official Desk Hours:</span> 10:00 AM &ndash; 11:00 PM Daily
+          </p>
         </div>
       </div>
     </div>

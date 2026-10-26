@@ -1,10 +1,11 @@
 import './Decors.css';
 import Section from './Section.jsx';
-import SectionLink from './SectionLink.jsx';
-import { CalendarIcon, CrownIcon, DiamondIcon, PhoneIcon } from './Icons.jsx';
-import { useTheme } from '../context/ThemeContext.jsx';
-import { useContactModal } from '../context/ContactModalContext.jsx';
+import { PhoneIcon, WhatsAppIcon, CrownIcon, DiamondIcon } from './Icons.jsx';
 import { DECOR_CARDS, DECORS_BODY } from '../data/decors.js';
+
+const DECOR_PHONE_DISPLAY = '0325-6572839';
+const DECOR_PHONE_TEL = '+923256572839';
+const DECOR_WA_NUMBER = '923256572839';
 
 const FLOURISH_SMALL = (
   <>
@@ -53,7 +54,11 @@ function ThemeSpecs({ card, wide = false }) {
   );
 }
 
-function ThemeFooter({ card, onSelect }) {
+function ThemeFooter({ card }) {
+  const cardInquiryMsg = encodeURIComponent(
+    `Hello Blissfull Event Planners, I am inquiring about the *${card.title}* stage & decor theme for our upcoming event at Rabat Banquet Hall.`
+  );
+
   return (
     <div className="theme-card-footer">
       <div className="theme-span-wrap">
@@ -71,28 +76,38 @@ function ThemeFooter({ card, onSelect }) {
         <span className="theme-span-label">Stage Size:</span>
         <strong className="theme-span-val">{card.stageSize}</strong>
       </div>
-      <SectionLink
-        to="reserve"
-        className="btn-theme"
-        data-theme={card.theme}
-        onClick={() => onSelect(card.theme)}
-      >
-        <span>SELECT &amp; INQUIRE THIS THEME</span>
-        <span aria-hidden="true">&rarr;</span>
-      </SectionLink>
+
+      <div className="theme-card-actions">
+        <a
+          href={`https://wa.me/${DECOR_WA_NUMBER}?text=${cardInquiryMsg}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-theme-wa"
+          title={`Inquire ${card.title} on WhatsApp (${DECOR_PHONE_DISPLAY})`}
+        >
+          <WhatsAppIcon size={15} />
+          <span>WhatsApp: {DECOR_PHONE_DISPLAY}</span>
+        </a>
+
+        <a
+          href={`tel:${DECOR_PHONE_TEL}`}
+          className="btn-theme-call"
+          title={`Call ${DECOR_PHONE_DISPLAY} for ${card.title}`}
+        >
+          <PhoneIcon size={14} />
+          <span>Call</span>
+        </a>
+      </div>
     </div>
   );
 }
 
-
 export default function Decors() {
-  const { selectTheme } = useTheme();
-  const { openContactModal } = useContactModal();
   const [cardOne, cardTwo, cardThree] = DECOR_CARDS;
 
   return (
     <Section className="decors reveal reveal-delay-1" id="decors" aria-labelledby="decors-title">
-            <div className="decors-header container">
+      <div className="decors-header container">
         <span className="decors-eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -145,7 +160,7 @@ export default function Decors() {
               <ThemeSpecs card={cardOne} />
             </div>
 
-            <ThemeFooter card={cardOne} onSelect={selectTheme} />
+            <ThemeFooter card={cardOne} />
           </div>
         </article>
 
@@ -172,7 +187,7 @@ export default function Decors() {
               <ThemeSpecs card={cardTwo} />
             </div>
 
-            <ThemeFooter card={cardTwo} onSelect={selectTheme} />
+            <ThemeFooter card={cardTwo} />
           </div>
         </article>
 
@@ -200,8 +215,7 @@ export default function Decors() {
 
                 <ThemeSpecs card={cardThree} wide />
 
-                {/* Card Footer for Wide Card */}
-                <ThemeFooter card={cardThree} onSelect={selectTheme} />
+                <ThemeFooter card={cardThree} />
               </div>
             </div>
           </div>
@@ -217,19 +231,23 @@ export default function Decors() {
             monogram dance floors, and bespoke floral installations tailored to your family's vision.
           </p>
           <div className="csc-actions">
-            <SectionLink to="reserve" className="btn-csc-primary">
-              <CalendarIcon size={18} />
-              BOOK DESIGN CONSULTATION
-            </SectionLink>
             <a
-              href="https://wa.me/923256572839"
+              href={`https://wa.me/${DECOR_WA_NUMBER}?text=${encodeURIComponent(
+                'Hello Blissfull Event Planners, I would like to consult regarding Stage & Decor design for our upcoming event at Rabat Banquet Hall.'
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="btn-csc-primary"
+            >
+              <WhatsAppIcon size={18} />
+              <span>WhatsApp: {DECOR_PHONE_DISPLAY}</span>
+            </a>
+            <a
+              href={`tel:${DECOR_PHONE_TEL}`}
               className="btn-csc-secondary"
-              style={{ cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
             >
               <PhoneIcon size={18} style={{ color: '#25D366' }} />
-              <span>Blissfull Direct: 0325-6572839</span>
+              <span>Call Direct: {DECOR_PHONE_DISPLAY}</span>
             </a>
           </div>
         </div>

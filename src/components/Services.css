@@ -501,3 +501,85 @@
   border-color: #f7e199;
   color: #f7e199;
 }
+
+
+/* Direct Call Button and Bottom CTA Call Button for 0325-6572839 */
+.btn-service-call {
+  flex: 0.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #ffffff !important;
+  border-radius: 9999px;
+  padding: 0.65rem 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-service-call:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #f7e199;
+  color: #f7e199 !important;
+}
+
+.btn-scta-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #0d0b09 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-scta-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.6);
+  color: #000 !important;
+}
+
+.btn-scta-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-scta-call:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #f7e199;
+  color: #f7e199 !important;
+}
+
+@media (max-width: 480px) {
+  .btn-scta-wa, .btn-scta-call {
+    width: 100%;
+  }
+}
