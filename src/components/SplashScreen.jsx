@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import './SplashScreen.css';
 
 // ── Master Cinema Timing (ms) ──
-// 0.0s - 3.2s: 3D Royal Monogram & Hall Parallax in full glory
-// 3.2s - 3.8s: Stage 1 — Logo & Typography softly elevate and dissolve
-// 3.8s - 5.0s: Stage 2 — Dark atmosphere & hall veil melt away over 1.2s buttery ease
-// 5.2s: Stage 3 — Clean DOM unmount with zero flash or jolt
-const STAGE_EXIT_CONTENT_MS = 3200;
-const STAGE_EXIT_VEIL_MS = 3800;
-const STAGE_UNMOUNT_MS = 5200;
+// 0.0s - 7.0s: 3D Royal Monogram & Hall Parallax in full view (increased by ~4 seconds)
+// 7.0s - 7.6s: Stage 1 — Logo & "by Time & Taste Catering" softly elevate and dissolve
+// 7.6s - 8.9s: Stage 2 — Fullscreen dark atmosphere melts away over 1.3s into website
+// 9.2s: Stage 3 — Clean DOM unmount with zero flash or jolt
+const STAGE_EXIT_CONTENT_MS = 7000;
+const STAGE_EXIT_VEIL_MS = 7600;
+const STAGE_UNMOUNT_MS = 9200;
 
 // Deterministic golden dust / ember motes (varying depths and blurs)
 const DUST_MOTES = Array.from({ length: 28 }, (_, i) => {
@@ -32,15 +32,15 @@ const DUST_MOTES = Array.from({ length: 28 }, (_, i) => {
 });
 
 export default function SplashScreen() {
-  // stages: 'playing' -> 'exit-content' (3.2s) -> 'exit-veil' (3.8s) -> 'unmounted' (5.2s)
+  // stages: 'playing' -> 'exit-content' (7.0s) -> 'exit-veil' (7.6s) -> 'unmounted' (9.2s)
   const [stage, setStage] = useState('playing');
   const motes = useMemo(() => DUST_MOTES, []);
 
   useEffect(() => {
-    // 1. First dissolve the center typography & emblem softly
+    // 1. First dissolve the center typography & emblem softly at 7.0s
     const tContent = setTimeout(() => setStage('exit-content'), STAGE_EXIT_CONTENT_MS);
 
-    // 2. Then gracefully dissolve the full-screen veil over 1.2s into the website
+    // 2. Then gracefully dissolve the full-screen veil over 1.3s into the website
     const tVeil = setTimeout(() => setStage('exit-veil'), STAGE_EXIT_VEIL_MS);
 
     // 3. Completely unmount from DOM when opacity has safely hit 0
@@ -127,7 +127,7 @@ export default function SplashScreen() {
           <h1 className="r-cinema-brand" data-text="RABAT">
             RABAT
           </h1>
-          <p className="r-cinema-sub">RABAT BANQUET HALL</p>
+          <p className="r-cinema-sub">by Time &amp; Taste Catering</p>
 
           {/* Golden Royal Divider */}
           <div className="r-cinema-divider">
@@ -135,16 +135,6 @@ export default function SplashScreen() {
             <span className="r-divider-star">&#10022;</span>
             <span className="r-divider-line r-divider-line--reverse" />
           </div>
-
-          {/* Booking & VIP Details Badge */}
-          <div className="r-cinema-badge">
-            <span className="r-badge-pulse" />
-            <span className="r-badge-text">OPEN FOR BOOKINGS</span>
-          </div>
-
-          <p className="r-cinema-contact">
-            CALL 033 4422 6070 <span className="r-dot">&bull;</span> 030 1713 0942
-          </p>
         </div>
       </div>
 

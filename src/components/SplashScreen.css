@@ -1,11 +1,16 @@
 /* ============================================================
    Rabat Luxury Cinema Intro — 3D Gold Monogram & Hall Parallax
    Style: Ultra-Premium IMAX / Movie Trailer Reveal
-   Two-Stage Buttery Smooth Exit:
-     0.0s - 3.2s: 3D Gold Monogram & Hall Parallax in Full Glory
-     3.2s - 3.8s: Stage 1 — Centerpiece softly floats up & dissolves
-     3.8s - 5.0s: Stage 2 — Fullscreen dark atmosphere melts away (1.25s)
-     5.2s: Clean DOM unmount (100% zero jolt, zero flash)
+   Clean Minimalist Edition:
+     - 3D Gold Emblem Monogram
+     - Master Title: "RABAT"
+     - Subtitle: "by Time & Taste Catering"
+     - Royal Ornamental Divider
+   Extended Timing (At least +4 seconds):
+     0.0s - 7.0s: Full 3D Monogram, Typography & Hall Parallax View
+     7.0s - 7.6s: Stage 1 — Centerpiece softly floats up & dissolves
+     7.6s - 8.9s: Stage 2 — Fullscreen dark atmosphere melts away (1.3s)
+     9.2s: Clean DOM unmount (100% zero jolt, zero flash)
    ============================================================ */
 
 .r-cinema-splash {
@@ -23,10 +28,10 @@
   will-change: opacity, transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* Buttery 1.25s ease-in-out transition into live website */
+  /* Buttery 1.3s ease-in-out transition into live website */
   transition:
-    opacity 1.25s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 1.25s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Stage 2 Exit: Melts away like an opening camera iris with zero lag */
@@ -54,8 +59,8 @@
   object-position: center 45%;
   display: block;
   transform: scale(1.14);
-  animation: cinemaKenBurns 5.2s cubic-bezier(0.25, 1, 0.5, 1) forwards,
-             cinemaHallAwaken 2.8s ease-out forwards;
+  animation: cinemaKenBurns 10.5s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+             cinemaHallAwaken 3.5s ease-out forwards;
 }
 
 @keyframes cinemaKenBurns {
@@ -218,10 +223,10 @@
   z-index: 3;
   text-align: center;
   max-width: 820px;
-  padding: 20px 24px;
+  padding: 24px 24px;
   perspective: 1200px;
   will-change: opacity, transform;
-  animation: cinemaContentReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cinemaContentReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition:
     opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
@@ -248,9 +253,9 @@
 /* 3D Emblem Container */
 .r-cinema-emblem-wrap {
   position: relative;
-  width: clamp(96px, 14vw, 136px);
-  height: clamp(96px, 14vw, 136px);
-  margin: 0 auto clamp(16px, 2.5vw, 24px);
+  width: clamp(100px, 15vw, 144px);
+  height: clamp(100px, 15vw, 144px);
+  margin: 0 auto clamp(18px, 2.8vw, 26px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,7 +263,7 @@
 
 .r-cinema-emblem-halo {
   position: absolute;
-  inset: -20px;
+  inset: -22px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -291,16 +296,16 @@
     #0a0601 100%
   );
   box-shadow:
-    0 0 30px rgba(212, 175, 55, 0.45),
+    0 0 32px rgba(212, 175, 55, 0.5),
     inset 0 0 20px rgba(245, 220, 130, 0.3),
-    0 12px 28px rgba(0, 0, 0, 0.85);
+    0 14px 30px rgba(0, 0, 0, 0.88);
   overflow: hidden;
   transform: translateZ(0);
 }
 
 .r-cinema-emblem-img {
-  width: 62%;
-  height: 62%;
+  width: 64%;
+  height: 64%;
   object-fit: contain;
   /* 3D layered metallic extrusion drop-shadow */
   filter:
@@ -332,14 +337,14 @@
   );
   transform: rotate(28deg);
   pointer-events: none;
-  animation: shimmerSweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s infinite;
+  animation: shimmerSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) 0.8s infinite;
 }
 
 @keyframes shimmerSweep {
   0% {
     left: -100%;
   }
-  40%, 100% {
+  38%, 100% {
     left: 180%;
   }
 }
@@ -358,7 +363,7 @@
 .r-cinema-brand {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(44px, 8.5vw, 82px);
+  font-size: clamp(48px, 9vw, 86px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: 0.34em;
@@ -401,15 +406,15 @@
   }
 }
 
-/* Sub-Brand Line */
+/* Sub-Brand: "by Time & Taste Catering" */
 .r-cinema-sub {
-  margin: clamp(6px, 1.2vw, 10px) 0 0;
+  margin: clamp(10px, 1.6vw, 16px) 0 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(14px, 2.5vw, 22px);
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  text-indent: 0.32em;
-  text-transform: uppercase;
+  font-size: clamp(16px, 2.8vw, 24px);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
   color: #fae19c;
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.95),
@@ -423,9 +428,9 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin: clamp(14px, 2vw, 20px) 0 clamp(16px, 2vw, 22px);
+  margin: clamp(16px, 2.2vw, 24px) 0 0;
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
 }
 
 .r-divider-line {
@@ -457,63 +462,6 @@
 @keyframes starTwinkle {
   0% { transform: scale(0.9); opacity: 0.7; }
   100% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 6px #fff); }
-}
-
-/* Luxury Booking Badge */
-.r-cinema-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(245, 215, 110, 0.45);
-  background: rgba(18, 12, 3, 0.65);
-  box-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.6),
-    inset 0 0 12px rgba(212, 175, 55, 0.2);
-  margin-bottom: clamp(10px, 1.5vw, 14px);
-}
-
-.r-badge-pulse {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #f5d061;
-  box-shadow: 0 0 8px 2px rgba(245, 208, 97, 0.8);
-  animation: badgePulse 1.8s ease-in-out infinite alternate;
-}
-
-@keyframes badgePulse {
-  0% { transform: scale(0.85); opacity: 0.6; }
-  100% { transform: scale(1.25); opacity: 1; }
-}
-
-.r-badge-text {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: clamp(10px, 1.4vw, 12px);
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: #fff1be;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-}
-
-/* Contact Details */
-.r-cinema-contact {
-  margin: 0;
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: clamp(11px, 1.5vw, 13px);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: #d4af37;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.9),
-    0 0 12px rgba(212, 175, 55, 0.4);
-}
-
-.r-cinema-contact .r-dot {
-  color: #fff;
-  opacity: 0.6;
-  margin: 0 6px;
 }
 
 /* ============================================================
@@ -574,7 +522,7 @@
 
 @media (max-width: 640px) {
   .r-cinema-content {
-    padding: 16px 16px;
+    padding: 18px 16px;
   }
 
   .r-cinema-brand {
@@ -583,17 +531,13 @@
   }
 
   .r-cinema-sub {
-    letter-spacing: 0.22em;
-    text-indent: 0.22em;
+    letter-spacing: 0.14em;
+    text-indent: 0.14em;
   }
 
   .r-cinema-divider {
-    max-width: 240px;
-    margin: 12px 0 14px;
-  }
-
-  .r-cinema-badge {
-    padding: 5px 14px;
+    max-width: 260px;
+    margin-top: 14px;
   }
 }
 
