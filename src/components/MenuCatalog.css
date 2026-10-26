@@ -59,7 +59,7 @@
 }
 
 .menu-hero-title {
-  margin: 0 0 2rem;
+  margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(2.5rem, 6.5vw, 4.5rem);
   font-weight: 700;
@@ -77,6 +77,13 @@
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .menu-hero-actions {
+    display: none;
+  }
 }
 
 .menu-btn-gold {
@@ -194,7 +201,7 @@
 }
 
 .sidebar-title {
-  margin: 0 0 0.25rem;
+  margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.65rem;
   font-weight: 700;
@@ -202,19 +209,11 @@
   letter-spacing: 0.02em;
 }
 
-.sidebar-subtitle {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
-}
-
 .sidebar-nav-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .sidebar-nav-item {
@@ -296,66 +295,6 @@
   background: #d4af37;
   box-shadow: 0 0 8px #d4af37;
   flex-shrink: 0;
-}
-
-/* Sidebar Master Chef Assistance Card */
-.sidebar-chef-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 14px;
-  padding: 1.1rem;
-  text-align: center;
-}
-
-.chef-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 0.35rem;
-}
-
-.chef-card-icon {
-  font-size: 1.25rem;
-}
-
-.sidebar-chef-card h4 {
-  margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #f7e199;
-}
-
-.sidebar-chef-card p {
-  margin: 0 0 0.85rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.45;
-}
-
-.btn-sidebar-wa {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  color: #0d0b09;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.74rem;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-sidebar-wa:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 /* ── 4. MAIN CONTENT STREAM & SECTION HEADERS ── */

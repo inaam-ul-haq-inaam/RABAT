@@ -119,20 +119,6 @@ export default function MenuCatalog() {
           <div className="menu-hero-actions">
             <button
               type="button"
-              onClick={() => scrollToCategory('packages')}
-              className="menu-btn-gold"
-            >
-              Explore One Dish Menus 1 - 7 &darr;
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollToCategory('desserts')}
-              className="menu-btn-glass"
-            >
-              🍨 10 Royal Desserts
-            </button>
-            <button
-              type="button"
               onClick={() => setMobileDrawerOpen(true)}
               className="menu-btn-glass mobile-only-btn"
             >
@@ -151,7 +137,6 @@ export default function MenuCatalog() {
               <div className="sidebar-brand-box">
                 <span className="sidebar-badge-top">ROYAL CATERING DIRECTORY</span>
                 <h3 className="sidebar-title">Menu Sections</h3>
-                <p className="sidebar-subtitle">Time &amp; Taste &bull; Hall 16</p>
               </div>
 
               <nav className="sidebar-nav-list" role="navigation">
@@ -172,23 +157,6 @@ export default function MenuCatalog() {
                   </button>
                 ))}
               </nav>
-
-              {/* Sidebar Chef Assistance Card */}
-              <div className="sidebar-chef-card">
-                <div className="chef-card-header">
-                  <span className="chef-card-icon">👨‍🍳</span>
-                  <h4>Custom Menu?</h4>
-                </div>
-                <p>Have specific dishes in mind? Our executive chef will craft a bespoke feast for your guests.</p>
-                <button
-                  type="button"
-                  className="btn-sidebar-wa"
-                  onClick={handleCustomInquiry}
-                >
-                  <WhatsAppIcon size={14} />
-                  <span>Consult Master Chef</span>
-                </button>
-              </div>
             </div>
           </aside>
 
