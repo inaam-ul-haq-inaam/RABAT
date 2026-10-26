@@ -1,9 +1,16 @@
+import { useLocation } from 'react-router-dom';
 import { Star, PenLine } from 'lucide-react';
 import { useReviewModal } from '../context/ReviewModalContext.jsx';
 import './FloatingReviewBadge.css';
 
 export default function FloatingReviewBadge() {
+  const location = useLocation();
   const { openReviewModal } = useReviewModal();
+
+  // Hide review badge on Menu page to keep interface clean
+  if (location.pathname === '/menu' || location.pathname.startsWith('/menu')) {
+    return null;
+  }
 
   return (
     <aside className="floating-review-badge-wrap" aria-label="Guest reviews and feedback">

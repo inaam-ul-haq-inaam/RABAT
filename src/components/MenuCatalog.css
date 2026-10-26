@@ -1434,63 +1434,103 @@
 .mobile-directory-floating-bar {
   display: none;
   position: fixed;
-  bottom: 24px;
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
-  z-index: 85;
+  z-index: 1000;
+  width: calc(100% - 28px);
+  max-width: 440px;
+  box-sizing: border-box;
 }
 
 .mobile-directory-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 20px;
   border-radius: 9999px;
-  background: #12100E;
+  background: linear-gradient(180deg, #181410 0%, #0d0a08 100%);
   color: #ffffff;
-  border: 1.5px solid #D4AF37;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  border: 2px solid #D4AF37;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.32);
   font-family: 'Inter', sans-serif;
-  font-size: 0.84rem;
-  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.mobile-directory-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), 0 0 28px rgba(212, 175, 55, 0.5);
+  border-color: #f7e199;
 }
 
 .mobile-directory-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
+}
+
+.dir-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .dir-btn-icon {
-  font-size: 1.1rem;
+  font-size: 1.35rem;
+  line-height: 1;
 }
 
 .dir-btn-text {
-  font-size: 0.84rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .dir-btn-pill {
-  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
   border-radius: 9999px;
   background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
   color: #0d0b09;
-  font-size: 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.dir-pill-name {
+  white-space: nowrap;
+}
+
+.dir-btn-arrow {
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1;
 }
 
 /* Mobile Drawer Modal Backdrop */
 .mobile-drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10005; /* Must be higher than MobileBottomNav (9999) */
   display: flex;
   align-items: flex-end;
   justify-content: center;
   animation: fadeIn 0.25s ease;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn {
@@ -1499,16 +1539,17 @@
 }
 
 .mobile-drawer-panel {
-  background: #1a1612;
-  border-top: 1.5px solid #d4af37;
-  border-radius: 24px 24px 0 0;
+  background: #181410;
+  border-top: 2px solid #d4af37;
+  border-radius: 28px 28px 0 0;
   width: 100%;
   max-width: 540px;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow-y: auto;
-  padding: 1.25rem 1.25rem 2.5rem;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  padding: 1.25rem 1.25rem calc(2rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -14px 45px rgba(0, 0, 0, 0.7);
+  animation: slideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideUp {
@@ -1797,7 +1838,7 @@
 /* Floating Selected Custom Items Bar */
 .builder-floating-badge {
   position: fixed;
-  bottom: 84px;
+  bottom: calc(142px + env(safe-area-inset-bottom, 0px));
   right: 24px;
   z-index: 80;
   display: flex;
@@ -1867,7 +1908,7 @@
 
 @media (max-width: 600px) {
   .builder-floating-badge {
-    bottom: 80px;
+    bottom: calc(142px + env(safe-area-inset-bottom, 0px));
     right: 14px;
     left: 14px;
     justify-content: space-between;
@@ -1879,5 +1920,11 @@
 body:has(.menu-page-wrap) .mobile-action-bar,
 .menu-page-wrap ~ .mobile-action-bar,
 .menu-page-wrap + .mobile-action-bar {
+  display: none !important;
+}
+
+/* Hide floating review badge on Menu page */
+body:has(.menu-page-wrap) .floating-review-badge-wrap,
+.menu-page-wrap ~ .floating-review-badge-wrap {
   display: none !important;
 }

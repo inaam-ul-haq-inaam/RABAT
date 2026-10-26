@@ -845,10 +845,15 @@ export default function MenuCatalog() {
           onClick={() => setMobileDrawerOpen(true)}
           aria-label="Open Menu Sections Directory"
         >
-          <span className="dir-btn-icon">🏛️</span>
-          <span className="dir-btn-text">Browse Categories</span>
+          <span className="dir-btn-left">
+            <span className="dir-btn-icon">🏛️</span>
+            <span className="dir-btn-text">Browse Categories</span>
+          </span>
           <span className="dir-btn-pill">
-            {MENU_CATEGORIES.find((c) => c.id === activeSection)?.short || 'Menu'}
+            <span className="dir-pill-name">
+              {MENU_CATEGORIES.find((c) => c.id === activeSection)?.short || '9 Categories'}
+            </span>
+            <span className="dir-btn-arrow" aria-hidden="true">▲</span>
           </span>
         </button>
       </div>
