@@ -6,6 +6,7 @@ import Footer from './components/Footer.jsx';
 import MobileBottomNav from './components/MobileBottomNav.jsx';
 import MobileActionBar from './components/MobileActionBar.jsx';
 import FloatingReviewBadge from './components/FloatingReviewBadge.jsx';
+import AssistancePopup from './components/AssistancePopup.jsx';
 import useReveal from './hooks/useReveal.js';
 import useScrollFx from './hooks/useScrollFx.js';
 import { pendingScroll, scrollToId, scrollToSelector } from './lib/navigation.js';
@@ -83,6 +84,7 @@ export default function App() {
       </main>
 
       <FloatingReviewBadge />
+      <AssistancePopup />
       <MobileBottomNav />
       <MobileActionBar />
       <Footer />
