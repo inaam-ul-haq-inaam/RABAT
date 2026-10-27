@@ -4,6 +4,7 @@ import SectionLink from './SectionLink.jsx';
 import { ArrowUpRightIcon } from './Icons.jsx';
 import { PhoneCall } from 'lucide-react';
 import { useContactModal } from '../context/ContactModalContext.jsx';
+import './Navbar.css';
 
 const ANNOUNCEMENTS = [
   'RABAT HALL — TOP BANQUET HALL IN LAHORE',

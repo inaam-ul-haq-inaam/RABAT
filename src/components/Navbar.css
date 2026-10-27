@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Navbar Brand Title & Animated Royal Logo
+   ========================================================================== */
+
+/* 1. Header "RABAT" Brand Text Size Increase */
+.navbar .brand-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  line-height: 1;
+  color: var(--color-gold) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.navbar .brand-sub {
+  font-size: 0.62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  color: var(--color-brand) !important;
+  margin-top: 0.25rem !important;
+  white-space: nowrap;
+}
+
+.navbar .brand-logo {
+  width: 44px !important;
+  height: 55px !important;
+  flex-shrink: 0;
+  display: block;
+  transform-origin: center center;
+  /* 5-second periodic luxury pulse animation */
+  animation: logoRoyalGleam 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* 2. Periodic Logo Animation: Rest for ~3.6s, then elegant gleam/pulse for ~1.4s */
+@keyframes logoRoyalGleam {
+  0%, 72%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  }
+  78% {
+    transform: scale(1.10) rotate(-3deg);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.75)) brightness(1.25);
+  }
+  84% {
+    transform: scale(1.12) rotate(3deg);
+    filter: drop-shadow(0 0 14px rgba(247, 225, 153, 0.9)) brightness(1.35);
+  }
+  90% {
+    transform: scale(1.05) rotate(-1deg);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)) brightness(1.2);
+  }
+  96% {
+    transform: scale(1.01) rotate(0deg);
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3)) brightness(1.05);
+  }
+}
+
+.navbar .nav-brand:hover .brand-logo {
+  animation-play-state: paused;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.95)) brightness(1.35);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .navbar .brand-title {
+    font-size: 1.85rem !important;
+    letter-spacing: 0.18em !important;
+  }
+  .navbar .brand-sub {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.12em !important;
+  }
+  .navbar .brand-logo {
+    width: 36px !important;
+    height: 46px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar .brand-title {
+    font-size: 1.68rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  .navbar .brand-sub {
+    font-size: 0.49rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  .navbar .brand-logo {
+    width: 32px !important;
+    height: 42px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar .brand-logo {
+    animation: none !important;
+  }
+}
