@@ -9,20 +9,12 @@ export const HERO_FEATURES = [
 /** The hero slides, featuring the new real banquet hall decor and royal stages. */
 export const HERO_SLIDES = [
   {
-    src: 'images/hero/rabat_exterior_night.jpg',
-    alt: 'Rabat hall - Top banquet hall in Lahore illuminated grand facade at night',
-    type: 'image/jpeg',
-    width: 1376,
-    height: 768,
-    eager: true,
-  },
-  {
     src: 'images/hero/rabat_hero_stage_wide.jpg',
     alt: 'Rabat Banquet Hall - Royal floral wedding stage with luxury crystal chandeliers',
     type: 'image/jpeg',
     width: 1599,
     height: 884,
-    eager: false,
+    eager: true,
   },
   {
     src: 'images/hero/rabat_hero_stage_panorama.jpg',
@@ -76,7 +68,7 @@ export const HERO_SLIDES = [
 
 /** The full-bleed photo bands between the home-page sections. */
 export const PHOTO_BANDS = [
-  { id: 'band-1', image: 'images/pavilion/rabat_hall_interior_banquet.jpg' },
+  { id: 'band-1', image: 'images/hero/rabat_hero_stage_panorama.jpg' },
   { id: 'band-2', image: 'images/pavilion/rabat_royal_dining_chargha.jpg' },
   { id: 'band-3', image: 'images/pavilion/rabat_hall_buffet_dining.jpg' },
 ];

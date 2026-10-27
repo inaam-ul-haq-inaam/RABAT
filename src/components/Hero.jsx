@@ -1,8 +1,6 @@
 import './Hero.css';
 import { Fragment, useEffect, useState } from 'react';
 import Section from './Section.jsx';
-import SectionLink from './SectionLink.jsx';
-import { CalendarIcon } from './Icons.jsx';
 import { HERO_FEATURES, HERO_SLIDES } from '../data/home.js';
 
 const FEATURE_ICONS = {
@@ -82,13 +80,6 @@ export default function Hero() {
             From regal wedding ceremonies to unforgettable receptions, discover exceptional celebrations at Rabat,
             Lahore.
           </p>
-          <div className="hero-actions">
-            <SectionLink to="reserve" className="btn-primary">
-              <CalendarIcon size={18} />
-              CHECK AVAILABILITY &amp; RESERVE &rarr;
-            </SectionLink>
-            
-          </div>
 
           <div className="hero-features">
             {HERO_FEATURES.map((feature, index) => (
