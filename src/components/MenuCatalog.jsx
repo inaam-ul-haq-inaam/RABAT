@@ -18,17 +18,16 @@ import './MenuCatalog.css';
 
 const WA_NUMBER = '923017130942';
 
-// Ambient Backdrop Images (Curated Royal Banquet, Dining, Charcoal Grill & Florals)
+// Ambient Backdrop Images from the menu folder (Curated Banquet Table, Biryani & Qorma, Turkish Grill, BBQ Platter)
 const BASE = import.meta.env.BASE_URL || './';
 const cleanBase = BASE.endsWith('/') ? BASE : `${BASE}/`;
 
 const AMBIENT_BG_IMAGES = [
-  { url: `${cleanBase}images/hero/rabat_hero_dining_hall.jpg`, alt: 'Palace Dining Setup' },
-  { url: `${cleanBase}images/gallery/crystal_chandelier.jpeg`, alt: 'Imperial Chandelier & Amber Glow' },
-  { url: `${cleanBase}images/catering/rabat_royal_feast_1790443145085.webp`, alt: 'Royal Banquet Feast' },
-  { url: `${cleanBase}images/pavilion/rabat_hall_buffet_dining.jpg`, alt: 'Imperial Buffet Spread' },
-  { url: `${cleanBase}images/decors/rabat_floral_stage_1790443124026.webp`, alt: 'Royal Floral Drapery' },
-  { url: `${cleanBase}images/gallery/rabat-biryani.webp`, alt: 'Traditional Saffron & Charcoal Grill' },
+  { url: `${cleanBase}images/menu/flat-lay-table.jpg`, alt: 'Royal Banquet Table Spread' },
+  { url: `${cleanBase}images/menu/rabat_royal_biryani_qorma.jpg`, alt: 'Royal Saffron Biryani & Mutton Qorma Feast' },
+  { url: `${cleanBase}images/menu/turkish-.jpg`, alt: 'Turkish & Traditional Grill Feast' },
+  { url: `${cleanBase}images/menu/rabat_royal_bbq_platter.jpg`, alt: 'Sizzling Royal BBQ Platter' },
+  { url: `${cleanBase}images/menu/images.jpg`, alt: 'Royal Culinary Delicacies' },
 ];
 
 export default function MenuCatalog() {
