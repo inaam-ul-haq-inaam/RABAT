@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   MENU_CATEGORIES,
@@ -50,8 +50,28 @@ export default function MenuCatalog() {
   const [builderSearchQuery, setBuilderSearchQuery] = useState('');
   // Accordion state: by default only 'mains' is open, rest collapsed to eliminate long scrolling
   const [expandedCategories, setExpandedCategories] = useState({ mains: true });
+  const [allExpandedManually, setAllExpandedManually] = useState(false);
+  const hoverTimeoutRef = useRef(null);
+
+  // Hover to expand category (smooth 80ms intent threshold prevents accidental scroll jump)
+  const handleCategoryMouseEnter = (catId) => {
+    if (builderSearchQuery.trim() !== '' || allExpandedManually) {
+      setExpandedCategories((prev) => ({ ...prev, [catId]: true }));
+      return;
+    }
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setExpandedCategories({ [catId]: true });
+    }, 80);
+  };
+
+  const handleCategoryMouseLeave = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+  };
 
   const toggleCategoryAccordion = (catId) => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setAllExpandedManually(false);
     setExpandedCategories((prev) => ({
       ...prev,
       [catId]: !prev[catId],
@@ -59,6 +79,8 @@ export default function MenuCatalog() {
   };
 
   const handleExpandAllCategories = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setAllExpandedManually(true);
     const allOpen = {};
     CUSTOM_BUILDER_SECTIONS.forEach((s) => {
       allOpen[s.id] = true;
@@ -67,6 +89,8 @@ export default function MenuCatalog() {
   };
 
   const handleCollapseAllCategories = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setAllExpandedManually(false);
     setExpandedCategories({});
   };
 
@@ -735,7 +759,7 @@ export default function MenuCatalog() {
                 {/* Quick Accordion Controls & Category Collapse Bar */}
                 <div className="builder-quick-controls">
                   <span className="builder-collapse-hint">
-                    💡 <em>Click any category heading to view dishes and tick checkboxes</em>
+                    💡 <em>Hover or click any category heading to view dishes &amp; select</em>
                   </span>
                   <div className="builder-expand-buttons">
                     <button
@@ -779,6 +803,8 @@ export default function MenuCatalog() {
                       <div
                         key={sec.id}
                         className={`builder-group-box ${isExpanded ? 'is-open' : 'is-collapsed'}`}
+                        onMouseEnter={() => handleCategoryMouseEnter(sec.id)}
+                        onMouseLeave={handleCategoryMouseLeave}
                       >
                         {/* Interactive Accordion Header Bar */}
                         <div
