@@ -28,6 +28,37 @@ export default function MenuCatalog() {
   const [selectedCustomItems, setSelectedCustomItems] = useState([]);
   const [builderActiveFilter, setBuilderActiveFilter] = useState('all');
   const [builderSearchQuery, setBuilderSearchQuery] = useState('');
+  // Accordion state: by default only 'mains' is open, rest collapsed to eliminate long scrolling
+  const [expandedCategories, setExpandedCategories] = useState({ mains: true });
+
+  const toggleCategoryAccordion = (catId) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [catId]: !prev[catId],
+    }));
+  };
+
+  const handleExpandAllCategories = () => {
+    const allOpen = {};
+    CUSTOM_BUILDER_SECTIONS.forEach((s) => {
+      allOpen[s.id] = true;
+    });
+    setExpandedCategories(allOpen);
+  };
+
+  const handleCollapseAllCategories = () => {
+    setExpandedCategories({});
+  };
+
+  const handleSelectFilterPill = (filterId) => {
+    setBuilderActiveFilter(filterId);
+    if (filterId !== 'all') {
+      setExpandedCategories((prev) => ({
+        ...prev,
+        [filterId]: true,
+      }));
+    }
+  };
 
   // Scrollspy via IntersectionObserver for automatic sticky sidebar active item highlighting
   useEffect(() => {
@@ -647,7 +678,7 @@ export default function MenuCatalog() {
                     <button
                       type="button"
                       className={`builder-pill ${builderActiveFilter === 'all' ? 'active' : ''}`}
-                      onClick={() => setBuilderActiveFilter('all')}
+                      onClick={() => handleSelectFilterPill('all')}
                     >
                       <span>All Dishes</span>
                       <span className="builder-pill-count">
@@ -659,7 +690,7 @@ export default function MenuCatalog() {
                         key={sec.id}
                         type="button"
                         className={`builder-pill ${builderActiveFilter === sec.id ? 'active' : ''}`}
-                        onClick={() => setBuilderActiveFilter(sec.id)}
+                        onClick={() => handleSelectFilterPill(sec.id)}
                       >
                         <span>{sec.icon} {sec.category.split(' ')[0]}</span>
                         <span className="builder-pill-count">{sec.items.length}</span>
@@ -668,7 +699,32 @@ export default function MenuCatalog() {
                   </div>
                 </div>
 
-                {/* Dishes Multi-Select Grid / Rows Grouped by Category */}
+                {/* Quick Accordion Controls & Category Collapse Bar */}
+                <div className="builder-quick-controls">
+                  <span className="builder-collapse-hint">
+                    💡 <em>Click any category heading to view dishes and tick checkboxes</em>
+                  </span>
+                  <div className="builder-expand-buttons">
+                    <button
+                      type="button"
+                      className="btn-expand-all"
+                      onClick={handleExpandAllCategories}
+                      title="Open all category accordions"
+                    >
+                      ▾ Expand All
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-collapse-all"
+                      onClick={handleCollapseAllCategories}
+                      title="Collapse all category accordions"
+                    >
+                      ▴ Collapse All
+                    </button>
+                  </div>
+                </div>
+
+                {/* Dishes Multi-Select Accordion List Grouped by Category */}
                 <div className="builder-sections-list">
                   {CUSTOM_BUILDER_SECTIONS.filter((sec) =>
                     builderActiveFilter === 'all' ? true : sec.id === builderActiveFilter
@@ -682,51 +738,107 @@ export default function MenuCatalog() {
 
                     if (filteredItems.length === 0) return null;
 
+                    // Automatically expand if user is searching so matching dishes appear
+                    const isExpanded = builderSearchQuery.trim() !== '' ? true : !!expandedCategories[sec.id];
+                    const selectedCount = selectedCustomItems.filter((i) => i.category === sec.category).length;
+
                     return (
-                      <div key={sec.id} className="builder-group-box">
-                        <div className="builder-group-header">
-                          <div className="builder-group-title-wrap">
+                      <div
+                        key={sec.id}
+                        className={`builder-group-box ${isExpanded ? 'is-open' : 'is-collapsed'}`}
+                      >
+                        {/* Interactive Accordion Header Bar */}
+                        <div
+                          className={`builder-accordion-header ${isExpanded ? 'is-open' : ''}`}
+                          onClick={() => toggleCategoryAccordion(sec.id)}
+                          role="button"
+                          tabIndex={0}
+                          aria-expanded={isExpanded}
+                          onKeyDown={(e) => {
+                            if (e.key === ' ' || e.key === 'Enter') {
+                              e.preventDefault();
+                              toggleCategoryAccordion(sec.id);
+                            }
+                          }}
+                        >
+                          <div className="builder-accordion-left">
                             <span className="builder-group-icon">{sec.icon}</span>
-                            <h3 className="builder-group-title">{sec.category}</h3>
+                            <div className="builder-accordion-titles">
+                              <h3 className="builder-group-title">{sec.category}</h3>
+                              <span className="builder-accordion-subtitle">
+                                {filteredItems.length} Dishes Available
+                              </span>
+                            </div>
                           </div>
-                          <span className="builder-group-count">{filteredItems.length} Dishes</span>
+
+                          <div className="builder-accordion-right">
+                            {selectedCount > 0 && (
+                              <span className="builder-cat-selected-pill">
+                                <span className="cat-selected-check">✓</span>
+                                <span>{selectedCount} Selected</span>
+                              </span>
+                            )}
+                            <span className="builder-group-count">{filteredItems.length} Dishes</span>
+                            <span
+                              className={`builder-accordion-chevron ${isExpanded ? 'is-rotated' : ''}`}
+                              aria-hidden="true"
+                            >
+                              <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.4"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <polyline points="6 9 12 15 18 9" />
+                              </svg>
+                            </span>
+                          </div>
                         </div>
 
-                        <div className="builder-items-grid">
-                          {filteredItems.map((item) => {
-                            const selected = isItemSelected(item.id);
-                            return (
-                              <div
-                                key={item.id}
-                                className={`builder-item-card ${selected ? 'is-selected' : ''}`}
-                                onClick={() => toggleCustomItem(item, sec.category)}
-                                role="checkbox"
-                                aria-checked={selected}
-                                tabIndex={0}
-                                onKeyDown={(e) => {
-                                  if (e.key === ' ' || e.key === 'Enter') {
-                                    e.preventDefault();
-                                    toggleCustomItem(item, sec.category);
-                                  }
-                                }}
-                              >
-                                <div className="builder-card-checkbox">
-                                  <span className="checkbox-ring">
-                                    {selected && <span className="checkbox-check">✓</span>}
-                                  </span>
-                                </div>
-                                <span className="builder-item-icon">{item.icon}</span>
-                                <div className="builder-item-info">
-                                  <span className="builder-item-name">{item.name}</span>
-                                  <span className="builder-item-tag">{item.tag}</span>
-                                </div>
-                                {selected && (
-                                  <span className="builder-selected-badge">Selected</span>
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
+                        {/* Collapsible Dishes Checkboxes Grid */}
+                        {isExpanded && (
+                          <div className="builder-accordion-body">
+                            <div className="builder-items-grid">
+                              {filteredItems.map((item) => {
+                                const selected = isItemSelected(item.id);
+                                return (
+                                  <div
+                                    key={item.id}
+                                    className={`builder-item-card ${selected ? 'is-selected' : ''}`}
+                                    onClick={() => toggleCustomItem(item, sec.category)}
+                                    role="checkbox"
+                                    aria-checked={selected}
+                                    tabIndex={0}
+                                    onKeyDown={(e) => {
+                                      if (e.key === ' ' || e.key === 'Enter') {
+                                        e.preventDefault();
+                                        toggleCustomItem(item, sec.category);
+                                      }
+                                    }}
+                                  >
+                                    <div className="builder-card-checkbox">
+                                      <span className="checkbox-ring">
+                                        {selected && <span className="checkbox-check">✓</span>}
+                                      </span>
+                                    </div>
+                                    <span className="builder-item-icon">{item.icon}</span>
+                                    <div className="builder-item-info">
+                                      <span className="builder-item-name">{item.name}</span>
+                                      <span className="builder-item-tag">{item.tag}</span>
+                                    </div>
+                                    {selected && (
+                                      <span className="builder-selected-badge">Selected</span>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     );
                   })}

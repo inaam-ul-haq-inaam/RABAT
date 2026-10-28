@@ -1040,34 +1040,119 @@
   box-sizing: border-box;
 }
 
-.builder-group-box {
-  background: #ffffff;
-  border: 1.5px solid #eee4d4;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 20px rgba(35, 25, 15, 0.04);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.builder-group-header {
+/* Quick Accordion Controls (Expand All / Collapse All) */
+.builder-quick-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #f2eadf;
-  padding-bottom: 0.85rem;
-  margin-bottom: 1.15rem;
-  gap: 10px;
+  margin-bottom: 0.85rem;
+  padding: 0 4px;
 }
 
-.builder-group-title-wrap {
+.builder-collapse-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #7a6e5f;
+}
+
+.builder-expand-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+}
+
+.btn-expand-all,
+.btn-collapse-all {
+  background: #ffffff;
+  border: 1px solid #dcd2c4;
+  border-radius: 9999px;
+  padding: 5px 13px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #5d4a25;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.btn-expand-all:hover,
+.btn-collapse-all:hover {
+  background: #fdfbf7;
+  border-color: #c5a059;
+  color: #12100e;
+  transform: translateY(-1px);
+}
+
+/* Accordion Box */
+.builder-group-box {
+  background: #ffffff;
+  border: 1.5px solid #eee4d4;
+  border-radius: 18px;
+  padding: 0;
+  box-shadow: 0 4px 16px rgba(35, 25, 15, 0.04);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 0.85rem;
+}
+
+.builder-group-box:hover {
+  border-color: #c5a059;
+  box-shadow: 0 6px 22px rgba(197, 160, 89, 0.12);
+}
+
+.builder-group-box.is-open {
+  border-color: #d4af37;
+  box-shadow: 0 8px 28px rgba(35, 25, 15, 0.08);
+}
+
+/* Interactive Accordion Header Bar */
+.builder-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.4rem;
+  background: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.builder-accordion-header:hover {
+  background: #fdfbf7;
+}
+
+.builder-group-box.is-open .builder-accordion-header {
+  background: linear-gradient(135deg, #fdfbf7 0%, #f7f1e5 100%);
+  border-bottom: 1.5px solid #ece4d7;
+}
+
+.builder-accordion-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.builder-accordion-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .builder-group-icon {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  flex-shrink: 0;
 }
 
 .builder-group-title {
@@ -1076,6 +1161,45 @@
   font-size: 1.35rem;
   font-weight: 700;
   color: #12100e;
+  line-height: 1.2;
+}
+
+.builder-accordion-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.73rem;
+  color: #8c7653;
+  font-weight: 500;
+}
+
+.builder-accordion-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Selected Items Pill on Category Bar */
+.builder-cat-selected-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #0d0b09;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.35);
+  animation: selectedPillPop 0.25s ease;
+}
+
+@keyframes selectedPillPop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cat-selected-check {
+  font-weight: 900;
 }
 
 .builder-group-count {
@@ -1088,6 +1212,49 @@
   border-radius: 9999px;
   border: 1px solid rgba(197, 160, 89, 0.3);
   white-space: nowrap;
+}
+
+/* Chevron arrow */
+.builder-accordion-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.12);
+  color: #8c6d23;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.builder-accordion-header:hover .builder-accordion-chevron {
+  background: rgba(197, 160, 89, 0.22);
+  color: #12100e;
+}
+
+.builder-accordion-chevron.is-rotated {
+  transform: rotate(180deg);
+  background: #d4af37;
+  color: #0d0b09;
+}
+
+/* Accordion Body */
+.builder-accordion-body {
+  padding: 1.35rem 1.4rem;
+  background: #ffffff;
+  animation: accordionSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes accordionSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Items Grid Multi-Select */
