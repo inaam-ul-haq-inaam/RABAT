@@ -6,14 +6,81 @@
    ============================================================ */
 
 .menu-page-wrap {
-  background-color: var(--color-bg, #FAF8F5);
+  position: relative;
+  background-color: transparent;
   min-height: 100vh;
   padding-bottom: 6rem;
+}
+
+/* ── Ambient Blurred Backdrop Slideshow ── */
+.menu-ambient-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.menu-ambient-base {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg, #FAF8F5);
+}
+
+.menu-ambient-slide {
+  position: absolute;
+  inset: -80px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(65px) saturate(1.45) brightness(1.02);
+  -webkit-filter: blur(65px) saturate(1.45) brightness(1.02);
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 2.8s cubic-bezier(0.4, 0, 0.2, 1), transform 12s ease-out;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.menu-ambient-slide.is-active {
+  opacity: 0.26;
+  transform: scale(1.14);
+}
+
+.menu-ambient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(250, 248, 245, 0.68) 0%, rgba(246, 240, 232, 0.86) 100%);
+  pointer-events: none;
+}
+
+.menu-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.09) 0%, transparent 50%),
+              radial-gradient(circle at 90% 75%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .menu-ambient-slide {
+    filter: blur(45px) saturate(1.3) brightness(1.02);
+    -webkit-filter: blur(45px) saturate(1.3) brightness(1.02);
+  }
+  .menu-ambient-slide.is-active {
+    opacity: 0.22;
+  }
 }
 
 /* ── 1. Hero Section ── */
 .menu-hero {
   position: relative;
+  z-index: 2;
   background: radial-gradient(circle at 50% 30%, #1c1712 0%, #0d0b09 70%, #060504 100%);
   color: #fff;
   padding-top: calc(var(--nav-h, 110px) + clamp(2.5rem, 5vw, 4rem));
@@ -145,6 +212,8 @@
   max-width: 1360px;
   margin: 0 auto;
   padding: 2.5rem 1.25rem;
+  position: relative;
+  z-index: 2;
 }
 
 .menu-split-layout {
@@ -442,7 +511,9 @@
 }
 
 .brochure-pkg-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid #e5dccb;
   border-radius: 20px;
   padding: 1.85rem 1.6rem;
@@ -615,7 +686,9 @@
 }
 
 .dessert-royal-card {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid #E8DED0;
   border-radius: 16px;
   padding: 1.4rem 1.3rem;
@@ -1086,7 +1159,9 @@
 
 /* Accordion Box */
 .builder-group-box {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid #eee4d4;
   border-radius: 18px;
   padding: 0;

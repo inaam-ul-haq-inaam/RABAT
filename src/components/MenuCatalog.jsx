@@ -18,11 +18,31 @@ import './MenuCatalog.css';
 
 const WA_NUMBER = '923017130942';
 
+// Ambient Backdrop Images (Curated Royal Banquet, Dining, Charcoal Grill & Florals)
+const AMBIENT_BG_IMAGES = [
+  { url: '/images/gallery/crystal_chandelier.jpeg', alt: 'Imperial Chandelier & Amber Glow' },
+  { url: '/images/catering/rabat_royal_feast_1790443145085.webp', alt: 'Royal Banquet Feast' },
+  { url: '/images/gallery/rabat-biryani.webp', alt: 'Traditional Saffron & Charcoal Grill' },
+  { url: '/images/hero/rabat_hero_dining_hall.jpg', alt: 'Palace Dining Setup' },
+  { url: '/images/pavilion/rabat_hall_buffet_dining.jpg', alt: 'Imperial Buffet Spread' },
+  { url: '/images/decors/rabat_floral_stage_1790443124026.webp', alt: 'Royal Floral Drapery' },
+];
+
 export default function MenuCatalog() {
   const [activeSection, setActiveSection] = useState('packages');
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const location = useLocation();
   const { openContactModal } = useContactModal();
+
+  // Ambient Blurred Background Slideshow State (changes every 7.5s with ultra-smooth 2.8s fade)
+  const [ambientBgIndex, setAmbientBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAmbientBgIndex((prev) => (prev + 1) % AMBIENT_BG_IMAGES.length);
+    }, 7500);
+    return () => clearInterval(timer);
+  }, []);
 
   // Custom Menu Builder Interactive State
   const [selectedCustomItems, setSelectedCustomItems] = useState([]);
@@ -185,6 +205,19 @@ export default function MenuCatalog() {
 
   return (
     <div className="menu-page-wrap">
+      {/* ── AMBIENT BLURRED BACKDROP SLIDESHOW ── */}
+      <div className="menu-ambient-backdrop" aria-hidden="true">
+        <div className="menu-ambient-base" />
+        {AMBIENT_BG_IMAGES.map((img, idx) => (
+          <div
+            key={idx}
+            className={`menu-ambient-slide ${ambientBgIndex === idx ? 'is-active' : ''}`}
+            style={{ backgroundImage: `url('${img.url}')` }}
+          />
+        ))}
+        <div className="menu-ambient-overlay" />
+        <div className="menu-ambient-glow" />
+      </div>
       {/* ── 1. HERO BANNER ── */}
       <section className="menu-hero">
         <div className="container">
