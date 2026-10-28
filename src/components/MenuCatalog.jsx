@@ -43,7 +43,7 @@ export default function MenuCatalog() {
   useEffect(() => {
     const timer = setInterval(() => {
       setAmbientBgIndex((prev) => (prev + 1) % AMBIENT_BG_IMAGES.length);
-    }, 5000);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 

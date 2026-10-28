@@ -34,46 +34,46 @@
 
 .menu-ambient-slide {
   position: absolute;
-  inset: -40px;
+  inset: -20px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  filter: blur(22px) saturate(1.3) brightness(0.94);
-  -webkit-filter: blur(22px) saturate(1.3) brightness(0.94);
+  filter: blur(7px) saturate(1.15) brightness(0.92);
+  -webkit-filter: blur(7px) saturate(1.15) brightness(0.92);
   opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 1.8s ease-in-out, transform 8s ease-out;
+  transform: scale(1.02);
+  transition: opacity 1.4s ease-in-out, transform 6s ease-out;
   will-change: opacity, transform;
   pointer-events: none;
 }
 
 .menu-ambient-slide.is-active {
-  opacity: 0.52;
-  transform: scale(1.10);
+  opacity: 0.72;
+  transform: scale(1.06);
 }
 
 .menu-ambient-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 30%, rgba(250, 248, 245, 0.35) 0%, rgba(246, 240, 232, 0.55) 100%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(250, 248, 245, 0.18) 0%, rgba(246, 240, 232, 0.35) 100%);
   pointer-events: none;
 }
 
 .menu-ambient-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 90% 75%, rgba(212, 175, 55, 0.10) 0%, transparent 50%);
+  background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.10) 0%, transparent 50%),
+              radial-gradient(circle at 90% 75%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .menu-ambient-slide {
-    filter: blur(18px) saturate(1.2) brightness(0.94);
-    -webkit-filter: blur(18px) saturate(1.2) brightness(0.94);
+    filter: blur(6px) saturate(1.1) brightness(0.92);
+    -webkit-filter: blur(6px) saturate(1.1) brightness(0.92);
   }
   .menu-ambient-slide.is-active {
-    opacity: 0.45;
+    opacity: 0.65;
   }
 }
 
