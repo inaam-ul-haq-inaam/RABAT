@@ -19,13 +19,16 @@ import './MenuCatalog.css';
 const WA_NUMBER = '923017130942';
 
 // Ambient Backdrop Images (Curated Royal Banquet, Dining, Charcoal Grill & Florals)
+const BASE = import.meta.env.BASE_URL || './';
+const cleanBase = BASE.endsWith('/') ? BASE : `${BASE}/`;
+
 const AMBIENT_BG_IMAGES = [
-  { url: '/images/gallery/crystal_chandelier.jpeg', alt: 'Imperial Chandelier & Amber Glow' },
-  { url: '/images/catering/rabat_royal_feast_1790443145085.webp', alt: 'Royal Banquet Feast' },
-  { url: '/images/gallery/rabat-biryani.webp', alt: 'Traditional Saffron & Charcoal Grill' },
-  { url: '/images/hero/rabat_hero_dining_hall.jpg', alt: 'Palace Dining Setup' },
-  { url: '/images/pavilion/rabat_hall_buffet_dining.jpg', alt: 'Imperial Buffet Spread' },
-  { url: '/images/decors/rabat_floral_stage_1790443124026.webp', alt: 'Royal Floral Drapery' },
+  { url: `${cleanBase}images/hero/rabat_hero_dining_hall.jpg`, alt: 'Palace Dining Setup' },
+  { url: `${cleanBase}images/gallery/crystal_chandelier.jpeg`, alt: 'Imperial Chandelier & Amber Glow' },
+  { url: `${cleanBase}images/catering/rabat_royal_feast_1790443145085.webp`, alt: 'Royal Banquet Feast' },
+  { url: `${cleanBase}images/pavilion/rabat_hall_buffet_dining.jpg`, alt: 'Imperial Buffet Spread' },
+  { url: `${cleanBase}images/decors/rabat_floral_stage_1790443124026.webp`, alt: 'Royal Floral Drapery' },
+  { url: `${cleanBase}images/gallery/rabat-biryani.webp`, alt: 'Traditional Saffron & Charcoal Grill' },
 ];
 
 export default function MenuCatalog() {
@@ -40,7 +43,7 @@ export default function MenuCatalog() {
   useEffect(() => {
     const timer = setInterval(() => {
       setAmbientBgIndex((prev) => (prev + 1) % AMBIENT_BG_IMAGES.length);
-    }, 7500);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -48,12 +51,12 @@ export default function MenuCatalog() {
   const [selectedCustomItems, setSelectedCustomItems] = useState([]);
   const [builderActiveFilter, setBuilderActiveFilter] = useState('all');
   const [builderSearchQuery, setBuilderSearchQuery] = useState('');
-  // Accordion state: by default only 'mains' is open, rest collapsed to eliminate long scrolling
-  const [expandedCategories, setExpandedCategories] = useState({ mains: true });
+  // Accordion state: by default ALL collapsed so only clean category headings are visible
+  const [expandedCategories, setExpandedCategories] = useState({});
   const [allExpandedManually, setAllExpandedManually] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
-  // Hover to expand category (smooth 80ms intent threshold prevents accidental scroll jump)
+  // Hover to expand category
   const handleCategoryMouseEnter = (catId) => {
     if (builderSearchQuery.trim() !== '' || allExpandedManually) {
       setExpandedCategories((prev) => ({ ...prev, [catId]: true }));
@@ -62,11 +65,18 @@ export default function MenuCatalog() {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     hoverTimeoutRef.current = setTimeout(() => {
       setExpandedCategories({ [catId]: true });
-    }, 80);
+    }, 60);
   };
 
-  const handleCategoryMouseLeave = () => {
+  // Collapse back when mouse leaves category ("hover kr k hatu to waps bnd ho jana chahiya")
+  const handleCategoryMouseLeave = (catId) => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    if (builderSearchQuery.trim() !== '' || allExpandedManually) return;
+    setExpandedCategories((prev) => {
+      const next = { ...prev };
+      delete next[catId];
+      return next;
+    });
   };
 
   const toggleCategoryAccordion = (catId) => {
@@ -804,7 +814,7 @@ export default function MenuCatalog() {
                         key={sec.id}
                         className={`builder-group-box ${isExpanded ? 'is-open' : 'is-collapsed'}`}
                         onMouseEnter={() => handleCategoryMouseEnter(sec.id)}
-                        onMouseLeave={handleCategoryMouseLeave}
+                        onMouseLeave={() => handleCategoryMouseLeave(sec.id)}
                       >
                         {/* Interactive Accordion Header Bar */}
                         <div
