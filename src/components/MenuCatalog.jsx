@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCustomMenu } from '../context/CustomMenuContext.jsx';
 import {
   MENU_CATEGORIES,
   MENU_PACKAGES,
@@ -31,10 +32,21 @@ const AMBIENT_BG_IMAGES = [
 ];
 
 export default function MenuCatalog() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('packages');
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const location = useLocation();
   const { openContactModal } = useContactModal();
+
+  // Custom Menu Global Context State (Synced across /menu and /reserve)
+  const {
+    selectedCustomItems,
+    toggleCustomItem,
+    removeCustomItem,
+    clearAllCustomItems,
+    isItemSelected,
+    reservationDraft,
+  } = useCustomMenu();
 
   // Ambient Blurred Background Slideshow State (changes every 7.5s with ultra-smooth 2.8s fade)
   const [ambientBgIndex, setAmbientBgIndex] = useState(0);
@@ -47,7 +59,6 @@ export default function MenuCatalog() {
   }, []);
 
   // Custom Menu Builder Interactive State
-  const [selectedCustomItems, setSelectedCustomItems] = useState([]);
   const [builderActiveFilter, setBuilderActiveFilter] = useState('all');
   const [builderSearchQuery, setBuilderSearchQuery] = useState('');
   // Accordion state: by default ALL collapsed so only clean category headings are visible
@@ -167,29 +178,7 @@ export default function MenuCatalog() {
     openContactModal();
   };
 
-  // Custom Menu Builder Item Toggle
-  const toggleCustomItem = (item, categoryName) => {
-    setSelectedCustomItems((prev) => {
-      const exists = prev.some((i) => i.id === item.id);
-      if (exists) {
-        return prev.filter((i) => i.id !== item.id);
-      } else {
-        return [...prev, { ...item, category: categoryName }];
-      }
-    });
-  };
 
-  const isItemSelected = (itemId) => {
-    return selectedCustomItems.some((i) => i.id === itemId);
-  };
-
-  const removeCustomItem = (itemId) => {
-    setSelectedCustomItems((prev) => prev.filter((i) => i.id !== itemId));
-  };
-
-  const clearAllCustomItems = () => {
-    setSelectedCustomItems([]);
-  };
 
   // Send Custom Curated Menu to WhatsApp
   const handleSendCustomMenuWA = () => {
@@ -716,6 +705,23 @@ export default function MenuCatalog() {
               </div>
 
               <div className="custom-builder-container">
+                {/* Booking in Progress Banner if user came from /reserve */}
+                {reservationDraft?.hostName && (
+                  <div className="builder-booking-context-banner">
+                    <span className="booking-context-icon">🛎️</span>
+                    <div className="booking-context-text">
+                      <strong>Booking in progress for {reservationDraft.hostName}:</strong> Select your favorite dishes below. When done, click <em>"Attach to Reservation"</em> to proceed with your booking.
+                    </div>
+                    <button
+                      type="button"
+                      className="btn-back-to-reserve"
+                      onClick={() => navigate('/reserve')}
+                    >
+                      Back to Reservation Form →
+                    </button>
+                  </div>
+                )}
+
                 {/* Builder Controls: Search + Category Filters */}
                 <div className="builder-toolbar">
                   <div className="builder-search-box">
@@ -959,18 +965,25 @@ export default function MenuCatalog() {
                       <div className="tray-actions-row">
                         <button
                           type="button"
+                          className="btn-tray-proceed-reserve"
+                          onClick={() => navigate('/reserve')}
+                        >
+                          <span>📅 Attach to Reservation &amp; Proceed →</span>
+                        </button>
+                        <button
+                          type="button"
                           className="btn-tray-wa"
                           onClick={handleSendCustomMenuWA}
                         >
                           <WhatsAppIcon size={18} />
-                          <span>Send Custom Menu On WhatsApp ({selectedCustomItems.length} Dishes)</span>
+                          <span>Quick WhatsApp Quote ({selectedCustomItems.length} Dishes)</span>
                         </button>
                         <button
                           type="button"
                           className="btn-tray-call"
                           onClick={openContactModal}
                         >
-                          <span>Inquire via Call / Concierge</span>
+                          <span>Concierge</span>
                         </button>
                       </div>
                     </>
@@ -998,12 +1011,20 @@ export default function MenuCatalog() {
           </div>
           <button
             type="button"
+            className="floating-badge-proceed-btn"
+            onClick={() => navigate('/reserve')}
+            title="Proceed to reservation with selected dishes"
+          >
+            <span>Proceed to Form →</span>
+          </button>
+          <button
+            type="button"
             className="floating-badge-wa-btn"
             onClick={handleSendCustomMenuWA}
             title="Send Custom Menu on WhatsApp"
           >
             <WhatsAppIcon size={15} />
-            <span>Send to WhatsApp</span>
+            <span>WhatsApp</span>
           </button>
         </aside>
       )}

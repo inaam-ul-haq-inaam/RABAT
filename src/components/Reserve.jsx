@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Section from './Section.jsx';
+import { useCustomMenu } from '../context/CustomMenuContext.jsx';
+import './Reserve.css';
 import { WhatsAppIcon } from './Icons.jsx';
 import { Calendar, User, Users, Utensils, HelpCircle, UserCheck, Sparkles } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext.jsx';
@@ -30,19 +33,45 @@ const ATTEND_OPTIONS = [
 ];
 
 export default function Reserve() {
+  const navigate = useNavigate();
   const { theme, selectTheme } = useTheme();
   const { openContactModal } = useContactModal();
+  const {
+    selectedCustomItems,
+    clearAllCustomItems,
+    reservationDraft,
+    updateReservationDraft,
+  } = useCustomMenu();
 
-  // 1. React State Management for Form Inputs
+  // 1. React State Management for Form Inputs (Pre-filled from reservationDraft if user jumped to /menu)
   const todayDate = new Date().toISOString().split('T')[0];
-  const [expectedDate, setExpectedDate] = useState('');
-  const [hostName, setHostName] = useState('');
-  const [numberOfGuests, setNumberOfGuests] = useState('');
-  const [eventType, setEventType] = useState('');
-  const [menu, setMenu] = useState('');
-  const [attendedBefore, setAttendedBefore] = useState('');
-  const [reference, setReference] = useState('');
+  const [expectedDate, setExpectedDate] = useState(reservationDraft.expectedDate || '');
+  const [hostName, setHostName] = useState(reservationDraft.hostName || '');
+  const [numberOfGuests, setNumberOfGuests] = useState(reservationDraft.numberOfGuests || '');
+  const [eventType, setEventType] = useState(reservationDraft.eventType || '');
+  const [menu, setMenu] = useState(reservationDraft.menu || '');
+  const [attendedBefore, setAttendedBefore] = useState(reservationDraft.attendedBefore || '');
+  const [reference, setReference] = useState(reservationDraft.reference || '');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Sync draft to context so navigating to custom menu never loses user input
+  const syncDraft = (fields = {}) => {
+    updateReservationDraft({
+      expectedDate,
+      hostName,
+      numberOfGuests,
+      eventType,
+      menu,
+      attendedBefore,
+      reference,
+      ...fields,
+    });
+  };
+
+  const handleGoToCustomMenu = () => {
+    syncDraft();
+    navigate('/menu#custom');
+  };
 
   // 2. WhatsApp Dynamic Integration Logic
   const handleWhatsAppSubmit = (e) => {
@@ -67,9 +96,19 @@ export default function Reserve() {
 Host Name: ${hostName.trim()}
 Event Type: ${eventType || 'Not Specified'}
 Expected Date: ${expectedDate}
-Numbers of Guests: ${numberOfGuests.trim() || 'N/A'}
-Menu: ${menu || 'Not Specified'}
-Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
+Numbers of Guests: ${numberOfGuests.trim() || 'N/A'}`;
+
+    if (selectedCustomItems.length > 0) {
+      message += `\nSelected Menu: Custom Bespoke Menu (${selectedCustomItems.length} Dishes Attached)`;
+      message += `\nCustom Dishes List:`;
+      selectedCustomItems.forEach((item, idx) => {
+        message += `\n  ${idx + 1}. ${item.name} (${item.category})`;
+      });
+    } else {
+      message += `\nMenu: ${menu || 'Not Specified'}`;
+    }
+
+    message += `\nHave You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
 
     if (reference.trim()) {
       message += `\nRef, If Attend: ${reference.trim()}`;
@@ -338,27 +377,94 @@ Have You Attended Us Before: ${attendedBefore || 'Not Specified'}`;
               </select>
             </div>
 
-            {/* Field 5: Menu Dropdown */}
+            {/* Field 5: Menu Selection & Custom Menu Bridge */}
             <div className="rfield" style={{ marginBottom: '1.25rem' }}>
               <label className="rfield-label" htmlFor="resMenu" style={labelStyle}>
                 <Utensils size={14} />
-                <span>Menu</span>
+                <span>Menu Selection</span>
               </label>
-              <select
-                id="resMenu"
-                value={menu}
-                onChange={(e) => setMenu(e.target.value)}
-                style={selectStyle}
-              >
-                <option value="" disabled>
-                  Select Menu
-                </option>
-                {MENU_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
+
+              {selectedCustomItems.length > 0 ? (
+                <div className="reserve-custom-menu-card">
+                  <div className="res-card-top">
+                    <div className="res-card-title-group">
+                      <span className="res-card-badge">✨ CUSTOM BESPOKE MENU</span>
+                      <h4 className="res-card-heading">
+                        {selectedCustomItems.length} Signature Dishes Attached
+                      </h4>
+                    </div>
+                    <div className="res-card-btns">
+                      <button
+                        type="button"
+                        className="btn-res-card-edit"
+                        onClick={handleGoToCustomMenu}
+                        title="Edit dishes in custom builder"
+                      >
+                        ✏️ Edit Dishes
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-res-card-clear"
+                        onClick={clearAllCustomItems}
+                        title="Switch back to fixed package"
+                      >
+                        ✕ Remove
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="res-card-chips">
+                    {selectedCustomItems.map((item) => (
+                      <span key={item.id} className="res-dish-chip">
+                        <span className="res-dish-icon">{item.icon}</span>
+                        <span className="res-dish-name">{item.name}</span>
+                        <span className="res-dish-cat">({item.category.split(' ')[0]})</span>
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="res-card-footer-note">
+                    ✓ These {selectedCustomItems.length} dishes will be submitted directly with your reservation inquiry.
+                  </div>
+                </div>
+              ) : (
+                <div className="res-menu-select-wrap">
+                  <select
+                    id="resMenu"
+                    value={menu}
+                    onChange={(e) => {
+                      setMenu(e.target.value);
+                      syncDraft({ menu: e.target.value });
+                    }}
+                    style={selectStyle}
+                  >
+                    <option value="" disabled>
+                      Select Standard Package Menu
+                    </option>
+                    {MENU_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+
+                  <div className="res-custom-menu-cta-box">
+                    <span className="res-cta-divider-text">OR WANT A PERSONALIZED MENU?</span>
+                    <button
+                      type="button"
+                      className="btn-res-custom-trigger"
+                      onClick={handleGoToCustomMenu}
+                    >
+                      <span className="btn-res-custom-sparkle">✨</span>
+                      <div className="btn-res-custom-content">
+                        <strong>Build Your Custom Menu</strong>
+                        <span>Pick multiple dishes from our 76+ Royal Culinary Catalog</span>
+                      </div>
+                      <span className="btn-res-custom-arrow">→</span>
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Field 6: Have you attend us before Dropdown */}

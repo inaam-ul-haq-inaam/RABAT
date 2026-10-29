@@ -1,0 +1,224 @@
+/* ============================================================
+   Rabat Banquet Hall — Reservation & Custom Menu Bridge Styles
+   ============================================================ */
+
+/* ── Attached Custom Menu Card inside Reserve Form ── */
+.reserve-custom-menu-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.12);
+  margin-top: 0.35rem;
+  transition: all 0.25s ease;
+}
+
+.reserve-custom-menu-card:hover {
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18);
+}
+
+.res-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ebdcc5;
+  flex-wrap: wrap;
+}
+
+.res-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.res-card-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8c6d32;
+}
+
+.res-card-heading {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #12100e;
+}
+
+.res-card-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-res-card-edit {
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #8c6d32;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-res-card-edit:hover {
+  background: #d4af37;
+  color: #0d0b09;
+}
+
+.btn-res-card-clear {
+  background: none;
+  border: 1px solid #e5dccb;
+  color: #888888;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-res-card-clear:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.res-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 0.85rem;
+  max-height: 140px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.res-dish-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #fbf7ee;
+  border: 1px solid #e3d5be;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #2b2319;
+  font-weight: 600;
+}
+
+.res-dish-icon {
+  font-size: 0.88rem;
+}
+
+.res-dish-cat {
+  font-size: 0.68rem;
+  color: #8c6d32;
+  font-weight: 500;
+}
+
+.res-card-footer-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #15803d;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── "Or Build Custom Menu" CTA box inside Reserve Form ── */
+.res-custom-menu-cta-box {
+  margin-top: 0.85rem;
+  text-align: center;
+}
+
+.res-cta-divider-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #998877;
+  margin-bottom: 0.75rem;
+}
+
+.res-cta-divider-text::before,
+.res-cta-divider-text::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5dccb;
+}
+
+.btn-res-custom-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.25rem;
+  background: linear-gradient(135deg, #1c1813 0%, #0d0b09 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-res-custom-trigger:hover {
+  border-color: #f7e199;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+}
+
+.btn-res-custom-sparkle {
+  font-size: 1.35rem;
+  margin-right: 12px;
+  color: #d4af37;
+}
+
+.btn-res-custom-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.btn-res-custom-content strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #fae19c;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.btn-res-custom-content span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  color: #d1c2ab;
+}
+
+.btn-res-custom-arrow {
+  font-size: 1.25rem;
+  color: #d4af37;
+  transition: transform 0.2s ease;
+}
+
+.btn-res-custom-trigger:hover .btn-res-custom-arrow {
+  transform: translateX(4px);
+}

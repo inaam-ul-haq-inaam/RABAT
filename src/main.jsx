@@ -5,6 +5,7 @@ import { ContactModalProvider } from './context/ContactModalContext.jsx';
 import { ReviewModalProvider } from './context/ReviewModalContext.jsx';
 import { LightboxProvider } from './context/LightboxContext.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
+import { CustomMenuProvider } from './context/CustomMenuContext.jsx';
 import { normalizeLegacyHash } from './lib/navigation.js';
 
 // Pre-migration shared links (#hallplan, #gallery, #hallmarks …) are translated
@@ -16,13 +17,15 @@ normalizeLegacyHash();
 createRoot(document.getElementById('root')).render(
   <HashRouter>
     <ThemeProvider>
-      <LightboxProvider>
-        <ContactModalProvider>
-          <ReviewModalProvider>
-            <App />
-          </ReviewModalProvider>
-        </ContactModalProvider>
-      </LightboxProvider>
+      <CustomMenuProvider>
+        <LightboxProvider>
+          <ContactModalProvider>
+            <ReviewModalProvider>
+              <App />
+            </ReviewModalProvider>
+          </ContactModalProvider>
+        </LightboxProvider>
+      </CustomMenuProvider>
     </ThemeProvider>
   </HashRouter>,
 );
