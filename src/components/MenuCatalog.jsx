@@ -148,27 +148,56 @@ export default function MenuCatalog() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll to hash if provided (e.g., /menu#desserts or /menu#m3)
+  // Robust multi-pass scroll to target section when arriving from /reserve or via hash link
   useEffect(() => {
-    if (location.hash) {
-      const hash = location.hash.replace('#', '').toLowerCase();
-      // If hash matches a package (m1 - m7)
-      const foundPkg = MENU_PACKAGES.find((p) => p.id === hash);
-      if (foundPkg) {
-        setActiveSection('packages');
-        const el = document.getElementById(foundPkg.id) || document.getElementById('packages');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-      // If hash matches a category
-      const foundCat = MENU_CATEGORIES.find((c) => c.id === hash);
-      if (foundCat) {
-        setActiveSection(foundCat.id);
-        const el = document.getElementById(foundCat.id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    const rawTarget =
+      location.state?.scrollTo?.replace('#', '') ||
+      (location.hash ? location.hash.replace('#', '').toLowerCase() : null);
+
+    if (!rawTarget) return;
+
+    // Check if target matches a package or category
+    let targetElementId = rawTarget;
+    const foundPkg = MENU_PACKAGES.find((p) => p.id === rawTarget);
+    if (foundPkg) {
+      targetElementId = foundPkg.id;
     }
-  }, [location.hash]);
+
+    const scrollToTarget = () => {
+      const el = document.getElementById(targetElementId);
+      if (el) {
+        const navOffset = 110;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth',
+        });
+        setActiveSection(targetElementId === 'custom' ? 'custom' : targetElementId);
+        return true;
+      }
+      return false;
+    };
+
+    // Pass 1: Next animation frame
+    const rafId = requestAnimationFrame(scrollToTarget);
+
+    // Pass 2: At 120ms after initial layout
+    const t1 = setTimeout(scrollToTarget, 120);
+
+    // Pass 3: At 350ms after images and subcomponents mount
+    const t2 = setTimeout(scrollToTarget, 350);
+
+    // Pass 4: Final verification at 600ms
+    const t3 = setTimeout(scrollToTarget, 600);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
+  }, [location.hash, location.state]);
 
     const handleInquirePackage = () => {
     openContactModal();
@@ -706,11 +735,11 @@ export default function MenuCatalog() {
 
               <div className="custom-builder-container">
                 {/* Booking in Progress Banner if user came from /reserve */}
-                {reservationDraft?.hostName && (
+                {(reservationDraft?.hostName || location.state?.fromReserve) && (
                   <div className="builder-booking-context-banner">
                     <span className="booking-context-icon">🛎️</span>
                     <div className="booking-context-text">
-                      <strong>Booking in progress for {reservationDraft.hostName}:</strong> Select your favorite dishes below. When done, click <em>"Attach to Reservation"</em> to proceed with your booking.
+                      <strong>{reservationDraft?.hostName ? `Booking in progress for ${reservationDraft.hostName}:` : 'Event Booking in Progress:'}</strong> Select your favorite dishes below. When done, click <em>"Attach to Reservation"</em> to proceed with your booking.
                     </div>
                     <button
                       type="button"

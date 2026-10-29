@@ -70,7 +70,9 @@ export default function Reserve() {
 
   const handleGoToCustomMenu = () => {
     syncDraft();
-    navigate('/menu#custom');
+    navigate('/menu#custom', {
+      state: { scrollTo: '#custom', scrollOffset: 110, fromReserve: true },
+    });
   };
 
   // 2. WhatsApp Dynamic Integration Logic
