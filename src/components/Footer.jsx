@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import SectionLink from './SectionLink.jsx';
-import { CalendarIcon, PhoneIcon, PinIcon, WhatsAppIcon } from './Icons.jsx';
+import { PhoneIcon, PinIcon, WhatsAppIcon } from './Icons.jsx';
 import { useContactModal } from '../context/ContactModalContext.jsx';
 import { CONTACT_NUMBERS } from '../data/contact.js';
 
@@ -31,57 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="r-footer" id="footer" role="contentinfo">
-      {/* 1. TOP BANNER: Blurred Ambient Photo & Curved Invitation Card */}
-      <div className="r-footer-banner">
-        <div className="r-banner-bg" style={{ backgroundImage: "url('images/hero/ai_hero_table.jpg')" }} />
-        <div className="r-banner-overlay" />
-
-        <div className="container r-banner-inner">
-          {/* Left Curved Card */}
-          <div className="r-banner-card">
-            <div className="r-card-tag">
-              <span>{isDecorsPage ? 'PLAN YOUR BESPOKE STAGE & DÉCOR' : 'PLAN YOUR IMPERIAL CELEBRATION'}</span>
-              <span className="r-tag-line" />
-            </div>
-            <h2 className="r-card-title">
-              {isDecorsPage ? 'Bespoke Stages & Décor by Blissfull' : 'Begin Your Journey at Rabat'}
-            </h2>
-            <p className="r-card-desc">
-              {isDecorsPage
-                ? 'Transform Hall 16 with custom floral arches, royal Moroccan stages, and cinematic wedding styling curated by Blissfull Event Planners.'
-                : 'Experience the grandeur of bespoke culinary curation and opulent Moroccan architecture in Lahore Cantt.'}
-            </p>
-          </div>
-
-          {/* Right Action Buttons */}
-          <div className="r-banner-actions">
-            <SectionLink
-              to="reserve"
-              className="r-btn-gold-pill"
-            >
-              <CalendarIcon size={18} />
-              <span>{isDecorsPage ? 'INQUIRE DÉCOR & DATES' : 'SCHEDULE A PRIVATE TOUR'}</span>
-              <span className="r-arrow">&rarr;</span>
-            </SectionLink>
-
-            <button
-              type="button"
-              onClick={
-                isDecorsPage
-                  ? () => window.open('https://wa.me/923256572839', '_blank')
-                  : openContactModal
-              }
-              className="r-btn-dark-pill"
-              style={{ cursor: 'pointer', border: 'none' }}
-            >
-              <WhatsAppIcon size={18} />
-              <span>CHAT ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. METALLIC WAVE SEPARATOR */}
+      {/* METALLIC WAVE SEPARATOR */}
       <div className="r-wave-separator" aria-hidden="true">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,0 C380,45 820,55 1440,5 L1440,60 L0,60 Z" fill="url(#goldGradientWave)" />
