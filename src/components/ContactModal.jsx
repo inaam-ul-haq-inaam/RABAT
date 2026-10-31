@@ -86,7 +86,7 @@ export default function ContactModal({ isOpen, onClose }) {
           <p className="contact-modal-sub">
             {isDecorOrServices
               ? 'Connect directly via WhatsApp or Call on 0325-6572839'
-              : 'Connect directly with our event managers via WhatsApp or Phone Call'}
+              : 'Connect directly with our team via WhatsApp or Phone Call'}
           </p>
         </div>
 
