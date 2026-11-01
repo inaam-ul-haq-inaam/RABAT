@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCustomMenu } from '../context/CustomMenuContext.jsx';
 import {
@@ -31,44 +31,73 @@ const AMBIENT_BG_IMAGES = [
   { url: `${cleanBase}images/menu/images.jpg`, alt: 'Royal Culinary Delicacies' },
 ];
 
-const HERO_FOOD_SHOWCASE = [
+const MENU_HERO_SLIDES = [
   {
-    id: 'biryani-qorma',
-    title: 'Royal Saffron Biryani & Mutton Qorma',
-    tag: 'Deg-Cooked Specialty',
-    desc: 'Imperial dum basmati steeped in saffron and kewra, served with melt-in-mouth slow-braised mutton qorma.',
-    img: `${cleanBase}images/menu/rabat_royal_biryani_qorma.jpg`,
-    short: 'Biryani & Qorma',
-    badge: 'Chef Signature',
+    src: `${cleanBase}images/menu/rabat_royal_biryani_qorma.jpg`,
+    alt: 'Rabat Royal Banquet - Saffron Dum Biryani and Mutton Qorma Feast',
   },
   {
-    id: 'bbq-platter',
-    title: 'Sizzling Royal BBQ Platter',
-    tag: 'Live Charcoal Grill',
-    desc: 'Golden-charred seekh kebabs, saffron malai boti, and spice-crusted lamb chops off live embers.',
-    img: `${cleanBase}images/menu/rabat_royal_bbq_platter.jpg`,
-    short: 'Live BBQ Platter',
-    badge: 'Live Station',
+    src: `${cleanBase}images/menu/rabat_royal_bbq_platter.jpg`,
+    alt: 'Rabat Royal Banquet - Sizzling Live Charcoal BBQ Platter',
   },
   {
-    id: 'banquet-spread',
-    title: 'Imperial Banquet Table Presentation',
-    tag: 'Executive Buffet Standard',
-    desc: 'Grand banquet tables adorned with antique brass tagines, royal chafing dishes, and opulent tableware.',
-    img: `${cleanBase}images/menu/flat-lay-table.jpg`,
-    short: 'Royal Table Spread',
-    badge: 'Buffet Setup',
+    src: `${cleanBase}images/menu/flat-lay-table.jpg`,
+    alt: 'Rabat Royal Banquet - Imperial Banquet Table Spread',
   },
   {
-    id: 'turkish-grill',
-    title: 'Turkish & Mughlai Grills',
-    tag: 'Artisanal Curation',
-    desc: 'Artisanal grilled delicacies marinated in Mediterranean spices and garnished with pomegranate molasses.',
-    img: `${cleanBase}images/menu/turkish-.jpg`,
-    short: 'Turkish Grills',
-    badge: 'Artisanal',
+    src: `${cleanBase}images/menu/turkish-.jpg`,
+    alt: 'Rabat Royal Banquet - Turkish & Traditional Mughlai Grills',
   },
 ];
+
+const MENU_HERO_FEATURES = [
+  {
+    icon: 'deg',
+    strong: 'Deg-Cooked Feasts',
+    span: 'Authentic Dum Recipes',
+  },
+  {
+    icon: 'bbq',
+    strong: 'Live Charcoal BBQ',
+    span: 'Flaming Grills & Steaks',
+  },
+  {
+    icon: 'dishes',
+    strong: '50+ Royal Dishes',
+    span: 'Traditional & Continental',
+  },
+  {
+    icon: 'builder',
+    strong: 'Custom Menu Builder',
+    span: 'Bespoke Per-Head Curation',
+  },
+];
+
+const MENU_FEATURE_ICONS = {
+  deg: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z" />
+      <path d="M12 4v3" />
+      <path d="M8 7h8" />
+    </svg>
+  ),
+  bbq: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+    </svg>
+  ),
+  dishes: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
+    </svg>
+  ),
+  builder: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  ),
+};
 
 export default function MenuCatalog() {
   const navigate = useNavigate();
@@ -87,18 +116,21 @@ export default function MenuCatalog() {
     reservationDraft,
   } = useCustomMenu();
 
-  // Hero Culinary Showcase State
-  const [heroDishIndex, setHeroDishIndex] = useState(0);
-  const [isHeroHovered, setIsHeroHovered] = useState(false);
+  // Full-Width Food Hero Slider State (matching Home Hero Ken Burns transitions)
+  const [menuSlideIndex, setMenuSlideIndex] = useState(0);
+  const [prevMenuSlideIndex, setPrevMenuSlideIndex] = useState(null);
 
-  // Auto-rotate hero featured dishes every 4.8s unless user is interacting/hovering
   useEffect(() => {
-    if (isHeroHovered) return undefined;
-    const interval = setInterval(() => {
-      setHeroDishIndex((prev) => (prev + 1) % HERO_FOOD_SHOWCASE.length);
-    }, 4800);
-    return () => clearInterval(interval);
-  }, [isHeroHovered]);
+    if (MENU_HERO_SLIDES.length < 2) return undefined;
+    const timer = setInterval(() => {
+      setMenuSlideIndex((curr) => {
+        setPrevMenuSlideIndex(curr);
+        return (curr + 1) % MENU_HERO_SLIDES.length;
+      });
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Ambient Blurred Background Slideshow State (changes every 7.5s with ultra-smooth 2.8s fade)
   const [ambientBgIndex, setAmbientBgIndex] = useState(0);
@@ -321,125 +353,107 @@ export default function MenuCatalog() {
         <div className="menu-ambient-overlay" />
         <div className="menu-ambient-glow" />
       </div>
-      {/* ── 1. LUXURY CULINARY HERO SECTION ── */}
-      <section className="menu-hero" aria-label="Royal Banquet Menus Hero">
-        <div className="container menu-hero-inner">
-          <div className="menu-hero-grid">
-            {/* Left Content Column */}
-            <div className="menu-hero-content">
-              <div className="menu-hero-badge">
-                <span className="menu-badge-dot" />
-                <span>Time &amp; Taste Catering &bull; Hall 16 Banquet Standard</span>
+      {/* ── 1. FULL-WIDTH CINEMATIC FOOD HERO SECTION (MATCHING HOME HERO) ── */}
+      <section className="hero menu-hero-fullwidth" id="menu-hero" aria-labelledby="menu-hero-title">
+        {/* Full-bleed Ken Burns background slides */}
+        <div className="hero-media" aria-hidden="true">
+          {MENU_HERO_SLIDES.map((slide, index) => {
+            const isActive = index === menuSlideIndex;
+            const isPrev = index === prevMenuSlideIndex;
+            let slideClass = 'hero-slide';
+            if (isActive) slideClass += ' hero-slide--active';
+            else if (isPrev) slideClass += ' hero-slide--prev';
+
+            return (
+              <div className={slideClass} key={slide.src}>
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  className="menu-hero-bg-img"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
               </div>
+            );
+          })}
+          {/* Deep dark gradient overlay ensuring 100% text readability */}
+          <div className="hero-overlay" />
+        </div>
 
-              <h1 className="menu-hero-title">Royal Banquet Menus</h1>
+        {/* Content Container */}
+        <div className="container">
+          <div className="hero-content">
+            <p className="hero-eyebrow">
+              <span className="menu-badge-dot" />
+              <span>TIME &amp; TASTE CATERING &bull; HALL 16 BANQUET STANDARD</span>
+            </p>
 
-              <p className="menu-hero-subtitle">
-                Experience majestic wedding feasts and bespoke culinary curation crafted with authentic
-                deg-cooked recipes, live flaming charcoal grills, and 5-star royal hospitality.
-              </p>
+            <h1 className="hero-title" id="menu-hero-title">
+              <span className="hero-title-main">Royal Banquet Menus</span>{' '}
+              <span className="hero-title-sub">Where Imperial Feasts Become Timeless Celebrations</span>
+            </h1>
 
-              {/* Culinary Highlight Pills */}
-              <div className="menu-hero-features">
-                <span className="menu-feature-pill">
-                  <span className="feature-icon">🥘</span>
-                  <span>Deg-Cooked Feasts</span>
-                </span>
-                <span className="menu-feature-pill">
-                  <span className="feature-icon">🔥</span>
-                  <span>Live Charcoal BBQ</span>
-                </span>
-                <span className="menu-feature-pill">
-                  <span className="feature-icon">👑</span>
-                  <span>Custom Menu Builder</span>
-                </span>
-              </div>
+            <p className="hero-lead">
+              Experience the imperial culinary heritage of Time &amp; Taste Catering at Rabat Hall. From authentic
+              slow-simmered degi specialties and saffron biryanis to live flaming charcoal grills and bespoke banquet menus.
+            </p>
 
-              {/* Action Buttons */}
-              <div className="menu-hero-cta-group">
-                <button
-                  type="button"
-                  onClick={() => scrollToCategory('custom')}
-                  className="menu-hero-btn-primary"
-                >
-                  <span>✨ Build Custom Menu</span>
-                  <span className="btn-arrow">&rarr;</span>
-                </button>
+            {/* Action Buttons */}
+            <div className="hero-actions">
+              <button
+                type="button"
+                onClick={() => scrollToCategory('custom')}
+                className="menu-btn-gold-hero"
+              >
+                <span>✨ Build Custom Menu</span>
+                <span className="btn-arrow">&rarr;</span>
+              </button>
 
-                <button
-                  type="button"
-                  onClick={() => scrollToCategory('packages')}
-                  className="menu-hero-btn-secondary"
-                >
-                  <span>📋 Explore 7 Packages</span>
-                </button>
+              <button
+                type="button"
+                onClick={() => scrollToCategory('packages')}
+                className="menu-btn-glass-hero"
+              >
+                <span>📋 Explore 7 Packages</span>
+              </button>
 
-                <button
-                  type="button"
-                  onClick={() => setMobileDrawerOpen(true)}
-                  className="menu-hero-btn-mobile-drawer mobile-only-btn"
-                >
-                  <span>📑 All Categories</span>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setMobileDrawerOpen(true)}
+                className="menu-btn-glass-hero mobile-only-btn"
+              >
+                <span>📑 All Categories</span>
+              </button>
             </div>
 
-            {/* Right Culinary Showcase Column */}
-            <div
-              className="menu-hero-showcase"
-              onMouseEnter={() => setIsHeroHovered(true)}
-              onMouseLeave={() => setIsHeroHovered(false)}
-            >
-              <div className="menu-showcase-frame">
-                {HERO_FOOD_SHOWCASE.map((dish, idx) => (
-                  <div
-                    key={dish.id}
-                    className={`menu-showcase-slide ${heroDishIndex === idx ? 'is-active' : ''}`}
-                    aria-hidden={heroDishIndex !== idx}
-                  >
-                    <img
-                      src={dish.img}
-                      alt={dish.title}
-                      className="menu-showcase-img"
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                    />
-                    <div className="menu-showcase-overlay" />
-
-                    {/* Top Tag */}
-                    <div className="menu-showcase-top-badge">
-                      <span className="badge-sparkle">✦</span>
-                      <span>{dish.tag}</span>
+            {/* Feature Cards Bar (Matching Home Hero) */}
+            <div className="hero-features">
+              {MENU_HERO_FEATURES.map((feature, index) => (
+                <Fragment key={feature.strong}>
+                  <div className="hero-feature">
+                    <div className="feature-icon-circle">
+                      {MENU_FEATURE_ICONS[feature.icon]}
                     </div>
-
-                    {/* Bottom Caption Card */}
-                    <div className="menu-showcase-caption">
-                      <span className="caption-pill">{dish.badge}</span>
-                      <h3 className="caption-title">{dish.title}</h3>
-                      <p className="caption-desc">{dish.desc}</p>
+                    <div className="feature-text">
+                      <strong>{feature.strong}</strong>
+                      <span>{feature.span}</span>
                     </div>
                   </div>
-                ))}
-              </div>
-
-              {/* Interactive Dish Switcher Tabs */}
-              <div className="menu-showcase-tabs" role="tablist" aria-label="Featured dishes">
-                {HERO_FOOD_SHOWCASE.map((dish, idx) => (
-                  <button
-                    key={dish.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={heroDishIndex === idx}
-                    className={`menu-showcase-tab ${heroDishIndex === idx ? 'is-active' : ''}`}
-                    onClick={() => setHeroDishIndex(idx)}
-                  >
-                    <img src={dish.img} alt="" className="tab-thumb" aria-hidden="true" />
-                    <span className="tab-label">{dish.short}</span>
-                    {heroDishIndex === idx && <span className="tab-active-bar" />}
-                  </button>
-                ))}
-              </div>
+                  {index < MENU_HERO_FEATURES.length - 1 && <div className="feature-divider" />}
+                </Fragment>
+              ))}
             </div>
           </div>
+        </div>
+
+        {/* Bottom Curved Wave Transition */}
+        <div className="hero-wave" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path
+              fill="#060504"
+              fillOpacity="1"
+              d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+            />
+          </svg>
         </div>
       </section>
 
