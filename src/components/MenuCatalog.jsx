@@ -49,56 +49,6 @@ const MENU_HERO_SLIDES = [
     alt: 'Rabat Royal Banquet - Turkish & Traditional Mughlai Grills',
   },
 ];
-
-const MENU_HERO_FEATURES = [
-  {
-    icon: 'deg',
-    strong: 'Deg-Cooked Feasts',
-    span: 'Authentic Dum Recipes',
-  },
-  {
-    icon: 'bbq',
-    strong: 'Live Charcoal BBQ',
-    span: 'Flaming Grills & Steaks',
-  },
-  {
-    icon: 'dishes',
-    strong: '50+ Royal Dishes',
-    span: 'Traditional & Continental',
-  },
-  {
-    icon: 'builder',
-    strong: 'Custom Menu Builder',
-    span: 'Bespoke Per-Head Curation',
-  },
-];
-
-const MENU_FEATURE_ICONS = {
-  deg: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M4 11h16a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7v-1a1 1 0 0 1 1-1z" />
-      <path d="M12 4v3" />
-      <path d="M8 7h8" />
-    </svg>
-  ),
-  bbq: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-    </svg>
-  ),
-  dishes: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 3" />
-    </svg>
-  ),
-  builder: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  ),
-};
-
 export default function MenuCatalog() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('packages');
@@ -353,7 +303,7 @@ export default function MenuCatalog() {
         <div className="menu-ambient-overlay" />
         <div className="menu-ambient-glow" />
       </div>
-      {/* ── 1. FULL-WIDTH CINEMATIC FOOD HERO SECTION (MATCHING HOME HERO) ── */}
+      {/* ── 1. FULL-WIDTH CINEMATIC FOOD HERO SECTION ── */}
       <section className="hero menu-hero-fullwidth" id="menu-hero" aria-labelledby="menu-hero-title">
         {/* Full-bleed Ken Burns background slides */}
         <div className="hero-media" aria-hidden="true">
@@ -379,69 +329,17 @@ export default function MenuCatalog() {
           <div className="hero-overlay" />
         </div>
 
-        {/* Content Container */}
+        {/* Content Container - Centered, Clean Regal Text */}
         <div className="container">
-          <div className="hero-content">
+          <div className="hero-content menu-hero-clean-content">
             <p className="hero-eyebrow">
               <span className="menu-badge-dot" />
               <span>TIME &amp; TASTE CATERING &bull; HALL 16 BANQUET STANDARD</span>
             </p>
 
-            <h1 className="hero-title" id="menu-hero-title">
-              <span className="hero-title-main">Royal Banquet Menus</span>{' '}
-              <span className="hero-title-sub">Where Imperial Feasts Become Timeless Celebrations</span>
+            <h1 className="hero-title menu-hero-clean-title" id="menu-hero-title">
+              Royal Banquet Menus
             </h1>
-
-            <p className="hero-lead">
-              Experience the imperial culinary heritage of Time &amp; Taste Catering at Rabat Hall. From authentic
-              slow-simmered degi specialties and saffron biryanis to live flaming charcoal grills and bespoke banquet menus.
-            </p>
-
-            {/* Action Buttons */}
-            <div className="hero-actions">
-              <button
-                type="button"
-                onClick={() => scrollToCategory('custom')}
-                className="menu-btn-gold-hero"
-              >
-                <span>✨ Build Custom Menu</span>
-                <span className="btn-arrow">&rarr;</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => scrollToCategory('packages')}
-                className="menu-btn-glass-hero"
-              >
-                <span>📋 Explore 7 Packages</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setMobileDrawerOpen(true)}
-                className="menu-btn-glass-hero mobile-only-btn"
-              >
-                <span>📑 All Categories</span>
-              </button>
-            </div>
-
-            {/* Feature Cards Bar (Matching Home Hero) */}
-            <div className="hero-features">
-              {MENU_HERO_FEATURES.map((feature, index) => (
-                <Fragment key={feature.strong}>
-                  <div className="hero-feature">
-                    <div className="feature-icon-circle">
-                      {MENU_FEATURE_ICONS[feature.icon]}
-                    </div>
-                    <div className="feature-text">
-                      <strong>{feature.strong}</strong>
-                      <span>{feature.span}</span>
-                    </div>
-                  </div>
-                  {index < MENU_HERO_FEATURES.length - 1 && <div className="feature-divider" />}
-                </Fragment>
-              ))}
-            </div>
           </div>
         </div>
 
