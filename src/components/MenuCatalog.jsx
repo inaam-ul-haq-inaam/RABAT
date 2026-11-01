@@ -31,6 +31,45 @@ const AMBIENT_BG_IMAGES = [
   { url: `${cleanBase}images/menu/images.jpg`, alt: 'Royal Culinary Delicacies' },
 ];
 
+const HERO_FOOD_SHOWCASE = [
+  {
+    id: 'biryani-qorma',
+    title: 'Royal Saffron Biryani & Mutton Qorma',
+    tag: 'Deg-Cooked Specialty',
+    desc: 'Imperial dum basmati steeped in saffron and kewra, served with melt-in-mouth slow-braised mutton qorma.',
+    img: `${cleanBase}images/menu/rabat_royal_biryani_qorma.jpg`,
+    short: 'Biryani & Qorma',
+    badge: 'Chef Signature',
+  },
+  {
+    id: 'bbq-platter',
+    title: 'Sizzling Royal BBQ Platter',
+    tag: 'Live Charcoal Grill',
+    desc: 'Golden-charred seekh kebabs, saffron malai boti, and spice-crusted lamb chops off live embers.',
+    img: `${cleanBase}images/menu/rabat_royal_bbq_platter.jpg`,
+    short: 'Live BBQ Platter',
+    badge: 'Live Station',
+  },
+  {
+    id: 'banquet-spread',
+    title: 'Imperial Banquet Table Presentation',
+    tag: 'Executive Buffet Standard',
+    desc: 'Grand banquet tables adorned with antique brass tagines, royal chafing dishes, and opulent tableware.',
+    img: `${cleanBase}images/menu/flat-lay-table.jpg`,
+    short: 'Royal Table Spread',
+    badge: 'Buffet Setup',
+  },
+  {
+    id: 'turkish-grill',
+    title: 'Turkish & Mughlai Grills',
+    tag: 'Artisanal Curation',
+    desc: 'Artisanal grilled delicacies marinated in Mediterranean spices and garnished with pomegranate molasses.',
+    img: `${cleanBase}images/menu/turkish-.jpg`,
+    short: 'Turkish Grills',
+    badge: 'Artisanal',
+  },
+];
+
 export default function MenuCatalog() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('packages');
@@ -47,6 +86,19 @@ export default function MenuCatalog() {
     isItemSelected,
     reservationDraft,
   } = useCustomMenu();
+
+  // Hero Culinary Showcase State
+  const [heroDishIndex, setHeroDishIndex] = useState(0);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+
+  // Auto-rotate hero featured dishes every 4.8s unless user is interacting/hovering
+  useEffect(() => {
+    if (isHeroHovered) return undefined;
+    const interval = setInterval(() => {
+      setHeroDishIndex((prev) => (prev + 1) % HERO_FOOD_SHOWCASE.length);
+    }, 4800);
+    return () => clearInterval(interval);
+  }, [isHeroHovered]);
 
   // Ambient Blurred Background Slideshow State (changes every 7.5s with ultra-smooth 2.8s fade)
   const [ambientBgIndex, setAmbientBgIndex] = useState(0);
@@ -269,23 +321,124 @@ export default function MenuCatalog() {
         <div className="menu-ambient-overlay" />
         <div className="menu-ambient-glow" />
       </div>
-      {/* ── 1. HERO BANNER ── */}
-      <section className="menu-hero">
-        <div className="container">
-          <span className="menu-hero-badge">
-            <span className="menu-badge-dot" />
-            Time &amp; Taste Catering &bull; Hall 16 Banquet Standard
-          </span>
-          <h1 className="menu-hero-title">Royal Banquet Menus</h1>
+      {/* ── 1. LUXURY CULINARY HERO SECTION ── */}
+      <section className="menu-hero" aria-label="Royal Banquet Menus Hero">
+        <div className="container menu-hero-inner">
+          <div className="menu-hero-grid">
+            {/* Left Content Column */}
+            <div className="menu-hero-content">
+              <div className="menu-hero-badge">
+                <span className="menu-badge-dot" />
+                <span>Time &amp; Taste Catering &bull; Hall 16 Banquet Standard</span>
+              </div>
 
-          <div className="menu-hero-actions">
-            <button
-              type="button"
-              onClick={() => setMobileDrawerOpen(true)}
-              className="menu-btn-glass mobile-only-btn"
+              <h1 className="menu-hero-title">Royal Banquet Menus</h1>
+
+              <p className="menu-hero-subtitle">
+                Experience majestic wedding feasts and bespoke culinary curation crafted with authentic
+                deg-cooked recipes, live flaming charcoal grills, and 5-star royal hospitality.
+              </p>
+
+              {/* Culinary Highlight Pills */}
+              <div className="menu-hero-features">
+                <span className="menu-feature-pill">
+                  <span className="feature-icon">🥘</span>
+                  <span>Deg-Cooked Feasts</span>
+                </span>
+                <span className="menu-feature-pill">
+                  <span className="feature-icon">🔥</span>
+                  <span>Live Charcoal BBQ</span>
+                </span>
+                <span className="menu-feature-pill">
+                  <span className="feature-icon">👑</span>
+                  <span>Custom Menu Builder</span>
+                </span>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="menu-hero-cta-group">
+                <button
+                  type="button"
+                  onClick={() => scrollToCategory('custom')}
+                  className="menu-hero-btn-primary"
+                >
+                  <span>✨ Build Custom Menu</span>
+                  <span className="btn-arrow">&rarr;</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => scrollToCategory('packages')}
+                  className="menu-hero-btn-secondary"
+                >
+                  <span>📋 Explore 7 Packages</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setMobileDrawerOpen(true)}
+                  className="menu-hero-btn-mobile-drawer mobile-only-btn"
+                >
+                  <span>📑 All Categories</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Culinary Showcase Column */}
+            <div
+              className="menu-hero-showcase"
+              onMouseEnter={() => setIsHeroHovered(true)}
+              onMouseLeave={() => setIsHeroHovered(false)}
             >
-              📋 All Categories
-            </button>
+              <div className="menu-showcase-frame">
+                {HERO_FOOD_SHOWCASE.map((dish, idx) => (
+                  <div
+                    key={dish.id}
+                    className={`menu-showcase-slide ${heroDishIndex === idx ? 'is-active' : ''}`}
+                    aria-hidden={heroDishIndex !== idx}
+                  >
+                    <img
+                      src={dish.img}
+                      alt={dish.title}
+                      className="menu-showcase-img"
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                    />
+                    <div className="menu-showcase-overlay" />
+
+                    {/* Top Tag */}
+                    <div className="menu-showcase-top-badge">
+                      <span className="badge-sparkle">✦</span>
+                      <span>{dish.tag}</span>
+                    </div>
+
+                    {/* Bottom Caption Card */}
+                    <div className="menu-showcase-caption">
+                      <span className="caption-pill">{dish.badge}</span>
+                      <h3 className="caption-title">{dish.title}</h3>
+                      <p className="caption-desc">{dish.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Interactive Dish Switcher Tabs */}
+              <div className="menu-showcase-tabs" role="tablist" aria-label="Featured dishes">
+                {HERO_FOOD_SHOWCASE.map((dish, idx) => (
+                  <button
+                    key={dish.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={heroDishIndex === idx}
+                    className={`menu-showcase-tab ${heroDishIndex === idx ? 'is-active' : ''}`}
+                    onClick={() => setHeroDishIndex(idx)}
+                  >
+                    <img src={dish.img} alt="" className="tab-thumb" aria-hidden="true" />
+                    <span className="tab-label">{dish.short}</span>
+                    {heroDishIndex === idx && <span className="tab-active-bar" />}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
