@@ -81,13 +81,13 @@
 .menu-hero-fullwidth {
   position: relative;
   width: 100%;
-  min-height: clamp(380px, 48vh, 480px);
+  min-height: clamp(520px, 66vh, 680px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: calc(var(--nav-h, 110px) + clamp(1.5rem, 3.5vw, 3rem));
-  padding-bottom: clamp(3rem, 5vh, 4.5rem);
+  padding-top: calc(var(--nav-h, 110px) + clamp(2.5rem, 5vw, 4.5rem));
+  padding-bottom: clamp(4.5rem, 7vh, 6.5rem);
   overflow: hidden;
   background: #080604;
   text-align: center;
@@ -221,7 +221,7 @@
 .menu-hero-clean-title {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-size: clamp(3rem, 7vw, 5.4rem);
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #ffffff;
